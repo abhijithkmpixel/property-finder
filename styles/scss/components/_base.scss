@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  font-family: 'Open Sans','sans-serif';
+}
+ul,ol{
+  padding: 0;
+  list-style-type: none;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+.container{
+  max-width:1030px !important;
+  margin: auto;
+  padding: 0 15px;
+}
+.m-0{
+  margin: 0;
+}
+//colors
+$color-white:#ffffff;
+$color-black:#000;
