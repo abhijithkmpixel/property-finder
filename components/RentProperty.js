@@ -13,7 +13,7 @@ const RentProperty = () => {
     e.target.closest(".input_fields").querySelector("input").value = value;
   };
   return (
-    <form action="/about" onSubmit={()=>alert('asd')}>
+    <form action="/about" >
       <fieldset>
         <div className="form_row">
           <div className="search_place">
