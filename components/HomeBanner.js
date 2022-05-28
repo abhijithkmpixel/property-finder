@@ -17,7 +17,7 @@ const HomeBanner = () => {
                 <span className="active">Rent</span>
                 <span>Buy</span>
               </nav>
-              <RentProperty />
+              {/* <RentProperty /> */}
             </div>
           </div>
         </div>
