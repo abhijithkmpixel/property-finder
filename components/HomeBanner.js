@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import BuyProperty from "./BuyProperty";
 import RentProperty from "./RentProperty";
 
 const HomeBanner = () => {
+  const [rent, setrent] = useState(true)
   return (
     <section className="home_page_banner">
       <div className="bg_image">
@@ -14,10 +15,15 @@ const HomeBanner = () => {
           <div className="container">
             <div className="form_wrapper">
               <nav>
-                <span className="active">Rent</span>
-                <span>Buy</span>
+                <span className={rent?'active':''} onClick={()=>setrent(true)}>Rent</span>
+                <span  className={rent?'':'active'}  onClick={()=>setrent(false)}>Buy</span>
               </nav>
-              {/* <RentProperty /> */}
+              {
+                rent?
+                <RentProperty />
+                :
+                <BuyProperty />
+              }
             </div>
           </div>
         </div>

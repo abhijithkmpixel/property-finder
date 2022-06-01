@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { collection, getDocs, query } from 'firebase/firestore/lite';
 import React,{ useEffect ,useState} from 'react'
+import Header from '../../components/Header';
 import RecommendedProp from '../../components/RecommendedProp';
 import {db} from '../api/firebase';
 const index = ({datas}) => {
@@ -13,11 +14,14 @@ const index = ({datas}) => {
     // return () => {
       //   return data
       // }
-      console.log(datas);
+      // console.log(datas);
   }, [])
   
   return (
-    <RecommendedProp title='listed' list={datas}/>
+    <>
+    <Header />
+    <RecommendedProp title='Properties for rent' list={datas}/>
+    </>
 
   )
 }
@@ -33,10 +37,10 @@ export async function getServerSideProps(){
         id: doc.id
     };
   });
+  const filtered = datas.filter(data=> data.serviceType == 'rent');
   return {
     props: {
-      datas: datas,
-      // id: context.params,
+      datas: filtered,
     },
   };
 }

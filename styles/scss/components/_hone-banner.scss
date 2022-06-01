@@ -199,6 +199,10 @@
                       input{
                         display: flex;
                         flex: 1;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 1;
+                        color: #000;
                       }
                     }
                     .options{
@@ -243,4 +247,7 @@
       }
     }
   }
+}
+.hidden{
+  display: none;
 }

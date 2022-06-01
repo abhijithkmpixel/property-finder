@@ -14,10 +14,10 @@ const Header = () => {
           <nav>
             <ul className="main_navigation">
               <li>
-                <Link href="/">Buy</Link>
+                <Link href="/buy">Buy</Link>
               </li>
               <li>
-                <Link href="/">Rent</Link>
+                <Link href="/rent">Rent</Link>
               </li>
               <li>
                 <Link href="/">Commercial</Link>
@@ -68,6 +68,9 @@ const Header = () => {
                   </li>
                   <li>
                     <Link href="/">Mortgages </Link>
+                  </li>
+                  <li>
+                    <Link href="/add-property">Add property </Link>
                   </li>
                 </ul>
               </li>

@@ -63,7 +63,7 @@ header .header_inner_wrapper nav .main_navigation > li .sub_dropdown {
   position: absolute;
   padding: 5px 24px;
   top: calc(100%);
-  z-index: 2;
+  z-index: 100;
   left: 50%;
   transform: translateX(-50%);
   background-color: #ffffff;
@@ -384,6 +384,10 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
 .home_page_banner .main_contents .search_filter_forms form fieldset .form_row .field_dropdown.input_box_drpdwn .drop_box .row_field .input_fields input {
   display: flex;
   flex: 1;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
 }
 
 .home_page_banner .main_contents .search_filter_forms form fieldset .form_row .field_dropdown.input_box_drpdwn .drop_box .row_field .options {
@@ -417,6 +421,10 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 .recc_prop_section {
   width: 100%;
   padding: 50px 0;
@@ -436,6 +444,8 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
 
 .recc_prop_section .prop_col_card {
   width: 100%;
+  cursor: pointer;
+  margin-bottom: 15px;
   box-shadow: 0 0 18px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -491,4 +501,104 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   color: #ef5e4e;
   font-weight: 600;
   font-size: 13px;
+}
+
+.add_prop_form {
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 20px 15px;
+}
+
+.add_prop_form h3 {
+  font-size: 35px;
+  color: #000;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+
+.add_prop_form fieldset {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.add_prop_form fieldset label {
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.add_prop_form fieldset input, .add_prop_form fieldset select, .add_prop_form fieldset textarea {
+  display: block;
+  flex: 1;
+  font-size: 15px;
+  padding: 2px 10px;
+  resize: none;
+  width: 100%;
+  border: 1px solid #aaa;
+}
+
+.add_prop_form fieldset textarea {
+  height: 60px;
+}
+
+.section_prop_details {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.section_prop_details .prop_image_wr {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.section_prop_details .prop_image_wr img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section_prop_details .points_wrp {
+  list-style-type: circle;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aliceblue;
+  border-radius: 15px;
+  padding: 20px;
+  height: 100%;
+}
+
+.section_prop_details .points_wrp li {
+  flex: 100%;
+  margin-bottom: 15px;
+}
+
+.section_prop_details .points_wrp li h5 {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 10px;
+  opacity: .7;
+  line-height: 15px;
+}
+
+.section_prop_details .points_wrp li span {
+  font-size: 19px;
+  color: #000;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.section_prop_details .body_copy .points_wrp {
+  background-color: beige;
+}
+
+.section_prop_details .body_copy .points_wrp li {
+  flex: 1;
+  padding: 0 10px 0 0;
 }
