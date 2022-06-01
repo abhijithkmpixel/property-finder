@@ -7,7 +7,7 @@ import {db} from '../api/firebase';
 import { PropContext } from '../../components/PropertyContext';
 
 const index = ({datas}) => {
-  const proper= useContext(PropContext)
+  const proper= useContext(PropContext);
   const [property, setproperty] = useState()
   useEffect(() => {
     // const dbRef = collection(db,'properties');
