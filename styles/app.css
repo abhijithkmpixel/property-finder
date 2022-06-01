@@ -594,6 +594,24 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   line-height: 19px;
 }
 
+.section_prop_details .body_copy {
+  margin-top: 20px;
+}
+
+.section_prop_details .body_copy h4 {
+  font-size: 14px;
+}
+
+.section_prop_details .body_copy h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.section_prop_details .body_copy p {
+  font-size: 13px;
+  line-height: 19px;
+}
+
 .section_prop_details .body_copy .points_wrp {
   background-color: beige;
 }
