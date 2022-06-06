@@ -1,26 +1,26 @@
-.recc_prop_section{
+.recc_prop_section {
   width: 100%;
   padding: 50px 0;
-  h5{
+  h5 {
     font-size: 24px;
     margin-bottom: 30px;
     line-height: 1;
     font-weight: 600;
     color: $color-black;
   }
-  a{
+  a {
     text-decoration: none;
   }
-  .prop_col_card{
+  .prop_col_card {
     width: 100%;
     cursor: pointer;
     margin-bottom: 15px;
-    box-shadow: 0 0 18px 1px rgba($color: #000000, $alpha: .2);
-    .prop_img{
+    box-shadow: 0 0 18px 1px rgba($color: #000000, $alpha: 0.2);
+    .prop_img {
       width: 100%;
       height: 200px;
       position: relative;
-      .builder_logo{
+      .builder_logo {
         width: auto;
         height: 40px;
         // border-radius: 50%;
@@ -30,37 +30,84 @@
         overflow: hidden;
         position: absolute;
       }
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
     }
-    .body_coopy{
+    .body_coopy {
       background-color: aliceblue;
       padding: 10px;
-      h4{
+      h4 {
         font-size: 15px;
         text-decoration: none;
         line-height: 20px;
         color: $color-black;
         margin-bottom: 7px;
       }
-      .card_footer{
+      .card_footer {
         display: flex;
         flex-wrap: wrap;
-        span{
+        span {
           font-size: 12px;
           line-height: 1;
           font-weight: 400;
           color: $color-black;
           margin-right: 10px;
-          &.price{
+          &.price {
             color: #ef5e4e;
             font-weight: 600;
             font-size: 13px;
           }
         }
+      }
+    }
+  }
+  .prop_search_result_card {
+    display: flex;
+    margin-bottom: 20px;
+    .prop_img {
+      width: 280px;
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .body_coopy {
+      width: calc(100% - 280px);
+      padding-left: 15px;
+      h4 {
+        font-weight: 700;
+        font-size: 16px;
+        color: $color-black;
+        line-height: 20px;
+        margin-bottom: 5px;
+      }
+      h3 {
+        font-weight: 500;
+        font-size: 19px;
+        color: $color-black;
+        line-height: 23px;
+        margin-bottom: 8px;
+      }
+      .card_footer {
+        margin-bottom: 20px;
+        span {
+          font-weight: 400;
+          font-size: 15px;
+          color: $color-black;
+          line-height: 19px;
+          margin-right: 12px;
+        }
+      }
+      h6{
+        font-size: 15px;
+        line-height: 21px;
+        color: rgba($color: #000000, $alpha: 0.6);
+        font-weight: 500;
       }
     }
   }

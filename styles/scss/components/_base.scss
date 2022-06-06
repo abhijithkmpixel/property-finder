@@ -20,3 +20,29 @@ h1,h2,h3,h4,h5,h6{
 //colors
 $color-white:#ffffff;
 $color-black:#000;
+
+#nprogress .bar {
+  background: red !important;
+  height: 3px !important;
+  border: none !important;
+  outline: none !important;
+
+ }
+ .page_loader_outer{
+   position: fixed;
+   left: 0;
+   top: 0;
+   height: 100vh;
+   width: 100%;
+   background-color: rgba($color: #fff, $alpha: .4);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+   pointer-events: none;
+   img{
+     width: 50px;
+     height: 50px;
+     object-fit: contain;
+   }
+ }

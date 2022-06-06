@@ -27,6 +27,7 @@ const AddProperty = () => {
       price: e.target.price.value,
       location: e.target.location.value,
       description: e.target.description.value,
+      period: e.target.servicePeriod.value,
       bedroom: e.target.bedroom.value,
       bathroom: e.target.bathroom.value,
       propertyType: e.target.propertyType.value,
@@ -57,13 +58,13 @@ const AddProperty = () => {
           <option value="villa">Villa</option>
           <option value="show room">Show Room</option>
           <option value="whole building">Whole Building</option>
-          <option value="Land">Land</option>
-          <option value="Farm">Farm</option>
-          <option value="Co-working space">Co-working space</option>
-          <option value="Bulk Rent Unit">Bulk Rent Unit</option>
-          <option value="Staff Accommodation">Staff Accommodation</option>
-          <option value="Business Centre">Business Centre</option>
-          <option value="Factory">Factory</option>
+          <option value="land">Land</option>
+          <option value="farm">Farm</option>
+          <option value="co-working space">Co-working space</option>
+          <option value="bulk rent unit">Bulk Rent Unit</option>
+          <option value="staff accommodation">Staff Accommodation</option>
+          <option value="business centre">Business Centre</option>
+          <option value="factory">Factory</option>
         </select>
       </fieldset>
       <fieldset>
@@ -76,6 +77,13 @@ const AddProperty = () => {
       <fieldset>
         <label htmlFor="tags">Tags</label>
         <input type="text" name="tags" id="tags" required/>
+      </fieldset>
+      <fieldset>
+        <label htmlFor="servicePeriod">Payment period</label>
+        <select name="servicePeriod" id="servicePeriod" required>
+          <option value="m">Monthly</option>
+          <option value="y">Yearly</option>
+        </select>
       </fieldset>
       <fieldset>
         <label htmlFor="slug">Slug</label>

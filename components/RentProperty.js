@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
+import { useRouter } from "next/router";
 
 const RentProperty = () => {
+  const router = useRouter();
   const [propertyType, setpropertyType] = useState(false);
   const [price, setprice] = useState(false);
   const [propSize, setpropSize] = useState(false);
@@ -15,7 +16,27 @@ const RentProperty = () => {
     e.target.closest(".input_fields").querySelector("input").value = value;
   };
   return (
-    <form action="/search">
+    <form
+      // action="/search"
+      onSubmit={(e) => {
+        e.preventDefault();
+        router.push(
+          `/search?type=${e.target.type.value}&` +
+            (e.target.property_type.value &&
+              `property_type=${e.target.property_type.value}&`) +
+            (e.target.min_area.value &&
+              `min_area=${e.target.min_area.value}&`) +
+            (e.target.max_area.value &&
+              `max_area=${e.target.max_area.value}&`) +
+            (e.target.min_rent.value &&
+              `min_rent=${e.target.min_rent.value}&`) +
+            (e.target.max_rent.value &&
+              `max_rent=${e.target.max_rent.value}&`) +
+            (e.target.rent_duration.value &&
+              `rent_duration=${e.target.rent_duration.value}`)
+        );
+      }}
+    >
       <fieldset>
         <input
           type="text"
@@ -72,8 +93,8 @@ const RentProperty = () => {
             className={`field_dropdown ${propertyType ? "open" : ""} `}
             onClick={() => {
               setpropertyType(propertyType ? false : true);
-              setpropSize( false );
-                setprice(false);
+              setpropSize(false);
+              setprice(false);
             }}
           >
             <input type="text" name="property_type" id="property_type" />
@@ -83,113 +104,124 @@ const RentProperty = () => {
             </div>
             <ul className="list_drop">
               <li
+                data-value="office space"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Office Space
               </li>
               <li
+                data-value="retail"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Retail
               </li>
               <li
+                data-value="warehouse"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Warehouse
               </li>
               <li
+                data-value="shop"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Shop
               </li>
               <li
+                data-value="villa"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
-                Villa
+                villa
               </li>
               <li
+                data-value="show room"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Show Room
               </li>
               <li
+                data-value="whole building"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Whole Building
               </li>
               <li
+                data-value="land"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Land
               </li>
               <li
+                data-value="farm"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Farm
               </li>
               <li
+                data-value="co-working space"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Co-working space
               </li>
               <li
+                data-value="bulk rent unit"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Bulk Rent Unit
               </li>
               <li
+                data-value="staff accommodation"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Staff Accommodation
               </li>
               <li
+                data-value="business centre"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Business Centre
               </li>
-              {/* <li
-                onClick={(e) => {
-                  updateField(e, e.target.innerText);
-                }}
-              >
-                Land
-              </li> */}
               <li
+                data-value="factory"
                 onClick={(e) => {
-                  updateField(e, e.target.innerText);
+                  updateField(e, e.target.getAttribute("data-value"));
                 }}
               >
                 Factory
               </li>
             </ul>
           </div>
-          <div className={`field_dropdown input_box_drpdwn ${propSize ? "open" : ""} `}>
+          <div
+            className={`field_dropdown input_box_drpdwn ${
+              propSize ? "open" : ""
+            } `}
+          >
             <span
               onClick={() => {
                 setpropSize(propSize ? false : true);
@@ -222,7 +254,7 @@ const RentProperty = () => {
             <span
               onClick={() => {
                 setprice(price ? false : true);
-                setpropSize(false );
+                setpropSize(false);
                 setpropertyType(false);
               }}
             >

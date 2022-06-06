@@ -12,5 +12,6 @@ export   default async  function  handler (req, res) {
         id: doc.id
     };
   });
-  res.status(200).json({ properties: JSON.stringify(datas) })
+  const sale = datas.filter(data =>data.serviceType == 'sale')
+    res.status(200).json(sale )
 }

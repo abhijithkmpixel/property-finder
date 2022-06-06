@@ -4,6 +4,9 @@ import React from "react";
 const RecommendedProp = ({ title, list }) => {
   return (
     <section className="recc_prop_section">
+      {
+        // console.log(list)
+      }
       <div className="container">
         {title && <h5>{title}</h5>}
         <div className="row">
@@ -23,7 +26,9 @@ const RecommendedProp = ({ title, list }) => {
                           <div className="body_coopy">
                             <h4>{prop.tags}</h4>
                             <div className="card_footer">
-                              <span>{prop.propType}</span>
+                              <span>{prop.propertyType}</span>
+                              <span>{prop.propertySize}</span>
+
                               <span> {prop.bedroom} Bed</span>
                               <span> {prop.bathroom} Bath</span>
                               <span className="price">{prop.price} AED</span>
