@@ -22,7 +22,7 @@ const BuyProperty = () => {
       onSubmit={(e) => {
         e.preventDefault();
         router.push(
-          `/search?type=${e.target.type.value}&`
+          `/search?type=${e.target.type.value}&`+
           (e.target.property_type.value && `property_type=${e.target.property_type.value}&`)+
           (e.target.min_area.value && `min_area=${e.target.min_area.value}&`)+
           (e.target.max_area.value && `max_area=${e.target.max_area.value}&`)+
