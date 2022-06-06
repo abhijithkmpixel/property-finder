@@ -29,7 +29,7 @@ const Header = () => {
                 <Link href="/">New projects</Link>
               </li>
               <li>
-                <Link href="/">Find agent</Link>
+                <Link href="/agents">Find agent</Link>
               </li>
               <li>
                 <h5>
@@ -72,8 +72,12 @@ const Header = () => {
                   <li>
                     <Link href="/">Mortgages </Link>
                   </li>
+                  {/* additional links */}
                   <li>
                     <Link href="/add-property">Add property </Link>
+                  </li>
+                  <li>
+                    <Link href="/add-agent">Add agent </Link>
                   </li>
                 </ul>
               </li>

@@ -703,3 +703,23 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   flex: 1;
   padding: 0 10px 0 0;
 }
+
+.agents_listing_grid {
+  padding: 50px 0;
+}
+
+.agents_listing_grid a {
+  text-decoration: none;
+}
+
+.agents_listing_grid a h5 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.agents_listing_grid a p {
+  text-align: center;
+  color: #000;
+}

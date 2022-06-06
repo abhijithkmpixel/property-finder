@@ -11,7 +11,7 @@ const index = ({ props }) => {
   const slug = useRouter();
   const [propertys, setpropertys] = useState(null);
   useEffect(() => {
-    console.log(props);
+    // console.log(props);
     // getData();
     // return null;
   }, []);
