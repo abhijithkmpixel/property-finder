@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { collection, getDocs, query } from 'firebase/firestore/lite';
 import React,{ useEffect ,useState} from 'react'
+import HeadTag from '../../components/Head';
 import Header from '../../components/Header';
 import RecommendedProp from '../../components/RecommendedProp';
 import {db} from '../api/firebase';
@@ -19,6 +20,7 @@ const index = ({datas}) => {
   
   return (
     <>
+    <HeadTag title='Rent'/>
     <Header />
     <RecommendedProp title='Properties for rent' list={datas}/>
     </>

@@ -17,7 +17,7 @@ const BuyProperty = () => {
   };
 
   return (
-    <form
+    <form className="rent_or_buuy_form_wrp"
       //  action={`/search`}
       onSubmit={(e) => {
         e.preventDefault();
@@ -236,7 +236,7 @@ const BuyProperty = () => {
                   <input type="text" name="min_area" id="min_area" />
                 </div>
                 <div className="input_fields">
-                  <label htmlFor="max_rent">Max rent (sq.ft.)</label>
+                  <label htmlFor="max_rent">Max Area (sq.ft.)</label>
                   <input type="text" name="max_area" id="max_area" />
                 </div>
               </div>

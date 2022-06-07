@@ -16,7 +16,7 @@ const RentProperty = () => {
     e.target.closest(".input_fields").querySelector("input").value = value;
   };
   return (
-    <form
+    <form className="rent_or_buuy_form_wrp"
       // action="/search"
       onSubmit={(e) => {
         e.preventDefault();
@@ -237,11 +237,11 @@ const RentProperty = () => {
             <div className="drop_box">
               <div className="row_field">
                 <div className="input_fields">
-                  <label htmlFor="min_rent">Min Area (sq.ft.)</label>
+                  <label htmlFor="min_area">Min Area (sq.ft)</label>
                   <input type="text" name="min_area" id="min_area" />
                 </div>
                 <div className="input_fields">
-                  <label htmlFor="max_rent">Max rent (sq.ft.)</label>
+                  <label htmlFor="max_area">Max Area (sq.ft)</label>
                   <input type="text" name="max_area" id="max_area" />
                 </div>
               </div>

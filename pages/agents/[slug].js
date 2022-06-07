@@ -4,8 +4,8 @@ const index = ({agent}) => {
   return (
     <div>
       
-      <img src={agent?.image} alt="" />
-      {console.log('')}</div>
+      <img src={agent?.image} alt={agent?.name} />
+      </div>
   )
 }
 

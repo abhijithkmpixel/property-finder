@@ -47,11 +47,19 @@ const AddAgent = () => {
     <form className="add_prop_form" onSubmit={(e)=> addProp(e)}>
       <h3>Add an agent</h3>
       <fieldset>
-        <label htmlFor="nationality">Type of service</label>
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" id="name" required/>
+      </fieldset>
+      <fieldset>
+        <label htmlFor="position">Position</label>
+        <input type="text" name="position" id="position" required/>
+      </fieldset>
+      <fieldset>
+        <label htmlFor="nationality">Nationality</label>
         <select name="nationality" id="nationality" required>
           <option value="india">India</option>
           <option value="pakisthan">Pakisthan</option>
-          <option value="london">london</option>
+          <option value="uzbekistan">Uzbekistan</option>
           <option value="Kyrgyzstan">Kyrgyzstan</option>
           <option value="united kingdom">united kingdom</option>
         </select>
@@ -60,10 +68,7 @@ const AddAgent = () => {
         <label htmlFor="image">Image</label>
         <input type="text" name="image" id="image" required/>
       </fieldset>
-      <fieldset>
-        <label htmlFor="position">Position</label>
-        <input type="text" name="position" id="position" required/>
-      </fieldset>
+ 
       <fieldset>
         <label htmlFor="company_image">company image</label>
         <input type="text" name="company_image" id="company_image" required/>
@@ -77,10 +82,7 @@ const AddAgent = () => {
         <input type="text" name="language" id="language" required/>
       </fieldset>
 
-      <fieldset>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" required/>
-      </fieldset>
+    
       <input
         type="submit"
         className="btn btn-primary btn-xl"
