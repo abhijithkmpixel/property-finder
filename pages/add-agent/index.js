@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 
 const index = () => {
   return (
-    <div><HeadTag title='Agents'/><Header/><AddAgent/> </div>
+    <div><HeadTag title='Agents' meta='add a new agent to the db'/><Header/><AddAgent/> </div>
   )
 }
 

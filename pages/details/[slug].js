@@ -12,10 +12,11 @@ const index = ({ data, agent }) => {
 
   return (
     <>
-      <HeadTag title={data.title} />
+      <HeadTag title={data.title} meta={data.tags}/>
       <Header />
       <section className="section_prop_details">
         <div className="container">
+          <p>{data.serviceType}  {data.id}</p>
           <div className="row">
             <div className="col-lg-8 col-12 ">
               <div className="prop_image_wr">
@@ -53,7 +54,7 @@ const index = ({ data, agent }) => {
                   </li>
                   <li>
                     <h5>Price:</h5>
-                    <span>{data.price} AED / </span>
+                    <span>{data.price} AED / {data.period == 'm' ?'Monthly':'Yearly'}</span>
                   </li>
                 </ul>
                 <Link href={`/agents/`+agent.info_slug}>
@@ -70,7 +71,7 @@ const index = ({ data, agent }) => {
                         <div className="col-md-8">
                           <div className="card-body">
                             <h5 className="card-title">{agent?.name}</h5>
-                            <p className="card-text">Nationality : {agent.nationality}</p>
+                            <p className="card-text">Position : {agent.position}</p>
                             <p className="card-text">Company : {agent.company.name}</p>
                             <p className="card-text">
                               <small className="text-muted">

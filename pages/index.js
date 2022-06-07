@@ -11,7 +11,7 @@ export default function Home({propList,agents}) {
   return (
     <>
     <Header />
-    <HeadTag title={'Property finder'} />
+    <HeadTag title={'Property finder'} meta='listing' />
     <HomeBanner />
     <RecommendedProp title='Recommended properties' list={propList} agents={agents}/>
     </>

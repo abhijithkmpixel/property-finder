@@ -8,8 +8,10 @@ const HeadTag = ({title,meta}) => {
       <Head>
         <title>{title}</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
-        {/* <meta property="og:title" content={meta} key="description" /> */}
-        <link rel="icon" type="image/x-icon" href="./logo.ico" />
+        <meta property="og:title" content={title} />
+        <meta property="description" content={meta} />
+
+        <link rel="icon" type="image/x-icon" href="/logo.ico" />
       </Head>
     </>
   )

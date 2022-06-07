@@ -1,9 +1,11 @@
 import AddProperty from "../../components/AddProperty"
+import HeadTag from "../../components/Head"
 import Header from "../../components/Header"
 
 const index = ({agents}) => {
   return (
     <>
+    <HeadTag title='Add property' meta='add a property to the db' />
     <Header/>
 <AddProperty agents={agents}/>
     </>

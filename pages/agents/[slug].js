@@ -1,9 +1,15 @@
 import React from 'react'
+import HeadTag from '../../components/Head';
 
 const index = ({agent}) => {
   return (
     <div>
-      
+      <HeadTag title={agent.name} meta={`${agent.position}`} />
+      <section className="agent_details">
+        <div className="container">
+          <div className="agent_img"></div>
+        </div>
+      </section>
       <img src={agent?.image} alt={agent?.name} />
       </div>
   )

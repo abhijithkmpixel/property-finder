@@ -470,7 +470,11 @@ form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown.input_box_drpdwn.o
 
 .recc_prop_section {
   width: 100%;
-  padding: 50px 0;
+  padding: 30px 0;
+}
+
+.recc_prop_section h1 {
+  font-weight: 600;
 }
 
 .recc_prop_section h5 {

@@ -1,9 +1,11 @@
 import React from "react";
 import Header from "../../components/Header";
 import Link from "next/link";
+import HeadTag from "../../components/Head";
 const index = ({ agents }) => {
   return (
     <>
+    <HeadTag title='All agents' meta='list of all the agents in the system' />
       <Header />
       <section className="agents_listing_grid">
         <div className="container">

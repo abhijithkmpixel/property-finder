@@ -18,7 +18,7 @@ const index = ({ props, type }) => {
 
   return (
     <div>
-      <HeadTag title="Search results" />
+      <HeadTag title="Search results" meta={'search result for given parameters'} />
       <Header />
 
       <section className="mt-5 mb-5">
@@ -28,6 +28,7 @@ const index = ({ props, type }) => {
       </section>
       <section className="recc_prop_section">
         <div className="container">
+          <h1 className="mb-4">Properties for {type.replace('-',' ')}</h1>
           <div className="row">
             {props && props !== [""] ? (
               props?.map((prop) => {
