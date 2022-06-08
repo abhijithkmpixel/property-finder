@@ -337,7 +337,7 @@ const AdvSearch = () => {
         </div>
         {/* <input type="submit" value="submit" /> */}
         <button type="submit" className="btn btn-danger">
-          Search{" "}
+          Search
         </button>
       </div>
     </fieldset>

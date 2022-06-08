@@ -18,7 +18,10 @@ const index = ({ props, type }) => {
 
   return (
     <div>
-      <HeadTag title="Search results" meta={'search result for given parameters'} />
+      <HeadTag
+        title="Search results"
+        meta={"search result for given parameters"}
+      />
       <Header />
 
       <section className="mt-5 mb-5">
@@ -28,32 +31,22 @@ const index = ({ props, type }) => {
       </section>
       <section className="recc_prop_section">
         <div className="container">
-          <h1 className="mb-4">Properties for {type.replace('-',' ')}</h1>
-          <div className="row">
-            {props && props !== [""] ? (
-              props?.map((prop) => {
+          <div className="inner_wrap">
+
+          <h1 className="mb-4">{type == 'all' ? 'All properties' : `Properties for ${type.replace("-", " ")}`} </h1>
+          {props && props.length !== 0 && (
+            <div className="row">
+              {props?.map((prop) => {
                 return (
                   <div className="col-12" key={prop?.id}>
                     <SearchResultItem property={prop} />
                   </div>
                 );
-              })
-            ) : (
-              <img
-                src="/loading-loading-forever.gif"
-                alt="loading"
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  objectFit: "contain",
-                  margin: "auto",
-                }}
-              />
-            )}
-              </div>
-            {
-            props.length == 0 && <h1>No results found</h1>
-            }
+              })}
+            </div>
+          )}
+          </div>
+          {props.length == 0 && <h1>No results found</h1>}
         </div>
       </section>
     </div>

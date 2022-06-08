@@ -59,5 +59,34 @@
         padding: 0 10px 0 0;
       }
     }
+    .description{
+      font-size: 14px;
+
+    }
+  }
+}
+
+.custom_editor{
+  width: 100%;
+  .controlBar{
+    margin-bottom: 10px;
+    display: flex;
+    select,button{
+      background-color: #eee;
+      margin-right: 10px;
+      font-size: 15px;
+      padding: 2px 8px;
+      border: 1px solid rgba($color: #000000, $alpha: .5);
+      font-weight: 700;
+      max-width: max-content;
+    }
+  }
+  textarea{
+    border: 1px solid #000;
+    width: 100%;
+    height: 250px !important;
+    padding: 15px;
+    resize: none;
+    font-size: 15px;
   }
 }

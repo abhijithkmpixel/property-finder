@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { async } from "@firebase/util";
-import { Alert } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore/lite";
 import { db } from "../pages/api/firebase";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import { EditorState, convertToRaw } from 'draft-js';
-// import { Editor } from 'react-draft-wysiwyg';
-// import draftToHtml from 'draftjs-to-html';
-// import htmlToDraft from 'html-to-draftjs';
+import CustonFieldEdito from "./CustonFieldEdito";
 
 const AddProperty = ({ agents }) => {
   useEffect(() => {
     console.log(description);
     return () => {};
   }, []);
-  // const onEditorStateChange = (e) => {
-  //   // setdescription(e.target.value);
-  //   console.log(e);
-  // };
-  const [description, setdescription] = useState('asdsad');
+
+  // const [description, setdescription] = useState('asdsad');
   const addProp = async (e) => {
     e.preventDefault();
 
@@ -45,18 +37,8 @@ const AddProperty = ({ agents }) => {
 
   return (
     <>
-      {/* <Editor
-        editorState={description}
-        toolbarClassName="toolbarClassName"
-        wrapperClassName="wrapperClassName"
-        editorClassName="editorClassName"
-        onEditorStateChange={setdescription}
-      /> */}
-        {/* <textarea cols={100}
-          disabled
-          // value={JSON.stringify(description?._immutable?.currentContent?.blockMap,null,4)}
-          value={draftToHtml(convertToRaw(description.getCurrentContent()))}
-        /> */}
+
+
       <form className="add_prop_form" onSubmit={(e) => addProp(e)}>
         <h3>Add a property</h3>
         <fieldset>
@@ -135,14 +117,8 @@ const AddProperty = ({ agents }) => {
         </fieldset>
         <fieldset>
           <label htmlFor="description">Description</label>
-          {/* <input type="text" name="description" id="description" /> */}
-          <textarea
-            name="description"
-            id="description"
-            cols="30"
-            rows="10"
-            required
-          ></textarea>
+        <CustonFieldEdito />
+          
         </fieldset>
         <fieldset>
           <label htmlFor="bedroom">Bedroom</label>

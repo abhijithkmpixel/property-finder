@@ -84,7 +84,8 @@ const index = ({ data, agent }) => {
                     </div>
                   </a>
                 </Link>
-                <p>{data.description}</p>
+                {/* <p>{data.description}</p> */}
+                <div className="description" dangerouslySetInnerHTML={{ __html: data.description}}></div>
               </div>
             </div>
           </div>
