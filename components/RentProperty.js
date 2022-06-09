@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const RentProperty = () => {
+const RentProperty = ({ locs }) => {
   const router = useRouter();
   const [propertyType, setpropertyType] = useState(false);
   const [price, setprice] = useState(false);
   const [propSize, setpropSize] = useState(false);
+  const [searchPlace, setsearchPlace] = useState(false);
+  const [filterSerch, setfilterSerch] = useState();
+  const [valueEmpty, setvalueEmpty] = useState(true);
 
   const updateField = (e, value) => {
+    false;
     e.target.closest(".field_dropdown").querySelector("span").innerText = value;
     e.target.closest(".field_dropdown").querySelector("input").value = value;
   };
-  const updateSubField = (e, value) => {
-    e.target.closest(".input_fields").querySelector("span").innerText = value;
-    e.target.closest(".input_fields").querySelector("input").value = value;
+  // const updateSubField = (e, value) => {
+  //   e.target.closest(".input_fields").querySelector("span").innerText = value;
+  //   e.target.closest(".input_fields").querySelector("input").value = value;
+  // };
+  const chengeFilter = (e) => {
+    e.target.value == "" ? setvalueEmpty(true) : setvalueEmpty(false);
+    setfilterSerch(locs.filter(a => a.includes(e.target.value)))
   };
   return (
-    <form className="rent_or_buuy_form_wrp"
+    <form
+      className="rent_or_buuy_form_wrp"
       // action="/search"
       onSubmit={(e) => {
         e.preventDefault();
@@ -32,12 +41,38 @@ const RentProperty = () => {
               `min_rent=${e.target.min_rent.value}&`) +
             (e.target.max_rent.value &&
               `max_rent=${e.target.max_rent.value}&`) +
+            (e.target.location.value &&
+              `location=${e.target.location.value}&`) +
             (e.target.rent_duration.value &&
               `rent_duration=${e.target.rent_duration.value}`)
         );
       }}
     >
       <fieldset>
+
+      <div className="top_type">
+                <div className="options">
+                  <fieldset>
+                    <input
+                      type="radio"
+                      name="type"
+                      id="rent"
+                      value="rent"
+                      checked
+                    />
+                    <label htmlFor="rent">Rent</label>
+                  </fieldset>
+                  <fieldset>
+                    <input
+                      type="radio"
+                      name="type"
+                      id="sale"
+                      value="sale"
+                    />
+                    <label htmlFor="sale">Buy</label>
+                  </fieldset>
+                </div>
+              </div>
         <input
           type="text"
           name="type"
@@ -46,16 +81,61 @@ const RentProperty = () => {
           value="rent"
         />
         <div className="form_row">
-          <div className="search_place">
-            <div className="search_icon">
-              <img src="/search.svg" alt="search icon" />
+          <div className="search_place"
+             onClick={() => {
+              setsearchPlace(searchPlace ? false : true);
+              setpropertyType(false);
+              setpropSize(false);
+              setprice(false);
+            }}>
+          <div className="search_icon">
+            <img src="/search.svg" alt="search icon" />
+          </div>
+            <div className={`field_dropdown ${searchPlace ? "open" : ""} `}>
+              <span
+              className="hidden"
+              >
+                Search place
+              </span>
+              <input type="text" name="location" id="location" placeholder="Search place" onChange={(e)=>chengeFilter(e)} autoComplete={'off'} />
+              {valueEmpty ? (
+                <ul className="list_drop">
+                  {locs?.map((l,index) => {
+                    return (
+                      <li
+                      key={index}
+                        data-value={l}
+                        onClick={(e) => {
+                          updateField(e, e.target.getAttribute("data-value"));
+                          setsearchPlace(false);
+                        }}
+                      >
+                        <img src="/geo-alt.svg" alt="location icon" />
+                        {l}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <ul className="list_drop">
+                  {filterSerch?.map((l,index) => {
+                    return (
+                      <li
+                      key={index}
+                        data-value={l}
+                        onClick={(e) => {
+                          updateField(e, e.target.getAttribute("data-value"));
+                          setsearchPlace(false);
+                        }}
+                      >
+                        <img src="/geo-alt.svg" alt="location icon" />
+                        {l}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
-            <input
-              type="search"
-              placeholder="City, community or building"
-              name="input_place"
-              id="input_place"
-            />
             <ul className="search_dropdown">
               <li>
                 <div className="icon">
@@ -95,6 +175,7 @@ const RentProperty = () => {
               setpropertyType(propertyType ? false : true);
               setpropSize(false);
               setprice(false);
+              setsearchPlace(false);
             }}
           >
             <input type="text" name="property_type" id="property_type" />
@@ -227,6 +308,7 @@ const RentProperty = () => {
                 setpropSize(propSize ? false : true);
                 setprice(false);
                 setpropertyType(false);
+                setsearchPlace(false);
               }}
             >
               Area Sq.Ft.
@@ -255,6 +337,7 @@ const RentProperty = () => {
               onClick={() => {
                 setprice(price ? false : true);
                 setpropSize(false);
+                setsearchPlace(false);
                 setpropertyType(false);
               }}
             >
@@ -310,3 +393,13 @@ const RentProperty = () => {
 };
 
 export default RentProperty;
+
+// export async function getServerSideProps(context) {
+
+//   // const filtered = datas.filter(data=> data.serviceType == 'sale');
+//   return {
+//     props: {
+//       locs: locations,
+//     },
+//   };
+// }

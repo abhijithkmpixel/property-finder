@@ -9,7 +9,7 @@ import SearchResultItem from "../../components/SearchResultItem";
 import HeadTag from "../../components/Head";
 import AdvSearch from "../../components/AdvSearch";
 
-const index = ({ props, type }) => {
+const index = ({ props, type,locs }) => {
   const slug = useRouter();
   const [propertys, setpropertys] = useState(null);
   useEffect(() => {
@@ -26,7 +26,7 @@ const index = ({ props, type }) => {
 
       <section className="mt-5 mb-5">
         <div className="container">
-          <AdvSearch />
+          <AdvSearch locs={locs} />
         </div>
       </section>
       <section className="recc_prop_section">
@@ -65,6 +65,7 @@ export async function getServerSideProps(context) {
       propert = json;
     });
   const newProp = propert.filter((prop) => {
+    console.log(prop.location +'+'+ slug?.location);
     if (
       (slug?.property_type ? prop.propertyType == slug?.property_type : true) &&
       (slug?.min_area ? Number(prop.propertySize) >= slug?.min_area : true) &&
@@ -73,6 +74,7 @@ export async function getServerSideProps(context) {
       (slug?.max_rent ? Number(prop.price) <= slug?.max_rent : true) &&
       (slug?.min_price ? Number(prop.price) >= slug?.min_price : true) &&
       (slug?.max_price ? Number(prop.price) <= slug?.max_price : true) &&
+      (slug?.location ? prop.location == slug?.location : true) &&
       (slug?.rent_duration
         ? prop.period.toString() == slug?.rent_duration.toString()
         : true)
@@ -80,11 +82,20 @@ export async function getServerSideProps(context) {
       return prop;
     }
   });
+//for getting the locations list
+  const locations = await fetch(
+    `http://` + context.req.headers.host + "/api/locations"
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      return json;
+    });
 
   return {
     props: {
       props: newProp,
       type: query.type,
+      locs:locations
     },
   };
 }
