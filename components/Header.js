@@ -31,7 +31,7 @@ const Header = () => {
               <li>
                 <Link href="/agents">Find agent</Link>
               </li>
-              <li>
+              {/* <li>
                 <h5>
                   Property prices
                   <img src="/chevron-down.svg" alt="arrow down" />
@@ -47,7 +47,7 @@ const Header = () => {
                     <Link href="/">Mo'asher: Dubai Price Index </Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <h5>
                   Explore
@@ -83,7 +83,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className="account_navigation">
+          {/* <div className="account_navigation">
             <div className="favourites">
               <Link href="/">
                 <img src="/suit-heart.svg" alt="arrow down" />
@@ -103,7 +103,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

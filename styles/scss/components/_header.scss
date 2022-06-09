@@ -4,6 +4,7 @@ header {
   .header_inner_wrapper {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     .brand_logo {
       display: block;
       width: 109px;

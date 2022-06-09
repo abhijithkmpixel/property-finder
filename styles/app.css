@@ -57,6 +57,7 @@ header {
 header .header_inner_wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header .header_inner_wrapper .brand_logo {
