@@ -24,7 +24,7 @@ const AdvSearch = ({ locs }) => {
 
   const chengeFilter = (e) => {
     e.target.value == "" ? setvalueEmpty(true) : setvalueEmpty(false);
-    setfilterSerch(locs.filter((a) => a.includes(e.target.value)));
+    setfilterSerch(locs.filter((a) => a.toLowerCase().includes(e.target.value.toLowerCase())));
   };
 
   return (
@@ -66,7 +66,7 @@ const AdvSearch = ({ locs }) => {
               setpropertyType(false);
               setpropSize(false);
               setprice(false);
-e.target.querySelector('input').focus()
+              e.target.querySelector("input").focus();
             }}
           >
             <div className="search_icon">
@@ -84,10 +84,10 @@ e.target.querySelector('input').focus()
               />
               {valueEmpty ? (
                 <ul className="list_drop">
-                  {locs?.map((l,index) => {
+                  {locs?.map((l, index) => {
                     return (
                       <li
-                      key={index}
+                        key={index}
                         data-value={l}
                         onClick={(e) => {
                           updateField(e, e.target.getAttribute("data-value"));
@@ -102,10 +102,10 @@ e.target.querySelector('input').focus()
                 </ul>
               ) : (
                 <ul className="list_drop">
-                  {filterSerch?.map((l,index) => {
+                  {filterSerch?.map((l, index) => {
                     return (
-                      <li 
-                      key={index}
+                      <li
+                        key={index}
                         data-value={l}
                         onClick={(e) => {
                           updateField(e, e.target.getAttribute("data-value"));
