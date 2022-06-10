@@ -74,6 +74,10 @@
   .prop_search_result_card {
     display: flex;
     margin-bottom: 20px;
+    transition: .3s all ease-in-out;
+    &:hover{
+      transform: translateX(10px);
+    }
     .prop_img {
       width: 280px;
       height: 200px;

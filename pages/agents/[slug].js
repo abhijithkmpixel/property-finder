@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
-import Link from 'next/link'
+import Link from "next/link";
+import RecommendedProp from "../../components/RecommendedProp";
 const index = ({ agent, count }) => {
   useEffect(() => {
-    console.log(count);
+    // console.log(count);
 
     return () => {};
   }, []);
@@ -57,36 +58,7 @@ const index = ({ agent, count }) => {
               </div>
             </div>
           </div>
-          {
-            count && count.length !==0 &&
-          <div className="row mt-5 mb-5">
-            <h4>listed properties</h4>
-            {
-              count.map(a =>{
-          return  <div className="col-12 col-md-4">
-              <div className="card" style={{ width: "100%" }}>
-                <img src={a.images} className="card-img-top" alt={a.title} />
-                <div className="card-body">
-                  <h5 className="card-title">{a.tags} </h5>
-                  <p className="card-text">
-                  {a.title} 
-                  </p>
-                  <Link href={'/details/'+a.slug}>
-                  <a className="btn btn-primary">
-                    Read more
-                  </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-              })
-            }
-
-           
-          </div>
-
-          }
+          <RecommendedProp title={'Listed properties'} list={count} />
         </div>
       </section>
     </div>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-const BuyProperty = () => {
+const BuyProperty = ({ locs }) => {
   const router = useRouter();
   const [propertyType, setpropertyType] = useState(false);
   const [price, setprice] = useState(false);
   const [propSize, setpropSize] = useState(false);
+  const [searchPlace, setsearchPlace] = useState(false);
 
   const updateField = (e, value) => {
     e.target.closest(".field_dropdown").querySelector("span").innerText = value;
@@ -17,18 +18,26 @@ const BuyProperty = () => {
   };
 
   return (
-    <form className="rent_or_buuy_form_wrp"
+    <form
+      className="rent_or_buuy_form_wrp"
       //  action={`/search`}
       onSubmit={(e) => {
         e.preventDefault();
         router.push(
-          `/search?type=${e.target.type.value}&`+
-          (e.target.property_type.value && `property_type=${e.target.property_type.value}&`)+
-          (e.target.min_area.value && `min_area=${e.target.min_area.value}&`)+
-          (e.target.max_area.value && `max_area=${e.target.max_area.value}&`)+
-          (e.target.min_price.value && `min_price=${e.target.min_price.value}&`)+
-          (e.target.max_price.value && `max_price=${e.target.max_price.value}&`)+
-          (e.target.max_price.value && `max_price=${e.target.max_price.value}`)
+          `/search?type=${e.target.type.value}&` +
+            (e.target.property_type.value &&
+              `property_type=${e.target.property_type.value}&`) +
+            (e.target.min_area.value &&
+              `min_area=${e.target.min_area.value}&`) +
+            (e.target.max_area.value &&
+              `max_area=${e.target.max_area.value}&`) +
+            (e.target.min_price.value &&
+              `min_price=${e.target.min_price.value}&`) +
+            (e.target.max_price.value &&
+              `max_price=${e.target.max_price.value}&`) +
+            (e.target.max_price.value &&
+              `max_price=${e.target.max_price.value}&`) +
+            (e.target.location.value && `location=${e.target.location.value}&`)
         );
       }}
     >
@@ -42,15 +51,39 @@ const BuyProperty = () => {
         />
         <div className="form_row">
           <div className="search_place">
-            <div className="search_icon">
+          <div className="search_icon">
               <img src="/search.svg" alt="search icon" />
             </div>
-            <input
-              type="search"
-              placeholder="City, community or building"
-              name="input_place"
-              id="input_place"
-            />
+            <div className={`field_dropdown ${searchPlace ? "open" : ""} `}>
+              <input type="text" name="location" id="location" />
+              <span
+                onClick={() => {
+                  setsearchPlace(searchPlace ? false : true);
+                  setpropertyType(false);
+                  setpropSize(false);
+                  setprice(false);
+                }}
+              >
+                Search place
+              </span>
+              <ul className="list_drop">
+                {locs?.map((l) => {
+                  return (
+                    <li
+                      data-value={l}
+                      onClick={(e) => {
+                        updateField(e, e.target.getAttribute("data-value"));
+                        setsearchPlace(false);
+                      }}
+                    >
+                      <img src="/geo-alt.svg" alt="location icon" />
+
+                      {l}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
             <ul className="search_dropdown">
               <li>
                 <div className="icon">

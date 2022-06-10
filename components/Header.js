@@ -1,16 +1,57 @@
+import {
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { auth } from "../pages/api/firebase";
 
 const Header = () => {
+  const [user, setuser] = useState(false);
+  const [userData, setuserData] = useState();
+
+  const signinwithgoogle = (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    try {
+      signInWithPopup(auth, provider);
+      // console.log("signed in");
+      onAuthStateChanged(auth, (currentUser) => {
+        // setuser(true);
+        setuserData(currentUser);
+      });
+    } catch (err) {
+      setuser(false);
+      console.log(err.message);
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+    // setuser(false);
+    setuserData("");
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      // console.log(currentUser);
+      setuserData(currentUser);
+      // setuser(true)
+    });
+
+    return () => {};
+  }, []);
+
   return (
     <header>
       <div className="container">
         <div className="header_inner_wrapper">
           <div className="brand_logo">
             <Link href="/">
-              <a >
-
-              <img src="/logo.png" alt="logo" />
+              <a>
+                <img src="/logo.png" alt="logo" />
               </a>
             </Link>
           </div>
@@ -25,28 +66,11 @@ const Header = () => {
               <li>
                 <Link href="/search?type=commercial-rent">Commercial</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/">New projects</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/agents">Find agent</Link>
-              </li>
-              <li>
-                <h5>
-                  Property prices
-                  <img src="/chevron-down.svg" alt="arrow down" />
-                </h5>
-                <ul className="sub_dropdown">
-                  <li>
-                    <Link href="/">House prices </Link>
-                  </li>
-                  <li>
-                    <Link href="/">Rent vs buy calculator </Link>
-                  </li>
-                  <li>
-                    <Link href="/">Mo'asher: Dubai Price Index </Link>
-                  </li>
-                </ul>
               </li>
               <li>
                 <h5>
@@ -55,6 +79,30 @@ const Header = () => {
                 </h5>
                 <ul className="sub_dropdown">
                   <li>
+                    {userData ? (
+                      <div className="user_console">
+                        <img
+                          src={userData?.photoURL}
+                          alt={userData?.displayName}
+                        />
+                        <div className="user_data">
+                          <span>{userData?.displayName}</span>
+                          <p>{userData?.email}</p>
+                          <button className="btn btn-danger" onClick={logout}>
+                            Logout
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={signinwithgoogle}
+                        className="btn btn-danger"
+                      >
+                        Signin with google
+                      </button>
+                    )}
+                  </li>
+                  {/* <li>
                     <Link href="/">Building reviews</Link>
                   </li>
                   <li>
@@ -71,19 +119,23 @@ const Header = () => {
                   </li>
                   <li>
                     <Link href="/">Mortgages </Link>
-                  </li>
+                  </li> */}
                   {/* additional links */}
-                  <li>
-                    <Link href="/add-property">Add property </Link>
-                  </li>
-                  <li>
-                    <Link href="/add-agent">Add agent </Link>
-                  </li>
+                  {userData && (
+                    <>
+                      <li>
+                        <Link href="/add-property">Add property </Link>
+                      </li>
+                      <li>
+                        <Link href="/add-agent">Add agent </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </li>
             </ul>
           </nav>
-          <div className="account_navigation">
+          {/* <div className="account_navigation">
             <div className="favourites">
               <Link href="/">
                 <img src="/suit-heart.svg" alt="arrow down" />
@@ -103,7 +155,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

@@ -1,4 +1,4 @@
-import AddProperty from "../../components/AddProperty"
+import AddProperty from "../../components/forms/AddProperty"
 import HeadTag from "../../components/Head"
 import Header from "../../components/Header"
 
