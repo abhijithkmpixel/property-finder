@@ -1,6 +1,9 @@
 body{
   margin: 0;
   font-family: 'Open Sans','sans-serif';
+  &:focus{
+    outline: none;
+  }
 }
 ul,ol{
   padding: 0;

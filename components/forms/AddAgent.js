@@ -2,7 +2,7 @@ import { async } from "@firebase/util";
 import { Alert } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore/lite";
 import React,{useEffect} from "react";
-import { db } from "../pages/api/firebase";
+import { db } from "../../pages/api/firebase";
 const AddAgent = () => {
   //  useEffect(async() => {
  

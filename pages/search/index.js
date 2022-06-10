@@ -7,14 +7,29 @@ import RecommendedProp from "../../components/RecommendedProp";
 import Link from "next/link";
 import SearchResultItem from "../../components/SearchResultItem";
 import HeadTag from "../../components/Head";
-import AdvSearch from "../../components/AdvSearch";
+import AdvSearch from "../../components/forms/AdvSearch";
+import Paginate from "../../components/Paginate";
 
-const index = ({ props, type,locs }) => {
+const index = ({ props, type, locs }) => {
   const slug = useRouter();
-  const [propertys, setpropertys] = useState(null);
-  useEffect(() => {
-    // console.log(props);
-  }, []);
+  // const [propertys, setpropertys] = useState(null);
+  const [currentItems, setCurrentItems] = useState();
+  const [pageCount, setPageCount] = useState(1);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemsPerPage, setitemsPerPage] = useState(8)
+  const [itemOffset, setItemOffset] = useState(0);
+
+useEffect(() => {
+  // Fetch items from another resources.
+  const endOffset = itemOffset + itemsPerPage;
+  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  setCurrentItems(props.slice(itemOffset, endOffset));
+  setPageCount(Math.ceil(props.length / itemsPerPage));
+
+}, [itemOffset, itemsPerPage,props]);
+
+
 
   return (
     <div>
@@ -32,20 +47,24 @@ const index = ({ props, type,locs }) => {
       <section className="recc_prop_section">
         <div className="container">
           <div className="inner_wrap">
-
-          <h1 className="mb-4">{type == 'all' ? 'All properties' : `Properties for ${type.replace("-", " ")}`} </h1>
-          {props && props.length !== 0 && (
-            <div className="row">
-              {props?.map((prop) => {
-                return (
-                  <div className="col-12" key={prop?.id}>
-                    <SearchResultItem property={prop} />
-                  </div>
-                );
-              })}
-            </div>
-          )}
+            <h1 className="mb-4">
+              {type == "all"
+                ? "All properties"
+                : `Properties for ${type.replace("-", " ")}`}{" "}
+            </h1>
+            {props && props.length !== 0 && (
+              <div className="row">
+                {currentItems?.map((prop) => {
+                  return (
+                    <div className="col-8" key={prop?.id}>
+                      <SearchResultItem property={prop} />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
+          <Paginate  itemsPerPage={itemsPerPage} pageCount={pageCount} items={props} setItemOffset={setItemOffset}/>
           {props.length == 0 && <h1>No results found</h1>}
         </div>
       </section>
@@ -65,7 +84,7 @@ export async function getServerSideProps(context) {
       propert = json;
     });
   const newProp = propert.filter((prop) => {
-    console.log(prop.location +'+'+ slug?.location);
+    console.log(prop.location + "+" + slug?.location);
     if (
       (slug?.property_type ? prop.propertyType == slug?.property_type : true) &&
       (slug?.min_area ? Number(prop.propertySize) >= slug?.min_area : true) &&
@@ -82,7 +101,7 @@ export async function getServerSideProps(context) {
       return prop;
     }
   });
-//for getting the locations list
+  //for getting the locations list
   const locations = await fetch(
     `http://` + context.req.headers.host + "/api/locations"
   )
@@ -95,7 +114,7 @@ export async function getServerSideProps(context) {
     props: {
       props: newProp,
       type: query.type,
-      locs:locations
+      locs: locations,
     },
   };
 }

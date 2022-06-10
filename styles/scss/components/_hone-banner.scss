@@ -179,17 +179,18 @@ form.rent_or_buuy_form_wrp {
         margin: 0 5px;
         align-items: center;
         flex: 1;
-        padding: 10px;
         justify-content: space-between;
         position: relative;
         cursor: pointer;
         max-width: max-content;
+        padding-right: 10px;
         border: 1px solid #aaa;
         .mh-300 {
           max-height: 200px;
           overflow-y: auto;
         }
         span ,select,input{
+          padding:3px  10px;
           font-size: 14px;
           line-height: 1;
           font-weight: 400;

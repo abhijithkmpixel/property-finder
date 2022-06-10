@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore/lite";
-import { db } from "../pages/api/firebase";
+import { db } from "../../pages/api/firebase";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import CustonFieldEdito from "./CustonFieldEdito";
 
 const AddProperty = ({ agents }) => {
   useEffect(() => {
-    console.log(description);
+    // console.log(description);
     return () => {};
   }, []);
 

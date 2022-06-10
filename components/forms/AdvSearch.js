@@ -68,6 +68,7 @@ const AdvSearch = ({ locs }) => {
               setprice(false);
               e.target.querySelector("input").focus();
             }}
+            
           >
             <div className="search_icon">
               <img src="/search.svg" alt="search icon" />
@@ -81,6 +82,7 @@ const AdvSearch = ({ locs }) => {
                 placeholder="Search place"
                 onChange={(e) => chengeFilter(e)}
                 autoComplete="off"
+           
               />
               {valueEmpty ? (
                 <ul className="list_drop">
@@ -120,38 +122,6 @@ const AdvSearch = ({ locs }) => {
                 </ul>
               )}
             </div>
-            <ul className="search_dropdown">
-              <li>
-                <div className="icon">
-                  <img src="/loc.svg" alt="location" />
-                  <span>sharja</span>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <img src="/loc.svg" alt="location" />
-                  <span>Abudabi</span>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <img src="/loc.svg" alt="location" />
-                  <span>Dubai South</span>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <img src="/loc.svg" alt="location" />
-                  <span>Town Square Dubai</span>
-                </div>
-              </li>
-              <li>
-                <div className="icon">
-                  <img src="/loc.svg" alt="location" />
-                  <span>Sheikh Zayed Road</span>
-                </div>
-              </li>
-            </ul>
           </div>
           <div
             className={`field_dropdown ${servicetype ? "open" : ""} `}

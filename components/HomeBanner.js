@@ -1,6 +1,6 @@
 import React,{useState} from "react";
-import BuyProperty from "./BuyProperty";
-import RentProperty from "./RentProperty";
+import BuyProperty from "./forms/BuyProperty";
+import RentProperty from "./forms/RentProperty";
 
 const HomeBanner = ({locs}) => {
   const [rent, setrent] = useState(true)

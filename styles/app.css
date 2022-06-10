@@ -3,6 +3,10 @@ body {
   font-family: 'Open Sans','sans-serif';
 }
 
+body:focus {
+  outline: none;
+}
+
 ul, ol {
   padding: 0;
   list-style-type: none;
@@ -102,13 +106,35 @@ header .header_inner_wrapper nav .main_navigation > li .sub_dropdown {
   pointer-events: none;
 }
 
-header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li a {
+header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li a, header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li span {
   display: block;
   font-size: 14px;
   text-decoration: none;
   padding: 10px 0;
   font-weight: 400;
   color: #000;
+}
+
+header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li .user_console {
+  display: flex;
+  align-items: flex-start;
+}
+
+header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li .user_console .user_data span {
+  margin: 00;
+  padding: 0;
+}
+
+header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li .user_console .user_data p {
+  font-size: 6px;
+}
+
+header .header_inner_wrapper nav .main_navigation > li .sub_dropdown > li .user_console img {
+  object-fit: cover;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 header .header_inner_wrapper nav .main_navigation > li:hover .sub_dropdown {
@@ -374,11 +400,11 @@ form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown {
   margin: 0 5px;
   align-items: center;
   flex: 1;
-  padding: 10px;
   justify-content: space-between;
   position: relative;
   cursor: pointer;
   max-width: max-content;
+  padding-right: 10px;
   border: 1px solid #aaa;
 }
 
@@ -388,6 +414,7 @@ form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown .mh-300 {
 }
 
 form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown span, form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown select, form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown input {
+  padding: 3px  10px;
   font-size: 14px;
   line-height: 1;
   font-weight: 400;
@@ -631,6 +658,11 @@ form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown.input_box_drpdwn.o
 .recc_prop_section .prop_search_result_card {
   display: flex;
   margin-bottom: 20px;
+  transition: .3s all ease-in-out;
+}
+
+.recc_prop_section .prop_search_result_card:hover {
+  transform: translateX(10px);
 }
 
 .recc_prop_section .prop_search_result_card .prop_img {
@@ -868,12 +900,51 @@ form.rent_or_buuy_form_wrp fieldset .form_row .field_dropdown.input_box_drpdwn.o
   flex: 1;
 }
 
+.agent_details .body_copy .card img {
+  width: 150px;
+}
+
+.pagination {
+  margin: 0 -5px;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #ef5e4e;
+  border-color: #ef5e4e;
+}
+
+.pagination .page-item {
+  margin: 0 5px;
+}
+
+.pagination .page-item.nav .page-link {
+  background-color: #ef5e4e;
+  border-color: #ef5e4e;
+  color: #fff;
+}
+
+.pagination .page-item.nav.disabled {
+  opacity: .5;
+}
+
 .agents_listing_grid {
   padding: 50px 0;
 }
 
 .agents_listing_grid a {
   text-decoration: none;
+  display: block;
+  transition: .3s all ease-in-out;
+  margin-bottom: 15px;
+}
+
+.agents_listing_grid a:hover {
+  transform: scale(1.1);
+}
+
+.agents_listing_grid a img {
+  height: 200px;
+  object-fit: cover;
 }
 
 .agents_listing_grid a h5 {

@@ -1,5 +1,5 @@
 import React from 'react'
-import AddAgent from '../../components/AddAgent'
+import AddAgent from '../../components/forms/AddAgent'
 import HeadTag from '../../components/Head'
 import Header from '../../components/Header'
 

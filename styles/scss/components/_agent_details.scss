@@ -15,5 +15,10 @@
   .body_copy{
     padding-left: 15px;
     flex: 1;
+    .card{
+      img{
+        width: 150px;
+      }
+    }
   }
 }
