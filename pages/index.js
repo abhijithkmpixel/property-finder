@@ -6,6 +6,8 @@ import HomeBanner from '../components/HomeBanner'
 import PageLoader from '../components/PageLoader'
 import RecommendedProp from '../components/RecommendedProp'
 import styles from '../styles/Home.module.css'
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 export default function Home({propList,agents , locs}) {
   return (

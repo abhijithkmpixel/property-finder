@@ -80,7 +80,8 @@ const Header = () => {
                 <ul className="sub_dropdown">
                   <li>
                     {userData ? (
-                      <div className="user_console">
+                     <>
+                     <div className="user_console">
                         <img
                           src={userData?.photoURL}
                           alt={userData?.displayName}
@@ -88,11 +89,12 @@ const Header = () => {
                         <div className="user_data">
                           <span>{userData?.displayName}</span>
                           <p>{userData?.email}</p>
-                          <button className="btn btn-danger" onClick={logout}>
-                            Logout
-                          </button>
                         </div>
                       </div>
+                          <button className="btn btn-danger w-100" onClick={logout}>
+                            Logout
+                          </button>
+                          </> 
                     ) : (
                       <button
                         onClick={signinwithgoogle}

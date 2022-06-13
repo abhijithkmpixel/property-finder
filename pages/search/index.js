@@ -93,6 +93,8 @@ export async function getServerSideProps(context) {
       (slug?.max_rent ? Number(prop.price) <= slug?.max_rent : true) &&
       (slug?.min_price ? Number(prop.price) >= slug?.min_price : true) &&
       (slug?.max_price ? Number(prop.price) <= slug?.max_price : true) &&
+      (slug?.bed ? Number(prop.bedroom) == slug?.bed : true) &&
+      (slug?.bath ? Number(prop.bathroom) == slug?.bath : true) &&
       (slug?.location ? prop.location == slug?.location : true) &&
       (slug?.rent_duration
         ? prop.period.toString() == slug?.rent_duration.toString()

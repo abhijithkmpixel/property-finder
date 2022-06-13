@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 
-const CustonFieldEdito = () => {
+const CustonFieldEdito = ({fieldName}) => {
   const descritpion = useRef("asdsad");
   const addPara = () => {
-    var text = document.getElementById("description");
+    var text = document.getElementById(fieldName);
     var t = text.value.substr(
       text.selectionStart,
       text.selectionEnd - text.selectionStart
@@ -12,7 +12,7 @@ const CustonFieldEdito = () => {
     text.value = text.value.replace(t.toString(), newt.toString());
   };
   const addBold = () => {
-    var text = document.getElementById("description");
+    var text = document.getElementById(fieldName);
     var t = text.value.substr(
       text.selectionStart,
       text.selectionEnd - text.selectionStart
@@ -66,7 +66,7 @@ const CustonFieldEdito = () => {
     txtarea.scrollTop = scrollPos;
   };
   const addhead = (val, e) => {
-    var text = document.getElementById("description");
+    var text = document.getElementById(fieldName);
     var t = text.value.substr(
       text.selectionStart,
       text.selectionEnd - text.selectionStart
@@ -76,7 +76,7 @@ const CustonFieldEdito = () => {
     e.target.value = "h1";
   };
   const addLi = (val, e) => {
-    var text = document.getElementById("description");
+    var text = document.getElementById(fieldName);
     var t = text.value.substr(
       text.selectionStart,
       text.selectionEnd - text.selectionStart
@@ -110,8 +110,8 @@ const CustonFieldEdito = () => {
       </div>
       <div className="text_inputarea">
         <textarea
-          name="description"
-          id="description"
+          name={fieldName}
+          id={fieldName}
           ref={descritpion}
         ></textarea>
         {/* <div dangerouslySetInnerHTML={{ __html:descritpion.current.value}}> 

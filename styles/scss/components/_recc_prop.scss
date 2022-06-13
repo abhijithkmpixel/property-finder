@@ -1,6 +1,12 @@
 .recc_prop_section {
   width: 100%;
   padding: 30px 0;
+  .title_wrp{
+    margin-bottom: 30px;
+  }
+  select{
+    max-width: max-content;
+  }
   h1{
     font-weight: 600;
     text-transform: capitalize;
@@ -10,7 +16,6 @@
   }
   h5 {
     font-size: 24px;
-    margin-bottom: 30px;
     line-height: 1;
     font-weight: 600;
     color: $color-black;

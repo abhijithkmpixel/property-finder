@@ -108,224 +108,244 @@ form.rent_or_buuy_form_wrp {
       button{
         font-size: 14px;
       }
-      .search_place {
-        display: flex;
-        border-radius: 5px;
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #aaa;
-        margin: 0 5px;
-        input{
-          display: block !important;
-          &:focus{
-            &+.list_drop{
-              display: block !important;
-            }
-          }
-        }
-        .field_dropdown{
-          border: none;
-          min-width: calc(100% - 35px);
-          padding: 0;
-          // &:focus-within{
-          //   .list_drop{
-          //     display: block !important;
-          //   }
-          // }
-          span{
-            display: block;
-            width: 100%;
-          }
-        }
-        .list_drop{
+    }
+    .more_filter_opt{
+      margin: 10px -5px 10px;
+      // margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+
+    }
+    .show_nore{
+      // margin-left: auto;
+      display: block;
+      width: max-content;
+    }
+    .search_place {
+      display: flex;
+      border-radius: 5px;
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #aaa;
+      margin: 0 5px;
+      input{
+        display: block !important;
+        // &:focus{
+        //   &+.list_drop{
+        //     display: block !important;
+        //   }
+        // }
+      }
+      .field_dropdown{
+        border: none;
+        min-width: calc(100% - 35px);
+        padding: 0;
+        // &:focus-within{
+        //   .list_drop{
+        //     display: block !important;
+        //   }
+        // }
+        span{
+          display: block;
           width: 100%;
-          li{
-            display: flex;
-            align-items: flex-start;
-            line-height: 15px;
-            img{
-              width: 15px;
-              height: 20px;
-              object-fit: contain;
-              margin-right: 8px;
-            }
-          }
-        }
-        input {
-          flex: 1;
-          font-size: 14px;
-          line-height: 1;
-          font-weight: 400;
-          color: $color-black;
-       
-        }
-        .search_icon {
-          width: 15px;
-          height: 18px;
-          margin-right: 10px;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          }
-        }
-        .search_dropdown {
-          display: none;
         }
       }
-      .field_dropdown {
-        display: flex;
-        border-radius: 5px;
-        margin: 0 5px;
-        align-items: center;
-        flex: 1;
-        justify-content: space-between;
-        position: relative;
-        cursor: pointer;
-        max-width: max-content;
-        padding-right: 10px;
-        border: 1px solid #aaa;
-        .mh-300 {
-          max-height: 200px;
-          overflow-y: auto;
+      .list_drop{
+        width: 100%;
+        li{
+          display: flex;
+          align-items: flex-start;
+          line-height: 15px;
+          img{
+            width: 15px;
+            height: 20px;
+            object-fit: contain;
+            margin-right: 8px;
+          }
         }
-        span ,select,input{
-          padding:3px  10px;
+      }
+      input {
+        flex: 1;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 400;
+        color: $color-black;
+     
+      }
+      .search_icon {
+        width: 15px;
+        height: 18px;
+        margin-right: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .search_dropdown {
+        display: none;
+      }
+    }
+    .field_dropdown {
+      display: flex;
+      border-radius: 5px;
+      margin: 0 5px;
+      align-items: center;
+      flex: 1;
+      justify-content: space-between;
+      position: relative;
+      cursor: pointer;
+      max-width: max-content;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid #aaa;
+      .btn{
+        color: #fff;
+      }
+      .mh-300 {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      span ,select,input{
+        padding:3px  10px;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 400;
+        color: $color-black;
+        // max-width: 10ch;
+        // display: block;
+        overflow: hidden;
+      }
+      select{
+        background-color: transparent;
+        // appearance: ;
+        // padding: 10px;
+        option{
+          padding: 10px;
+        }
+      }
+      .drp_icon {
+        width: 12px;
+        height: 12px;
+        margin-left: 5px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      input {
+        display: none;
+      }
+      .list_drop {
+        position: absolute;
+        top: calc(100% + 10px);
+        box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        min-width: 200px;
+        max-height: 300px;
+        overflow-y: auto;
+        background-color: $color-white;
+        display: none;
+        li {
+          cursor: pointer;
           font-size: 14px;
-          line-height: 1;
+          line-height: 17px;
+          margin-bottom: 5px;
           font-weight: 400;
           color: $color-black;
-        }
-        select{
-          background-color: transparent;
-          // appearance: ;
-          // padding: 10px;
-          option{
-            padding: 10px;
+          padding: 5px 10px;
+          transition: 0.1s all ease-in-out;
+          &:hover {
+            background-color: #ccc;
           }
         }
-        .drp_icon {
-          width: 12px;
-          height: 12px;
-          margin-left: 5px;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          }
-        }
-        input {
-          display: none;
-        }
+      }
+      &.open {
         .list_drop {
+          display: block;
+        }
+      }
+      &.input_box_drpdwn {
+        .drop_box {
+          display: none;
           position: absolute;
           top: calc(100% + 10px);
           box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
-          left: 50%;
-          transform: translateX(-50%);
+          right: 0%;
           z-index: 1;
+          border-radius: 10px;
           min-width: 200px;
-          max-height: 300px;
-          overflow-y: auto;
           background-color: $color-white;
           display: none;
-          li {
-            cursor: pointer;
+          padding: 15px;
+          h5{
             font-size: 14px;
-            line-height: 17px;
-            margin-bottom: 5px;
-            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 10px;
+            font-weight: 700;
             color: $color-black;
-            padding: 5px 10px;
-            transition: 0.1s all ease-in-out;
-            &:hover {
-              background-color: #ccc;
-            }
           }
-        }
-        &.open {
-          .list_drop {
-            display: block;
-          }
-        }
-        &.input_box_drpdwn {
-          .drop_box {
-            display: none;
-            position: absolute;
-            top: calc(100% + 10px);
-            box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
-            right: 0%;
-            z-index: 1;
-            border-radius: 10px;
-            min-width: 200px;
-            background-color: $color-white;
-            display: none;
-            padding: 15px;
-            h5{
-              font-size: 14px;
-              line-height: 1;
-              margin-bottom: 10px;
-              font-weight: 700;
-              color: $color-black;
-            }
-            .row_field{
-              display: flex;
-              margin: 0 -5px;
-              .input_fields{
-                padding: 10px;
-                border-radius: 10px;
-                margin: 0 5px;
-                border: 1px solid #ccc;
-                label{
-                  font-size: 12px;
-                  font-weight: 400;
-                  line-height: 1;
-                  color: #000;
-                  display: block;
-                }
-                input{
-                  display: flex;
-                  flex: 1;
-                  font-size: 15px;
-                  font-weight: 400;
-                  line-height: 1;
-                  color: #000;
-                }
+          .row_field{
+            display: flex;
+            margin: 0 -5px;
+            .input_fields{
+              padding: 10px;
+              border-radius: 10px;
+              margin: 0 5px;
+              border: 1px solid #ccc;
+              label{
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1;
+                color: #000;
+                display: block;
               }
-              .options{
+              input{
                 display: flex;
-                fieldset{
-                  label{
-                    padding: 10px;
-                    cursor: pointer;
-                    font-size: 14px;
-                    line-height: 1;
-                    font-weight: 400;
-                    border-radius: 5px;
-                    color: $color-black;
-                    background-color: #eee;
-                    display: block;
-                    margin-right: 5px;
-                    border: 1px solid #eee;
-                  }
-                  input[type='radio']{
-                    display: none;
-                    &:checked{
-                      &+label{
-                        border: #007ea8 1px solid;
-                        background-color: #e8f4f6;
-                      }
+                flex: 1;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 1;
+                color: #000;
+              }
+            }
+            .options{
+              display: flex;
+              fieldset{
+                label{
+                  padding: 10px;
+                  cursor: pointer;
+                  font-size: 14px;
+                  line-height: 1;
+                  font-weight: 400;
+                  border-radius: 5px;
+                  color: $color-black;
+                  background-color: #eee;
+                  display: block;
+                  margin-right: 5px;
+                  border: 1px solid #eee;
+                }
+                input[type='radio']{
+                  display: none;
+                  &:checked{
+                    &+label{
+                      border: #007ea8 1px solid;
+                      background-color: #e8f4f6;
                     }
                   }
                 }
               }
-              
             }
+            
           }
-          &.open {
-            .drop_box {
-              display: block;
-            }
+        }
+        &.open {
+          .drop_box {
+            display: block;
           }
         }
       }

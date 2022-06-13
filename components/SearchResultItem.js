@@ -18,9 +18,8 @@ const SearchResultItem = ({property}) => {
           <div className="card_footer">
             <span>{property?.propertyType}</span>
             <span>{property?.propertySize} Sq.ft.</span>
-
-            <span> {property?.bedroom} Bed</span>
-            <span> {property?.bathroom} Bath</span>
+            <span> {property?.bedroom !== '0' &&     property?.bedroom + ' Bed'} </span>
+            <span> { property?.bathroom !== '0' && property?.bathroom + ' Bath'} </span>
             {/* <span className="price">{property?.price} AED</span> */}
           </div>
           <h6>{property.location}</h6>

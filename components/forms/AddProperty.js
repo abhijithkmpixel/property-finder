@@ -117,7 +117,7 @@ const AddProperty = ({ agents }) => {
         </fieldset>
         <fieldset>
           <label htmlFor="description">Description</label>
-        <CustonFieldEdito />
+        <CustonFieldEdito fieldName={'description'}/>
           
         </fieldset>
         <fieldset>

@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import Link from "next/link";
 import RecommendedProp from "../../components/RecommendedProp";
 const index = ({ agent, count }) => {
-  useEffect(() => {
-    // console.log(count);
-
-    return () => {};
-  }, []);
-
+ 
   return (
     <div>
       <HeadTag title={agent.name} meta={`${agent.position}`} />
@@ -56,9 +51,11 @@ const index = ({ agent, count }) => {
                   </div>
                 </div>
               </div>
+              <p>{agent?.about_me && agent.about_me}</p>
             </div>
           </div>
-          <RecommendedProp title={'Listed properties'} list={count} />
+          <RecommendedProp title={"My properties"} list={count} filter={true}/>
+
         </div>
       </section>
     </div>

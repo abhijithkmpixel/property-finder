@@ -1,16 +1,9 @@
-import { async } from "@firebase/util";
-import { Alert } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore/lite";
 import React,{useEffect} from "react";
 import { db } from "../../pages/api/firebase";
+import CustonFieldEdito from "./CustonFieldEdito";
 const AddAgent = () => {
-  //  useEffect(async() => {
- 
-  
-  //   return () => {
-      
-  //   }
-  // }, [])
+
   
   const addProp = async (e)=>{
     e.preventDefault()
@@ -29,12 +22,8 @@ const AddAgent = () => {
       },
       languages: e.target.language.value,
       info_slug: e.target.name.value.replace(' ','-'),
-      // location: e.target.location.value,
-      // description: e.target.description.value,
-      // period: e.target.servicePeriod.value,
-      // bedroom: e.target.bedroom.value,
-      // bathroom: e.target.bathroom.value,
-      // propertyType: e.target.propertyType.value,
+      about_me: e.target.about_me.value,
+
 
     });
     e.target.reset();
@@ -82,7 +71,11 @@ const AddAgent = () => {
         <input type="text" name="language" id="language" required/>
       </fieldset>
 
-    
+      <fieldset>
+          <label htmlFor="about_me">About me</label>
+        <CustonFieldEdito fieldName={'about_me'}/>
+          
+        </fieldset>
       <input
         type="submit"
         className="btn btn-primary btn-xl"
