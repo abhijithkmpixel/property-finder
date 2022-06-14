@@ -78,10 +78,10 @@ const Header = () => {
                   <img src="/chevron-down.svg" alt="arrow down" />
                 </h5>
                 <ul className="sub_dropdown">
-                  <li>
-                    {userData ? (
-                     <>
-                     <div className="user_console">
+                  {/* <li> */}
+                  {userData ? (
+                    <>
+                      <div className="user_console">
                         <img
                           src={userData?.photoURL}
                           alt={userData?.displayName}
@@ -91,39 +91,18 @@ const Header = () => {
                           <p>{userData?.email}</p>
                         </div>
                       </div>
-                          <button className="btn btn-danger w-100" onClick={logout}>
-                            Logout
-                          </button>
-                          </> 
-                    ) : (
-                      <button
-                        onClick={signinwithgoogle}
-                        className="btn btn-danger"
-                      >
-                        Signin with google
-                      </button>
-                    )}
-                  </li>
-                  {/* <li>
-                    <Link href="/">Building reviews</Link>
+                    </>
+                  ) : null}
+                  {/* </li> */}
+                  <li>
+                    <Link href="rentersguide/">Renter's guide </Link>
                   </li>
                   <li>
-                    <Link href="/">Community Guides </Link>
+                    <Link href="/buyersguide">Buyer's guide </Link>
                   </li>
-                  <li>
-                    <Link href="/">Property Blog </Link>
-                  </li>
-                  <li>
-                    <Link href="/">Renter's guide </Link>
-                  </li>
-                  <li>
-                    <Link href="/">Buyer's guide </Link>
-                  </li>
-                  <li>
-                    <Link href="/">Mortgages </Link>
-                  </li> */}
+
                   {/* additional links */}
-                  {userData && (
+                  {(userData || true) && (
                     <>
                       <li>
                         <Link href="/add-property">Add property </Link>
@@ -132,6 +111,21 @@ const Header = () => {
                         <Link href="/add-agent">Add agent </Link>
                       </li>
                     </>
+                  )}
+                  {userData ? (
+                    <button
+                      className="btn btn-danger w-100 btn-lg"
+                      onClick={logout}
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <button
+                      onClick={signinwithgoogle}
+                      className="btn btn-danger btn-lg w-100"
+                    >
+                      Sign in with google
+                    </button>
                   )}
                 </ul>
               </li>

@@ -33,7 +33,7 @@ const Paginate = ({ itemsPerPage, pageCount, items, setItemOffset }) => {
         onPageChange={handlePageClick}
         pageRangeDisplayed={1}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< prev"
         // renderOnZeroPageCount={null}
         containerClassName="pagination pagination-lg "
         pageClassName="page-item"

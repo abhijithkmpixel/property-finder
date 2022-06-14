@@ -31,18 +31,42 @@ header {
           .sub_dropdown {
             min-width: max-content;
             position: absolute;
-            padding: 5px 24px;
             top: calc(100%);
             z-index: 100;
             left: 50%;
             transform: translateX(-50%);
             background-color: $color-white;
-            box-shadow: 0 0 10px 1px rgba($color: #aaa, $alpha: 0.7);
+            box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
             opacity: 0;
             visibility: hidden;
             transition: 0.3s all ease-in-out;
             pointer-events: none;
+            .user_console{
+              display: flex;
+              padding: 5px 24px;
+              align-items: flex-start;
+              .user_data{
+                span{
+                  display: block;
+                  font-size: 14px;
+                  text-decoration: none;
+                  font-weight: 400;
+                  color: $color-black;
+                }
+                p{
+                  font-size: 9px;
+                }
+              }
+              img{
+                object-fit: cover;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                margin-right: 5px;
+              }
+            }
             & > li {
+              padding: 5px 24px;
               a,span {
                 display: block;
                 font-size: 14px;
@@ -51,24 +75,11 @@ header {
                 font-weight: 400;
                 color: $color-black;
               }
-              .user_console{
-                display: flex;
-                align-items: flex-start;
-                .user_data{
-                  span{
-                    margin: 00;
-                    padding: 0;
-                  }
-                  p{
-                    font-size: 6px;
-                  }
-                }
-                img{
-                  object-fit: cover;
-                  width: 35px;
-                  height: 35px;
-                  border-radius: 50%;
-                  margin-right: 5px;
+              &:hover{
+                background-color: #f7f5f5;
+                a,span{
+
+                  color: #ef5e4e;
                 }
               }
             }

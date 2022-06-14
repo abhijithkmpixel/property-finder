@@ -5,7 +5,7 @@ const SearchResultItem = ({property}) => {
   return (
     <Link href={`/details/` + property?.slug} as={`/details/` + property?.slug}>
     <a >
-      <div className="prop_search_result_card">
+      <div className="prop_search_result_card border p-2">
         <div className="prop_img">
           <img src={property?.images} alt="proprty image" />
           {/* <div className="builder_logo">

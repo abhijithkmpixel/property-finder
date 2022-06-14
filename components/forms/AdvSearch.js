@@ -11,6 +11,9 @@ const AdvSearch = ({ locs }) => {
   const [moreFilter, setmoreFilter] = useState(false);
   const [minarea, setminarea] = useState();
   const [maxarea, setmaxarea] = useState();
+  const [min_price, setmin_price] = useState();
+  const [max_price, setmax_price] = useState();
+
   useEffect(() => {
     setfilterSerch(locs);
 
@@ -18,7 +21,7 @@ const AdvSearch = ({ locs }) => {
   }, []);
 
   const updateField = (e, value) => {
-    e.stopPropagation()
+    e.stopPropagation();
     e.target.closest(".field_dropdown").querySelector("span").innerText = value;
     e.target.closest(".field_dropdown").querySelector("input").value = value;
   };
@@ -30,13 +33,19 @@ const AdvSearch = ({ locs }) => {
     );
   };
 
-  function resetForm(){
-    document.getElementById('bedroom').selectedIndex = 0; 
-    document.getElementById('bathroom').selectedIndex = 0; 
-    document.getElementById('type').selectedIndex = 0; 
-    document.getElementById('property_type').selectedIndex = 0; 
-    document.getElementById('location').value = ''; 
-
+  function resetForm() {
+    document.getElementById("bedroom").selectedIndex = 0;
+    document.getElementById("bathroom").selectedIndex = 0;
+    document.getElementById("type").selectedIndex = 0;
+    document.getElementById("property_type").selectedIndex = 0;
+    document.getElementById("location").value = "";
+    setmax_price("");
+    setmin_price("");
+    setminarea("");
+    setmaxarea("");
+    setsearchPlace(false);
+    setprice(false);
+    setpropSize(false);
   }
 
   return (
@@ -74,16 +83,9 @@ const AdvSearch = ({ locs }) => {
         <div className="form_row">
           <div
             className="search_place"
-            onClick={(e) => {
-              setsearchPlace(  true);
-              setpropSize(false);
-              setprice(false);
-              e.target.querySelector("input").focus();
-            }}
-            onBlur={()=>{
-              // setsearchPlace( false);
-
-            }}
+            //  onBlurCapture={()=>{
+            //   setsearchPlace(false);
+            //  }}
           >
             <div className="search_icon">
               <img src="/search.svg" alt="search icon" />
@@ -97,8 +99,15 @@ const AdvSearch = ({ locs }) => {
                 placeholder="Search place"
                 onChange={(e) => chengeFilter(e)}
                 autoComplete="off"
+                onClick={(e) => {
+                  setsearchPlace(true);
+                  setpropSize(false);
+                  setprice(false);
+                }}
               />
               {valueEmpty ? (
+                <div className="dropdown_wrap">
+
                 <ul className="list_drop">
                   {locs?.map((l, index) => {
                     return (
@@ -116,28 +125,42 @@ const AdvSearch = ({ locs }) => {
                     );
                   })}
                 </ul>
+                <button type="button" onClick={()=>setsearchPlace(false)} className="close btn btn-danger btn-lg w-100">Close</button>
+
+                </div>
               ) : (
-                <ul className="list_drop">
-                  {filterSerch?.map((l, index) => {
-                    return (
-                      <li
-                        key={index}
-                        data-value={l}
-                        onClick={(e) => {
-                          updateField(e, e.target.getAttribute("data-value"));
-                          setsearchPlace(false);
-                        }}
-                      >
-                        <img src="/geo-alt.svg" alt="location icon" />
-                        {l}
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div className="dropdown_wrap">
+                  <ul className="list_drop">
+                    {filterSerch?.map((l, index) => {
+                      return (
+                        <li
+                          key={index}
+                          data-value={l}
+                          onClick={(e) => {
+                            updateField(e, e.target.getAttribute("data-value"));
+                            setsearchPlace(false);
+                          }}
+                        >
+                          <img src="/geo-alt.svg" alt="location icon" />
+                          {l}
+                        </li>
+                      );
+                    })}
+                    <span className="noresults">no results</span>
+                  </ul>
+                  <button type="button" onClick={()=>setsearchPlace(false)} className="close btn btn-danger btn-lg w-100">Close</button>
+                </div>
               )}
             </div>
           </div>
-          <div className={`field_dropdown  `}>
+          <div
+            className={`field_dropdown  `}
+            onClick={() => {
+              setsearchPlace(false);
+              setpropSize(false);
+              setprice(false);
+            }}
+          >
             <select name="type" id="type">
               <option value="all">Select service</option>
               <option value="sale">Sale</option>
@@ -146,7 +169,14 @@ const AdvSearch = ({ locs }) => {
               <option value="commercial-rent">commercial rent</option>
             </select>
           </div>
-          <div className={`field_dropdown `}>
+          <div
+            className={`field_dropdown `}
+            onClick={() => {
+              setsearchPlace(false);
+              setpropSize(false);
+              setprice(false);
+            }}
+          >
             <select name="property_type" id="property_type">
               <option value="" selected disabled>
                 Property type
@@ -166,24 +196,25 @@ const AdvSearch = ({ locs }) => {
               <option value="factory">factory</option>
             </select>
           </div>
-      
+
           <button type="submit" className="btn btn-danger">
             Find property
           </button>
         </div>
         <div className={`more_filter_opt ${moreFilter ? "" : "hidden"}`}>
-        <div
+          <div
             className={`field_dropdown input_box_drpdwn ${
               propSize ? "open" : ""
             } `}
             onClick={() => {
               setpropSize(true);
               setprice(false);
+              setsearchPlace(false);
             }}
           >
             <span>
-              {minarea ? "from " + minarea + "sq.ft. " : "Area Sq.Ft."}
-              {maxarea && "to " + maxarea + "sq.ft."}
+              {minarea ? "from " + minarea + " sq.ft. " : "Area Sq.Ft."}
+              {maxarea && "to " + maxarea + " sq.ft."}
             </span>
             <div className="drp_icon">
               <img src="/chevron-down.svg" alt="arrow" />
@@ -197,6 +228,7 @@ const AdvSearch = ({ locs }) => {
                     name="min_area"
                     id="min_area"
                     onChange={(e) => setminarea(e.target.value)}
+                    value={minarea}
                   />
                 </div>
                 <div className="input_fields">
@@ -206,6 +238,7 @@ const AdvSearch = ({ locs }) => {
                     name="max_area"
                     id="max_area"
                     onChange={(e) => setmaxarea(e.target.value)}
+                    value={maxarea}
                   />
                 </div>
               </div>
@@ -232,15 +265,18 @@ const AdvSearch = ({ locs }) => {
               </span>
             </div>
           </div>
-
           <div
             className={`field_dropdown input_box_drpdwn ${price ? "open" : ""}`}
             onClick={() => {
               setprice(true);
               setpropSize(false);
+              setsearchPlace(false);
             }}
           >
-            <span>Price</span>
+            <span>
+              {min_price ? `from ${min_price} AED ` : "Price "}
+              {max_price && `upto ${max_price} AED`}
+            </span>
             <div className="drp_icon">
               <img src="/chevron-down.svg" alt="arrow" />
             </div>
@@ -248,11 +284,23 @@ const AdvSearch = ({ locs }) => {
               <div className="row_field">
                 <div className="input_fields">
                   <label htmlFor="min_rent">Min rent (AED)</label>
-                  <input type="text" name="min_rent" id="min_rent" />
+                  <input
+                    type="text"
+                    name="min_rent"
+                    id="min_rent"
+                    onChange={(e) => setmin_price(e.target.value)}
+                    value={min_price}
+                  />
                 </div>
                 <div className="input_fields">
                   <label htmlFor="max_rent">Max rent (AED)</label>
-                  <input type="text" name="max_rent" id="max_rent" />
+                  <input
+                    type="text"
+                    name="max_rent"
+                    id="max_rent"
+                    onChange={(e) => setmax_price(e.target.value)}
+                    value={max_price}
+                  />
                 </div>
               </div>
               <h5>Rental period</h5>
@@ -286,6 +334,8 @@ const AdvSearch = ({ locs }) => {
                   document.getElementById("yearly").checked = false;
                   document.getElementById("monthly").checked = false;
                   // setmaxarea('');
+                  setmin_price("");
+                  setmax_price("");
                 }}
               >
                 Reset
@@ -301,50 +351,67 @@ const AdvSearch = ({ locs }) => {
               </span>
             </div>
           </div>
-          <div className={`field_dropdown `}>
+          <div
+            className={`field_dropdown `}
+            onClick={() => {
+              setsearchPlace(false);
+              setpropSize(false);
+              setprice(false);
+            }}
+          >
             <select name="bedroom" id="bedroom">
               <option value="" selected>
                 Bedroom
               </option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
+              <option value="1">1 beds</option>
+              <option value="2">2 beds</option>
+              <option value="3">3 beds</option>
+              <option value="4">4 beds</option>
+              <option value="5">5 beds</option>
+              <option value="6">6 beds</option>
+              <option value="7">7 beds</option>
               <option value=">7">More than 7</option>
             </select>
           </div>
-          <div className={`field_dropdown `}>
+          <div
+            className={`field_dropdown `}
+            onClick={() => {
+              setsearchPlace(false);
+              setpropSize(false);
+              setprice(false);
+            }}
+          >
             <select name="bathroom" id="bathroom">
               <option value="" selected>
                 Bathroom
               </option>
               <input type="text" />
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
+              <option value="1">1 baths</option>
+              <option value="2">2 baths</option>
+              <option value="3">3 baths</option>
+              <option value="4">4 baths</option>
+              <option value="5">5 baths</option>
+              <option value="6">6 baths</option>
+              <option value="7">7 baths</option>
               <option value=">7">More than 7</option>
             </select>
           </div>
         </div>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end  mt-2">
           <span
-            className="btn btn-outline-danger show_nore mt-2"
+            onClick={(e) => {
+              resetForm();
+            }}
+            className="btn btn-outline-danger "
+          >
+            Reset
+          </span>
+          <span
+            className="btn btn-outline-danger show_nore"
             onClick={() => setmoreFilter(moreFilter == true ? false : true)}
           >
             Show more filter
           </span>
-          <span onClick={(e)=>{
-            resetForm()
-            
-          }}
-           className='btn btn-warning'>reset</span>
         </div>
       </fieldset>
     </form>

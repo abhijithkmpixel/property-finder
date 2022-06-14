@@ -13,7 +13,7 @@ h1,h2,h3,h4,h5,h6{
   margin: 0;
 }
 .container{
-  max-width:1030px !important;
+  max-width:1175px !important;
   margin: auto;
   padding: 0 15px;
 }
@@ -30,6 +30,10 @@ $color-black:#000;
   border: none !important;
   outline: none !important;
 
+ }
+ img{
+  width: 100%;
+  height: 100%;
  }
  .page_loader_outer{
    position: fixed;
@@ -48,4 +52,7 @@ $color-black:#000;
      height: 50px;
      object-fit: contain;
    }
+ }
+ a:focus{
+  box-shadow: none !important;
  }

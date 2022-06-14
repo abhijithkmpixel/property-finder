@@ -9,27 +9,25 @@ import SearchResultItem from "../../components/SearchResultItem";
 import HeadTag from "../../components/Head";
 import AdvSearch from "../../components/forms/AdvSearch";
 import Paginate from "../../components/Paginate";
+import { motion } from "framer-motion";
+// import Editor from "../../components/forms/Editor";
 
 const index = ({ props, type, locs }) => {
-  const slug = useRouter();
   // const [propertys, setpropertys] = useState(null);
   const [currentItems, setCurrentItems] = useState();
   const [pageCount, setPageCount] = useState(1);
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
-  const [itemsPerPage, setitemsPerPage] = useState(8)
+  const [itemsPerPage, setitemsPerPage] = useState(8);
   const [itemOffset, setItemOffset] = useState(0);
 
-useEffect(() => {
-  // Fetch items from another resources.
-  const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  setCurrentItems(props.slice(itemOffset, endOffset));
-  setPageCount(Math.ceil(props.length / itemsPerPage));
-
-}, [itemOffset, itemsPerPage,props]);
-
-
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(props.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(props.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, props]);
 
   return (
     <div>
@@ -42,21 +40,31 @@ useEffect(() => {
       <section className="mt-5 mb-5">
         <div className="container">
           <AdvSearch locs={locs} />
+          {/* <Editor /> */}
         </div>
       </section>
       <section className="recc_prop_section">
         <div className="container">
           <div className="inner_wrap">
-            <h1 className="mb-4">
-              {type == "all"
-                ? "All properties"
-                : `Properties for ${type.replace("-", " ")}`}{" "}
-            </h1>
+            <div className="title_wrp d-flex justify-content-between w-100 align-items-center">
+              <h1 className="mb-4">
+                {type == "all"
+                  ? "All properties"
+                  : `Properties for ${type.replace("-", " ")}`}
+              </h1>
+              <b className="text-lg-start fs-4 m-3">
+                {" "}
+                {`(total ${props.length})`}{" "}
+              </b>
+            </div>
             {props && props.length !== 0 && (
               <div className="row">
                 {currentItems?.map((prop) => {
                   return (
-                    <div className="col-8" key={prop?.id}>
+                    <div
+                      className="col-8"
+                      key={prop?.id}
+                    >
                       <SearchResultItem property={prop} />
                     </div>
                   );
@@ -64,8 +72,13 @@ useEffect(() => {
               </div>
             )}
           </div>
-          <Paginate  itemsPerPage={itemsPerPage} pageCount={pageCount} items={props} setItemOffset={setItemOffset}/>
-          {props.length == 0 && <h1>No results found</h1>}
+       
+          {props.length == 0 ? <h1>No results found</h1>:    <Paginate
+            itemsPerPage={itemsPerPage}
+            pageCount={pageCount}
+            items={props}
+            setItemOffset={setItemOffset}
+          />}
         </div>
       </section>
     </div>

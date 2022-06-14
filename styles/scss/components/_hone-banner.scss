@@ -102,6 +102,11 @@ form.rent_or_buuy_form_wrp {
     }
   }
   fieldset {
+    
+     span.btn{
+      margin: 0 5px;
+      display: inline-block;
+    }
     .form_row {
       display: flex;
       margin: 0 -5px;
@@ -114,7 +119,6 @@ form.rent_or_buuy_form_wrp {
       // margin-bottom: 10px;
       display: flex;
       justify-content: flex-end;
-
     }
     .show_nore{
       // margin-left: auto;
@@ -238,7 +242,9 @@ form.rent_or_buuy_form_wrp {
       input {
         display: none;
       }
-      .list_drop {
+      .dropdown_wrap{
+        max-height: 300px;
+
         position: absolute;
         top: calc(100% + 10px);
         box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
@@ -246,10 +252,24 @@ form.rent_or_buuy_form_wrp {
         transform: translateX(-50%);
         z-index: 1;
         min-width: 200px;
-        max-height: 300px;
-        overflow-y: auto;
+        width: 100%;
         background-color: $color-white;
         display: none;
+        button{
+
+        }
+      }
+      .list_drop {
+        // flex: 1 1;
+        height: 100%;
+        overflow-y: auto;
+        max-height: calc(300px - 45px);
+        .noresults{
+          display: none;
+          &:only-child{
+            display: block;
+          }
+        }
         li {
           cursor: pointer;
           font-size: 14px;
@@ -265,7 +285,7 @@ form.rent_or_buuy_form_wrp {
         }
       }
       &.open {
-        .list_drop {
+        .dropdown_wrap {
           display: block;
         }
       }
