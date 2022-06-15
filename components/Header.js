@@ -67,7 +67,7 @@ const Header = () => {
                 <Link href="/search?type=commercial-rent">Commercial</Link>
               </li>
               {/* <li>
-                <Link href="/">New projects</Link>
+                <Link href="/Editor">New projects</Link>
               </li> */}
               <li>
                 <Link href="/agents">Find agent</Link>

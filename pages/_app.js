@@ -5,23 +5,26 @@ import "nprogress/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { useEffect } from "react";
-NProgress.configure({showSpinner:false})
+import { SessionProvider } from "next-auth/react";
+NProgress.configure({ showSpinner: false });
+
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-  
-    Router.events.on("routeChangeStart", ()=> NProgress.start());
-    Router.events.on("routeChangeComplete", ()=>NProgress.done());
-    Router.events.on("routeChangeError", ()=>NProgress.done());
+    Router.events.on("routeChangeStart", () => NProgress.start());
+    Router.events.on("routeChangeComplete", () => NProgress.done());
+    Router.events.on("routeChangeError", () => NProgress.done());
     return () => {
-      Router.events.off("routeChangeStart", ()=> NProgress.start());
-      Router.events.off("routeChangeComplete", ()=>NProgress.done());
-      Router.events.off("routeChangeError", ()=>NProgress.done());
-    }
-  }, [])
-  
+      Router.events.off("routeChangeStart", () => NProgress.start());
+      Router.events.off("routeChangeComplete", () => NProgress.done());
+      Router.events.off("routeChangeError", () => NProgress.done());
+    };
+  }, []);
 
-
-  return <Component {...pageProps} />;
+  return (
+    <SessionProvider session={pageProps.session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
 }
 
 export default MyApp;

@@ -19,7 +19,7 @@ export default function Home({propList,agents , locs}) {
 }
 
 export async function getServerSideProps(context){
-const data = await fetch(`http://` + context.req.headers.host +'/api/all')
+const data = await fetch(`http://` + context.req.headers.host +'/api/recommended')
 .then(res =>res.json())
 .then(json=> {return json})  
 

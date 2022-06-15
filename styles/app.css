@@ -284,6 +284,12 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   border-radius: 10px;
 }
 
+@media (max-width: 570px) {
+  .home_page_banner .main_contents .search_filter_forms .form_wrapper {
+    padding: 14px;
+  }
+}
+
 .home_page_banner .main_contents .search_filter_forms .form_wrapper > nav {
   display: flex;
   margin-bottom: 15px;
@@ -350,6 +356,12 @@ form.rent_or_buuy_form_wrp fieldset .form_row {
   margin: 0 -5px;
 }
 
+@media (max-width: 990px) {
+  form.rent_or_buuy_form_wrp fieldset .form_row {
+    flex-wrap: wrap;
+  }
+}
+
 form.rent_or_buuy_form_wrp fieldset .form_row button {
   font-size: 14px;
 }
@@ -372,6 +384,13 @@ form.rent_or_buuy_form_wrp fieldset .search_place {
   padding: 10px;
   border: 1px solid #aaa;
   margin: 0 5px;
+}
+
+@media (max-width: 990px) {
+  form.rent_or_buuy_form_wrp fieldset .search_place {
+    min-width: 100%;
+    margin-bottom: 5px;
+  }
 }
 
 form.rent_or_buuy_form_wrp fieldset .search_place input {
@@ -444,6 +463,14 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown {
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px solid #aaa;
+}
+
+@media (max-width: 990px) {
+  form.rent_or_buuy_form_wrp fieldset .field_dropdown {
+    width: calc(33.33% - 10px);
+    max-width: unset;
+    min-width: unset;
+  }
 }
 
 form.rent_or_buuy_form_wrp fieldset .field_dropdown .btn {
@@ -818,7 +845,9 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   color: #000;
 }
 
-.add_prop_form fieldset input, .add_prop_form fieldset select, .add_prop_form fieldset textarea {
+.add_prop_form fieldset input,
+.add_prop_form fieldset select,
+.add_prop_form fieldset textarea {
   display: block;
   flex: 1;
   font-size: 15px;
@@ -830,6 +859,39 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 
 .add_prop_form fieldset textarea {
   height: 60px;
+}
+
+.sticky_list_select {
+  width: 100%;
+  height: 400%;
+  background-color: #fff;
+}
+
+.sticky_list_select ul {
+  overflow: auto;
+  display: flex;
+}
+
+.sticky_list_select ul li {
+  width: 300px;
+  height: auto;
+  flex: 0 auto;
+  min-width: 300px;
+  margin-bottom: 15px;
+}
+
+.sticky_list_select ul li:hover .card {
+  background-color: #ddd;
+}
+
+.sticky_list_select ul li .card {
+  width: 100%;
+  color: #000;
+  cursor: pointer;
+}
+
+.sticky_list_select ul li .card img {
+  object-fit: cover;
 }
 
 .section_prop_details {

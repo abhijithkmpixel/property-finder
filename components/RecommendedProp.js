@@ -27,7 +27,7 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
         setfiltered(list?.filter((p) => p.serviceType == "commercial-rent"));
         break;
     }
-    console.log(filtered);
+    // console.log(filtered);
   };
   return (
     <section className="recc_prop_section">

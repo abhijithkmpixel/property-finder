@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import CKEditor from "react-ckeditor-component";
 
 const EditorDiv = () => {
-  const [state, setstate] = useState()
-  useEffect(() => {
+  const [editorState, setEditorState] = useState(null);
+  const onEditorChange = (evt) => {
+    const newContent = evt.editor.getData();
     
-  console.log(JSON.stringify(state?._immutable.currentContent,null,4));
-    return () => {
-      
-    }
-  }, [])
-  
+    setEditorState(newContent);
+  };
+
   return (
     <div id="editorjs">
-      <Editor
-        editorState={state}
-        wrapperClassName="demo-wrapper"
-        editorClassName="demo-editor"
-        onEditorStateChange={setstate}
+      <CKEditor
+        activeClass="p10"
+        content={editorState}
+        events={{
+          // 'blur': this.onBlur.bind(this),
+          // 'afterPaste': this.afterPaste.bind(this),
+          change: onEditorChange,
+        }}
       />
+
+
     </div>
   );
 };

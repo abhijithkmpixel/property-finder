@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EditorDiv from "../../components/forms/Editor";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import GuidesBody from "../../components/static page components/GuidesBody";
@@ -6,7 +7,7 @@ import StaticBanner from "../../components/static page components/StaticBanner";
 import { db } from "../api/firebase";
 const index = ({data}) => {
   useEffect(() => {
-console.log(data);
+// console.log(data);
     return () => {};
   }, [data]);
 
@@ -15,6 +16,7 @@ console.log(data);
       <HeadTag title="Renter's Guide" meta="a guide for fellow renters" />
       <Header />
       <StaticBanner banner={data?.banner} />
+      <EditorDiv />
       <GuidesBody body={data?.body_copy}/>
     </>
   );

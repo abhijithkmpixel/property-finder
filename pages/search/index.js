@@ -23,6 +23,7 @@ const index = ({ props, type, locs }) => {
 
   useEffect(() => {
     // Fetch items from another resources.
+    // console.log('load');
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(props.slice(itemOffset, endOffset));
