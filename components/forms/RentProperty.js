@@ -32,7 +32,7 @@ const RentProperty = ({ locs }) => {
       onSubmit={(e) => {
         e.preventDefault();
         router.push(
-          `/search?type=${e.target.type.value}&` +
+          `/search?type=${e.target.type.value  ? e.target.type.value:'all'}&` +
             (e.target.property_type.value &&
               `property_type=${e.target.property_type.value}&`) +
             (e.target.min_area.value &&
@@ -54,7 +54,7 @@ const RentProperty = ({ locs }) => {
         <div className="top_type">
           <div className="options">
             <fieldset>
-              <input type="radio" name="type" id="rent" value="rent" checked />
+              <input type="radio" name="type" id="rent" value="rent"  />
               <label htmlFor="rent">Rent</label>
             </fieldset>
             <fieldset>

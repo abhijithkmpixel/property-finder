@@ -125,9 +125,9 @@ const AddProperty = ({ agents, props }) => {
      <PropsListingSticky props={props} editProp={editProp} />
       <form className="add_prop_form mb-5" onSubmit={(e) => addProp(e)}>
         <h3>Add a property</h3>
-        <fieldset>
+        <fieldset className="hidden">
           <label htmlFor="title">id</label>
-          <input type="text" name="propId" id="propId" required />
+          <input type="text" name="propId" id="propId" readOnly/>
         </fieldset>
         <fieldset>
           <label htmlFor="title">Title</label>
@@ -138,6 +138,7 @@ const AddProperty = ({ agents, props }) => {
           {/* <input type="text" name="propertyType" id="propertyType" required/> */}
           <select name="propertyType" id="propertyType">
             <option value="office space">Office Space</option>
+            <option value="apartment">apartment</option>
             <option value="retail">Retail</option>
             <option value="warehouse">Warehouse</option>
             <option value="townhouse">townhouse</option>
@@ -273,6 +274,7 @@ const AddProperty = ({ agents, props }) => {
           </button>
         )}
       </form>
+      <div className="p-5"></div>
     </>
   );
 };

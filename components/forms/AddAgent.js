@@ -2,6 +2,8 @@ import { addDoc, collection } from "firebase/firestore/lite";
 import React,{useEffect} from "react";
 import { db } from "../../pages/api/firebase";
 import CustonFieldEdito from "./CustonFieldEdito";
+var slugify = require('slugify')
+
 const AddAgent = () => {
 
   
@@ -21,7 +23,14 @@ const AddAgent = () => {
 
       },
       languages: e.target.language.value,
-      info_slug: e.target.name.value.replace(' ','-'),
+      info_slug: slugify(e.target.name.value, {
+        replacement: '-',  // replace spaces with replacement character, defaults to `-`
+        remove: undefined, // remove characters that match regex, defaults to `undefined`
+        lower: true,      // convert to lower case, defaults to `false`
+        strict: false,     // strip special characters except replacement, defaults to `false`
+        locale: 'vi',       // language code of the locale to use
+        trim: true         // trim leading and trailing replacement chars, defaults to `true`
+      }) ,
       about_me: e.target.about_me.value,
 
 
