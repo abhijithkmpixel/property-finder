@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CKEditor from "react-ckeditor-component";
 
-const EditorDiv = () => {
+const EditorDiv = ({setdesc}) => {
   const [editorState, setEditorState] = useState(null);
   const onEditorChange = (evt) => {
     const newContent = evt.editor.getData();
     
     setEditorState(newContent);
+    setdesc(newContent)
     // console.log(newContent);
   };
 

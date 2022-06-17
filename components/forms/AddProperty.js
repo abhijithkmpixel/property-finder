@@ -10,6 +10,7 @@ import EditorDiv from "./Editor";
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
   const [loader, setloader] = useState(false);
+  const [desc, setdesc] = useState()
   const router = useRouter();
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
@@ -224,7 +225,7 @@ const AddProperty = ({ agents, props }) => {
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
-          {/* <EditorDiv /> */}
+          <EditorDiv setdesc={setdesc} />
         </fieldset>
         {editor ? (
           <>
