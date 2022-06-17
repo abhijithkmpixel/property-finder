@@ -18,7 +18,7 @@ const AddProperty = ({ agents, props }) => {
   useEffect(() => {
     console.log(editorState);
     return () => {};
-  }, [props]);
+  }, [editorState]);
 
   const addProp = async (e) => {
     e.preventDefault();
@@ -44,6 +44,7 @@ const AddProperty = ({ agents, props }) => {
     e.target.reset();
     alert(`Document with id ${sub.id} has been added to Database`);
     setloader(false);
+    router.push('/add-property')
   };
   function editProp(p) {
     seteditor(true);
@@ -99,6 +100,8 @@ const AddProperty = ({ agents, props }) => {
     );
     resetform();
     setloader(false);
+    router.push('/add-property')
+
     // router.push("/add-property");
   };
   function resetform() {
