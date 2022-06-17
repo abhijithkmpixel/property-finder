@@ -12,7 +12,7 @@ const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
   const [loader, setloader] = useState(false);
   const router = useRouter();
-  const [editorState, setEditorState] = useState(null);
+  const [editorState, setEditorState] = useState('<p>lorem</p>  <p>&nbsp;</p><p>capsicum</p>');
 
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
@@ -127,7 +127,6 @@ const AddProperty = ({ agents, props }) => {
     const newContent = evt.editor.getData();
     
     setEditorState(newContent);
-    setdesc(newContent)
     // console.log(newContent);
   };
   return (
