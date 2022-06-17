@@ -9,7 +9,8 @@ export   default async  function  handler (req, res) {
   const datas = datarr?.docs?.map((doc) => {
     return {
         ...doc.data(),
-        id: doc.id
+        id: doc.id,
+        timestamp:new Date(doc._document.version.timestamp.seconds * 1000)
     };
   });
   const rent = datas.filter(data =>data.serviceType == 'commercial-rent')

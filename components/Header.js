@@ -6,9 +6,12 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
 const Header = () => {
+  const { theme, updateTheme } = useLogContaxt();
+
   const [userData, setuserData] = useState();
 
   // const signinwithgoogle = (e) => {
@@ -70,6 +73,9 @@ const Header = () => {
               <li>
                 <Link href="/agents">Find agent</Link>
               </li>
+              {/* <li>
+                <Link href="/add-property">add</Link>
+              </li> */}
               <li>
                 <h5>
                   Explore
@@ -124,6 +130,11 @@ const Header = () => {
                   </ul>
                 </li>
               )}
+              <li>
+                <div className={`toggle_darktheme ${theme.dark?  'active' :''}`}  >
+                  <span onClick={updateTheme}></span>
+                </div>
+              </li>
             </ul>
           </nav>
         </div>

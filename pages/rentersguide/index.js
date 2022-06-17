@@ -26,7 +26,7 @@ export default index;
 export async function getServerSideProps(context) {
   const {req,query,params} = context;
   const data = await fetch(
-    `http://` + req.headers.host + "/api/renterguide"
+    process.env.API_DOMAIN_URL + "/api/renterguide"
   )
     .then((res) => res.json())
     .then((json) => {

@@ -67,14 +67,14 @@ export default index;
 export async function getServerSideProps(context) {
   const { req, params, query } = context;
   var agents = "";
-  await fetch(`http://` + req.headers.host + `/api/agents`)
+  await fetch(process.env.API_DOMAIN_URL + `/api/agents`)
     .then((response) => response.json())
     .then((json) => {
       agents = json;
     });
   var props = "";
 
-  await fetch(`http://` + req.headers.host + `/api/all`)
+  await fetch(process.env.API_DOMAIN_URL + `/api/all`)
     .then((response) => response.json())
     .then((json) => {
       props = json;
