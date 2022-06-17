@@ -15,11 +15,11 @@ const AddProperty = ({ agents, props }) => {
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
     
-  
+  console.log(desc);
     return () => {
       
     }
-  }, [props])
+  }, [props,desc])
   
   const addProp = async (e) => {
     e.preventDefault();
