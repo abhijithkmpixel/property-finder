@@ -6,21 +6,20 @@ import CustonFieldEdito from "./CustonFieldEdito";
 import { useRouter } from "next/router";
 import PropsListingSticky from "../PropsListingSticky";
 import EditorDiv from "./Editor";
+import CKEditor from "react-ckeditor-component";
 
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
   const [loader, setloader] = useState(false);
-  const [desc, setdesc] = useState()
   const router = useRouter();
+  const [editorState, setEditorState] = useState(null);
+
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
-    
-  console.log(desc);
-    return () => {
-      
-    }
-  }, [props])
-  
+    console.log(editorState);
+    return () => {};
+  }, [props]);
+
   const addProp = async (e) => {
     e.preventDefault();
     setloader(true);
@@ -120,16 +119,22 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("propertyType").value = "";
     document.getElementById("agent").value = "";
   }
+
+  const onEditorChange = (evt) => {
+    const newContent = evt.editor.getData();
+    
+    setEditorState(newContent);
+    setdesc(newContent)
+    // console.log(newContent);
+  };
   return (
     <>
-
-
-     <PropsListingSticky props={props} editProp={editProp} />
+      <PropsListingSticky props={props} editProp={editProp} />
       <form className="add_prop_form mb-5" onSubmit={(e) => addProp(e)}>
         <h3>Add a property</h3>
         <fieldset className="hidden">
           <label htmlFor="title">id</label>
-          <input type="text" name="propId" id="propId" readOnly/>
+          <input type="text" name="propId" id="propId" readOnly />
         </fieldset>
         <fieldset>
           <label htmlFor="title">Title</label>
@@ -225,7 +230,17 @@ const AddProperty = ({ agents, props }) => {
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
-          <EditorDiv setdesc={setdesc} />
+          <div id="editorjs">
+            <CKEditor
+              activeClass="p10"
+              content={editorState}
+              events={{
+                // 'blur': this.onBlur.bind(this),
+                // 'afterPaste': this.afterPaste.bind(this),
+                change: onEditorChange,
+              }}
+            />
+          </div>
         </fieldset>
         {editor ? (
           <>
