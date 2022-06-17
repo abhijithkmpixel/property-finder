@@ -7,7 +7,7 @@ const EditorDiv = () => {
     const newContent = evt.editor.getData();
     
     setEditorState(newContent);
-    console.log(newContent);
+    // console.log(newContent);
   };
 
   return (

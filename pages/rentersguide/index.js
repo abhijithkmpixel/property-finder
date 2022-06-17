@@ -16,7 +16,7 @@ const index = ({data}) => {
       <HeadTag title="Renter's Guide" meta="a guide for fellow renters" />
       <Header />
       <StaticBanner banner={data?.banner} />
-      <EditorDiv />
+      {/* <EditorDiv /> */}
       <GuidesBody body={data?.body_copy}/>
     </>
   );

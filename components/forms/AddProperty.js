@@ -5,6 +5,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import CustonFieldEdito from "./CustonFieldEdito";
 import { useRouter } from "next/router";
 import PropsListingSticky from "../PropsListingSticky";
+import EditorDiv from "./Editor";
 
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
@@ -205,7 +206,6 @@ const AddProperty = ({ agents, props }) => {
           <label htmlFor="images">Images</label>
           <input type="text" name="images" id="images" required />
         </fieldset>
-
         <fieldset>
           <label htmlFor="bedroom">Bedroom</label>
           <input type="text" name="bedroom" id="bedroom" required />
@@ -224,6 +224,7 @@ const AddProperty = ({ agents, props }) => {
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
+          {/* <EditorDiv /> */}
         </fieldset>
         {editor ? (
           <>
