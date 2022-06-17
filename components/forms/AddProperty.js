@@ -19,7 +19,7 @@ const AddProperty = ({ agents, props }) => {
     return () => {
       
     }
-  }, [props,desc])
+  }, [props])
   
   const addProp = async (e) => {
     e.preventDefault();
