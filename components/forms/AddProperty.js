@@ -232,7 +232,7 @@ const AddProperty = ({ agents, props }) => {
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
-          <div id="editorjs">
+          {/* <div id="editorjs">
             <CKEditor
               activeClass="p10"
               content={editorState}
@@ -242,7 +242,7 @@ const AddProperty = ({ agents, props }) => {
                 change: onEditorChange,
               }}
             />
-          </div>
+          </div> */}
         </fieldset>
         {editor ? (
           <>
