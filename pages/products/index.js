@@ -4,6 +4,7 @@ import ImageUrlBuilder from'@sanity/image-url'
 import Link from "next/link";
 // import client from './sanityClient'
 import client from "../api/auth/sanityClient";
+import Header from "../../components/Header";
 const index = ({ data }) => {
   useEffect(() => {
     console.log(data);
@@ -19,6 +20,8 @@ const index = ({ data }) => {
     return builder.image(source)
   }
   return (
+    <>
+    <Header />
     <section>
       <div className="container">
 
@@ -50,6 +53,7 @@ const index = ({ data }) => {
       </div>
       </div>
     </section>
+    </>
   );
 };
 

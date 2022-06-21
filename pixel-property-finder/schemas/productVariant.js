@@ -8,11 +8,11 @@ export default {
       name: 'title',
       type: 'string',
     },
-    {
-      title: 'Weight in grams',
-      name: 'grams',
-      type: 'number',
-    },
+    // {
+    //   title: 'Weight in grams',
+    //   name: 'grams',
+    //   type: 'number',
+    // },
     {
       title: 'Price',
       name: 'price',
@@ -41,10 +41,10 @@ export default {
         },
       ],
     },
-    {
-      title: 'Bar code',
-      name: 'barcode',
-      type: 'barcode',
-    },
+    // {
+    //   title: 'Bar code',
+    //   name: 'barcode',
+    //   type: 'barcode',
+    // },
   ],
 }

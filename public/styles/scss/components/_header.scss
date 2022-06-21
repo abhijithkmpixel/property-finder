@@ -36,6 +36,7 @@ header {
           padding: 0 15px;
           .sub_dropdown {
             min-width: max-content;
+            padding-left: 0;
             position: absolute;
             top: calc(100%);
             z-index: 100;
@@ -73,8 +74,9 @@ header {
             }
             & > li {
               padding: 5px 28px;
+              position: relative;
               a,
-              span {
+              span,h5 {
                 display: block;
                 font-size: 14px;
                 text-decoration: none;
@@ -82,11 +84,38 @@ header {
                 font-weight: 400;
                 color: $color-black;
               }
+              .inner_dropdown{
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                right: 100%;
+                top: 0;
+                min-width: max-content;
+                z-index: 1;
+                background-color: #fff;
+                transition: .2s all ease-in-out;
+                border-radius: 5px;
+            box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
+
+                padding: 5px 10px;
+                li{
+                  a{
+                    &:hover{
+                  color: #ef5e4e;
+
+                    }
+                  }
+                }
+              }
               &:hover {
                 background-color: #f7f5f5;
-                a,
+                &>a,
                 span {
                   color: #ef5e4e;
+                }
+                .inner_dropdown{
+                  opacity: 1;
+                  visibility: visible;
                 }
               }
             }

@@ -385,7 +385,6 @@ const AdvSearch = ({ locs }) => {
               <option value="" selected>
                 Bathroom
               </option>
-              <input type="text" />
               <option value="1">1 baths</option>
               <option value="2">2 baths</option>
               <option value="3">3 baths</option>

@@ -116,7 +116,15 @@ const Header = () => {
                       <Link href="/add-agent">Add agent </Link>
                     </li>
                     <li>
-                      <Link href="/Admin/Guides">Guides </Link>
+                      <h5>Guides</h5>
+                      <ul className="inner_dropdown">
+                        <li>
+                          <Link href="/admin/guides/rentguide">Renter's guide </Link>
+                        </li>
+                        <li>
+                          <Link href="/admin/guides/buyerguide">Buyer's guide </Link>
+                        </li>
+                      </ul>
                     </li>
 
                     {userData ? (

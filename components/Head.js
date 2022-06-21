@@ -12,7 +12,9 @@ const HeadTag = ({title,meta}) => {
         <meta property="description" content={meta} />
 
         <link rel="icon" type="image/x-icon" href="/logo.ico" />
-        <link rel="stylesheet" href="/styles/app.min.css" />
+        {/* <link rel="stylesheet" href="/styles/globals.css" />
+        <link rel="stylesheet" href="/styles/app.min.css" /> */}
+
       </Head>
     </>
   )

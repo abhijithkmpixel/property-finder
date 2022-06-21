@@ -6,7 +6,8 @@ import Header from "../components/Header";
 import HomeBanner from "../components/HomeBanner";
 import PageLoader from "../components/PageLoader";
 import RecommendedProp from "../components/RecommendedProp";
-import styles from "../styles/Home.module.css";
+import styles from "../public/styles/Home.module.css";
+import { api } from "./api/auth/api";
 import { LogContext } from "./api/auth/logContext";
 import { useLogContaxt } from "./api/auth/logContext";
 export default function Home({ propList, agents, locs }) {
@@ -32,10 +33,10 @@ export default function Home({ propList, agents, locs }) {
 }
 
 export async function getServerSideProps(context) {
-  const data = await fetch(process.env.API_DOMAIN_URL + "/api/recommended")
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
+  const data = await api("/api/recommended")
+    // .then((res) => res.json())
+    .then((res) => {
+      return res.data;
     });
 
   const agents = await fetch(process.env.API_DOMAIN_URL + "/api/agents")

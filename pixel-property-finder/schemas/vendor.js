@@ -1,6 +1,6 @@
 export default {
   name: 'vendor',
-  title: 'Vendor',
+  title: 'Agent',
   type: 'document',
   fields: [
     {
