@@ -5,7 +5,7 @@ export const LogContext = createContext();
 const LogContextProvider = ({ children }) => {
   const [theme, settheme] = useState({ dark: false });
   useEffect(() => {
-    console.log(theme.dark);
+    // console.log(theme.dark);
     return () => {};
   }, [theme]);
 

@@ -73,9 +73,6 @@ const Header = () => {
               <li>
                 <Link href="/agents">Find agent</Link>
               </li>
-              {/* <li>
-                <Link href="/add-property">add</Link>
-              </li> */}
               <li>
                 <h5>
                   Explore
@@ -118,6 +115,9 @@ const Header = () => {
                     <li>
                       <Link href="/add-agent">Add agent </Link>
                     </li>
+                    <li>
+                      <Link href="/Admin/Guides">Guides </Link>
+                    </li>
 
                     {userData ? (
                       <button
@@ -130,11 +130,11 @@ const Header = () => {
                   </ul>
                 </li>
               )}
-              <li>
+              {/* <li>
                 <div className={`toggle_darktheme ${theme.dark?  'active' :''}`}  >
                   <span onClick={updateTheme}></span>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

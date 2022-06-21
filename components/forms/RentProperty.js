@@ -22,7 +22,7 @@ const RentProperty = ({ locs }) => {
   // };
   const chengeFilter = (e) => {
     e.target.value == "" ? setvalueEmpty(true) : setvalueEmpty(false);
-    setfilterSerch(locs.filter((a) => a.includes(e.target.value)));
+    setfilterSerch(locs.filter((a) => a.toLowerCase().includes(e.target.value.toLowerCase())));
   };
   return (
     <form
