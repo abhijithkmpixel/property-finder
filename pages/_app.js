@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/app.min.css";
+// import "../styles/app.min.css";
 import "nprogress/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress";
@@ -27,12 +27,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <LogContextProvider>
-      <main >
 
       {/* <SessionProvider session={pageProps.session}> */}
         <Component {...pageProps} />
       {/* </SessionProvider> */}
-      </main>
     </LogContextProvider>
   );
 }
