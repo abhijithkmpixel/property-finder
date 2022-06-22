@@ -11,7 +11,6 @@ import {  getAuth} from "firebase/auth";
 //   appId: "1:834666251585:web:ba8833874bd66723480dc0",
 //   measurementId: "G-BBNVJZZXPF"
 // };
-
 const firebaseConfig = {
   apiKey: "AIzaSyChgHbPswY7Waz2Up087rclEzJxNX91ptg",
   authDomain: "property-finder-2.firebaseapp.com",
