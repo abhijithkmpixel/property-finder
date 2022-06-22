@@ -11,6 +11,7 @@ const LoginForm = () => {
   const [errorMsg, seterrorMsg] = useState(null);
   const [loader, setloader] = useState(false);
   useEffect(() => {
+
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         // seterrorMsg(true);
@@ -21,8 +22,8 @@ const LoginForm = () => {
   }, [loggedIn]);
 
   function formHandler(e) {
-    seterrorMsg(null);
-    setloader(true);
+    seterrorMsg(null)
+    setloader(true)
     e.preventDefault();
     signInWithEmailAndPassword(
       auth,
@@ -42,7 +43,7 @@ const LoginForm = () => {
         const errorCode = error.code;
         console.log(errorCode);
         seterrorMsg(errorCode);
-        setloader(false);
+        setloader(false)
         setTimeout(() => {
           seterrorMsg(null);
         }, 3000);
@@ -52,74 +53,56 @@ const LoginForm = () => {
   return (
     <>
       <HeadTag title={"Admin"} />
-
-      <div id="login-page">
-        <div className="login">
-          <h2 className="login-title">Login</h2>
-          <p className="notice">Please login to access the system</p>
+      <div className="d-flex justify-content-center align-items-center vh-100 bg-secondary">
+        <form className="w-25 p-3 border bg-light" onSubmit={formHandler}>
+          <h1 className="mb-3 fs-1">Welcome back!</h1>
           {errorMsg && (
-            <div className="alert alert-danger fs-4" role="alert">
+            <div className="alert alert-danger" role="alert">
               {errorMsg}
             </div>
           )}
-          <form className="form-login" onSubmit={formHandler}>
-            <label for="email">E-mail</label>
-            <div className="input-email d-flex align-items-center">
-              <i className="fas fa-envelope icon_login"></i>
-              <input
-                type="email"
-                // className="form-control "
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                required
-                placeholder="Enter your e-mail"
-              />
+          <div className="mb-3">
+            <label for="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              required
+            />
+            <div id="emailHelp" className="form-text">
+              We'll never share your email with anyone else.
             </div>
-            <label for="password">Password</label>
-            <div className="input-password d-flex align-items-center">
-              <i className="fas fa-lock icon_login"></i>
-              <input
-                required
-                type="password"
-                className="form-control "
-                id="exampleInputPassword1"
-                placeholder="Enter your password"
-              />
-            </div>
-            <div className="checkbox">
-              <label for="remember">
-                <input type="checkbox" name="remember" />
-                Remember me
-              </label>
-            </div>
-            <button
-              type="submit"
-              className={`btn btn-lg btn-primary btn-block text-sm-center w-100 login_btn ${
-                +loader && "opacity-50 pe-none"
-              }`}
-            >
-              <i className="fas fa-door-open"></i> Sign in
-              {loader && (
-                <div className="spinner-border text-light" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-              )}
-            </button>
-          </form>
-          {/* <a href="#">Forgot your password?</a> */}
-          <div className="created">
-            <p>
-              Created by <a >aj km</a>
-            </p>
           </div>
-        </div>
-        <div className="background">
-          <h1>
-            We are so excited to have you back among us. Welcome back to work!
-          </h1>
-        </div>
+          <div className="mb-3">
+            <label for="exampleInputPassword1" className="form-label">
+              Password
+            </label>
+            <input
+              required
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className={`btn btn-primary btn-xl ${
+              +loader && "opacity-50 pe-none"
+            }`}
+          >
+            Submit
+            {loader && (
+              <div className="spinner-border text-light" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            )}
+          </button>
+        </form>
       </div>
-      {/* </div> */}
     </>
   );
 };

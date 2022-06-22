@@ -318,7 +318,7 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
 .home_page_banner {
   width: 100%;
   position: relative;
-  height: calc(100vh - 78px);
+  height: 560px;
 }
 
 .home_page_banner .bg_image {
@@ -338,7 +338,7 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.home_page_banner .bg_image img, .home_page_banner .bg_image video {
+.home_page_banner .bg_image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -346,11 +346,11 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
 
 .home_page_banner .main_contents {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
   z-index: 2;
   left: 0;
   width: 100%;
+  height: 100%;
 }
 
 .home_page_banner .main_contents h1 {
@@ -359,7 +359,7 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   font-weight: 700;
   text-align: center;
   display: block;
-  margin: 0 0 100px;
+  margin: 100px 0;
 }
 
 .home_page_banner .main_contents .search_filter_forms {
@@ -401,25 +401,6 @@ header .header_inner_wrapper .account_navigation .account_avatar .account_lists 
   background-color: #e8f4f6;
   color: #007ea8;
   border: 1px solid #007ea8;
-}
-
-.scroll_down {
-  width: 35px;
-  display: block;
-  margin: auto;
-  height: 35px;
-  position: absolute;
-  z-index: 1;
-  bottom: 40px;
-  background-color: #fff;
-  border-radius: 50%;
-  filter: invert(1);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.scroll_down img {
-  object-fit: contain;
 }
 
 form.rent_or_buuy_form_wrp .top_type {
@@ -1001,13 +982,8 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   object-fit: cover;
 }
 
-.column_card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
 .guides_enrtry_form1 .single_objects_wrp {
+  border: 1px solid #000;
   padding: 10px;
   margin-bottom: 25px;
 }
@@ -1045,160 +1021,6 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   padding: 10px;
   width: 100%;
   margin-bottom: 15px;
-}
-
-.plus {
-  width: 50px;
-  height: auto;
-}
-
-#login-page a {
-  color: #666;
-  font-size: 14px;
-  display: block;
-}
-
-#login-page .login-title {
-  text-align: center;
-}
-
-#login-page #login-page {
-  display: flex;
-}
-
-#login-page .notice {
-  font-size: 13px;
-  text-align: center;
-  color: #666;
-}
-
-#login-page .login {
-  width: 30%;
-  height: calc(100vh - 78px);
-  background: #FFF;
-  padding: 70px;
-}
-
-#login-page .login a {
-  margin-top: 25px;
-  text-align: center;
-}
-
-#login-page .form-login {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-}
-
-#login-page .form-login label {
-  text-align: left;
-  font-size: 13px;
-  margin-top: 10px;
-  margin-left: 20px;
-  display: block;
-  color: #666;
-}
-
-#login-page .input-email,
-#login-page .input-password {
-  width: 100%;
-  background: #ededed;
-  border-radius: 25px;
-  margin: 4px 0 10px 0;
-  padding: 10px;
-  display: flex;
-}
-
-#login-page .icon_login {
-  padding: 4px;
-  color: #666;
-  min-width: 30px;
-  text-align: center;
-  font-size: 15px;
-}
-
-#login-page input[type="email"],
-#login-page input[type="password"] {
-  width: 100%;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 4px 0;
-  outline: none;
-}
-
-#login-page .login_btn {
-  width: 100%;
-  border: 0;
-  border-radius: 25px;
-  padding: 14px;
-  background: #008552;
-  color: #FFF;
-  display: inline-block;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: ease all 0.3s;
-}
-
-#login-page .login_btn:hover {
-  opacity: 0.9;
-}
-
-#login-page .background {
-  width: 70%;
-  padding: 40px;
-  height: calc(100vh - 78px);
-  background: linear-gradient(60deg, rgba(158, 189, 19, 0.5), rgba(0, 133, 82, 0.7)), url("https://cdn.pixabay.com/photo/2016/03/09/09/22/workplace-1245776_960_720.jpg") center no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: flex-end;
-  align-content: center;
-  flex-direction: row;
-}
-
-#login-page .background h1 {
-  max-width: 420px;
-  color: #FFF;
-  text-align: right;
-  padding: 0;
-  margin: 0;
-}
-
-#login-page .background p {
-  max-width: 650px;
-  color: #1a1a1a;
-  font-size: 15px;
-  text-align: right;
-  padding: 0;
-  margin: 15px 0 0 0;
-}
-
-#login-page .created {
-  margin-top: 40px;
-  text-align: center;
-}
-
-#login-page .created p {
-  font-size: 13px;
-  font-weight: bold;
-  color: #008552;
-}
-
-#login-page .created a {
-  color: #666;
-  font-weight: normal;
-  text-decoration: none;
-  margin-top: 0;
-}
-
-#login-page .checkbox label {
-  display: inline;
-  margin: 0;
 }
 
 .section_prop_details {
