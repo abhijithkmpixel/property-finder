@@ -55,7 +55,7 @@ const Header = () => {
           <div className="brand_logo">
             <Link href="/">
               <a>
-                <img src="/logo.png" alt="logo" />
+                <img src="/mainlogo.png" alt="logo" />
               </a>
             </Link>
           </div>

@@ -12,7 +12,7 @@ const HeadTag = ({title,meta}) => {
         <meta property="description" content={meta} />
 
         <link rel="icon" type="image/x-icon" href="/logo.ico" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+        
         {/* <link rel="stylesheet" href="/styles/globals.css" />
         <link rel="stylesheet" href="/styles/app.min.css" /> */}
 

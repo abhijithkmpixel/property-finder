@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Open Sans", "sans-serif";
+  font-family: 'Poppins', sans-serif;
   transition: .2s all ease-in-out;
   &:focus {
     outline: none;
@@ -32,7 +32,7 @@ $color-white: #ffffff;
 $color-black: #000;
 
 #nprogress .bar {
-  background: red !important;
+  background: #fd7400 !important;
   height: 3px !important;
   border: none !important;
   outline: none !important;
@@ -64,4 +64,13 @@ body {
 }
 a:focus {
   box-shadow: none !important;
+}
+.btn-danger{
+  background-color: #fd7400;
+  transition: .2s all ease-in-out;
+  &:hover{
+    opacity: .5;
+  background-color: #fd7400;
+
+  }
 }
