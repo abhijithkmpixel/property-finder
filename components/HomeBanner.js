@@ -13,18 +13,18 @@ const HomeBanner = ({ locs }) => {
             type="video/mp4"
             id="video-background"
             preload="true"
-            autoplay="true"
-            loop="true"
-            muted="true"
-            playsinline=""
+            autoPlay="true"
+            loop={true}
+            muted={true}
+            playsInline=""
           />
 
           {/* <img src="/bg.jpg" alt="background" /> */}
         </div>
         <div className="main_contents">
-          <h1>Find your future home</h1>
-          <div className="search_filter_forms">
             <div className="container">
+          <h1>FIND OUT WHAT YOUR PROPERTY IS WORTH INSTANTLY</h1>
+          <div className="search_filter_forms">
               <div className="form_wrapper">
                 <RentProperty locs={locs} />
               </div>
@@ -35,7 +35,7 @@ const HomeBanner = ({ locs }) => {
           <img src="/down-ong.png" alt="" />
         </a>
       </section>
-      <section className="p-4 w-100" id="main">
+      <section className="p-4 w-100 bg-light" id="main">
         <div className="p-5"></div>
       </section>
     </>

@@ -21,13 +21,19 @@ export default function Home({ propList, agents, locs }) {
     <>
       <Header />
       <HeadTag title={"Property finder"} meta="listing" />
+      {
+        locs && 
       <HomeBanner locs={locs} />
-      <RecommendedProp
-        title="Recommended properties"
-        list={propList}
-        agents={agents}
-        filter={false}
-      />
+      }
+      {
+        propList && agents ?
+        <RecommendedProp
+          title="Recommended properties"
+          list={propList}
+          agents={agents}
+          filter={false}
+        />: null
+      }
     </>
   );
 }
