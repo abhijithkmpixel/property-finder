@@ -109,7 +109,7 @@ export async function getServerSideProps(context) {
   const filter = datas.filter((data) => data.slug == slug.slug);
 
   const agents = await fetch(
-    `http://` + context.req.headers.host + "/api/agents"
+    process.env.API_DOMAIN_URL + "/api/agents"
   )
     .then((res) => res.json())
     .then((json) => {

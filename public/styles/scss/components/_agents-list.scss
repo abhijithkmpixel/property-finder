@@ -1,0 +1,25 @@
+.agents_listing_grid {
+  padding: 50px 0;
+  a {
+    text-decoration: none;
+    display: block;transition: .3s all ease-in-out;
+    margin-bottom: 15px;
+    &:hover{
+      transform: scale(1.1);
+    }
+    img{
+      height: 200px;
+      object-fit: cover;
+    }
+    h5 {
+      color: $color-black;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      color: $color-black;
+    }
+  }
+}

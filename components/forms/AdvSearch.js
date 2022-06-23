@@ -53,10 +53,14 @@ const AdvSearch = ({ locs }) => {
       className="rent_or_buuy_form_wrp"
       autoComplete="off"
       // action="/search"
+      onBlur={()=>{
+        // setsearchPlace(false);
+      }}
       onSubmit={(e) => {
         e.preventDefault();
         setprice(false);
         setpropSize(false);
+        setsearchPlace(false);
 
         router.push(
           `/search?type=${e.target.type.value}&` +
@@ -385,7 +389,6 @@ const AdvSearch = ({ locs }) => {
               <option value="" selected>
                 Bathroom
               </option>
-              <input type="text" />
               <option value="1">1 baths</option>
               <option value="2">2 baths</option>
               <option value="3">3 baths</option>

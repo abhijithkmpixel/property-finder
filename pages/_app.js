@@ -1,18 +1,19 @@
-import "../styles/globals.css";
+import "../public/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/app.min.css";
+import "../public/styles/app.min.css";
 import "nprogress/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { useEffect } from "react";
 import { SessionProvider } from "next-auth/react";
-// font awesome forms 
-// import "../styles/all.min.css";
-// import "../styles/sb-admin-2.min.css";
+import LogContextProvider from "./api/auth/logContext";
+
 
 NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
+
+
   useEffect(() => {
     Router.events.on("routeChangeStart", () => NProgress.start());
     Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -25,9 +26,12 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <LogContextProvider>
+
+      {/* <SessionProvider session={pageProps.session}> */}
+        <Component {...pageProps} />
+      {/* </SessionProvider> */}
+    </LogContextProvider>
   );
 }
 

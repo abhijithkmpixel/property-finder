@@ -9,8 +9,11 @@ export   default async  function  handler (req, res) {
   const datas = datarr?.docs?.map((doc) => {
     return {
         ...doc.data(),
-        id: doc.id
+        id: doc.id,
+        timestamp:new Date(doc._document.version.timestamp.seconds * 1000),
+        // timestamp:doc._document 
+
     };
   });
-  res.status(200).json( datarr )
+  res.status(200).json( datas )
 }

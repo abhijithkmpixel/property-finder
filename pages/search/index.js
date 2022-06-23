@@ -38,7 +38,7 @@ const index = ({ props, type, locs }) => {
       />
       <Header />
 
-      <section className="mt-5 mb-5">
+      <section className="mt-5 mb-5 advanced_search pt-5 pb-5">
         <div className="container">
           <AdvSearch locs={locs} />
           {/* <Editor /> */}
@@ -92,7 +92,7 @@ export async function getServerSideProps(context) {
   const slug = context.query;
   const { req, params, query } = context;
   var propert = "";
-  await fetch(`http://` + context.req.headers.host + `/api/` + slug.type)
+  await fetch(process.env.API_DOMAIN_URL + `/api/` + slug.type)
     .then((response) => response.json())
     .then((json) => {
       propert = json;
@@ -119,7 +119,7 @@ export async function getServerSideProps(context) {
   });
   //for getting the locations list
   const locations = await fetch(
-    `http://` + context.req.headers.host + "/api/locations"
+    process.env.API_DOMAIN_URL + "/api/locations"
   )
     .then((res) => res.json())
     .then((json) => {

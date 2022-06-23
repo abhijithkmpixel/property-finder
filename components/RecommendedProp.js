@@ -79,7 +79,7 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
                             </div>
                           </div>
                           <div className="body_coopy">
-                            <h4>{prop.tags}</h4>
+                            <h4>{prop.tags} </h4>
                             <div className="card_footer">
                               <span>{prop.propertyType}</span>
                               <span>{prop.propertySize}</span>
@@ -98,7 +98,7 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
             : null}
         </div>
 
-        {filtered?.length > 0 ? null : <h4>No listing found</h4>}
+        {filtered?.length == 0 && <h4>No listing found</h4>}
       </div>
     </section>
   );

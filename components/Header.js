@@ -6,9 +6,12 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
 const Header = () => {
+  const { theme, updateTheme } = useLogContaxt();
+
   const [userData, setuserData] = useState();
 
   // const signinwithgoogle = (e) => {
@@ -112,6 +115,17 @@ const Header = () => {
                     <li>
                       <Link href="/add-agent">Add agent </Link>
                     </li>
+                    <li>
+                      <h5>Guides</h5>
+                      <ul className="inner_dropdown">
+                        <li>
+                          <Link href="/admin/guides/rentguide">Renter's guide </Link>
+                        </li>
+                        <li>
+                          <Link href="/admin/guides/buyerguide">Buyer's guide </Link>
+                        </li>
+                      </ul>
+                    </li>
 
                     {userData ? (
                       <button
@@ -124,6 +138,11 @@ const Header = () => {
                   </ul>
                 </li>
               )}
+              {/* <li>
+                <div className={`toggle_darktheme ${theme.dark?  'active' :''}`}  >
+                  <span onClick={updateTheme}></span>
+                </div>
+              </li> */}
             </ul>
           </nav>
         </div>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore/lite";
-import { db } from "../../pages/api/firebase";
+import { auth, db } from "../../pages/api/firebase";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import CustonFieldEdito from "./CustonFieldEdito";
 import { useRouter } from "next/router";
 import PropsListingSticky from "../PropsListingSticky";
 import EditorDiv from "./Editor";
 import CKEditor from "react-ckeditor-component";
+
 
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
@@ -16,9 +17,9 @@ const AddProperty = ({ agents, props }) => {
 
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
-    console.log(editorState);
+    // console.log(editorState);
     return () => {};
-  }, [editorState]);
+  }, []);
 
   const addProp = async (e) => {
     e.preventDefault();
@@ -232,7 +233,7 @@ const AddProperty = ({ agents, props }) => {
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
-          {/* <div id="editorjs">
+          <div id="editorjs">
             <CKEditor
               activeClass="p10"
               content={editorState}
@@ -242,7 +243,7 @@ const AddProperty = ({ agents, props }) => {
                 change: onEditorChange,
               }}
             />
-          </div> */}
+          </div>
         </fieldset>
         {editor ? (
           <>

@@ -1,0 +1,16 @@
+//plugins
+// @import './plugins/bootstrap513';
+
+//components
+@import './components/base';
+@import './components/header';
+@import './components/hone-banner';
+@import './components/recc_prop';
+@import './components/ad-porp';
+@import './components/prop-details';
+@import './components/agent_details';
+@import './components/paginat';
+
+// page
+@import './pages/agents';
+@import './pages/rentersguide';
