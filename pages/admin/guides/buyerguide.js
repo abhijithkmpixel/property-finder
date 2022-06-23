@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
   await api.get("/api/buyersguide").then((res) => {
     data = res.data;
   });
-  console.log(data);
+  // console.log(data);
 
   return {
     props: {

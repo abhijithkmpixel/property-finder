@@ -28,7 +28,7 @@ export default function Home({ propList, agents, locs }) {
       {
         propList && agents ?
         <RecommendedProp
-          title="Recommended properties"
+          title="Properties we recommend"
           list={propList}
           agents={agents}
           filter={false}
