@@ -6,7 +6,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { api } from "../../pages/api/auth/api";
 import { db } from "../../pages/api/firebase";
-
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import { Button } from "@mui/material";
 const Rentersguide = ({ results, title, docName }) => {
   const [data, setdata] = useState();
   const [result, setresult] = useState();
@@ -70,15 +71,45 @@ const Rentersguide = ({ results, title, docName }) => {
       },
     ]);
   }
+
+  //remove nested column
+  function removeInnerDiv(e, index, nextindex) {
+    const value = [...data];
+    value[index].redirects_guides.splice(nextindex, 1);
+    setdata(value);
+  }
+
+  //add iner column div
+  function addInnerDiv(e, index, nextindex) {
+    const value = [...data];
+    value[index].redirects_guides[nextindex + 1] = {
+      url: "",
+      image: "",
+      title: "",
+      desc: "",
+    };
+    setdata(value);
+  }
+  function addSinglecolum(e, index,) {
+    const value = [...data];
+    value[index].redirects_guides[0] = {
+      url: "",
+      image: "",
+      title: "",
+      desc: "",
+    };
+    setdata(value);
+  }
+
   return (
     <section className="mt-5 mb-5">
       <div className="container">
         <h1>{title}</h1>
         {data ? (
-          <form className="guides_enrtry_form1 border border-secondary p-2">
+          <form className="guides_enrtry_form1 border border-secondary p-3 py-5 bg-primary bg-opacity-25" >
             {data?.map((f, index) => {
               return (
-                <div key={index} className="single_objects_wrp">
+                <div key={index} className="single_objects_wrp bg-success bg-opacity-25">
                   <fieldset>
                     <label htmlFor="title">Title</label>
                     <textarea
@@ -104,10 +135,17 @@ const Rentersguide = ({ results, title, docName }) => {
                     ></textarea>
                   </fieldset>
                   <div className="row">
+                    <h3>More articles</h3>
+                    {f?.redirects_guides.length < 1 && (
+                      <button className="btn btn-primary btn-md w-auto m-2" type="button" onClick={(e)=>{addSinglecolum(e,index)}}>
+                        Add column
+                      </button>
+                    )}
                     {f?.redirects_guides?.map((ext, nextindex) => {
                       return (
+                        <>
                         <div className="col-4">
-                          <div key={nextindex} className="border p-3">
+                          <div key={nextindex} className="border p-3 bg-light column_card">
                             <h3>{nextindex}</h3>
                             <fieldset>
                               <label htmlFor="url">external link</label>
@@ -160,8 +198,33 @@ const Rentersguide = ({ results, title, docName }) => {
                                 }
                               />
                             </fieldset>
+                          <button
+                            className="btn btn-danger btn-sm"
+                            type="button"
+                            onClick={(e) => {
+                              removeInnerDiv(e, index, nextindex);
+                            }}
+                          >
+                            Remove
+                          </button>
                           </div>
                         </div>
+                          {f?.redirects_guides.length < 2 && (
+                            <div className="col-1 d-flex justify-content-center">
+
+                            <button
+                              className="btn  btn-lg plus m-auto"
+                              type="button"
+                              onClick={(e) => {
+                                addInnerDiv(e, index, nextindex);
+                              }}
+                            >
+                              <img src="/plus.svg" />
+                            </button>
+                            </div>
+
+                          )}
+                        </>
                       );
                     })}
                   </div>
@@ -183,9 +246,9 @@ const Rentersguide = ({ results, title, docName }) => {
               );
             })}
             <div className="d-flex justify-content-between">
-            <button
+              <button
                 type="button"
-                className={`btn btn-primary btn-lg m-2 ${
+                className={`btn btn-success btn-lg m-2 ${
                   +loader && "opacity-50 pe-none"
                 }`}
                 onClick={handlesubmit}
@@ -211,8 +274,6 @@ const Rentersguide = ({ results, title, docName }) => {
                   </div>
                 )}
               </button>
-
-           
             </div>
           </form>
         ) : null}

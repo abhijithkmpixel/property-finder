@@ -53,10 +53,14 @@ const AdvSearch = ({ locs }) => {
       className="rent_or_buuy_form_wrp"
       autoComplete="off"
       // action="/search"
+      onBlur={()=>{
+        // setsearchPlace(false);
+      }}
       onSubmit={(e) => {
         e.preventDefault();
         setprice(false);
         setpropSize(false);
+        setsearchPlace(false);
 
         router.push(
           `/search?type=${e.target.type.value}&` +

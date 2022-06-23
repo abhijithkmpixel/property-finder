@@ -1,7 +1,7 @@
 .home_page_banner {
   width: 100%;
   position: relative;
-  height: 560px;
+  height: calc(100vh - 78px);
   .bg_image {
     width: 100%;
     height: 100%;
@@ -16,7 +16,7 @@
       z-index: 1;
       background-color: rgba($color: #000000, $alpha: 0.4);
     }
-    img {
+    img ,video{
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -24,18 +24,20 @@
   }
   .main_contents {
     position: absolute;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
     left: 0;
     width: 100%;
-    height: 100%;
+    // height: 100%;
+
     h1 {
       color: $color-white;
       font-size: 57px;
       font-weight: 700;
       text-align: center;
       display: block;
-      margin: 100px 0;
+      margin: 0 0 100px ;
     }
     .search_filter_forms {
       user-select: none;
@@ -73,6 +75,26 @@
     }
   }
 }
+
+
+.scroll_down{
+  width: 35px;
+  display: block;
+  margin: auto;
+  height: 35px;
+  position: absolute;
+  z-index: 1;
+  bottom: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  filter: invert(1);
+  left: 50%;
+  transform: translateX(-50%);
+  img{
+    object-fit: contain;
+  }
+}
+
 form.rent_or_buuy_form_wrp {
   .top_type{
     margin-bottom: 10px;
