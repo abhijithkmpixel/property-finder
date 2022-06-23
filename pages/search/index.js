@@ -10,6 +10,7 @@ import HeadTag from "../../components/Head";
 import AdvSearch from "../../components/forms/AdvSearch";
 import Paginate from "../../components/Paginate";
 import { motion } from "framer-motion";
+import { api } from "../api/auth/api";
 // import Editor from "../../components/forms/Editor";
 
 const index = ({ props, type, locs }) => {
@@ -62,10 +63,7 @@ const index = ({ props, type, locs }) => {
               <div className="row">
                 {currentItems?.map((prop) => {
                   return (
-                    <div
-                      className="col-8"
-                      key={prop?.id}
-                    >
+                    <div className="col-8" key={prop?.id}>
                       <SearchResultItem property={prop} />
                     </div>
                   );
@@ -73,13 +71,17 @@ const index = ({ props, type, locs }) => {
               </div>
             )}
           </div>
-       
-          {props.length == 0 ? <h1>No results found</h1>:    <Paginate
-            itemsPerPage={itemsPerPage}
-            pageCount={pageCount}
-            items={props}
-            setItemOffset={setItemOffset}
-          />}
+
+          {props.length == 0 ? (
+            <h1>No results found</h1>
+          ) : (
+            <Paginate
+              itemsPerPage={itemsPerPage}
+              pageCount={pageCount}
+              items={props}
+              setItemOffset={setItemOffset}
+            />
+          )}
         </div>
       </section>
     </div>
@@ -92,10 +94,10 @@ export async function getServerSideProps(context) {
   const slug = context.query;
   const { req, params, query } = context;
   var propert = "";
-  await fetch(process.env.API_DOMAIN_URL + `/api/` + slug.type)
-    .then((response) => response.json())
-    .then((json) => {
-      propert = json;
+  await api
+    .get(`/api/` + slug.type)
+    .then((res) => {
+      propert = res.data;
     });
   const newProp = propert.filter((prop) => {
     console.log(prop.location + "+" + slug?.location);
@@ -118,12 +120,10 @@ export async function getServerSideProps(context) {
     }
   });
   //for getting the locations list
-  const locations = await fetch(
-    process.env.API_DOMAIN_URL + "/api/locations"
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
+  const locations = await api
+    .get("/api/locations")
+    .then((res) => {
+      return res.data;
     });
 
   return {

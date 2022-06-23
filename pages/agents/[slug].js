@@ -3,8 +3,8 @@ import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import Link from "next/link";
 import RecommendedProp from "../../components/RecommendedProp";
+import { api } from "../api/auth/api";
 const index = ({ agent, count }) => {
- 
   return (
     <div>
       <HeadTag title={agent.name} meta={`${agent.position}`} />
@@ -54,8 +54,7 @@ const index = ({ agent, count }) => {
               <p>{agent?.about_me && agent.about_me}</p>
             </div>
           </div>
-          <RecommendedProp title={"My properties"} list={count} filter={true}/>
-
+          <RecommendedProp title={"My properties"} list={count} filter={true} />
         </div>
       </section>
     </div>
@@ -67,18 +66,16 @@ export default index;
 export async function getServerSideProps(context) {
   const { req, params, query } = context;
   var agents = "";
-  await fetch(process.env.API_DOMAIN_URL + `/api/agents`)
-    .then((response) => response.json())
-    .then((json) => {
-      agents = json;
-    });
+  await api
+    .get(`/api/agents`)
+    .then((response) =>{agents = response.data;})
+    
   var props = "";
 
-  await fetch(process.env.API_DOMAIN_URL + `/api/all`)
-    .then((response) => response.json())
-    .then((json) => {
-      props = json;
-    });
+  await api
+    .get(`/api/all`)
+    .then((response) =>{props = response.data;})
+    
   const agent = agents.filter((age) => age.info_slug == params.slug);
   var count = props?.filter((p) => {
     if (p.agent == agent[0].info_slug) {

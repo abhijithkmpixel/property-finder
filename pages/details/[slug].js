@@ -4,19 +4,22 @@ import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import { db } from "../api/firebase";
 import Link from "next/link";
+import { api } from "../api/auth/api";
 const index = ({ data, agent }) => {
   useEffect(() => {
-    // console.log(agent);
+    console.log(agent);
     return () => {};
   }, []);
 
   return (
     <>
-      <HeadTag title={data.title} meta={data.tags}/>
+      <HeadTag title={data.title} meta={data.tags} />
       <Header />
       <section className="section_prop_details">
         <div className="container">
-          <p>{data.serviceType}  {data.id}</p>
+          <p>
+            {data.serviceType} {data.id}
+          </p>
           <div className="row">
             <div className="col-lg-8 col-12 ">
               <div className="prop_image_wr">
@@ -54,28 +57,42 @@ const index = ({ data, agent }) => {
                   </li>
                   <li>
                     <h5>Price:</h5>
-                    <span>{data.price} AED / {data.period == 'm' ?'Monthly':'Yearly'}</span>
+                    <span>
+                      {data.price} AED /{" "}
+                      {data.period == "m" ? "Monthly" : "Yearly"}
+                    </span>
                   </li>
                 </ul>
-                <Link href={`/agents/`+agent.info_slug}>
+                <Link href={`/agents/` + agent?.info_slug}>
                   <a>
-                    <div className="card mb-5 mt-5" style={{ maxWidth: "540px" }}>
+                    <div
+                      className="card mb-5 mt-5"
+                      style={{ maxWidth: "540px" }}
+                    >
                       <div className="row g-0">
                         <div className="col-md-4">
                           <img
-                            src={agent.image}
+                            src={agent?.image}
                             className="img-fluid rounded-start"
-                            alt={agent.name}
+                            alt={agent?.name}
                           />
                         </div>
                         <div className="col-md-8">
                           <div className="card-body">
                             <h5 className="card-title">{agent?.name}</h5>
-                            <p className="card-text">Position : {agent.position}</p>
-                            <p className="card-text">Company : {agent.company.name}</p>
+                            <p className="card-text">
+                              Position : {agent?.position}
+                            </p>
+                            <p className="card-text">
+                              Company : {agent?.company.name}
+                            </p>
                             <p className="card-text">
                               <small className="text-muted">
-                               <img src={agent.company.company_image} style={{maxWidth:100}} alt="" />
+                                <img
+                                  src={agent?.company.company_image}
+                                  style={{ maxWidth: 100 }}
+                                  alt=""
+                                />
                               </small>
                             </p>
                           </div>
@@ -85,7 +102,10 @@ const index = ({ data, agent }) => {
                   </a>
                 </Link>
                 {/* <p>{data.description}</p> */}
-                <div className="description" dangerouslySetInnerHTML={{ __html: data.description}}></div>
+                <div
+                  className="description"
+                  dangerouslySetInnerHTML={{ __html: data.description }}
+                ></div>
               </div>
             </div>
           </div>
@@ -107,14 +127,11 @@ export async function getServerSideProps(context) {
     };
   });
   const filter = datas.filter((data) => data.slug == slug.slug);
+  const agents =await api.get("/api/agents").then((res) => {
 
-  const agents = await fetch(
-    process.env.API_DOMAIN_URL + "/api/agents"
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
-    });
+    // console.log(res.data);
+    return res.data;
+  });
   const agent = agents?.filter((a) => {
     if (a.info_slug.toString() == filter[0].agent) {
       return a;

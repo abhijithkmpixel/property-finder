@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header";
 import Link from "next/link";
 import HeadTag from "../../components/Head";
+import { api } from "../api/auth/api";
 const index = ({ agents }) => {
   return (
     <>
@@ -56,11 +57,9 @@ export default index;
 export async function getServerSideProps(context) {
   var agents = "";
 
-  await fetch(process.env.API_DOMAIN_URL + `/api/agents`)
-    .then((response) => response.json())
-    .then((json) => {
-      agents = json;
-    });
+  await api(`/api/agents`)
+    .then((response) => agents = response.data)
+    
   return {
     props: {
       agents: agents,

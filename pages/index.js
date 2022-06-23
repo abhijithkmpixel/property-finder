@@ -40,22 +40,19 @@ export default function Home({ propList, agents, locs }) {
 
 export async function getServerSideProps(context) {
   const data = await api.get("/api/recommended")
-    // .then((res) => res.json())
     .then((res) => {
       return res.data;
     });
 // console.log(data);
   const agents = await api.get("/api/agents")
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
+    .then((res) => {
+      return res.data;
     });
 
   const locations = await api.get("/api/locations")
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
-    });
+  .then((res) => {
+    return res.data;
+  });
   return {
     props: {
       propList: data,

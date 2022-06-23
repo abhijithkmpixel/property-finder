@@ -4,10 +4,11 @@ import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import GuidesBody from "../../components/static page components/GuidesBody";
 import StaticBanner from "../../components/static page components/StaticBanner";
+import { api } from "../api/auth/api";
 import { db } from "../api/firebase";
-const index = ({data}) => {
+const index = ({ data }) => {
   useEffect(() => {
-// console.log(data);
+    // console.log(data);
     return () => {};
   }, [data]);
 
@@ -17,25 +18,23 @@ const index = ({data}) => {
       <Header />
       <StaticBanner banner={data?.banner} />
       {/* <EditorDiv /> */}
-      <GuidesBody body={data?.body_copy}/>
+      <GuidesBody body={data?.body_copy} />
     </>
   );
 };
 
 export default index;
 export async function getServerSideProps(context) {
-  const {req,query,params} = context;
-  const data = await fetch(
-    process.env.API_DOMAIN_URL + "/api/renterguide"
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      return json;
+  const { req, query, params } = context;
+  const data = await api
+    .get("/api/renterguide")
+    .then((res) => {
+      return res.data;
     });
 
   return {
     props: {
-      data: data
+      data: data,
     },
   };
 }

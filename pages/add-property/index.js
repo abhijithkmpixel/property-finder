@@ -5,6 +5,7 @@ import AddProperty from "../../components/forms/AddProperty";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import PageLoader from "../../components/PageLoader";
+import { api } from "../api/auth/api";
 import { auth } from "../api/firebase";
 
 const index = ({ agents, props }) => {
@@ -47,17 +48,13 @@ export default index;
 export async function getServerSideProps(context) {
   const { req, params, query } = context;
   var agents = "";
-  await fetch(process.env.API_DOMAIN_URL + `/api/agents`)
-    .then((response) => response.json())
-    .then((json) => {
-      agents = json;
-    });
+  await api.get(`/api/agents`)
+    .then((response) =>{agents = response.data} )
+    
   var props = "";
-  await fetch(process.env.API_DOMAIN_URL + `/api/all`)
-    .then((response) => response.json())
-    .then((json) => {
-      props = json;
-    });
+  await api.get(`/api/all`)
+    .then((response) =>{props = response.data} )
+    
   onAuthStateChanged(auth, (currentUser) => {
     if (!currentUser) {
       // console.log("out");
