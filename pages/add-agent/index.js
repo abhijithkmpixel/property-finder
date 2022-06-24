@@ -28,7 +28,7 @@ const index = () => {
            <PageLoader />
         }
       <HeadTag title="Agents" meta="add a new agent to the db" />
-      <Header />
+      <Header innerpage={true}/>
       <AddAgent />
     </>
   );

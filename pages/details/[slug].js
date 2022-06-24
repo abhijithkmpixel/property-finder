@@ -14,7 +14,7 @@ const index = ({ data, agent }) => {
   return (
     <>
       <HeadTag title={data.title} meta={data.tags} />
-      <Header />
+      <Header innerpage={true}/>
       <section className="section_prop_details">
         <div className="container">
           <p>

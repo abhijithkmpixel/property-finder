@@ -1,12 +1,12 @@
 header {
-  background-color: $color-white;
+  // background-color: $color-white;
   padding: 14px 0px !important;
   position: sticky;
+  transition: 0.2s all ease-in-out;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.2);
   .header_inner_wrapper {
     display: flex;
     align-items: center;
@@ -26,6 +26,7 @@ header {
       .main_navigation {
         display: flex;
         margin: 0 15px;
+        align-items: center;
 
         & > li {
           // margin-right: 15px;
@@ -76,7 +77,8 @@ header {
               padding: 5px 28px;
               position: relative;
               a,
-              span,h5 {
+              span,
+              h5 {
                 display: block;
                 font-size: 14px;
                 text-decoration: none;
@@ -84,7 +86,7 @@ header {
                 font-weight: 400;
                 color: $color-black;
               }
-              .inner_dropdown{
+              .inner_dropdown {
                 opacity: 0;
                 visibility: hidden;
                 position: absolute;
@@ -93,27 +95,26 @@ header {
                 min-width: max-content;
                 z-index: 1;
                 background-color: #fff;
-                transition: .2s all ease-in-out;
+                transition: 0.2s all ease-in-out;
                 border-radius: 5px;
-            box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
+                box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
 
                 padding: 5px 10px;
-                li{
-                  a{
-                    &:hover{
-                  color: #ef5e4e;
-
+                li {
+                  a {
+                    &:hover {
+                      color: #ef5e4e;
                     }
                   }
                 }
               }
               &:hover {
                 background-color: #f7f5f5;
-                &>a,
+                & > a,
                 span {
                   color: #ef5e4e;
                 }
-                .inner_dropdown{
+                .inner_dropdown {
                   opacity: 1;
                   visibility: visible;
                 }
@@ -131,8 +132,14 @@ header {
           h5 {
             font-size: 14px;
             text-decoration: none;
-            font-weight: 400;
-            color: $color-black;
+            font-weight: 300;
+            color: $color-white;
+            transition: 0.2s all ease-in-out;
+            letter-spacing: 1px;
+
+            img {
+              filter: invert(1);
+            }
           }
           h5 {
             display: flex;
@@ -147,6 +154,20 @@ header {
               height: 10px;
               object-fit: contain;
               fill: #000;
+            }
+          }
+          &.contact_icon {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            a {
+              display: block;
+              filter: invert(0);
+
+            }
+            img {
+              object-fit: contain;
+              filter: invert(0);
             }
           }
         }
@@ -186,49 +207,32 @@ header {
       }
     }
   }
-}
-
-.toggle_darktheme {
-  background-color: #ef5e4e;
-  height: 17px;
-  border-radius: 10px;
-  width: 30px;
-  padding: 1px;
-  span {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
+  &.innerpages {
     background-color: #fff;
-    transition: 0.2s all ease-in-out;
-    display: block;
-  }
+    box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.2);
 
-  &.active {
-    span {
-      transform: translateX(13px);
+    .header_inner_wrapper nav .main_navigation > li a,
+    .header_inner_wrapper nav .main_navigation > li h5 {
+      color: #000;
+    }
+    .header_inner_wrapper nav .main_navigation > li a img,
+    ,
+    .header_inner_wrapper nav .main_navigation > li h5 img {
+      filter: invert(0);
     }
   }
 }
-
-.bg_dark {
-  background-color: #1b2430;
-  .recc_prop_section h5,
-  .recc_prop_section h1 {
-    color: #fff;
+body.sticky_header {
+  header .header_inner_wrapper nav .main_navigation > li a img,
+  header .header_inner_wrapper nav .main_navigation > li h5 img {
+    filter: invert(0);
   }
-
-  form.rent_or_buuy_form_wrp fieldset .search_place ,form.rent_or_buuy_form_wrp fieldset .field_dropdown{
+  header .header_inner_wrapper nav .main_navigation > li a,
+  header .header_inner_wrapper nav .main_navigation > li h5 {
+    color: #000;
+  }
+  header {
     background-color: #fff;
-  }
-  form.rent_or_buuy_form_wrp fieldset span.btn{
-    // background-color: #fff;
-    // border: 1px solid #fff;
-  }
-  .recc_prop_section .prop_search_result_card {
-    background-color: #51557e;
-  }
-  .advanced_search,
-  .rent_or_buuy_form_wrp {
-    background-color: #f24c4c;
+    box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.2);
   }
 }

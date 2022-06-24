@@ -5,6 +5,7 @@ import { auth, db } from "../api/firebase";
 import HeadTag from "../../components/Head";
 import { useRouter } from "next/router";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import Header from "../../components/Header";
 const LoginForm = () => {
   const [loggedIn, setloggedIn] = useState(false);
   const router = useRouter();
@@ -53,6 +54,7 @@ const LoginForm = () => {
   return (
     <>
       <HeadTag title={"Admin"} />
+      <Header innerpage={true}/>
       <div id="login-page">
         <div className="login">
           <h2 className="login-title">Login</h2>

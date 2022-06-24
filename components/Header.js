@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
-const Header = () => {
+const Header = ({innerpage}) => {
   const { theme, updateTheme } = useLogContaxt();
 
   const [userData, setuserData] = useState();
@@ -49,13 +49,13 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header className={`${innerpage == true ? 'innerpages':''}`} >
       <div className="container">
         <div className="header_inner_wrapper">
           <div className="brand_logo">
             <Link href="/">
               <a>
-                <img src="/mainlogo.png" alt="logo" />
+                <img src="/mainlogo1.png" alt="logo" />
               </a>
             </Link>
           </div>
@@ -138,11 +138,9 @@ const Header = () => {
                   </ul>
                 </li>
               )}
-              {/* <li>
-                <div className={`toggle_darktheme ${theme.dark?  'active' :''}`}  >
-                  <span onClick={updateTheme}></span>
-                </div>
-              </li> */}
+              <li className="contact_icon">
+                <Link href="/contact"><a ><img src="/call.png" alt="call icon" /></a></Link>
+              </li>
             </ul>
           </nav>
         </div>

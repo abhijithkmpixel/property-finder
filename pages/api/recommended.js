@@ -13,6 +13,6 @@ export   default async  function  handler (req, res) {
         timestamp:new Date(doc._document.version.timestamp.seconds * 1000),
       };
   });
-  const filtered = datas.filter(d=> d.recommend)
+  const filtered = datas.filter(d=> d?.recommend !== '0')
   res.status(200).json( filtered )
 }

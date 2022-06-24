@@ -37,7 +37,7 @@ const index = ({ props, type, locs }) => {
         title="Search results"
         meta={"search result for given parameters"}
       />
-      <Header />
+      <Header innerpage={true} />
 
       <section className="mt-5 mb-5 advanced_search pt-5 pb-5">
         <div className="container">
@@ -94,11 +94,9 @@ export async function getServerSideProps(context) {
   const slug = context.query;
   const { req, params, query } = context;
   var propert = "";
-  await api
-    .get(`/api/` + slug.type)
-    .then((res) => {
-      propert = res.data;
-    });
+  await api.get(`/api/` + slug.type).then((res) => {
+    propert = res.data;
+  });
   const newProp = propert.filter((prop) => {
     console.log(prop.location + "+" + slug?.location);
     if (
@@ -120,11 +118,9 @@ export async function getServerSideProps(context) {
     }
   });
   //for getting the locations list
-  const locations = await api
-    .get("/api/locations")
-    .then((res) => {
-      return res.data;
-    });
+  const locations = await api.get("/api/locations").then((res) => {
+    return res.data;
+  });
 
   return {
     props: {

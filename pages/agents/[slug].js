@@ -8,7 +8,7 @@ const index = ({ agent, count }) => {
   return (
     <div>
       <HeadTag title={agent.name} meta={`${agent.position}`} />
-      <Header />
+      <Header innerpage={true}/>
       <section className="agent_details">
         <div className="container">
           <div className="inner">

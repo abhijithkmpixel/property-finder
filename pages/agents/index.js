@@ -7,7 +7,7 @@ const index = ({ agents }) => {
   return (
     <>
     <HeadTag title='All agents' meta='list of all the agents in the system' />
-      <Header />
+    <Header innerpage={true}/>
       <section className="agents_listing_grid">
         <div className="container">
           {/* {console.log(agents)} */}

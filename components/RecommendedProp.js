@@ -52,50 +52,78 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
             </div>
           )}
         </div>
-        <div className="row">
-          {filtered && filtered.length > 0
-            ? filtered?.map((prop) => {
-                return (
-                  <div className="col-12 col-md-6 col-lg-4" key={prop.id}>
-                    <Link href={`/details/` + prop.slug}>
-                      <a>
-                        <div className="prop_col_card">
-                          <div className="prop_img">
-                            <img src={prop.images} alt={prop.title} />
-                            <div className="builder_logo">
-                              {agents?.map((a) => {
-                                if (
-                                  a.info_slug.toString() ==
-                                  prop.agent.toString()
-                                ) {
-                                  return (
-                                    <img
-                                      src={a.company.company_image}
-                                      alt={a.company.name}
-                                    />
-                                  );
-                                }
-                              })}
+        <div className="reommended_props_offgrid">
+          <div className="row">
+            {filtered && filtered.length > 0
+              ? filtered?.map((prop, index) => {
+                  return (
+                    <div
+                      className={`col-12 col-md-6 ${
+                        index % 2 == 0 ? "bigone" : ""
+                      }`}
+                      key={prop.id}
+                    >
+                      <Link href={`/details/` + prop.slug}>
+                        <a>
+                          <div className="prop_col_card">
+                            <div className="prop_img">
+                              <img src={prop.images} alt={prop.title} />
+                              <div className="builder_logo">
+                                {agents?.map((a) => {
+                                  if (
+                                    a.info_slug.toString() ==
+                                    prop.agent.toString()
+                                  ) {
+                                    return (
+                                      <img
+                                        src={a.company.company_image}
+                                        alt={a.company.name}
+                                      />
+                                    );
+                                  }
+                                })}
+                              </div>
+                              <div className="hover_card">
+                                <div>
+                                  <h5>{prop.title}</h5>
+                                  <span>See more info...</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="body_coopy">
+                              <h4>{prop.location} </h4>
+                              <div className="card_footer">
+                                <div>
+                                  <span>{prop.propertyType}</span>
+                                  <span>
+                                    <b>{prop.propertySize}</b> sq.ft
+                                  </span>
+                                </div>
+                                <div>
+                                  {prop.bedroom !== "0" && (
+                                    <span>
+                                      {" "}
+                                      <b>{prop.bedroom}</b> Bed
+                                    </span>
+                                  )}
+                                  {prop.bathroom !== "0" && (
+                                    <span>
+                                      {" "}
+                                      <b>{prop.bathroom}</b> Bath
+                                    </span>
+                                  )}
+                                </div>
+                                {/* <span className="price">{prop.price} AED</span> */}
+                              </div>
                             </div>
                           </div>
-                          <div className="body_coopy">
-                            <h4>{prop.tags} </h4>
-                            <div className="card_footer">
-                              <span>{prop.propertyType}</span>
-                              <span>{prop.propertySize}</span>
-
-                              <span> {prop.bedroom} Bed</span>
-                              <span> {prop.bathroom} Bath</span>
-                              <span className="price">{prop.price} AED</span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </Link>
-                  </div>
-                );
-              })
-            : null}
+                        </a>
+                      </Link>
+                    </div>
+                  );
+                })
+              : null}
+          </div>
         </div>
 
         {filtered?.length == 0 && <h4>No listing found</h4>}

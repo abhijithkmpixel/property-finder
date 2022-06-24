@@ -9,7 +9,7 @@ const HomeBanner = ({ locs }) => {
       <section className="home_page_banner">
         <div className="bg_image">
           <video
-            src="/background-vid.mp4"
+            src="/theme.mp4"
             type="video/mp4"
             id="video-background"
             preload="true"
@@ -17,6 +17,7 @@ const HomeBanner = ({ locs }) => {
             loop={true}
             muted={true}
             playsInline=""
+            controls={false}
           />
 
           {/* <img src="/bg.jpg" alt="background" /> */}
@@ -32,7 +33,7 @@ const HomeBanner = ({ locs }) => {
           </div>
         </div>
         <a href="#main" className="scroll_down mt-4">
-          <img src="/down-ong.png" alt="" />
+          <img src="/arrdwn.png" alt="" />
         </a>
       </section>
       <section className="p-4 w-100 bg-light" id="main">

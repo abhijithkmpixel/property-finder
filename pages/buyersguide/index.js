@@ -14,7 +14,7 @@ const index = ({ data }) => {
   return (
     <>
       <HeadTag title="Buyers's Guide" meta="a guide for fellow buyers" />
-      <Header />
+      <Header innerpage={true}/>
       <StaticBanner banner={data?.banner} />
       <GuidesBody body={data?.body_copy} />
     </>

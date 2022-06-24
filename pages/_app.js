@@ -1,5 +1,5 @@
 import "../public/styles/globals.css";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import "../public/styles/app.min.css";
 import "nprogress/nprogress.css";
 import Router from "next/router";
@@ -13,8 +13,19 @@ NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
 
-
+  
   useEffect(() => {
+    if(window !== undefined){
+      
+      window.addEventListener('scroll',()=>{
+        if(window.scrollY > 250){
+          // console.log(window.screenY);
+          document.body.classList.add('sticky_header')
+        }else{
+          document.body.classList.remove('sticky_header')
+        }
+      })
+    }
     Router.events.on("routeChangeStart", () => NProgress.start());
     Router.events.on("routeChangeComplete", () => NProgress.done());
     Router.events.on("routeChangeError", () => NProgress.done());

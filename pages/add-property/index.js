@@ -38,7 +38,7 @@ const index = ({ agents, props }) => {
       }
 
       <HeadTag title="Add property" meta="add a property to the db" />
-      <Header />
+      <Header innerpage={true}/>
       <AddProperty agents={agents} props={proper} />
     </>
   );

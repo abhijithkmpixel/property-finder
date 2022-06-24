@@ -5,7 +5,7 @@ import LoginForm from "../admin/LoginForm";
 const index = () => {
   return (
     <div>
-      <Header/>
+      {/* <Header innerpage={true}/> */}
       <LoginForm/>
     </div>
   );

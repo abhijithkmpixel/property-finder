@@ -25,7 +25,7 @@ const Guides = ({ results }) => {
       {loggedIn && <PageLoader />}
       <HeadTag title="Edit buyers's guide" meta="" />
 
-      <Header />
+      <Header innerpage={true}/>
       <Rentersguide
         title="Buyer,s guide"
         docName="buyersguide"

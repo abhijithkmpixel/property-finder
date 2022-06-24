@@ -17,6 +17,7 @@
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@editorjs/editorjs": "^2.24.3",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.0",
