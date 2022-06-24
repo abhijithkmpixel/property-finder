@@ -1,11 +1,15 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
 
 const RecommendedProp = ({ title, list, agents, filter }) => {
   const [filtered, setfiltered] = useState(list);
   useEffect(() => {
     // console.log(list);
-
+    AOS.init({
+      duration:700
+    });
+    AOS.refresh();
     return () => {};
   }, [filtered]);
 
@@ -58,6 +62,8 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
               ? filtered?.map((prop, index) => {
                   return (
                     <div
+              
+                    data-aos={index % 2 == 0 ? "fade-right":"fade-left"}
                       className={`col-12 col-md-6 ${
                         index % 2 == 0 ? "bigone" : ""
                       }`}

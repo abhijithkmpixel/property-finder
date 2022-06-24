@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import AOS from "aos";
 
 const StaticBanner = ({banner}) => {
   function readingTime() {
@@ -11,6 +12,8 @@ const StaticBanner = ({banner}) => {
   useEffect(() => {
     // readingTime();
     // console.log(banner);
+    AOS.init();
+    AOS.refresh();
     return () => {
     }
   }, [])
@@ -22,9 +25,9 @@ const StaticBanner = ({banner}) => {
           </div>
         <div className="inner_wrap_banner">
           <div className="banner_content">
-            <span>{banner.label}</span>
-            <h1>{banner.main_title}</h1>
-            <p>{banner.sub_title}</p>
+            <span  data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">{banner.label}</span>
+            <h1  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">{banner.main_title}</h1>
+            <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="900">{banner.sub_title}</p>
           </div>
         </div>
     </section>

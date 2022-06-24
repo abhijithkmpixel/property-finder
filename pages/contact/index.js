@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import emailjs from "@emailjs/browser";
+import AOS from "aos";
+
 const index = () => {
   const [successMsg, setsuccessMsg] = useState(false);
   const [loader, setloader] = useState(false);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  
+    return () => {
+      
+    }
+  }, [])
+  
   function submitHandler(e) {
     e.preventDefault();
     setloader(true)
@@ -50,7 +61,7 @@ const index = () => {
         </div>
 
         <div className="content ">
-          <div className="contact">
+          <div className="contact"  data-aos="fade-up" data-aos-duration="900" data-aos-delay="700">
             <div className="other">
               <div className="info">
                 <h2>More Methods </h2>

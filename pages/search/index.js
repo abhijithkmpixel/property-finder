@@ -11,7 +11,8 @@ import AdvSearch from "../../components/forms/AdvSearch";
 import Paginate from "../../components/Paginate";
 import { motion } from "framer-motion";
 import { api } from "../api/auth/api";
-// import Editor from "../../components/forms/Editor";
+import AOS from "aos";
+
 
 const index = ({ props, type, locs }) => {
   // const [propertys, setpropertys] = useState(null);
@@ -25,6 +26,8 @@ const index = ({ props, type, locs }) => {
   useEffect(() => {
     // Fetch items from another resources.
     // console.log('load');
+    AOS.init();
+    AOS.refresh();
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(props.slice(itemOffset, endOffset));
@@ -63,7 +66,7 @@ const index = ({ props, type, locs }) => {
               <div className="row">
                 {currentItems?.map((prop) => {
                   return (
-                    <div className="col-8" key={prop?.id}>
+                    <div className="col-8" key={prop?.id} data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
                       <SearchResultItem property={prop} />
                     </div>
                   );

@@ -8,6 +8,7 @@ import { api } from "../../pages/api/auth/api";
 import { db } from "../../pages/api/firebase";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Button } from "@mui/material";
+
 const Rentersguide = ({ results, title, docName }) => {
   const [data, setdata] = useState();
   const [result, setresult] = useState();
@@ -16,6 +17,7 @@ const Rentersguide = ({ results, title, docName }) => {
   useEffect(() => {
     setresult(results);
     setdata(result?.body_copy);
+  
     return () => {};
   }, [result]);
 

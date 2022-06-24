@@ -10,10 +10,15 @@ import styles from "../public/styles/Home.module.css";
 import { api } from "./api/auth/api";
 import { LogContext } from "./api/auth/logContext";
 import { useLogContaxt } from "./api/auth/logContext";
+import "aos/dist/aos.css";
+import AOS from "aos";
+
 export default function Home({ propList, agents, locs }) {
+
   useEffect(() => {
     // console.log(logs);
-
+    AOS.init();
+    AOS.refresh();
     return () => {};
   }, []);
 

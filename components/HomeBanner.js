@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BuyProperty from "./forms/BuyProperty";
 import RentProperty from "./forms/RentProperty";
+import AOS from "aos";
 
 const HomeBanner = ({ locs }) => {
   const [rent, setrent] = useState(true);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  
+    return () => {
+      
+    }
+  }, [])
+  
   return (
     <>
       <section className="home_page_banner">
@@ -24,8 +34,8 @@ const HomeBanner = ({ locs }) => {
         </div>
         <div className="main_contents">
             <div className="container">
-          <h1>FIND OUT WHAT YOUR PROPERTY IS WORTH INSTANTLY</h1>
-          <div className="search_filter_forms">
+          <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR PROPERTY IS WORTH INSTANTLY</h1>
+          <div className="search_filter_forms" data-aos="fade-up" data-aos-duration="900" data-aos-delay="1000">
               <div className="form_wrapper">
                 <RentProperty locs={locs} />
               </div>

@@ -14,22 +14,32 @@ const SearchResultItem = ({ property }) => {
           </div>
           <div className="body_coopy">
             <h4>
-              {property?.price} AED/{" "}
-              {property?.period == "m" && property?.period !== '0' ? "Monthly" : "Yearly"}
+              <span>{property?.price}</span> AED/{" "}
+              {property?.period == "m" && property?.period !== "0"
+                ? "Monthly"
+                : null}
+              {property?.period == "y" && property?.period !== "0"
+                ? "Yearly"
+                : null}
+              {property?.period == "0" ? "One time" : null}
             </h4>
             <h3>{property?.tags}</h3>
-            <div className="card_footer">
-              <span>{property?.propertyType}</span>
-              <span>{property?.propertySize} Sq.ft.</span>
-              <span>
-                {" "}
-                {property?.bedroom !== "0" && property?.bedroom + " Bed"}{" "}
-              </span>
-              <span>
-                {" "}
-                {property?.bathroom !== "0" &&
-                  property?.bathroom + " Bath"}{" "}
-              </span>
+            <div className="card_footer d-flex justify-content-between">
+              <div>
+                <span>{property?.propertyType}</span>
+                <span>{property?.propertySize} Sq.ft.</span>
+              </div>
+              <div>
+                <span>
+                  {" "}
+                  {property?.bedroom !== "0" && property?.bedroom + " Bed"}{" "}
+                </span>
+                <span>
+                  {" "}
+                  {property?.bathroom !== "0" &&
+                    property?.bathroom + " Bath"}{" "}
+                </span>
+              </div>
               {/* <span className="price">{property?.price} AED</span> */}
             </div>
             <h6>{property.location}</h6>

@@ -11483,6 +11483,10 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   white-space: nowrap;
 }
 
+.recc_prop_section .reommended_props_offgrid .row > div .prop_col_card .body_coopy h4 span {
+  color: #fd7400;
+}
+
 .recc_prop_section .reommended_props_offgrid .row > div .prop_col_card .body_coopy .card_footer {
   display: flex;
   flex-wrap: wrap;
@@ -11553,6 +11557,10 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   color: #000;
   line-height: 20px;
   margin-bottom: 5px;
+}
+
+.recc_prop_section .prop_search_result_card .body_coopy h4 span {
+  color: #788402;
 }
 
 .recc_prop_section .prop_search_result_card .body_coopy h3 {

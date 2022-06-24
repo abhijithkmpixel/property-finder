@@ -1,10 +1,12 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
+import AOS from "aos";
 
 const GuidesBody = ({ body }) => {
   useEffect(() => {
     
-  
+    AOS.init();
+    AOS.refresh();
     return () => {
       
     }
@@ -17,8 +19,8 @@ const GuidesBody = ({ body }) => {
         {body?.map((rep) => {
           return (
             <div className="description_rep_box">
-              <h2>{rep.title}</h2>
-              <p style={{ height: "50px" }}>
+              <h2  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">{rep.title}</h2>
+              <p style={{ height: "50px" }}  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">
                 {rep.subtitle}{" "}
                 <span
                   onClick={(e) => {
@@ -36,7 +38,7 @@ const GuidesBody = ({ body }) => {
               </p>
               <div className="row">
                 {rep.redirects_guides[0] && (
-                  <div className="col-12 col-lg-8">
+                  <div className="col-12 col-lg-8"  data-aos="fade-right" data-aos-duration="900" data-aos-delay="900">
                     <Link href={rep.redirects_guides[0].url}>
                       <a>
                         <div className="redir_card">
@@ -52,7 +54,7 @@ const GuidesBody = ({ body }) => {
                   </div>
                 )}
                 {rep.redirects_guides[1] && (
-                  <div className="col-12 col-lg-4">
+                  <div className="col-12 col-lg-4"  data-aos="fade-left" data-aos-duration="900" data-aos-delay="900">
                     <Link href={rep.redirects_guides[1].url}>
                       <a>
                         <div className="redir_card">
