@@ -45,7 +45,7 @@ const Rentersguide = ({ results, title, docName }) => {
     e.preventDefault();
     setloader(true);
     try {
-      const docRef = doc(db, "properties2", docName);
+      const docRef = doc(db, "static_pages", docName);
       const sub = await setDoc(docRef, {
         ...result,
         body_copy: data,

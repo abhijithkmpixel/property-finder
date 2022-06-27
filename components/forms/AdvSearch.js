@@ -202,7 +202,7 @@ const AdvSearch = ({ locs }) => {
           </div>
 
           <button type="submit" className="btn btn-danger">
-            Find property
+            Find Property
           </button>
         </div>
         <div className={`more_filter_opt ${moreFilter ? "" : "hidden"}`}>
@@ -400,17 +400,17 @@ const AdvSearch = ({ locs }) => {
             </select>
           </div>
         </div>
-        <div className="d-flex justify-content-end  mt-2">
+        <div className="d-flex more_btn_wrp justify-content-end  ">
           <span
             onClick={(e) => {
               resetForm();
             }}
-            className="btn btn-outline-danger "
+            className="btn btn-green "
           >
             Reset
           </span>
           <span
-            className="btn btn-outline-danger show_nore"
+            className="btn btn-green show_nore"
             onClick={() => setmoreFilter(moreFilter == true ? false : true)}
           >
             Show more filter

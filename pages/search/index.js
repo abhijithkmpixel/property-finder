@@ -12,7 +12,7 @@ import Paginate from "../../components/Paginate";
 import { motion } from "framer-motion";
 import { api } from "../api/auth/api";
 import AOS from "aos";
-
+import Footer from "../../components/Footer";
 
 const index = ({ props, type, locs }) => {
   // const [propertys, setpropertys] = useState(null);
@@ -41,10 +41,33 @@ const index = ({ props, type, locs }) => {
         meta={"search result for given parameters"}
       />
       <Header innerpage={true} />
+      <section className="mt-4">
+        <div className="container">
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb mb-5 pb-4">
+              <li class="breadcrumb-item fs-5 ">
+                <Link className="" href="/">
+                  Home
+                </Link>
+              </li>
+              <li className="breadcrumb-item active fs-5 " aria-current="page">
+                search
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </section>
 
       <section className="mt-5 mb-5 advanced_search pt-5 pb-5">
         <div className="container">
-          <AdvSearch locs={locs} />
+          <div className="adv_search_wrapper">
+            <AdvSearch
+              locs={locs}
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="200"
+            />
+          </div>
           {/* <Editor /> */}
         </div>
       </section>
@@ -66,7 +89,13 @@ const index = ({ props, type, locs }) => {
               <div className="row">
                 {currentItems?.map((prop) => {
                   return (
-                    <div className="col-8" key={prop?.id} data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
+                    <div
+                      className="col-8"
+                      key={prop?.id}
+                      data-aos="fade-left"
+                      data-aos-duration="900"
+                      data-aos-delay="200"
+                    >
                       <SearchResultItem property={prop} />
                     </div>
                   );
@@ -87,6 +116,8 @@ const index = ({ props, type, locs }) => {
           )}
         </div>
       </section>
+      <Footer/>
+      
     </div>
   );
 };

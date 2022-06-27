@@ -49,7 +49,7 @@
             padding: 50px;
             text-align: center;
             height: 100%;
-            background-color: rgba($color: #788402, $alpha: 0.8);
+            background-color: rgba($color: #073b41, $alpha: 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -67,6 +67,7 @@
               font-weight: 500;
               line-height: 25px;
               margin-bottom: 15px;
+              font-family:  $body_font;
             }
             span {
               font-size: 15px;
@@ -81,12 +82,16 @@
             .builder_logo {
               width: auto;
               height: 40px;
+              max-width: 100px;
               // border-radius: 50%;
               left: 10px;
               top: 10px;
               z-index: 1;
               overflow: hidden;
               position: absolute;
+              img{
+                object-fit: contain;
+              }
             }
             img {
               width: 100%;
@@ -181,7 +186,8 @@
         font-size: 16px;
         color: $color-black;
         line-height: 20px;
-        margin-bottom: 5px;
+        margin-bottom: 25px;
+        font-family: $body_font;
         span{
           color: #788402;
         }
@@ -191,7 +197,9 @@
         font-size: 19px;
         color: $color-black;
         line-height: 23px;
-        margin-bottom: 8px;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+
       }
       .card_footer {
         margin-bottom: 20px;
@@ -201,6 +209,10 @@
           color: $color-black;
           line-height: 19px;
           margin-right: 12px;
+          text-transform: capitalize;
+          b{
+            color: #fd7400;
+          }
         }
       }
       h6 {
@@ -208,7 +220,24 @@
         line-height: 21px;
         color: rgba($color: #000000, $alpha: 0.6);
         font-weight: 500;
+        font-family: $body_font;
+
       }
     }
   }
+}
+.advanced_search{
+  background-color: #788402;
+  .more_btn_wrp{
+    margin: 10px -10px ;
+  }
+  .adv_search_wrapper{
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+  }
+  // input,select{
+  //   background-color: transparent;
+  //   color: #fff;
+  // }
 }

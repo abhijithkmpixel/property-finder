@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer";
 import EditorDiv from "../../components/forms/Editor";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
@@ -19,6 +20,8 @@ const index = ({ data }) => {
       <StaticBanner banner={data?.banner} />
       {/* <EditorDiv /> */}
       <GuidesBody body={data?.body_copy} />
+      <Footerer/>
+
     </>
   );
 };

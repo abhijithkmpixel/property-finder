@@ -1,5 +1,6 @@
 //plugins
 @import './plugins/bootstrap513';
+// @import './plugins/fontawesome5';
 
 //components
 @import './components/typography';
@@ -11,8 +12,10 @@
 @import './components/prop-details';
 @import './components/agent_details';
 @import './components/paginat';
+@import './components/footer';
 
 // page
 @import './pages/agents';
 @import './pages/rentersguide';
 @import './pages/contact';
+@import './pages/dashboard';

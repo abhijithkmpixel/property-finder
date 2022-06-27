@@ -5,7 +5,7 @@ const SearchResultItem = ({ property }) => {
   return (
     <Link href={`/details/` + property?.slug} as={`/details/` + property?.slug}>
       <a>
-        <div className="prop_search_result_card border p-2">
+        <div className="prop_search_result_card border p-3">
           <div className="prop_img">
             <img src={property?.images} alt="proprty image" />
             {/* <div className="builder_logo">
@@ -27,18 +27,19 @@ const SearchResultItem = ({ property }) => {
             <div className="card_footer d-flex justify-content-between">
               <div>
                 <span>{property?.propertyType}</span>
-                <span>{property?.propertySize} Sq.ft.</span>
+                <span><b>{property?.propertySize}</b> Sq.ft.</span>
               </div>
               <div>
-                <span>
-                  {" "}
-                  {property?.bedroom !== "0" && property?.bedroom + " Bed"}{" "}
-                </span>
-                <span>
-                  {" "}
-                  {property?.bathroom !== "0" &&
-                    property?.bathroom + " Bath"}{" "}
-                </span>
+                {property?.bedroom !== "0" && (
+                  <span>
+                    <b>{property?.bedroom}</b> Bed
+                  </span>
+                )}
+                {property?.bathroom !== "0" && (
+                  <span>
+                    <b> {property?.bathroom}</b> Bath
+                  </span>
+                )}
               </div>
               {/* <span className="price">{property?.price} AED</span> */}
             </div>

@@ -34,7 +34,7 @@ const Paginate = ({ itemsPerPage, pageCount, items, setItemOffset }) => {
         pageRangeDisplayed={1}
         pageCount={pageCount}
         previousLabel="< prev"
-        // renderOnZeroPageCount={null}
+        renderOnZeroPageCount={null}
         containerClassName="pagination pagination-lg "
         pageClassName="page-item"
         pageLinkClassName="page-link"

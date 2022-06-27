@@ -5,9 +5,15 @@ import { auth } from "../../pages/api/firebase";
 
 const Dashboard = ({ setloggedIn }) => {
   const [pages, setpages] = useState(false);
+  const [user, setuser] = useState(null);
+  // const [loggedIn, setloggedIn] = useState(false)
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      setloggedIn(true);
+      // setloggedIn(true);
+      if (currentUser) {
+        // console.log(currentUser);
+        setuser(currentUser);
+      }
     });
 
     return () => {};
@@ -15,102 +21,278 @@ const Dashboard = ({ setloggedIn }) => {
 
   const signout = async () => {
     await signOut(auth);
-    setloggedIn(false);
+    // setloggedIn(false);
+    setuser(null);
+
   };
 
   return (
-    <ul
-      className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-      id="accordionSidebar"
-    >
-      {/* <!-- Sidebar - Brand --> */}
-      <Link href="/Admin">
-        <a className="sidebar-brand d-flex align-items-center justify-content-center">
-          <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-laugh-wink"></i>
-          </div>
-          <div className="sidebar-brand-text mx-3">
-            PF Admin <sup>2</sup>
-          </div>
-        </a>
-      </Link>
-
-      {/* <!-- Divider --> */}
-      <hr className="sidebar-divider my-0" />
-
-      {/* <!-- Nav Item - Dashboard --> */}
-      <li className="nav-item active">
-        <Link href="/Admin">
-          <a className="nav-link">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </Link>
-      </li>
-
-      {/* <!-- Heading --> */}
-      <div className="sidebar-heading">Addons</div>
-
-      {/* <!-- Nav Item - Pages Collapse Menu --> */}
-      <li className="nav-item">
-        <a
-          className={`nav-link ${pages && "collapsed"} `}
-          href="#"
-          data-toggle="collapse"
-          data-target="#collapsePages"
-          aria-expanded="true"
-          aria-controls="collapsePages"
-          onClick={() => setpages(pages ? false : true)}
-        >
-          <i className="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div
-          id="collapsePages"
-          className={`collapse ${pages && "show"} `}
-          aria-labelledby="headingPages"
-          data-parent="#accordionSidebar"
-        >
-          <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Login Screens:</h6>
-            <Link href="/">
-              <a className="collapse-item">Home page</a>
-            </Link>
-          </div>
-        </div>
-      </li>
-
-      {/* <!-- Nav Item - Charts --> */}
-      <li className="nav-item">
-        <Link href={"/Admin/add-property"}>
-          <a className="nav-link">
-            <i className="fas fa-fw fa-chart-area"></i>
-            <span>Add property</span>
-          </a>
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link href={"/Admin/add-agent"}>
-          <a className="nav-link">
-            <i className="fas fa-fw fa-chart-area"></i>
-            <span>Add agents</span>
-          </a>
-        </Link>
-      </li>
-
-      {/* <!-- Sidebar Toggler (Sidebar) --> */}
-      <div className="text-center d-none d-md-inline">
-        <button className="rounded-circle border-0" id="sidebarToggle"></button>
+    <aside id="sidebar" className="sidebar break-point-lg has-bg-image">
+      <div className="image-wrapper">
+        <img
+          src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
+          alt="sidebar background"
+        />
       </div>
-      <buton
-        className="btn btn-danger btn-lg"
-        onClick={() => {
-          signout;
+      <div className="sidebar-layout">
+        <div className="sidebar-header">
+          {/* <span
+        style={{
+          textTransform: 'uppercase',
+          fontSize: '15px',
+          letterSpacing:' 3px',
+          fontWeight:' bold'
         }}
       >
-        Log out
-      </buton>
-    </ul>
+        Pro Sidebar
+      </span> */}
+          <img src="/mainlogo1.png" alt="logo" className="logo" />
+        </div>
+        <div className="sidebar-content">
+          <nav className="menu open-current-submenu">
+            <ul>
+              <li className="menu-item sub-menu">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.target.closest(".menu-item").classList.toggle("open");
+                    // console.log(e.target);
+                  }}
+                >
+                  <span className="menu-icon">
+                    <i className="ri-vip-diamond-fill"></i>
+                  </span>
+                  <span className="menu-title">Data</span>
+                  <span className="menu-suffix">&#x1F525;</span>
+                </a>
+                <div className="sub-menu-list">
+                  <ul>
+                    <li className="menu-item">
+                      <Link href="/add-agent">
+                        <a>
+                          <span className="menu-title">Agents</span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="menu-item">
+                      <Link href="/add-property">
+                        <a>
+                          <span className="menu-title">Properties</span>
+                        </a>
+                      </Link>
+                    </li>
+                    {/* <li className="menu-item sub-menu">
+                    <a href="#">
+                      <span className="menu-title">Forms</span>
+                    </a>
+                    <div className="sub-menu-list">
+                      <ul>
+                        <li className="menu-item">
+                          <a href="#">
+                            <span className="menu-title">Input</span>
+                          </a>
+                        </li>
+                        <li className="menu-item">
+                          <a href="#">
+                            <span className="menu-title">Select</span>
+                          </a>
+                        </li>
+                        <li className="menu-item sub-menu">
+                          <a href="#">
+                            <span className="menu-title">More</span>
+                          </a>
+                          <div className="sub-menu-list">
+                            <ul>
+                              <li className="menu-item">
+                                <a href="#">
+                                  <span className="menu-title">
+                                    CheckBox
+                                  </span>
+                                </a>
+                              </li>
+                              <li className="menu-item">
+                                <a href="#">
+                                  <span className="menu-title">
+                                    Radio
+                                  </span>
+                                </a>
+                              </li>
+                              <li className="menu-item sub-menu">
+                                <a href="#">
+                                  <span className="menu-title">
+                                    Want more ?
+                                  </span>
+                                  <span className="menu-suffix">
+                                    &#x1F914;
+                                  </span>
+                                </a>
+                                <div className="sub-menu-list">
+                                  <ul>
+                                    <li className="menu-item">
+                                      <a href="#">
+                                        <span className="menu-prefix">
+                                          &#127881;
+                                        </span>
+                                        <span className="menu-title">
+                                          You made it{" "}
+                                        </span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li> */}
+                  </ul>
+                </div>
+              </li>
+              <li className="menu-item sub-menu">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.target.closest(".menu-item").classList.toggle("open");
+                    // console.log(e.target);
+                  }}
+                >
+                  <span className="menu-icon">
+                    <i className="ri-bar-chart-2-fill"></i>
+                  </span>
+                  <span className="menu-title">Pages</span>
+                </a>
+                <div className="sub-menu-list">
+                  <ul>
+                    <li className="menu-item">
+                      <Link href={"/admin/guides/rentguide"}>
+                        <a>
+                          <span className="menu-title">Renter's guide</span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="menu-item">
+                      <Link href="/admin/guides/buyerguide">
+                        <a>
+                          <span className="menu-title">Buyer's guide</span>
+                        </a>
+                      </Link>
+                    </li>
+                    {/* <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Bar chart</span>
+                    </a>
+                  </li> */}
+                  </ul>
+                </div>
+              </li>
+              {/* <li className="menu-item sub-menu">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-shopping-cart-fill"></i>
+                </span>
+                <span className="menu-title">E-commerce</span>
+              </a>
+              <div className="sub-menu-list">
+                <ul>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Products</span>
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Orders</span>
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">credit card</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className="menu-item sub-menu">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-global-fill"></i>
+                </span>
+                <span className="menu-title">Maps</span>
+              </a>
+              <div className="sub-menu-list">
+                <ul>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Google maps</span>
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Open street map</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className="menu-item sub-menu">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-brush-3-fill"></i>
+                </span>
+                <span className="menu-title">Theme</span>
+              </a>
+              <div className="sub-menu-list">
+                <ul>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Dark</span>
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#">
+                      <span className="menu-title">Light</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className="menu-item">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-book-2-fill"></i>
+                </span>
+                <span className="menu-title">Documentation</span>
+              </a>
+            </li>
+            <li className="menu-item">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-calendar-fill"></i>
+                </span>
+                <span className="menu-title">Calendar</span>
+              </a>
+            </li>
+            <li className="menu-item">
+              <a href="#">
+                <span className="menu-icon">
+                  <i className="ri-service-fill"></i>
+                </span>
+                <span className="menu-title">Examples</span>
+              </a>
+            </li> */}
+            </ul>
+          </nav>
+        </div>
+        <div className="sidebar-footer d-flex flex-column">
+          <span>{user?.email}</span>
+          <button className="btn btn-danger w-100" onClick={signout}>Logout</button>
+        </div>
+      </div>
+    </aside>
   );
 };
 

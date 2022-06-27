@@ -7,6 +7,8 @@ import NProgress from "nprogress";
 import { useEffect } from "react";
 import { SessionProvider } from "next-auth/react";
 import LogContextProvider from "./api/auth/logContext";
+import "aos/dist/aos.css";
+
 
 
 NProgress.configure({ showSpinner: false });
@@ -18,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     if(window !== undefined){
       
       window.addEventListener('scroll',()=>{
-        if(window.scrollY > 250){
+        if(window.scrollY > 180){
           // console.log(window.screenY);
           document.body.classList.add('sticky_header')
         }else{

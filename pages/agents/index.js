@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Link from "next/link";
 import HeadTag from "../../components/Head";
 import { api } from "../api/auth/api";
+import Footer from "../../components/Footer";
 const index = ({ agents }) => {
   return (
     <>
@@ -48,6 +49,7 @@ const index = ({ agents }) => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

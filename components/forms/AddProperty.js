@@ -8,18 +8,20 @@ import PropsListingSticky from "../PropsListingSticky";
 import EditorDiv from "./Editor";
 import CKEditor from "react-ckeditor-component";
 
-
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
   const [loader, setloader] = useState(false);
+  const [facilities, setfacilities] = useState([""]);
   const router = useRouter();
-  const [editorState, setEditorState] = useState('<p>lorem</p>  <p>&nbsp;</p><p>capsicum</p>');
+  const [editorState, setEditorState] = useState(
+    "<p>lorem</p>  <p>&nbsp;</p><p>capsicum</p>"
+  );
 
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
     // console.log(editorState);
     return () => {};
-  }, []);
+  }, [facilities]);
 
   const addProp = async (e) => {
     e.preventDefault();
@@ -41,11 +43,12 @@ const AddProperty = ({ agents, props }) => {
       propertyType: e.target.propertyType.value,
       agent: e.target.agent.value,
       recommend: e.target.recommended.value,
+      facilities: facilities,
     });
     e.target.reset();
     alert(`Document with id ${sub.id} has been added to Database`);
     setloader(false);
-    router.push('/add-property')
+    router.push("/add-property");
   };
   function editProp(p) {
     seteditor(true);
@@ -67,6 +70,7 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("recommended").value = p.recommend
       ? p.recommend
       : "0";
+    setfacilities(p?.facilities ? p?.facilities : [""]);
   }
   const updateProp = async (e) => {
     e.preventDefault();
@@ -92,6 +96,7 @@ const AddProperty = ({ agents, props }) => {
       propertyType: document.getElementById("propertyType").value,
       agent: document.getElementById("agent").value,
       recommend: document.getElementById("recommended").value,
+      facilities: facilities,
     });
     // console.log(sub);
     alert(
@@ -101,7 +106,7 @@ const AddProperty = ({ agents, props }) => {
     );
     resetform();
     setloader(false);
-    router.push('/add-property')
+    router.push("/add-property");
 
     // router.push("/add-property");
   };
@@ -122,14 +127,25 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("bathroom").value = "";
     document.getElementById("propertyType").value = "";
     document.getElementById("agent").value = "";
+    setfacilities([]);
+  }
+  function updatefacility(e, index) {
+    const prev = [...facilities];
+    prev[index] = e.target.value;
+    setfacilities(prev);
   }
 
-  const onEditorChange = (evt) => {
-    const newContent = evt.editor.getData();
-    
-    setEditorState(newContent);
-    // console.log(newContent);
-  };
+  function addFacilityRow() {
+    const prev = [...facilities];
+    // console.log(facilities);
+    prev[facilities.length] = "";
+    setfacilities(prev);
+  }
+  function removeFacility(index){
+    const prev = [...facilities];
+    prev.splice(index,1)
+    setfacilities(prev)
+  }
   return (
     <>
       <PropsListingSticky props={props} editProp={editProp} />
@@ -223,6 +239,7 @@ const AddProperty = ({ agents, props }) => {
           <label htmlFor="bathroom">Bathroom</label>
           <input type="text" name="bathroom" id="bathroom" required />
         </fieldset>
+
         <fieldset>
           <label htmlFor="recommended">Add to recomended</label>
           <select name="recommended" id="recommended">
@@ -230,10 +247,42 @@ const AddProperty = ({ agents, props }) => {
             <option value="1">yes</option>
           </select>
         </fieldset>
+        <fieldset>
+          <label htmlFor="facilities">Facilities</label>
+          {facilities?.map((f, index) => {
+            return (
+              <div className="d-flex">
+                <input
+                  type="text"
+                  name="facilities"
+                  value={f}
+                  className="mb-4"
+                  key={index}
+                  onChange={(e) => updatefacility(e, index)}
+                  id="facilities"
+                  required
+                />
+                <img
+                  src="/minus.svg"
+                  alt="minus"
+                  onClick={(e)=>removeFacility(index)}
+                  style={{ width: "25px", height: "25px" ,marginLeft:'10px'}}
+                />
+              </div>
+            );
+          })}
+          <button
+            className="btn btn-danger"
+            type="button"
+            onClick={addFacilityRow}
+          >
+            Add row
+          </button>
+        </fieldset>
         <fieldset className="w-100">
           <label htmlFor="description">Description</label>
           <CustonFieldEdito fieldName={"description"} />
-          <div id="editorjs">
+          {/* <div id="editorjs">
             <CKEditor
               activeClass="p10"
               content={editorState}
@@ -243,8 +292,9 @@ const AddProperty = ({ agents, props }) => {
                 change: onEditorChange,
               }}
             />
-          </div>
+          </div> */}
         </fieldset>
+
         {editor ? (
           <>
             <button

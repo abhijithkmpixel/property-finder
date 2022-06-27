@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import GuidesBody from "../../components/static page components/GuidesBody";
@@ -17,6 +18,8 @@ const index = ({ data }) => {
       <Header innerpage={true}/>
       <StaticBanner banner={data?.banner} />
       <GuidesBody body={data?.body_copy} />
+      <Footer/>
+
     </>
   );
 };

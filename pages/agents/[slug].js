@@ -4,9 +4,11 @@ import Header from "../../components/Header";
 import Link from "next/link";
 import RecommendedProp from "../../components/RecommendedProp";
 import { api } from "../api/auth/api";
+import Footer from "../../components/Footer";
+import AgentProperties from "../../components/AgentProperties";
 const index = ({ agent, count }) => {
   return (
-    <div>
+    <>
       <HeadTag title={agent.name} meta={`${agent.position}`} />
       <Header innerpage={true}/>
       <section className="agent_details">
@@ -51,13 +53,16 @@ const index = ({ agent, count }) => {
                   </div>
                 </div>
               </div>
-              <p>{agent?.about_me && agent.about_me}</p>
             </div>
           </div>
-          <RecommendedProp title={"My properties"} list={count} filter={true} />
+             {agent?.about_me &&  <div className="about_me"> <h4>About me</h4> <p>{agent.about_me}</p></div>}
+          {/* <RecommendedProp title={"My properties"} list={count} filter={true} /> */}
         </div>
       </section>
-    </div>
+          <AgentProperties  title={"My properties"} list={count} filter={true}/>
+      <Footer/>
+
+    </>
   );
 };
 

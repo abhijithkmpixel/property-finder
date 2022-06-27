@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Dashboard from "../../../components/admins/Dashboard";
 import Rentersguide from "../../../components/admins/Rentersguide";
 import HeadTag from "../../../components/Head";
 import Header from "../../../components/Header";
@@ -25,12 +26,19 @@ const Guides = ({ results }) => {
       {loggedIn && <PageLoader />}
       <HeadTag title="Edit buyers's guide" meta="" />
 
-      <Header innerpage={true}/>
-      <Rentersguide
-        title="Buyer,s guide"
-        docName="buyersguide"
-        results={results}
-      />
+      {/* <Header innerpage={true}/> */}
+      <div className="layout has-sidebar fixed-sidebar fixed-header">
+        <Dashboard />
+        <div id="overlay" className="overlay"></div>
+        <div className="dash">
+          <Rentersguide
+            title="Buyer,s guide"
+            docName="buyersguide"
+            results={results}
+          />
+          <div className="overlay"></div>
+        </div>
+      </div>
     </>
   );
 };

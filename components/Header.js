@@ -50,7 +50,7 @@ const Header = ({innerpage}) => {
 
   return (
     <header className={`${innerpage == true ? 'innerpages':''}`} >
-      <div className="container">
+      <div className="container p-0">
         <div className="header_inner_wrapper">
           <div className="brand_logo">
             <Link href="/">

@@ -3,6 +3,7 @@ import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import emailjs from "@emailjs/browser";
 import AOS from "aos";
+import Footer from "../../components/Footer";
 
 const index = () => {
   const [successMsg, setsuccessMsg] = useState(false);
@@ -53,6 +54,22 @@ const index = () => {
   }
   return (
     <>
+{
+  successMsg &&
+<div className="position-fixed bottom-0 end-0 p-3 " style={{zIndex: 11}}>
+  <div id="liveToast" className="toast show " role="alert" aria-live="assertive" aria-atomic="true">
+    <div className="toast-header">
+      {/* <img src="..." className="rounded me-2" alt="..."/> */}
+      <strong className="me-auto">Alert</strong>
+      {/* <small>11 mins ago</small> */}
+      <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close" onClick={()=>setsuccessMsg(false)}></button>
+    </div>
+    <div className="toast-body fs-4 ">
+    Success! message sent.
+    </div>
+  </div>
+</div>
+}
       <HeadTag title="Contact Us" meta="contact us with many options" />
       <Header innerpage={true} />
       <section className="contact_form">
@@ -90,14 +107,14 @@ const index = () => {
             </div>
             <div className="form">
               <h1>Get In Touch</h1>
-              {successMsg && (
+              {/* {successMsg && (
                 <div
                   className="alert alert-success w-100 fs-4 alert-dismissible"
                   role="alert"
                 >
                   Success! message sent.
                 </div>
-              )}
+              )} */}
               <form onSubmit={submitHandler} id="contactform">
                 <div className="flex-rev">
                   <input
@@ -142,6 +159,8 @@ const index = () => {
           </div>
         </div>
       </section>
+      <Footerer/>
+
     </>
   );
 };

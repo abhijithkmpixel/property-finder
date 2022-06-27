@@ -16,7 +16,7 @@ const LoginForm = () => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         // seterrorMsg(true);
-        router.push("/");
+        router.push("/dashboard");
       }
     });
     return () => {};

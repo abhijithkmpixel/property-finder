@@ -1,14 +1,24 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  transition: .2s all ease-in-out;
-  font-smooth: auto;
+  font-family: "Poppins", sans-serif;
+  transition: 0.2s all ease-in-out;
+  // font-smooth: auto;
+  // scrollbar-width: thin;
+  // scrollbar-track-color: #fd7400;
+  &::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 10px;
+  }
   -webkit-font-smoothing: antialiased;
-
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
   &:focus {
     outline: none;
   }
 }
+$heading_font: "Playfair Display";
+$body_font: "Poppins", sans-serif;
 ul,
 ol {
   padding: 0;
@@ -21,6 +31,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  font-family: $heading_font;
 }
 .container {
   max-width: 1175px !important;
@@ -36,7 +47,7 @@ $color-black: #000;
 
 #nprogress .bar {
   background: #fd7400 !important;
-  height: 3px !important;
+  height: 4px !important;
   border: none !important;
   outline: none !important;
 }
@@ -68,12 +79,53 @@ body {
 a:focus {
   box-shadow: none !important;
 }
-.btn-danger{
+.btn-outline-danger {
+  border-color: #fd7400;
+  color: #fd7400;
+  &:hover {
+    opacity: 0.5;
+    background-color: #fd7400;
+  }
+  &:focus {
+    background-color: #fd7400;
+    color: #fff;
+  }
+}
+.btn{
+  img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+.btn-danger {
   background-color: #fd7400;
-  transition: .2s all ease-in-out;
-  &:hover{
-    opacity: .5;
-  background-color: #fd7400;
-
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    opacity: 0.5;
+    background-color: #fd7400;
+  }
+  &:focus {
+    background-color: #fd7400;
+  }
+}
+.btn-green {
+  background-color: #788402;
+  transition: 0.2s all ease-in-out;
+  color: #fff;
+  &:hover {
+    opacity: 0.5;
+    color: #fff;
+    background-color: #788402;
+  }
+  &:focus {
+    background-color: #788402;
+  }
+}
+.breadcrumb {
+  li,
+  a {
+    color: #000;
+    text-decoration: none;
   }
 }

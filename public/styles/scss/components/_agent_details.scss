@@ -13,8 +13,19 @@
     }
   }
   .body_copy{
-    padding-left: 15px;
+    padding: 15px;
     flex: 1;
+    h3,h4{
+      font-family: $body_font;
+
+      span{
+        text-transform: capitalize;
+        font-family: $heading_font
+      }
+    }
+    h3{
+      font-size: 20px;
+    }
     .card{
       img{
         width: 150px;
@@ -23,5 +34,19 @@
     p{
       font-size: 14px;
     }
+  }
+}
+.about_me{
+  margin: 20px 0 0 ;
+  h4{
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 400;
+    color: #000;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+  }
+  p{
+    font-size: 13px;
   }
 }

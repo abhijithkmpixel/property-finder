@@ -1,87 +1,203 @@
-.section_prop_details{
-  padding: 50px 0;
+.section_prop_details {
+  // padding: 50px 0;
+  // background-color: ;
+  .breadcrumb {
+    li {
+      text-transform: capitalize;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
   width: 100%;
-  .prop_image_wr{
+  .prop_detail_banner {
+    background-color: #073b41;
+    padding: 80px 25px;
+  }
+  .prop_image_wr {
     width: 100%;
-    height: 400px;
+    // height: 500px;
+    margin-bottom: 40px;
     border-radius: 15px;
     overflow: hidden;
-    img{
+    position: relative;
+    padding: 20px;
+    img {
       width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      position: absolute;
       height: 100%;
       object-fit: cover;
     }
   }
-  .points_wrp{
-    list-style-type: circle;
-    display: flex;
+  .points_wrp {
     flex-wrap: wrap;
     background-color: aliceblue;
     border-radius: 15px;
-    padding: 20px;
-    height: 100%;
-    li{
+    padding: 25px;
+    width: 340px;
+    margin-left: auto;
+    min-height: 460px;
+    position: relative;
+    z-index: 2;
+    .btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        object-fit: contain;
+        position: static;
+        width: 20px;
+        // margin: auto;
+        margin-right: 8px;
+        height: 20px;
+      }
+    }
+ 
+    li {
       flex: 100%;
-      margin-bottom: 15px;
-      h5{
+      margin-bottom: 25px;
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: -15px;
+        width: 9px;
+        height: 9px;
+        background-color: #fd7400;
+        border-radius: 50%;
+        display: block;
+        z-index: 1;
+      }
+      h5 {
         font-size: 15px;
         color: $color-black;
         font-weight: 500;
         margin-bottom: 10px;
-        opacity: .7;
+        opacity: 0.7;
         line-height: 15px;
+        text-transform: capitalize;
       }
-      span{
+      span {
+        text-transform: capitalize;
         font-size: 19px;
         color: $color-black;
         font-weight: 500;
-        line-height: 19px;
+        line-height: 24px;
       }
     }
   }
-  .body_copy{
+  .body_copy {
     margin-top: 20px;
-    h4{
-      font-size: 14px ;
+    color: #fff;
+    .facilities{
+      h6{
+        font-size: 24px;
+        color: #fd7400;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      li{
+        margin-left: 20px;
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 10px;
+        color: #fff;
+        font-weight: 400;
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          left: -15px;
+          z-index: 1;
+          top: 6px;
+          display: block;
+          background-color: #fd7400;
+        }
+      }
     }
-    h1{
+    .inner_sidebar{
+      li{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        h5{
+          img{
+            width: auto;
+            margin-right: 10px;
+            height: 30px;
+            object-fit: contain;
+          }
+        }
+        span{
+          font-size: 20px;
+        }
+      }
+    }
+    h4 {
+      font-size: 15px;
+      line-height: 17px;
+      color: #fff;
+      text-transform: capitalize;
+      font-family: $body_font;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    h1 {
       margin-bottom: 15px;
       font-size: 28px;
+      color: #fff;
+      text-transform: capitalize;
+      // font-family: $body_font;
+      letter-spacing: 1px;
     }
-    p{
+    p {
       font-size: 13px;
       line-height: 19px;
     }
-    .points_wrp{
+    .points_wrp {
       background-color: beige;
-      li{
+      li {
         flex: 1;
         padding: 0 10px 0 0;
       }
     }
-    .description{
+    .description {
       font-size: 14px;
+      margin-bottom: 60px;
+      margin-top: 60px;
 
+      p{
+
+      }
     }
   }
 }
 
-.custom_editor{
+.custom_editor {
   width: 100%;
-  .controlBar{
+  .controlBar {
     margin-bottom: 10px;
     display: flex;
-    select,button{
+    select,
+    button {
       background-color: #eee;
       margin-right: 10px;
       font-size: 15px;
       padding: 2px 8px;
-      border: 1px solid rgba($color: #000000, $alpha: .5);
+      border: 1px solid rgba($color: #000000, $alpha: 0.5);
       font-weight: 700;
       max-width: max-content;
     }
   }
-  textarea{
+  textarea {
     border: 1px solid #000;
     width: 100%;
     height: 250px !important;
