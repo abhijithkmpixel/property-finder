@@ -34,10 +34,10 @@ const index = ({ agents }) => {
       <div className="layout has-sidebar fixed-sidebar fixed-header">
         <Dashboard />
         {/* <div id="overlay" className="overlay"></div> */}
-        <div className="">
-          <div>
-
-          <AddAgent agents={agents} />
+        <div className="dash">
+          <div className="">
+              <AddAgent agents={agents} />
+          
           </div>
           <div className="overlay"></div>
         </div>

@@ -72,7 +72,7 @@ export async function getServerSideProps(context) {
   const { req, params, query } = context;
   var agents = "";
   await api
-    .get(`/api/agents`)
+    .get(`/api/agents/${query.slug}`)
     .then((response) =>{agents = response.data;})
     
   var props = "";

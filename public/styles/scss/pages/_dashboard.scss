@@ -206,7 +206,7 @@ $sidebar-footer-height: 64px;
 
         &.sub-menu {
           position: relative;
-          > a {
+          &> a {
             &::after {
               content: "";
               transition: transform 0.3s;
@@ -218,7 +218,7 @@ $sidebar-footer-height: 64px;
             }
           }
 
-          > .sub-menu-list {
+          &> .sub-menu-list {
             padding-left: 20px;
             display: none;
             overflow: hidden;
@@ -410,8 +410,13 @@ $sidebar-footer-height: 64px;
   }
 }
 
+// .layout .sidebar .menu ul .menu-item {
+//   font-size: 14px;
+//   padding: 5px 10px;
+// }
+// .layout .sidebar .menu ul .menu-item .menu-title{
 
-
+// }
 a {
   text-decoration: none;
 }

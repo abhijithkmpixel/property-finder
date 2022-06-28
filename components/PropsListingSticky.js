@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
+import Paginate from "./Paginate";
+
 
 const PropsListingSticky = ({ props, editProp }) => {
   const [filtered, setfiltered] = useState(props);
+
+  const [currentItems, setCurrentItems] = useState();
+  const [pageCount, setPageCount] = useState(1);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemsPerPage, setitemsPerPage] = useState(9);
+  const [itemOffset, setItemOffset] = useState(0);
+
   useEffect(() => {
     // setfiltered(props)
     // console.log(filtered);
-  
-    return () => {
-      
-    }
-  }, [filtered])
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(props.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(props.length / itemsPerPage));
+    return () => {};
+  }, [itemOffset, itemsPerPage,props]);
   
   const filterPorps = (e) => {
     switch (e.target.value) {
@@ -48,26 +58,43 @@ const PropsListingSticky = ({ props, editProp }) => {
         </select> */}
       </div>
       <ul>
-        {props?.map((p) => {
+        {currentItems?.map((p) => {
           return (
             <li
               key={p.id}
-              onClick={() => {
-                editProp(p);
-              }}
             >
-              <div className="card mb-3 p-3">
+              <div className="card h-100 p-3">
                 <img src={p.images} className="card-img-top" alt={p.title} />
                 <div className="card-body">
                   <h5 className="card-title">{p.title}</h5>
                   <p className="card-text">{p.tags}</p>
                   <p className="card-text">{p.id}</p>
                 </div>
+                <div className="btnr_wrap">
+                  <button
+                    className="btn btn-primary mx-2"
+                    onClick={() => {
+                      editProp(p);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button className="btn btn-outline-danger">Delete</button>
+                </div>
               </div>
             </li>
           );
         })}
       </ul>
+      <div className=" h-auto my-5 mx-5" style={{width:'max-content'}}>
+        <Paginate
+          itemsPerPage={itemsPerPage}
+          pageCount={pageCount}
+          items={props}
+          setItemOffset={setItemOffset}
+        />
+      </div>
+   
     </aside>
   );
 };

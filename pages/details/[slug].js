@@ -200,29 +200,24 @@ const index = ({ data, agent }) => {
 
 export default index;
 export async function getServerSideProps(context) {
-  const slug = context.params;
-  const collectionRef = collection(db, "properties");
-  const datarr = await getDocs(collectionRef);
-  const datas = datarr.docs.map((doc) => {
-    return {
-      ...doc.data(),
-      id: doc.id,
-    };
+  const { req, query, params } = context;
+
+  const data = await api.get(`/api/all/${query.slug}`)
+  .then((res) => {
+    return res.data;
   });
-  const filter = datas.filter((data) => data.slug == slug.slug);
   const agents = await api.get("/api/agents").then((res) => {
     // console.log(res.data);
     return res.data;
   });
   const agent = agents?.filter((a) => {
-    if (a.info_slug.toString() == filter[0].agent) {
+    if (a.info_slug.toString() == data[0].agent) {
       return a;
     }
   });
-  // console.log(filter[0]);
   return {
     props: {
-      data: filter[0],
+      data: data[0],
       agent: agent[0],
     },
   };

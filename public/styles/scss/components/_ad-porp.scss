@@ -52,18 +52,18 @@
   // position: fixed;
   // left: 0;
   // bottom: 0;
-  max-width: 100%;
+  // max-width: 100%;
   // height: 400px;
   background-color: #fff;
-  overflow-x: auto;
-  ul {
-    overflow: auto;
-    display: flex;
+  // overflow-x: auto;
+  &>ul {
+    // overflow: auto;
+    // display: flex;
     li {
-      width: 300px;
-      height: auto;
+      // width: 200px;
+      height: 200px;
       flex: 0 auto;
-      min-width: 300px;
+      // min-width: 300px;
       margin-bottom: 15px;
       &:hover {
         .card {
@@ -74,9 +74,28 @@
         width: 100%;
         // height: 200px;
         color: #000;
-        cursor: pointer;
+        display: flex;
+        flex-flow: row;
+        margin-bottom: 0;
+        // cursor: pointer;
+        &:hover{
+          background-color: #fff;
+        }
         img {
           object-fit: cover;
+          width: 200px;
+          height: 100%;
+          object-fit: cover;
+        }
+        .card-body{
+          width: max-content;
+          flex: 1;
+          .card-title{
+            font-size: 17px;
+          }
+          .card-text{
+            font-size: 15px;
+          }
         }
       }
     }
@@ -140,6 +159,26 @@
   height: auto;
 }
 //new login form
+.background {
+  width: 70%;
+  padding: 40px;
+  height: calc(100vh - 78px);
+
+  background: linear-gradient(
+      60deg,
+      rgba(158, 189, 19, 0.5),
+      rgba(0, 133, 82, 0.7)
+    ),
+    url("https://cdn.pixabay.com/photo/2016/03/09/09/22/workplace-1245776_960_720.jpg")
+      center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: row;
+}
 #login-page {
   display: flex;
 
@@ -225,26 +264,7 @@
   .login_btn:hover {
     opacity: 0.9;
   }
-  .background {
-    width: 70%;
-    padding: 40px;
-    height: calc(100vh - 78px);
 
-    background: linear-gradient(
-        60deg,
-        rgba(158, 189, 19, 0.5),
-        rgba(0, 133, 82, 0.7)
-      ),
-      url("https://cdn.pixabay.com/photo/2016/03/09/09/22/workplace-1245776_960_720.jpg")
-        center no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: flex-end;
-    align-content: center;
-    flex-direction: row;
-  }
   .background h1 {
     max-width: 420px;
     color: #fff;

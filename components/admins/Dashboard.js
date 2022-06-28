@@ -1,5 +1,6 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { auth } from "../../pages/api/firebase";
 
@@ -7,6 +8,7 @@ const Dashboard = ({ setloggedIn }) => {
   const [pages, setpages] = useState(false);
   const [user, setuser] = useState(null);
   // const [loggedIn, setloggedIn] = useState(false)
+  const router = useRouter();
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       // setloggedIn(true);
@@ -23,7 +25,6 @@ const Dashboard = ({ setloggedIn }) => {
     await signOut(auth);
     // setloggedIn(false);
     setuser(null);
-
   };
 
   return (
@@ -36,17 +37,19 @@ const Dashboard = ({ setloggedIn }) => {
       </div>
       <div className="sidebar-layout">
         <div className="sidebar-header">
-          {/* <span
-        style={{
-          textTransform: 'uppercase',
-          fontSize: '15px',
-          letterSpacing:' 3px',
-          fontWeight:' bold'
-        }}
-      >
-        Pro Sidebar
-      </span> */}
-          <img src="/mainlogo1.png" alt="logo" className="logo" />
+          <span
+            onClick={() => router.push("/admin")}
+            style={{
+              textTransform: "uppercase",
+              fontSize: "15px",
+              letterSpacing: " 3px",
+              fontWeight: " bold",
+              cursor: "pointer",
+            }}
+          >
+            Dashboard
+          </span>
+          {/* <img src="/mainlogo1.png" alt="logo" className="logo" /> */}
         </div>
         <div className="sidebar-content">
           <nav className="menu open-current-submenu">
@@ -69,36 +72,77 @@ const Dashboard = ({ setloggedIn }) => {
                 <div className="sub-menu-list">
                   <ul>
                     <li className="menu-item">
-                      <Link href="/add-agent">
+                      <Link href="/admin/agents">
                         <a>
                           <span className="menu-title">Agents</span>
                         </a>
                       </Link>
                     </li>
                     <li className="menu-item">
-                      <Link href="/add-property">
+                      <Link href="/admin/properties">
                         <a>
                           <span className="menu-title">Properties</span>
                         </a>
                       </Link>
                     </li>
-                    {/* <li className="menu-item sub-menu">
-                    <a href="#">
-                      <span className="menu-title">Forms</span>
+                  </ul>
+                </div>
+              </li>
+              <li className="menu-item sub-menu">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.target.closest(".menu-item").classList.toggle("open");
+                    // console.log(e.target);
+                  }}
+                >
+                  <span className="menu-icon">
+                    <i className="ri-bar-chart-2-fill"></i>
+                  </span>
+                  <span className="menu-title">Pages</span>
+                </a>
+                <div className="sub-menu-list">
+                  <ul>
+                    <li className="menu-item">
+                      <Link href={"/admin/guides/rentguide"}>
+                        <a>
+                          <span className="menu-title">Renter's guide</span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="menu-item">
+                      <Link href="/admin/guides/buyerguide">
+                        <a>
+                          <span className="menu-title">Buyer's guide</span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="menu-item sub-menu">
+                    <a href="#"   onClick={(e) => {
+                    e.preventDefault();
+                    e.target.closest(".menu-item").classList.toggle("open");
+                    // console.log(e.target);
+                  }}>
+                      <span className="menu-title">Guides</span>
                     </a>
                     <div className="sub-menu-list">
                       <ul>
                         <li className="menu-item">
-                          <a href="#">
-                            <span className="menu-title">Input</span>
-                          </a>
+                        <Link href={"/admin/guides/rentguide"}>
+                        <a>
+                          <span className="menu-title">Renter's guide</span>
+                        </a>
+                      </Link>
                         </li>
                         <li className="menu-item">
-                          <a href="#">
-                            <span className="menu-title">Select</span>
-                          </a>
+                        <Link href="/admin/guides/buyerguide">
+                        <a>
+                          <span className="menu-title">Buyer's guide</span>
+                        </a>
+                      </Link>
                         </li>
-                        <li className="menu-item sub-menu">
+                        {/* <li className="menu-item sub-menu">
                           <a href="#">
                             <span className="menu-title">More</span>
                           </a>
@@ -144,43 +188,10 @@ const Dashboard = ({ setloggedIn }) => {
                               </li>
                             </ul>
                           </div>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
-                  </li> */}
-                  </ul>
-                </div>
-              </li>
-              <li className="menu-item sub-menu">
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.target.closest(".menu-item").classList.toggle("open");
-                    // console.log(e.target);
-                  }}
-                >
-                  <span className="menu-icon">
-                    <i className="ri-bar-chart-2-fill"></i>
-                  </span>
-                  <span className="menu-title">Pages</span>
-                </a>
-                <div className="sub-menu-list">
-                  <ul>
-                    <li className="menu-item">
-                      <Link href={"/admin/guides/rentguide"}>
-                        <a>
-                          <span className="menu-title">Renter's guide</span>
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="menu-item">
-                      <Link href="/admin/guides/buyerguide">
-                        <a>
-                          <span className="menu-title">Buyer's guide</span>
-                        </a>
-                      </Link>
-                    </li>
+                  </li>
                     {/* <li className="menu-item">
                     <a href="#">
                       <span className="menu-title">Bar chart</span>
@@ -289,7 +300,9 @@ const Dashboard = ({ setloggedIn }) => {
         </div>
         <div className="sidebar-footer d-flex flex-column">
           <span>{user?.email}</span>
-          <button className="btn btn-danger w-100" onClick={signout}>Logout</button>
+          <button className="btn btn-danger w-100" onClick={signout}>
+            Logout
+          </button>
         </div>
       </div>
     </aside>

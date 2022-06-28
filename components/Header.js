@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
-const Header = ({innerpage}) => {
+const Header = ({ innerpage }) => {
   const { theme, updateTheme } = useLogContaxt();
 
   const [userData, setuserData] = useState();
@@ -49,7 +49,7 @@ const Header = ({innerpage}) => {
   }, []);
 
   return (
-    <header className={`${innerpage == true ? 'innerpages':''}`} >
+    <header className={`${innerpage == true ? "innerpages" : ""}`}>
       <div className="container p-0">
         <div className="header_inner_wrapper">
           <div className="brand_logo">
@@ -87,7 +87,9 @@ const Header = ({innerpage}) => {
                   </li>
                   {!userData && (
                     <li>
-                      <Link href="/login">Admin </Link>
+                      <Link href="/login">
+                        <a target="_blank">Admin</a>
+                      </Link>
                     </li>
                   )}
                 </ul>
@@ -119,10 +121,14 @@ const Header = ({innerpage}) => {
                       <h5>Guides</h5>
                       <ul className="inner_dropdown">
                         <li>
-                          <Link href="/admin/guides/rentguide">Renter's guide </Link>
+                          <Link href="/admin/guides/rentguide">
+                            Renter's guide
+                          </Link>
                         </li>
                         <li>
-                          <Link href="/admin/guides/buyerguide">Buyer's guide </Link>
+                          <Link href="/admin/guides/buyerguide">
+                            Buyer's guide
+                          </Link>
                         </li>
                       </ul>
                     </li>
@@ -139,7 +145,11 @@ const Header = ({innerpage}) => {
                 </li>
               )}
               <li className="contact_icon">
-                <Link href="/contact"><a ><img src="/call.png" alt="call icon" /></a></Link>
+                <Link href="/contact">
+                  <a>
+                    <img src="/call.png" alt="call icon" />
+                  </a>
+                </Link>
               </li>
             </ul>
           </nav>

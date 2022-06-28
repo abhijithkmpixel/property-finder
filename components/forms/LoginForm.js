@@ -1,7 +1,7 @@
 import { doc, getDoc } from "firebase/firestore/lite";
 import React, { useEffect, useState } from "react";
 import Dashboard from "../../components/admins/Dashboard";
-import { auth, db } from "../api/firebase";
+import { auth, db } from "../../pages/api/firebase";
 import HeadTag from "../../components/Head";
 import { useRouter } from "next/router";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
@@ -16,7 +16,7 @@ const LoginForm = () => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         // seterrorMsg(true);
-        router.push("/dashboard");
+        router.push("/admin");
       }
     });
     return () => {};

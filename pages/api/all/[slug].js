@@ -1,19 +1,19 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { collection, getDocs, query } from "firebase/firestore/lite";
-import { db } from "./firebase";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
+import { db } from "../firebase";
 
 export   default async  function  handler (req, res) {
+  const {slug} = req.query
   const collectionRef = collection(db, "properties");
-  const datarr = await  getDocs(collectionRef);
-  const datas = datarr?.docs?.map((doc) => {
+  const q = query(collectionRef, where("slug", "==", slug));
+  const querySnapshot = await getDocs(q)
+  const datas = querySnapshot?.docs?.map((doc) => {
     return {
         ...doc.data(),
         id: doc.id,
         timestamp:new Date(doc._document.version.timestamp.seconds * 1000),
-        // timestamp:doc._document 
-
     };
-  });
+  }); 
   res.status(200).json( datas )
 }
