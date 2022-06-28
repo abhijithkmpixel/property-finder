@@ -49,12 +49,14 @@ const index = ({ data, agent }) => {
               data-aos-delay="300"
             >
               <img src={data.images} alt={data.title} />
+           
               <ul
                 className="points_wrp"
                 data-aos="fade-right"
                 data-aos-duration="900"
                 data-aos-delay="700"
               >
+                  
                 <li>
                   <h5>Property size:</h5>
                   <span>{data.propertySize} Sq.Ft.</span>
@@ -206,19 +208,23 @@ export async function getServerSideProps(context) {
   .then((res) => {
     return res.data;
   });
-  const agents = await api.get("/api/agents").then((res) => {
-    // console.log(res.data);
+  const agents = await api.get(`/api/agents/${data[0].agent}`)
+  .then((res) => {
     return res.data;
   });
-  const agent = agents?.filter((a) => {
-    if (a.info_slug.toString() == data[0].agent) {
-      return a;
-    }
-  });
+  // const agents = await api.get("/api/agents").then((res) => {
+  //   // console.log(res.data);
+  //   return res.data;
+  // });
+  // const agent = agents?.filter((a) => {
+  //   if (a.info_slug.toString() == data[0].agent) {
+  //     return a;
+  //   }
+  // });
   return {
     props: {
       data: data[0],
-      agent: agent[0],
+      agent: agents[0],
     },
   };
 }

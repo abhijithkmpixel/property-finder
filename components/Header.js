@@ -85,22 +85,21 @@ const Header = ({ innerpage }) => {
                   <li>
                     <Link href="/buyersguide">Buyer's guide </Link>
                   </li>
-                  {!userData && (
+                  {/* {!userData && ( */}
                     <li>
                       <Link href="/login">
                         <a target="_blank">Admin</a>
                       </Link>
                     </li>
-                  )}
+                  {/* // )} */}
                 </ul>
               </li>
-              {userData && (
+              {/* {userData && (
                 <li>
                   <h5>
                     Admin
                     <img src="/chevron-down.svg" alt="arrow down" />
                   </h5>
-                  {/* </h5> */}
                   <ul className="sub_dropdown">
                     <>
                       <div className="user_console">
@@ -143,7 +142,7 @@ const Header = ({ innerpage }) => {
                     ) : null}
                   </ul>
                 </li>
-              )}
+              )} */}
               <li className="contact_icon">
                 <Link href="/contact">
                   <a>

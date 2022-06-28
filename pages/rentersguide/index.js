@@ -20,7 +20,7 @@ const index = ({ data }) => {
       <StaticBanner banner={data?.banner} />
       {/* <EditorDiv /> */}
       <GuidesBody body={data?.body_copy} />
-      <Footerer/>
+      <Footer/>
 
     </>
   );

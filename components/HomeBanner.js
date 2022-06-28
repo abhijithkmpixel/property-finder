@@ -35,6 +35,9 @@ const HomeBanner = ({ locs }) => {
         <div className="main_contents">
             <div className="container">
           <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR PROPERTY IS WORTH INSTANTLY</h1>
+          {/* <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND THE PERFECT HOME</h1> */}
+          {/* <p>Connecting people & property</p> */}
+
           <div className="search_filter_forms" data-aos="fade-up" data-aos-duration="900" data-aos-delay="1000">
               <div className="form_wrapper">
                 <RentProperty locs={locs} />

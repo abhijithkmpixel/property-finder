@@ -11100,6 +11100,14 @@ body.sticky_header header {
   margin: 0 0 50px;
 }
 
+.home_page_banner .main_contents p {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+}
+
 .home_page_banner .main_contents .search_filter_forms {
   user-select: none;
 }
@@ -12156,7 +12164,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   font-size: 15px;
   color: #000;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   opacity: 0.7;
   line-height: 15px;
   text-transform: capitalize;
@@ -12229,7 +12237,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   text-transform: capitalize;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 19px;
 }
 
 .section_prop_details .body_copy h1 {
@@ -12258,6 +12266,24 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   font-size: 14px;
   margin-bottom: 60px;
   margin-top: 60px;
+}
+
+.btns-wrap {
+  width: 100%;
+}
+
+.btns-wrap button, .btns-wrap a {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-wrap button img, .btns-wrap a img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-right: 6px;
 }
 
 .custom_editor {
@@ -12313,13 +12339,17 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   flex: 1;
 }
 
-.agent_details .body_copy h3, .agent_details .body_copy h4 {
+.agent_details .body_copy h3,
+.agent_details .body_copy h4 {
   font-family: "Poppins", sans-serif;
+  margin-bottom: 16px;
+  font-size: 18px;
 }
 
-.agent_details .body_copy h3 span, .agent_details .body_copy h4 span {
+.agent_details .body_copy h3 span,
+.agent_details .body_copy h4 span {
   text-transform: capitalize;
-  font-family: "Playfair Display";
+  font-size: 18px;
 }
 
 .agent_details .body_copy h3 {
@@ -12448,6 +12478,38 @@ footer .mail-info input {
 .agents_listing_grid a p {
   text-align: center;
   color: #000;
+}
+
+.agent_popup_form {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+}
+
+.agent_popup_form .btn-primary {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.agent_popup_form form {
+  width: 500px;
+  height: auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.agent_popup_form form label, .agent_popup_form form input {
+  font-size: 16px;
 }
 
 .static_banner {

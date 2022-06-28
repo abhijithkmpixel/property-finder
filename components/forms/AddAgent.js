@@ -176,10 +176,6 @@ const AddAgent = ({ agents }) => {
           <div className={!editor && `hidden`}>
             <form className="" onSubmit={(e) => addProp(e)}>
               <div className="add_prop_form">
-              {
-            editor && slug !==null?
-          <Link href={`/agents/${slug}`}><a className="btn btn-success btn-lg" target={'_blank'}> View</a></Link>:null
-          }
                 <h3>Add an agent</h3>
                 <fieldset className={"hidden"}>
                   <label htmlFor="agentID">id</label>
@@ -327,6 +323,14 @@ const AddAgent = ({ agents }) => {
               >
                 Add new agent
               </button>
+              {editor && slug !== null ? (
+                <Link href={`/agents/${slug}`}>
+                  <a className="btn btn-outline-success btn-lg mx-2" target={"_blank"}>
+                    {" "}
+                    View
+                  </a>
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
