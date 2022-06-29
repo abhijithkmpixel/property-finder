@@ -15,7 +15,7 @@ const HeadTag = ({title,meta}) => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
         {/* <link rel="stylesheet" href="https://unpkg.com/css-pro-layout@1.1.0/dist/css/css-pro-layout.css" /> */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" />
-
+   
         {/* <link rel="stylesheet" href="/styles/globals.css" />
         <link rel="stylesheet" href="/styles/app.min.css" /> */}
 

@@ -64,11 +64,16 @@ body {
     height: 100vh;
     width: 100%;
     background-color: rgba($color: #fff, $alpha: 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
     z-index: 1000;
     pointer-events: none;
+    .page_loader_iner{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     img {
       width: 50px;
       height: 50px;
@@ -81,9 +86,10 @@ a:focus {
 }
 .btn-outline-danger {
   border-color: #fd7400;
-  color: #fd7400;
+  color: #fd7400 !important;
   &:hover {
     opacity: 0.5;
+    color: #fff !important;
     background-color: #fd7400;
   }
   &:focus {

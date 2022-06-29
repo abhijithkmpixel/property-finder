@@ -24,7 +24,7 @@ const Guides = ({ results }) => {
   return (
     <>
       {loggedIn && <PageLoader />}
-      <HeadTag title="Edit renter's guide" meta="" />
+      <HeadTag title="Dashboard" meta="" />
       {/* <Header innerpage={true}/> */}
       <div className="layout has-sidebar fixed-sidebar fixed-header">
         <Dashboard />

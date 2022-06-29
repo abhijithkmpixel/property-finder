@@ -5,6 +5,7 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore/lite";
 import AgentListingSticky from "../AgentListingSticky";
 import CustonFieldEdito from "./CustonFieldEdito";
 import Link from "next/link";
+import { useRouter } from "next/router";
 var slugify = require("slugify");
 
 const AddAgent = ({ agents }) => {
@@ -12,7 +13,7 @@ const AddAgent = ({ agents }) => {
   const [loader, setloader] = useState(false);
   const [slug, setslug] = useState(null);
   const [image, setimage] = useState("");
-
+  const router = useRouter();
   const addProp = async (e) => {
     e.preventDefault();
     setloader(true);
@@ -76,6 +77,7 @@ const AddAgent = ({ agents }) => {
     }
     setloader(false);
     seteditor(false);
+    router.push('/admin/agents')
     e.target.reset();
   };
   function editProp(p) {
@@ -325,7 +327,10 @@ const AddAgent = ({ agents }) => {
               </button>
               {editor && slug !== null ? (
                 <Link href={`/agents/${slug}`}>
-                  <a className="btn btn-outline-success btn-lg mx-2" target={"_blank"}>
+                  <a
+                    className="btn btn-outline-success btn-lg mx-2"
+                    target={"_blank"}
+                  >
                     {" "}
                     View
                   </a>

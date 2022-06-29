@@ -68,7 +68,19 @@ const Header = ({ innerpage }) => {
                 <Link href="/search?type=rent">Rent</Link>
               </li>
               <li>
-                <Link href="/search?type=commercial-rent">Commercial</Link>
+                {/* <Link href="/search?type=commercial-rent">Commercial</Link> */}
+                <h5>
+                Commercial
+                  <img src="/chevron-down.svg" alt="arrow down" />
+                </h5>
+                <ul className="sub_dropdown">
+                  <li>
+                    <Link href="/search?type=commercial-rent">Commercial Rent </Link>
+                  </li>
+                  <li>
+                    <Link href="/search?type=commercial-sale">Commercial Sale </Link>
+                  </li>
+                  </ul>
               </li>
               <li>
                 <Link href="/agents">Find agent</Link>

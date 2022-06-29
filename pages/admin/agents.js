@@ -28,7 +28,7 @@ const index = ({ agents }) => {
         // router.push('/')
         loggedIn && <PageLoader />
       }
-      <HeadTag title="Agents" meta="add a new agent to the db" />
+      <HeadTag title="Dashboard" meta="add a new agent to the db" />
       {/* <Header innerpage={true}/>
        */}
       <div className="layout has-sidebar fixed-sidebar fixed-header">

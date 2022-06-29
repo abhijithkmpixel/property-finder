@@ -41,11 +41,11 @@ const index = ({ agent, count }) => {
                 {" "}
                 <span className="fw-bold">Languages :</span> {agent.languages}
               </h4>
-              <h4>
+              {/* <h4>
                 {" "}
                 <span className="fw-bold">Actice listings :</span>{" "}
                 {count.length}
-              </h4>
+              </h4> */}
 
               <div className="col-12" key={agent.id}>
                 <div className="card" style={{ width: "100%;" }}>
@@ -97,7 +97,11 @@ const index = ({ agent, count }) => {
           {/* <RecommendedProp title={"My properties"} list={count} filter={true} /> */}
         </div>
       </section>
-      <AgentProperties title={"My properties"} list={count} filter={true} />
+      {
+        count && count.length >0 ?
+
+        <AgentProperties title={"My properties"} list={count} filter={true} />:null
+      }
       <Footer />
     </>
   );

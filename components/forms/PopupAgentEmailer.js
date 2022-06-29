@@ -1,20 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const PopupAgentEmailer = ({ email,setopenMailer }) => {
+const PopupAgentEmailer = ({ email, setopenMailer }) => {
   const form = useRef();
+  const [loader, setloader] = useState(false);
+
   useEffect(() => {
-    
-  
-    return () => {
-      
-    }
-  }, [])
-  
+    return () => {};
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setloader(true);
     emailjs
       .sendForm(
         "service_sj9orxp",
@@ -25,10 +22,13 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
       .then(
         (result) => {
           alert(result.text);
-          setopenMailer(false)
+          setloader(false);
+
+          setopenMailer(false);
         },
         (error) => {
           alert(error.text);
+          setloader(false);
         }
       );
   };
@@ -37,7 +37,7 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
       <form onSubmit={sendEmail} ref={form} className={""}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            to
+            To
           </label>
           <input
             type="name"
@@ -59,6 +59,7 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
             id="from_name"
             name="from_name"
             placeholder=""
+            required
           />
         </div>
         <div className="mb-3">
@@ -69,6 +70,7 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
             type="email"
             className="form-control"
             id="email"
+            required
             name="email"
             placeholder=""
           />
@@ -81,6 +83,7 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
             type="text"
             className="form-control "
             id="mobile"
+            required
             name="mobile"
             placeholder="name@example.com"
           />
@@ -92,13 +95,28 @@ const PopupAgentEmailer = ({ email,setopenMailer }) => {
           <textarea
             className="form-control"
             id="message"
+            required
             name="message"
             rows="3"
           ></textarea>
         </div>
-        <input type="submit" className="btn btn-outline-danger" value={"send"} />
+        <button
+          type="submit"
+          className={`btn btn-danger fs-3 float-right btn-lg ${
+            +loader && "opacity-50 pe-none"
+          }`}
+        >
+          Send{" "}
+          {loader && (
+            <div className="spinner-border text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          )}
+        </button>
       </form>
-      <button className="btn btn-primary" onClick={()=>setopenMailer(false)}>close</button>
+      <button className="btn btn-primary fs-2 btn-lg" onClick={() => setopenMailer(false)}>
+        x
+      </button>
     </div>
   );
 };

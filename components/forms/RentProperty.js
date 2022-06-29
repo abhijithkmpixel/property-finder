@@ -223,7 +223,7 @@ const RentProperty = ({ locs }) => {
                 Reset
               </span>
               <span
-                className="btn btn-danger  m-2"
+                className="btn btn-outline-danger  m-2"
                 onClick={(e) => {
                   e.stopPropagation();
                   setpropSize(false);
@@ -293,7 +293,7 @@ const RentProperty = ({ locs }) => {
                 Reset
               </span>
               <span
-                className="btn btn-danger  m-2"
+                className="btn btn-outline-danger  m-2"
                 onClick={(e) => {
                   e.stopPropagation();
                   setprice(false);

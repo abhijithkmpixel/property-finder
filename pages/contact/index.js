@@ -159,7 +159,7 @@ const index = () => {
           </div>
         </div>
       </section>
-      <Footerer/>
+      <Footer/>
 
     </>
   );

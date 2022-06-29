@@ -38,7 +38,7 @@ const index = ({ agents, props }) => {
         loggedIn && <PageLoader />
       }
 
-      <HeadTag title="Add property" meta="add a property to the db" />
+      <HeadTag title="Dashboard" meta="add a property to the db" />
       {/* <Header innerpage={true}/>
        */}
       <div className="layout has-sidebar fixed-sidebar fixed-header">
