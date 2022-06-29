@@ -42,13 +42,14 @@ header {
             top: calc(100%);
             z-index: 100;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(30px);
             background-color: $color-white;
             box-shadow: 0 0 10px 1px rgba($color: #000, $alpha: 0.4);
             opacity: 0;
             visibility: hidden;
             transition: 0.3s all ease-in-out;
             pointer-events: none;
+
             .user_console {
               display: flex;
               padding: 5px 24px;
@@ -126,6 +127,7 @@ header {
               opacity: 1;
               visibility: visible;
               pointer-events: all;
+              transform: translateX(-50%) translateY(0px);
             }
           }
           a,

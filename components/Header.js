@@ -68,6 +68,9 @@ const Header = ({ innerpage }) => {
                 <Link href="/search?type=rent">Rent</Link>
               </li>
               <li>
+                <Link href="/sell">Sell</Link>
+              </li>
+              <li>
                 {/* <Link href="/search?type=commercial-rent">Commercial</Link> */}
                 <h5>
                 Commercial

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useContext, useEffect } from "react";
 import HeadTag from "../components/Head";
 import Header from "../components/Header";
-import HomeBanner from "../components/HomeBanner";
+import HomeBanner from "../components/banners/HomeBanner";
 import PageLoader from "../components/PageLoader";
 import RecommendedProp from "../components/RecommendedProp";
 import styles from "../public/styles/Home.module.css";
@@ -12,6 +12,8 @@ import { LogContext } from "./api/auth/logContext";
 import { useLogContaxt } from "./api/auth/logContext";
 import AOS from "aos";
 import Footer from "../components/Footer";
+import WhatAreYouLookingFor from "../components/WhatAreYouLookingFor";
+import GuidesAndArticlesBlock from "../components/static page components/GuidesAndArticlesBlock";
 
 export default function Home({ propList, agents, locs }) {
 
@@ -30,6 +32,8 @@ export default function Home({ propList, agents, locs }) {
         locs && 
       <HomeBanner locs={locs} />
       }
+      <WhatAreYouLookingFor />
+      <GuidesAndArticlesBlock />
       {
         propList && agents ?
         <RecommendedProp

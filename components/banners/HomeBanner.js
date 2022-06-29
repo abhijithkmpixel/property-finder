@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BuyProperty from "./forms/BuyProperty";
-import RentProperty from "./forms/RentProperty";
+import BuyProperty from "../forms/BuyProperty";
+import RentProperty from "../forms/RentProperty";
 import AOS from "aos";
 
 const HomeBanner = ({ locs }) => {
@@ -35,8 +35,8 @@ const HomeBanner = ({ locs }) => {
         <div className="main_contents">
             <div className="container">
           {/* <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR <span>PROPERTY</span> IS WORTH <span>INSTANTLY</span></h1> */}
-          <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300"><span>FIND HOMES</span> REAL ESTATE</h1>
-          <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">Connecting people & property</p>
+          <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">WELCOME TO <span>FIND HOMES</span></h1>
+          <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">Find Homes is an innovative real estate company that helps to find the perfect home for you</p>
 
           <div className="search_filter_forms" data-aos="fade-up" data-aos-duration="900" data-aos-delay="1000">
               <div className="form_wrapper">

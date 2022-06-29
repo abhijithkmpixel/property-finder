@@ -5,6 +5,7 @@ body {
   // font-smooth: auto;
   // scrollbar-width: thin;
   // scrollbar-track-color: #fd7400;
+  overflow-x: hidden;
   &::-webkit-scrollbar-thumb {
     background-color: #aaa;
     border-radius: 10px;
@@ -94,7 +95,7 @@ a:focus {
   }
   &:focus {
     background-color: #fd7400;
-    color: #fff;
+    color: #fff !important;
   }
 }
 .btn{
