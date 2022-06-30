@@ -1,5 +1,5 @@
 .agents_listing_grid {
-  background-color: #696969;
+  background-color: #262b2f;
   padding: 80px 0;
   .title_wrp h5 {
     color: #fff;
@@ -15,6 +15,9 @@
     transition: 0.3s all ease-in-out;
     // margin-bottom: 15px;
     height: 100%;
+    &:hover{
+      transform: scale(1.05);
+    }
     .agent-list-card {
       background-color: #fff;
       padding: 15px;

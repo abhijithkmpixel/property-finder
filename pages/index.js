@@ -27,6 +27,7 @@ export default function Home({ propList, agents, locs }) {
   return (
     <>
       <Header />
+      {/* <PageLoader/> */}
       <HeadTag title={"Find homes"} meta="Homepage of find homes ,your companion on finding the best properties for you" />
       {
         locs && 

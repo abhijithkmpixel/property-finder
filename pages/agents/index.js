@@ -10,12 +10,12 @@ import AgentsPageListing from "../../components/AgentsPageListing";
 const index = ({ agents }) => {
   return (
     <>
-    <HeadTag title='All agents' meta='list of all the agents in the system' />
-    <Header innerpage={true}/>
-    <AgentVIdeoBanner />
-    <WhatAreYouLookingFor />
-  <AgentsPageListing agents={agents}/>
-      <Footer/>
+      <HeadTag title="All agents" meta="list of all the agents in the system" />
+      <Header innerpage={true} />
+      <AgentVIdeoBanner />
+      <WhatAreYouLookingFor />
+      <AgentsPageListing agents={agents} />
+      <Footer />
     </>
   );
 };
@@ -25,9 +25,8 @@ export default index;
 export async function getServerSideProps(context) {
   var agents = "";
 
-  await api(`/api/agents`)
-    .then((response) => agents = response.data)
-    
+  await api(`/api/agents`).then((response) => (agents = response.data));
+
   return {
     props: {
       agents: agents,

@@ -13,6 +13,7 @@ const GuidesAndArticlesBlock = () => {
   
   return (
     <section className="guides_and_articles_colum_block ">
+      
       <div className="container">
         {/* <div className="title_wrp d-flex justify-content-center w-100 align-items-center">
         <h5>Guides & Articles?</h5>
@@ -22,6 +23,8 @@ const GuidesAndArticlesBlock = () => {
             <div className="guides_column_title">
               <span>Tips:</span>
               <h5>Guides <br /> and Articles</h5>
+              <div className="bg_blurb"></div>
+              {/* <div className="bg_blurb"></div> */}
             </div>
           </div>
           <div className="col-12 col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">

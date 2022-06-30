@@ -37,6 +37,51 @@
     padding: 0 15px;
   }
   .guides_column_title {
+    position: relative;
+    padding-top: 50px;
+    .bg_blurb {
+      width: 380px;
+      height: 380px;
+      // border-radius: 50%;
+      // background-color: rgba($color: violet, $alpha: .6);
+      background: linear-gradient(to bottom , rgba(#474bff,60%),rgba(red,50%));
+      // box-shadow: 1px 1px 70px 80px rgba($color: violet, $alpha: .6);
+      // box-shadow: 3px 3px 22px 10px #fd4a00;
+      z-index: -1;
+      position: absolute;
+      top: 10px;
+      left: -50px;
+      animation: blob 16s infinite ease-in-out;
+    
+      @keyframes blob {
+        0%{
+          border-radius: 58% 42% 53% 46% / 78% 36% 64% 22%;
+        }
+        20%{
+          border-radius: 58% 42% 75% 24% / 35% 36% 64% 65%;
+        }
+        40%{
+          border-radius: 58% 42% 75% 24% / 35% 78% 22% 65%;
+        }
+        60%{
+          border-radius: 25% 71% 69% 25% / 25% 25% 67% 75%;
+        }
+        80%{
+          border-radius: 25% 75% 25% 68% / 75% 75% 25% 25%;
+        }
+        100%{
+          border-radius: 58% 42% 53% 46% / 78% 36% 64% 22%;
+
+        }
+      }
+    }
+
+
+
+    .bg_blurb:nth-of-type(2) {
+      background-color: rgba($color: lime, $alpha: 0.6);
+      box-shadow: 1px 1px 70px 80px rgba($color: lime, $alpha: 0.6);
+    }
     span {
       font-size: 15px;
       line-height: 1.3;

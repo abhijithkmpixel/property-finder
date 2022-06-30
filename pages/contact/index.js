@@ -146,7 +146,7 @@ const index = () => {
                   />
                   <label for="message">Email Message</label>
                 </div>
-                <button className={` ${loader && "opacity-50 pe-none"}`}>
+                <button className={`w-100 ${loader && "opacity-50 pe-none"}`}>
                   Send Email{" "}
                   {loader && (
                     <div className="spinner-border text-light" role="status">

@@ -1,18 +1,28 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect } from "react";
+import AOS from "aos";
 
 const AgentsPageListing = ({agents}) => {
+  useEffect(() => {
+    
+    AOS.init();
+    AOS.refresh();
+    return () => {
+      
+    }
+  }, [])
+
   return (
     <section className="agents_listing_grid  ">
     <div className="container">
       {/* {console.log(agents)} */}
       <div class="title_wrp d-flex justify-content-center  w-100 align-items-center"><h5 className="">Our agents</h5></div>
       <div className="row">
-        {agents?.map((agent) => {
+        {agents?.map((agent,index) => {
           return (
             <div className="col-12 col-md-4 col-lg-3" key={agent.id}>
               <Link href={"/agents/" + agent.info_slug}>
-                <a>
+                <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay='100'>
                   <div className="agent-list-card" >
                     <img
                       src={agent.image}
@@ -41,6 +51,7 @@ const AgentsPageListing = ({agents}) => {
             </div>
           );
         })}
+     
       </div>
     </div>
   </section>

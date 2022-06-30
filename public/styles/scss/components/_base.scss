@@ -64,21 +64,84 @@ body {
     top: 0;
     height: 100vh;
     width: 100%;
-    background-color: rgba($color: #fff, $alpha: 0.5);
+    transition: 2s all ease-in-out;
+    background-color: rgba($color: #262b2f, $alpha: 1);
    
     z-index: 1000;
     pointer-events: none;
+    .find_home{
+      transition: 2s all ease-in;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(200px);
+      h2{
+        font-size: 85px;
+        color: #fd7400;
+      }
+    }
     .page_loader_iner{
       width: 100vw;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-flow: column;
+      transition: 1s all ease-in-out;
     }
+    .spinnerloader {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      border: 4.5px solid #0000;
+      border-radius: 50%;
+      margin-top: 100px;
+      border-right-color: #fd7400;
+      animation: spinnerloader-a4dj62 1s infinite linear;
+      transition: all ease-in-out 1s;
+   }
+   
+   .spinnerloader::before,
+   .spinnerloader::after {
+      content: "";
+      grid-area: 1/1;
+      margin: 2.2px;
+      border: inherit;
+      border-radius: 50%;
+      animation: spinnerloader-a4dj62 2s infinite;
+   }
+   
+   .spinnerloader::after {
+      margin: 8.9px;
+      animation-duration: 3s;
+   }
+   
+   @keyframes spinnerloader-a4dj62 {
+      100% {
+         transform: rotate(1turn);
+      }
+   }
     img {
       width: 50px;
       height: 50px;
       object-fit: contain;
+    }
+  }
+  &.loaded{
+    .page_loader_outer{
+      .page_loader_iner{
+        .spinnerloader{
+
+          transform: translateY(-200px);
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+    .find_home{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+   
     }
   }
 }
@@ -97,6 +160,12 @@ a:focus {
     background-color: #fd7400;
     color: #fff !important;
   }
+}
+
+.loadingComplete{
+.page_loader_outer{
+  transform: translateY(-100%);
+}
 }
 .btn{
   img{

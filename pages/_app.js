@@ -4,30 +4,37 @@ import "../public/styles/app.min.css";
 import "nprogress/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SessionProvider } from "next-auth/react";
 import LogContextProvider from "./api/auth/logContext";
 import "aos/dist/aos.css";
-
-
+import PageLoader from "../components/PageLoader";
 
 NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
+  const [loader, setloader] = useState(false);
+  const [loadingComplete, setloadingComplete] = useState(false);
 
-  
   useEffect(() => {
-    if(window !== undefined){
+    setTimeout(() => {
+      document.body.classList.add('loaded')
+    }, 2000);
+    setTimeout(() => {
+      document.body.classList.add('loadingComplete')
       
-      window.addEventListener('scroll',()=>{
-        if(window.scrollY > 180){
+    }, 5000);
+    if (window !== undefined) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 180) {
           // console.log(window.screenY);
-          document.body.classList.add('sticky_header')
-        }else{
-          document.body.classList.remove('sticky_header')
+          document.body.classList.add("sticky_header");
+        } else {
+          document.body.classList.remove("sticky_header");
         }
-      })
+      });
     }
+
     Router.events.on("routeChangeStart", () => NProgress.start());
     Router.events.on("routeChangeComplete", () => NProgress.done());
     Router.events.on("routeChangeError", () => NProgress.done());
@@ -40,9 +47,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <LogContextProvider>
+      {/* <PageLoader /> */}
 
       {/* <SessionProvider session={pageProps.session}> */}
-        <Component {...pageProps} />
+      <Component {...pageProps} />
       {/* </SessionProvider> */}
     </LogContextProvider>
   );
