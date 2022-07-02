@@ -9,6 +9,9 @@ import { SessionProvider } from "next-auth/react";
 import LogContextProvider from "./api/auth/logContext";
 import "aos/dist/aos.css";
 import PageLoader from "../components/PageLoader";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
 
 NProgress.configure({ showSpinner: false });
 

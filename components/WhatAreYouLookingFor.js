@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import Link from "next/link";
 
 const WhatAreYouLookingFor = () => {
   useEffect(() => {
     
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {
       
@@ -27,7 +31,9 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <a href="/search?type=all&property_type=villa" className="btn btn-danger btn-lg">View all</a>
+                <Link  href="/search?type=all&property_type=villa">
+                <a className="btn btn-danger btn-lg">View all</a>
+                </Link>
               </div>
             </div>
             <div className="col-12 col-md-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
@@ -39,7 +45,9 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <a href="/search?type=all&property_type=apartments" className="btn btn-danger btn-lg">View all</a>
+                <Link href="/search?type=all&property_type=apartments">
+                <a  className="btn btn-danger btn-lg">View all</a>
+                </Link>
               </div>
             </div>
         
@@ -52,7 +60,9 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <a href="/search?type=all&property_type=office%20space" className="btn btn-danger btn-lg">View all</a>
+                <Link href="/search?type=all&property_type=office%20space">
+                <a  className="btn btn-danger btn-lg">View all</a>
+                </Link>
               </div>
             </div>
           </div>

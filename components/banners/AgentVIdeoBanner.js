@@ -4,7 +4,10 @@ import AOS from "aos";
 const AgentVIdeoBanner = ({ locs }) => {
   const [rent, setrent] = useState(true);
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
   
     return () => {

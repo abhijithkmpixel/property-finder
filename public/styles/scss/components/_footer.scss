@@ -4,8 +4,19 @@ footer {
   // background-color: #788402;
   background-color: #262b2f;
   p{
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 300;
     color: #fff;
+  }
+  ul{
+    li{
+      a{
+        transition: .2s all ease-in-out;
+        &:hover{
+          opacity: .6;
+        }
+      }
+    }
   }
   .logo {
     display: block;

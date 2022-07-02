@@ -26,7 +26,10 @@ const index = ({ props, type, locs }) => {
   useEffect(() => {
     // Fetch items from another resources.
     // console.log('load');
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`Loading items from ${itemOffset} to ${endOffset}`);

@@ -8,7 +8,8 @@ const AgentProperties = ({ title, list, agents, filter }) => {
   useEffect(() => {
     // console.log(list);
     AOS.init({
-      duration:700
+      duration:700,
+      offset:100
     });
     AOS.refresh();
     return () => {};

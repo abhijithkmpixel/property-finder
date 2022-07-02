@@ -32,9 +32,10 @@ const PopupAgentEmailer = ({ email, setopenMailer }) => {
         }
       );
   };
+
   return (
     <div className="agent_popup_form">
-      <form onSubmit={sendEmail} ref={form} className={""}>
+      <form onSubmit={sendEmail2} ref={form} className={""}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             To
@@ -93,16 +94,17 @@ const PopupAgentEmailer = ({ email, setopenMailer }) => {
             Message
           </label>
           <textarea
-            className="form-control"
+            className="form-control fs-4"
             id="message"
             required
             name="message"
             rows="3"
           ></textarea>
         </div>
+      
         <button
           type="submit"
-          className={`btn btn-danger fs-3 float-right btn-lg ${
+          className={`btn btn-danger fs-3 float-right btn-lg w-100 ${
             +loader && "opacity-50 pe-none"
           }`}
         >
@@ -114,7 +116,10 @@ const PopupAgentEmailer = ({ email, setopenMailer }) => {
           )}
         </button>
       </form>
-      <button className="btn btn-primary fs-2 btn-lg" onClick={() => setopenMailer(false)}>
+      <button
+        className="btn btn-primary fs-2 btn-lg"
+        onClick={() => setopenMailer(false)}
+      >
         x
       </button>
     </div>

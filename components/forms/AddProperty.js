@@ -16,6 +16,8 @@ const AddProperty = ({ agents, props }) => {
   const [newProp, setnewProp] = useState(true);
   const [slug, setslug] = useState("");
   const router = useRouter();
+  const [pimages, setpimages] = useState([]);
+
   const [editorState, setEditorState] = useState(
     "<p>lorem</p>  <p>&nbsp;</p><p>capsicum</p>"
   );
@@ -32,7 +34,7 @@ const AddProperty = ({ agents, props }) => {
     const collectionRef = collection(db, "properties");
     const sub = await addDoc(collectionRef, {
       title: e.target.title.value,
-      images: e.target.images.value,
+      images: pimages,
       serviceType: e.target.serviceType.value,
       tags: e.target.tags.value,
       slug: e.target.slug.value,
@@ -47,6 +49,23 @@ const AddProperty = ({ agents, props }) => {
       agent: e.target.agent.value,
       recommend: e.target.recommended.value,
       facilities: facilities,
+      address:e.target.address.value,
+      pincode:e.target.pincode.value,
+      state:e.target.state.value,
+      amenities: {
+        maids_room: e.target.maids_room.checked,
+        study: e.target.study.checked,
+        maids_room: e.target.maids_room.checked,
+        Central_ac: e.target.Central_ac.checked,
+        balcony: e.target.balcony.checked,
+        garden: e.target.garden.checked,
+        pool: e.target.pool.checked,
+        gym: e.target.gym.checked,
+        electricity_backup: e.target.electricity_backup.checked,
+        laundry_room: e.target.laundry_room.checked,
+        cctv: e.target.cctv.checked,
+        waste: e.target.waste.checked,
+      },
     });
     e.target.reset();
     alert(`Document with id ${sub.id} has been added to Database`);
@@ -57,7 +76,12 @@ const AddProperty = ({ agents, props }) => {
   function editProp(p) {
     seteditor(true);
     setslug(p.slug);
-    setnewProp(false)
+    setnewProp(false);
+    document.getElementById("state").value = p?.state;
+    // document.getElementById("district").value = p?.district;
+    document.getElementById("pincode").value = p?.pincode;
+    document.getElementById("address").value = p?.address;
+
     document.getElementById("title").value = p.title;
     document.getElementById("propertyType").value = p.propertyType;
     document.getElementById("agent").value = p.agent;
@@ -69,14 +93,38 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("propertySize").value = p.propertySize;
     document.getElementById("price").value = p.price;
     document.getElementById("location").value = p.location;
-    document.getElementById("images").value = p.images;
+    // document.getElementById("images").value = p.images;
     document.getElementById("description").value = p.description;
     document.getElementById("bedroom").value = p.bedroom;
     document.getElementById("bathroom").value = p.bathroom;
+    setpimages(p.images);
+    document.getElementById("maids_room").checked =
+      p?.amenities?.maids_room == true ? true : false;
+    document.getElementById("study").checked =
+      p?.amenities?.study == true ? true : false;
+    document.getElementById("balcony").checked =
+      p?.amenities?.balcony == true ? true : false;
+    document.getElementById("Central_ac").checked =
+      p?.amenities?.Central_ac == true ? true : false;
+    document.getElementById("garden").checked =
+      p?.amenities?.garden == true ? true : false;
+    document.getElementById("pool").checked =
+      p?.amenities?.pool == true ? true : false;
+    document.getElementById("gym").checked =
+      p?.amenities?.gym == true ? true : false;
+    document.getElementById("electricity_backup").checked =
+      p?.amenities?.electricity_backup == true ? true : false;
+    document.getElementById("laundry_room").checked =
+      p?.amenities?.laundry_room == true ? true : false;
+    document.getElementById("cctv").checked =
+      p?.amenities?.cctv == true ? true : false;
+    document.getElementById("waste").checked =
+      p?.amenities?.waste == true ? true : false;
+
     document.getElementById("recommended").value = p.recommend
       ? p.recommend
       : "0";
-    setfacilities(p?.facilities ? p?.facilities : [""]);
+    setfacilities(p?.facilities ? p?.facilities : []);
   }
   const updateProp = async (e) => {
     e.preventDefault();
@@ -87,8 +135,11 @@ const AddProperty = ({ agents, props }) => {
       document.getElementById("propId").value
     );
     const sub = await setDoc(docRef, {
+      address:e.target.address.value,
+      pincode:e.target.pincode.value,
+      state:e.target.state.value,
       title: document.getElementById("title").value,
-      images: document.getElementById("images").value,
+      images: pimages,
       serviceType: document.getElementById("serviceType").value,
       tags: document.getElementById("tags").value,
       slug: document.getElementById("slug").value,
@@ -103,6 +154,20 @@ const AddProperty = ({ agents, props }) => {
       agent: document.getElementById("agent").value,
       recommend: document.getElementById("recommended").value,
       facilities: facilities,
+      amenities: {
+        maids_room: document.getElementById("maids_room").checked,
+        study: document.getElementById("study").checked,
+        Central_ac: document.getElementById("Central_ac").checked,
+        balcony: document.getElementById("balcony").checked,
+        garden: document.getElementById("garden").checked,
+        pool: document.getElementById("pool").checked,
+        gym: document.getElementById("gym").checked,
+        electricity_backup:
+          document.getElementById("electricity_backup").checked,
+        laundry_room: document.getElementById("laundry_room").checked,
+        cctv: document.getElementById("cctv").checked,
+        waste: document.getElementById("waste").checked,
+      },
     });
     // console.log(sub);
     alert(
@@ -121,7 +186,12 @@ const AddProperty = ({ agents, props }) => {
   function resetform() {
     seteditor(false);
     setnewProp(true);
-    setslug('')
+    setslug("");
+    setpimages([]);
+    document.getElementById("state").value = '';
+    // document.getElementById("district").value = '';
+    document.getElementById("pincode").value = '';
+    document.getElementById("address").value = '';
     document.getElementById("propId").value = "";
     document.getElementById("title").value = "";
     document.getElementById("images").value = "";
@@ -136,7 +206,19 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("bedroom").value = "";
     document.getElementById("bathroom").value = "";
     document.getElementById("propertyType").value = "";
-    document.getElementById("agent").value = "";
+    document.getElementById("agent").checked = false;
+    document.getElementById("maids_room").checked = false;
+    document.getElementById("study").checked = false;
+    document.getElementById("balcony").checked = false;
+    document.getElementById("Central_ac").checked = false;
+    document.getElementById("cctv").checked = false;
+    document.getElementById("electricity_backup").checked = false;
+    document.getElementById("garden").checked = false;
+    document.getElementById("gym").checked = false;
+    document.getElementById("laundry_room").checked = false;
+    document.getElementById("pool").checked = false;
+    document.getElementById("waste").checked = false;
+
     setfacilities([]);
   }
   function updatefacility(e, index) {
@@ -155,6 +237,23 @@ const AddProperty = ({ agents, props }) => {
     const prev = [...facilities];
     prev.splice(index, 1);
     setfacilities(prev);
+  }
+  function imageUpdate(e, index) {
+    var imgs = [...pimages];
+    imgs[index] = e.target.value;
+    setpimages(imgs);
+  }
+
+  function addImageRow() {
+    var imgs = [...pimages];
+    imgs = [...imgs, ""];
+    setpimages(imgs);
+  }
+
+  function removeImage(index) {
+    const prev = [...pimages];
+    prev.splice(index, 1);
+    setpimages(prev);
   }
   return (
     <>
@@ -248,12 +347,109 @@ const AddProperty = ({ agents, props }) => {
                 <input type="text" name="price" id="price" required />
               </fieldset>
               <fieldset>
-                <label htmlFor="location">Location</label>
+                <label htmlFor="state">State</label>
+                <select name="state" id="state" class="">
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Andaman and Nicobar Islands">
+                    Andaman and Nicobar Islands
+                  </option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Dadar and Nagar Haveli">
+                    Dadar and Nagar Haveli
+                  </option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Puducherry">Puducherry</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+                </select>
+              </fieldset>
+              <fieldset>
+                <label htmlFor="location">District</label>
                 <input type="text" name="location" id="location" required />
               </fieldset>
               <fieldset>
+                <label htmlFor="address">Address</label>
+                <input type="text" name="address" id="address" required />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="pincode">Pin code</label>
+                <input type="text" name="pincode" id="pincode" required />
+              </fieldset>
+            
+              <fieldset className="w-100">
                 <label htmlFor="images">Images</label>
-                <input type="text" name="images" id="images" required />
+                {pimages?.map((img, index) => {
+                  return (
+                    <div className="d-flex mb-3">
+                      <input
+                        type="text"
+                        name="images"
+                        id="images"
+                        value={img}
+                        key={index}
+                        required
+                        onChange={(e) => imageUpdate(e, index)}
+                      />
+                      {img && (
+                        <img
+                          src={img}
+                          alt="images"
+                          style={{
+                            width: "90px",
+                            height: "50px",
+                            marginLeft: "15px",
+                          }}
+                        />
+                      )}
+                      <img
+                        src="/minus.svg"
+                        alt="minus"
+                        onClick={(e) => removeImage(index)}
+                        style={{
+                          width: "25px",
+                          height: "25px",
+                          marginLeft: "10px",
+                          float: "right",
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+                <button
+                  className="btn btn-danger"
+                  type="button"
+                  onClick={addImageRow}
+                >
+                  Add row
+                </button>
               </fieldset>
               <fieldset>
                 <label htmlFor="bedroom">Bedroom</label>
@@ -306,6 +502,112 @@ const AddProperty = ({ agents, props }) => {
                 >
                   Add row
                 </button>
+              </fieldset>
+              <fieldset>
+                <label htmlFor="amenities">Amenities</label>
+                <div className="d-flex flex-wrap inner_amenities">
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"maids_room"}
+                      id="maids_room"
+                    />
+                    <label htmlFor="maids_room">Maids room</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"study"}
+                      id="study"
+                    />
+                    <label htmlFor="study">Study</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"Central_ac"}
+                      id="Central_ac"
+                    />
+                    <label htmlFor="Central_ac">Central A/C & Heating</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"balcony"}
+                      id="balcony"
+                    />
+                    <label htmlFor="balcony">balcony</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"garden"}
+                      id="garden"
+                    />
+                    <label htmlFor="garden">Garden</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"pool"}
+                      id="pool"
+                    />
+                    <label htmlFor="pool">Pool</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"gym"}
+                      id="gym"
+                    />
+                    <label htmlFor="gym">Gym</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"electricity_backup"}
+                      id="electricity_backup"
+                    />
+                    <label htmlFor="electricity_backup">
+                      Electricity Backup
+                    </label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"laundry_room"}
+                      id="laundry_room"
+                    />
+                    <label htmlFor="laundry_room">Laundry Room</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"cctv"}
+                      id="cctv"
+                    />
+                    <label htmlFor="cctv">CCTV Security</label>
+                  </fieldset>
+                  <fieldset className="d-flex align-tems-center justify-content-start">
+                    <input
+                      type="checkbox"
+                      name="amenities"
+                      value={"waste"}
+                      id="waste"
+                    />
+                    <label htmlFor="waste">Waste Disposal</label>
+                  </fieldset>
+                </div>
               </fieldset>
               <fieldset className="w-100">
                 <label htmlFor="description">Description</label>

@@ -4,7 +4,10 @@ import AOS from "aos";
 const GuidesAndArticlesBlock = () => {
   useEffect(() => {
     
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {
       

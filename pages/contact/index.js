@@ -9,7 +9,10 @@ const index = () => {
   const [successMsg, setsuccessMsg] = useState(false);
   const [loader, setloader] = useState(false);
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
   
     return () => {

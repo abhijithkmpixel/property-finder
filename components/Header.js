@@ -68,22 +68,23 @@ const Header = ({ innerpage }) => {
                 <Link href="/search?type=rent">Rent</Link>
               </li>
               <li>
-                <Link href="/sell">Sell</Link>
-              </li>
-              <li>
                 {/* <Link href="/search?type=commercial-rent">Commercial</Link> */}
                 <h5>
-                Commercial
+                  Commercial
                   <img src="/chevron-down.svg" alt="arrow down" />
                 </h5>
                 <ul className="sub_dropdown">
                   <li>
-                    <Link href="/search?type=commercial-rent">Commercial Rent </Link>
+                    <Link href="/search?type=commercial-rent">
+                      Commercial Rent
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/search?type=commercial-sale">Commercial Sale </Link>
+                    <Link href="/search?type=commercial-sale">
+                      Commercial Sale
+                    </Link>
                   </li>
-                  </ul>
+                </ul>
               </li>
               <li>
                 <Link href="/agents">Find agent</Link>
@@ -100,12 +101,15 @@ const Header = ({ innerpage }) => {
                   <li>
                     <Link href="/buyersguide">Buyer's guide </Link>
                   </li>
+                  <li>
+                    <Link href="/sell">Sell with us</Link>
+                  </li>
                   {/* {!userData && ( */}
-                    <li>
-                      <Link href="/login">
-                        <a target="_blank">Admin</a>
-                      </Link>
-                    </li>
+                  <li>
+                    <Link href="/login">
+                      <a target="_blank">Admin</a>
+                    </Link>
+                  </li>
                   {/* // )} */}
                 </ul>
               </li>

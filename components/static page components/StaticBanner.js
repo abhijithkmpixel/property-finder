@@ -12,7 +12,10 @@ const StaticBanner = ({banner}) => {
   useEffect(() => {
     // readingTime();
     // console.log(banner);
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {
     }

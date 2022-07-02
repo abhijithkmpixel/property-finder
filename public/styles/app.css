@@ -11880,6 +11880,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   padding: 20px 15px;
   display: flex;
   flex-wrap: wrap;
+  background-color: azure;
   justify-content: space-between;
 }
 
@@ -12176,6 +12177,23 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   margin: 0;
 }
 
+.add_prop_form .inner_amenities {
+  margin-top: 15px;
+}
+
+.add_prop_form .inner_amenities fieldset {
+  align-items: flex-start;
+}
+
+.add_prop_form .inner_amenities fieldset input {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  display: inline;
+  flex: auto;
+  margin-right: 10px;
+}
+
 .section_prop_details {
   width: 100%;
 }
@@ -12191,16 +12209,17 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 
 .section_prop_details .prop_detail_banner {
   background-color: #073b41;
-  padding: 80px 25px;
+  padding: 0 0px 80px;
 }
 
 .section_prop_details .prop_image_wr {
   width: 100%;
+  height: 700px;
   margin-bottom: 40px;
   border-radius: 15px;
   overflow: hidden;
   position: relative;
-  padding: 20px;
+  padding: 0px;
 }
 
 .section_prop_details .prop_image_wr img {
@@ -12208,8 +12227,78 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   top: 0;
   left: 0;
   z-index: 1;
-  position: absolute;
   height: 100%;
+  object-fit: cover;
+}
+
+.section_prop_details .prop_image_wr .slick-slider.slick-initialized, .section_prop_details .prop_image_wr .slick-list, .section_prop_details .prop_image_wr .slick-track {
+  max-height: 700px;
+}
+
+.section_prop_details .prop_image_wr .slick-slide {
+  width: 100%;
+  height: 700px !important;
+  overflow: hidden;
+}
+
+.section_prop_details .prop_image_wr .slick-slide > div {
+  width: 100%;
+  height: 100%;
+}
+
+.section_prop_details .prop_image_wr .slick-arrow {
+  z-index: 3;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: none;
+  transition: .2s all ease-in-out;
+  opacity: .5;
+}
+
+.section_prop_details .prop_image_wr .slick-arrow:hover {
+  opacity: 1;
+}
+
+.section_prop_details .prop_image_wr .slick-arrow::before {
+  display: block;
+}
+
+.section_prop_details .prop_image_wr .slick-arrow.slick-next {
+  right: 15px;
+}
+
+.section_prop_details .prop_image_wr .slick-arrow.slick-prev {
+  left: 15px;
+}
+
+.section_prop_details .prop_image_wr .slick-dots {
+  margin-top: 20px;
+  z-index: 2;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+}
+
+.section_prop_details .prop_image_wr .slick-dots li {
+  width: 90px;
+  height: 40px;
+  filter: grayscale(1);
+}
+
+.section_prop_details .prop_image_wr .slick-dots li.slick-active {
+  outline: 2px solid #fd7400;
+  filter: grayscale(0);
+}
+
+.section_prop_details .prop_image_wr .slick-dots .thumbs {
+  width: 100%;
+  height: 100%;
+}
+
+.section_prop_details .prop_image_wr .slick-dots .thumbs img {
   object-fit: cover;
 }
 
@@ -12218,7 +12307,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   background-color: aliceblue;
   border-radius: 15px;
   padding: 25px;
-  width: 340px;
+  width: 100%;
   margin-left: auto;
   min-height: 460px;
   position: relative;
@@ -12279,6 +12368,10 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 .section_prop_details .body_copy {
   margin-top: 20px;
   color: #fff;
+}
+
+.section_prop_details .body_copy .facilities {
+  margin-top: 50px;
 }
 
 .section_prop_details .body_copy .facilities h6 {
@@ -12351,10 +12444,6 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   line-height: 19px;
 }
 
-.section_prop_details .body_copy .points_wrp {
-  background-color: beige;
-}
-
 .section_prop_details .body_copy .points_wrp li {
   flex: 1;
   padding: 0 10px 0 0;
@@ -12364,6 +12453,12 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   font-size: 14px;
   margin-bottom: 60px;
   margin-top: 60px;
+}
+
+.section_prop_details .body_copy .description h3 {
+  font-size: 25px;
+  color: #fd7400;
+  margin-bottom: 25px;
 }
 
 .btns-wrap {
@@ -12510,8 +12605,17 @@ footer {
 }
 
 footer p {
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 300;
   color: #fff;
+}
+
+footer ul li a {
+  transition: .2s all ease-in-out;
+}
+
+footer ul li a:hover {
+  opacity: .6;
 }
 
 footer .logo {

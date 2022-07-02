@@ -5,7 +5,10 @@ import AOS from "aos";
 const GuidesBody = ({ body }) => {
   useEffect(() => {
     
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {
       

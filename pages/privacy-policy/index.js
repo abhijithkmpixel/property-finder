@@ -2,7 +2,19 @@ import React from "react";
 
 const index = () => {
   return (
-    <div>
+    <>
+      <div className="mapouter">
+        <div className="gmap_canvas">
+          <iframe
+            src="https://maps.google.com/maps?q=perandoor-682026&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            id="gmap_canvas"
+            frameborder="0"
+            scrolling="no"
+            style={{ width: "100%", height: "100vh" }}
+          ></iframe>
+        </div>
+      </div>
+    <div className="container my-5">
       <h1>Privacy Policy</h1>
       <p>Last updated: June 27, 2022</p>
       <p>
@@ -498,6 +510,7 @@ const index = () => {
         <li>By email: abhijith@pixelflames.com</li>
       </ul>
     </div>
+    </>
   );
 };
 

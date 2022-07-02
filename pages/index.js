@@ -19,7 +19,10 @@ export default function Home({ propList, agents, locs }) {
 
   useEffect(() => {
     // console.log(logs);
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {};
   }, []);

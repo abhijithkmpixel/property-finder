@@ -5,7 +5,10 @@ import AOS from "aos";
 const AgentsPageListing = ({agents}) => {
   useEffect(() => {
     
-    AOS.init();
+    AOS.init({
+      offset:100
+
+    });
     AOS.refresh();
     return () => {
       

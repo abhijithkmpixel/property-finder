@@ -6,6 +6,7 @@
   padding: 20px 15px;
   display: flex;
   flex-wrap: wrap;
+  background-color: azure;
   justify-content: space-between;
   h3 {
     font-size: 35px;
@@ -24,6 +25,7 @@
     margin-bottom: 20px;
     // flex: 50%;
     width: 48%;
+
     label {
       font-size: 17px;
       line-height: 20px;
@@ -56,7 +58,7 @@
   // height: 400px;
   background-color: #fff;
   // overflow-x: auto;
-  &>ul {
+  & > ul {
     // overflow: auto;
     // display: flex;
     li {
@@ -78,7 +80,7 @@
         flex-flow: row;
         margin-bottom: 0;
         // cursor: pointer;
-        &:hover{
+        &:hover {
           background-color: #fff;
         }
         img {
@@ -87,13 +89,13 @@
           height: 100%;
           object-fit: cover;
         }
-        .card-body{
+        .card-body {
           width: max-content;
           flex: 1;
-          .card-title{
+          .card-title {
             font-size: 17px;
           }
-          .card-text{
+          .card-text {
             font-size: 15px;
           }
         }
@@ -298,5 +300,25 @@
   .checkbox label {
     display: inline;
     margin: 0;
+  }
+}
+
+.add_prop_form {
+  .inner_amenities {
+    margin-top: 15px;
+    label{
+      // margin-bottom: 20px;
+    }
+    fieldset {
+      align-items: flex-start;
+      input {
+        width: 20px;
+        height: 20px;
+        max-width: 20px;
+        display: inline;
+        flex: auto;
+        margin-right: 10px;
+      }
+    }
   }
 }

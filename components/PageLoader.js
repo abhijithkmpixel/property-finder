@@ -6,9 +6,9 @@ const PageLoader = () => {
       <div className="page_loader_iner">
         {/* <img src="/loading-loading-forever.gif" alt="" /> */}
         <div class="spinnerloader"></div>
-        <div className="find_home">
+        {/* <div className="find_home">
           <h2>Find Home</h2>
-        </div>
+        </div> */}
         {/* <div className="welcome_msg">
           <h2>Welcomes you</h2>
         </div> */}
