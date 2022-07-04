@@ -105,11 +105,11 @@ const Header = ({ innerpage }) => {
                     <Link href="/sell">Sell with us</Link>
                   </li>
                   {/* {!userData && ( */}
-                  <li>
+                  {/* <li>
                     <Link href="/login">
                       <a target="_blank">Admin</a>
                     </Link>
-                  </li>
+                  </li> */}
                   {/* // )} */}
                 </ul>
               </li>

@@ -12,7 +12,9 @@ export default async function handler(req, res) {
     };
   });
 
-  const locations = properties.map(data => {return data.location})
+  const locations = properties.map(data => {return `${data.location},${data?.state}`})
+  // let chars = ['A', 'B', 'A', 'C', 'B'];
+let uniqueChars = [...new Set(locations)];
 
-  res.status(200).json(locations)
+  res.status(200).json(uniqueChars)
 }

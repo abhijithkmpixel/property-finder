@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore/lite";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 import { db } from "../api/firebase";
@@ -8,9 +8,13 @@ import { api } from "../api/auth/api";
 import AOS from "aos";
 import Footer from "../../components/Footer";
 import Slider from "react-slick";
+import PropertyEnquiryForm from "../../components/forms/PropertyEnquiryForm";
+import CurrencyFormat from "react-currency-format";
+
 const index = ({ data, agent }) => {
   const mainSlider = useRef();
   const thumbSlider = useRef();
+  const [openMailer, setopenMailer] = useState(false);
 
   useEffect(() => {
     // console.log(agent);
@@ -23,11 +27,11 @@ const index = ({ data, agent }) => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 1500,
+    speed: 1000,
     slidesToShow: 1,
     fade: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     pauseOnHover: false,
     slidesToScroll: 1,
     customPaging: function (i) {
@@ -43,6 +47,13 @@ const index = ({ data, agent }) => {
     <>
       <HeadTag title={data.title} meta={data.tags} />
       <Header innerpage={true} />
+      {openMailer && (
+        <PropertyEnquiryForm
+          prop={data}
+          email={agent?.email}
+          setopenMailer={setopenMailer}
+        />
+      )}
       <section className="section_prop_details">
         <div className="prop_detail_banner">
           <div
@@ -71,14 +82,68 @@ const index = ({ data, agent }) => {
                 >
                   <h4>{data.title}</h4>
                   <h1>{data.tags}</h1>
-                  {data?.facilities && data?.facilities.length > 0 ? (
-                    <ul className="facilities">
-                      <h6>Facilities</h6>
-                      {data?.facilities.map((f, index) => {
-                        return <li key={index}>{f}</li>;
-                      })}
-                    </ul>
-                  ) : null}
+                  <div className="row">
+                    <div className="col-12 col-md-6">
+                      {data?.facilities && data?.facilities.length > 0 ? (
+                        <div className="facilities">
+                          <h6>Facilities</h6>
+                          <ul className="">
+                            {data?.facilities.map((f, index) => {
+                              return <li key={index}>{f}</li>;
+                            })}
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className="col-12 col-md-6">
+                      {console.log(data?.amenities)}
+                      {data?.amenities ? (
+                        <div className="facilities">
+                          <h6>Amenities</h6>
+                          <ul className="">
+                            {data?.amenities?.maids_room == true && (
+                              <li>Maids room</li>
+                            )}
+                            {data?.amenities?.Central_ac == true && (
+                              <li>Central A/C and Heater</li>
+                            )}
+                            {data?.amenities?.balcony == true && (
+                              <li>Balcony</li>
+                            )}
+                            {data?.amenities?.cctv == true && (
+                              <li>CCTV security</li>
+                            )}
+                            {data?.amenities?.electricity_backup == true && (
+                              <li>Electricity backup</li>
+                            )}
+                            {data?.amenities?.garden == true && <li>Garden</li>}
+                            {data?.amenities?.gym == true && (
+                              <li>Gym & Fitness area</li>
+                            )}
+                            {data?.amenities?.laundry_room == true && (
+                              <li>Laundry rom</li>
+                            )}
+                            {data?.amenities?.pool == true && (
+                              <li>Swimming pool</li>
+                            )}
+                            {data?.amenities?.study == true && (
+                              <li>Study room</li>
+                            )}
+                            {data?.amenities?.waste == true && (
+                              <li>Waste disposal facility</li>
+                            )}
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                  <div className="description">
+                    <h3>Description</h3>
+                    <div
+                      className="body"
+                      dangerouslySetInnerHTML={{ __html: data.description }}
+                    ></div>
+                  </div>
                 </div>
                 <div
                   className="col-12 col-lg-4"
@@ -90,8 +155,20 @@ const index = ({ data, agent }) => {
                     <li className="col-12">
                       {/* <h5>Price:</h5> */}
                       <span>
-                        {data.price} AED /{" "}
-                        {data.period == "m" ? "Monthly" : "Yearly"}
+                        <CurrencyFormat
+                          value={data.price}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          // format={'##,##,##,##,##,##,###'}
+                        />
+                         AED /{" "}
+                        {data?.period == "m" && data?.period !== "0"
+                          ? "Monthly"
+                          : null}
+                        {data?.period == "y" && data?.period !== "0"
+                          ? "Yearly"
+                          : null}
+                        {data?.period == "0" ? "One time" : null}
                       </span>
                     </li>
                     {data.bedroom !== "0" && (
@@ -127,42 +204,18 @@ const index = ({ data, agent }) => {
                     </li>
                     <li>
                       <h5>Location:</h5>
-                      <span>{data.location} </span>
+                      <span>
+                        {data?.address}, {data?.location}, {data?.pincode},{" "}
+                        {data?.state}
+                      </span>
                     </li>
 
-                    <div className="pt-5 pb-5"></div>
-
-                    <a
-                      href="tel:8111836280"
-                      className="btn btn-danger btn-lg text-center w-100 mb-4"
-                    >
-                      CALL NOW 8111836280
-                    </a>
-                    <button className="btn btn-green btn-lg text-center w-100 mb-4">
-                      REQUEST A VIEWING
-                    </button>
-                    <a
-                      href="https://wa.me/918111836280"
-                      target={"_blank"}
-                      className="btn btn-success btn-lg text-center w-100 "
-                    >
-                      <img src="/whatsapp.png" alt="" /> Whatsapp
-                    </a>
+                    {/* <div className="pt-5 pb-5"></div> */}
                   </ul>
-                </div>
-              </div>
-              <div className="description">
-                <h3>Description</h3>
-                <div
-                  dangerouslySetInnerHTML={{ __html: data.description }}
-                ></div>
-              </div>
-              <div className="row">
-                <div className="col-12 col-lg-7">
                   <Link href={`/agents/` + agent?.info_slug}>
                     <a>
                       <div
-                        className="card mb-5 mt-5"
+                        className="card mb-5 mt-5 agent_card"
                         style={{ maxWidth: "540px" }}
                       >
                         <div className="row g-0">
@@ -174,14 +227,7 @@ const index = ({ data, agent }) => {
                             />
                           </div>
                           <div className="col-md-8">
-                            <div className="card-body">
-                              <h5 className="card-title">{agent?.name}</h5>
-                              <p className="card-text">
-                                Position : {agent?.position}
-                              </p>
-                              <p className="card-text">
-                                Company : {agent?.company.name}
-                              </p>
+                            <div className="card-body ">
                               <p className="card-text">
                                 <small className="text-muted">
                                   <img
@@ -191,14 +237,46 @@ const index = ({ data, agent }) => {
                                   />
                                 </small>
                               </p>
+                              <p className="card-text">{agent?.company.name}</p>
+                              <h5 className="card-title">{agent?.name}</h5>
+                              <p className="card-text">
+                                Position : {agent?.position}
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </a>
                   </Link>
+                  <div className="points_wrp position-sticky">
+                    <a
+                      href={`tel:${agent?.mobile}`}
+                      className="btn btn-danger btn-lg text-center w-100 mb-4"
+                    >
+                      CALL NOW {agent?.mobile}
+                    </a>
+                    <button
+                      className="btn btn-green btn-lg text-center w-100 mb-4"
+                      onClick={(e) => setopenMailer(true)}
+                    >
+                      REQUEST A VIEWING
+                    </button>
+                    <a
+                      href={`https://wa.me/91${agent?.mobile}`}
+                      target={"_blank"}
+                      className="btn btn-success btn-lg text-center w-100 "
+                    >
+                      <img src="/whatsapp.png" alt="" /> Whatsapp
+                    </a>
+                  </div>
                 </div>
-                <div className="col-12 col-lg-5"></div>
+                {/* <div className="row"></div>
+                <div className="col-12 col-lg-8">
+                 
+                </div>
+                <div className="col-12 col-lg-4">
+              
+                </div> */}
               </div>
             </div>
           </div>

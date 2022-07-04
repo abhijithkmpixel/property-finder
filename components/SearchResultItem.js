@@ -43,7 +43,8 @@ const SearchResultItem = ({ property }) => {
               </div>
               {/* <span className="price">{property?.price} AED</span> */}
             </div>
-            <h6>{property.location}</h6>
+            <h6>{property.location} , {property.state}</h6>
+            
           </div>
         </div>
       </a>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import States from "./States";
 
 const AdvSearch = ({ locs }) => {
   const router = useRouter();
@@ -76,6 +77,8 @@ const AdvSearch = ({ locs }) => {
               `max_rent=${e.target.max_rent.value}&`) +
             (e.target.location.value &&
               `location=${e.target.location.value}&`) +
+              (e.target.state.value &&
+                `state=${e.target.state.value}&`) +
             (e.target.bedroom.value && `bed=${e.target.bedroom.value}&`) +
             (e.target.bathroom.value && `bath=${e.target.bathroom.value}&`) +
             (e.target.rent_duration.value &&
@@ -206,6 +209,16 @@ const AdvSearch = ({ locs }) => {
           </button>
         </div>
         <div className={`more_filter_opt ${moreFilter ? "" : "hidden"}`}>
+        <div
+            className={`field_dropdown `}
+            onClick={() => {
+              setsearchPlace(false);
+              setpropSize(false);
+              setprice(false);
+            }}
+          >
+          <States />
+          </div>
           <div
             className={`field_dropdown input_box_drpdwn ${
               propSize ? "open" : ""

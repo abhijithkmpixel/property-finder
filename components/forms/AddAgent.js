@@ -178,7 +178,7 @@ const AddAgent = ({ agents }) => {
           <div className={!editor && `hidden`}>
             <form className="" onSubmit={(e) => addProp(e)}>
               <div className="add_prop_form">
-                <h3>Add an agent</h3>
+                <h3>Agent details</h3>
                 <fieldset className={"hidden"}>
                   <label htmlFor="agentID">id</label>
                   <input type="text" name="agentID" id="agentID" />
@@ -257,7 +257,7 @@ const AddAgent = ({ agents }) => {
                   <input type="text" name="since" id="since" required />
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="w-100">
                   <label htmlFor="about_me">About me</label>
                   <CustonFieldEdito fieldName={"about_me"} />
                 </fieldset>

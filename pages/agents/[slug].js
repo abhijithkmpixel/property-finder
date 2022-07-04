@@ -91,7 +91,8 @@ const index = ({ agent, count }) => {
           {agent?.about_me && (
             <div className="about_me">
               {" "}
-              <h4>About me</h4> <p>{agent.about_me}</p>
+              <h4>About me</h4> 
+              <div dangerouslySetInnerHTML={{ __html : agent?.about_me}} ></div>
             </div>
           )}
           {/* <RecommendedProp title={"My properties"} list={count} filter={true} /> */}

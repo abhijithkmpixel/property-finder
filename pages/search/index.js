@@ -129,6 +129,7 @@ export default index;
 
 export async function getServerSideProps(context) {
   const slug = context.query;
+  
   const { req, params, query } = context;
   var propert = "";
   await api.get(`/api/` + slug.type).then((res) => {
@@ -144,9 +145,10 @@ export async function getServerSideProps(context) {
       (slug?.max_rent ? Number(prop.price) <= slug?.max_rent : true) &&
       (slug?.min_price ? Number(prop.price) >= slug?.min_price : true) &&
       (slug?.max_price ? Number(prop.price) <= slug?.max_price : true) &&
+      (slug?.state !=='all'? prop?.state?.toLowerCase() == slug?.state?.toLowerCase() : true) &&
       (slug?.bed ? Number(prop.bedroom) == slug?.bed : true) &&
       (slug?.bath ? Number(prop.bathroom) == slug?.bath : true) &&
-      (slug?.location ? prop.location == slug?.location : true) &&
+      (slug?.location ?  slug?.location.includes(prop.location) : true) &&
       (slug?.rent_duration
         ? prop.period.toString() == slug?.rent_duration.toString()
         : true)

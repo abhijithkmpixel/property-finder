@@ -162,7 +162,11 @@ header {
           &.contact_icon {
             width: 30px;
             height: 30px;
+            transition: .2s all ease-in-out;
             padding: 0;
+            &:hover{
+              transform: scale(1.2);
+            }
             a {
               display: block;
               filter: invert(0);

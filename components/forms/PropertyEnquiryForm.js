@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const PopupAgentEmailer = ({ email, setopenMailer }) => {
+const PropertyEnquiryForm = ({ email, setopenMailer,prop }) => {
   const form = useRef();
   const [loader, setloader] = useState(false);
 
@@ -49,6 +49,21 @@ const PopupAgentEmailer = ({ email, setopenMailer }) => {
             value={email}
             readOnly
           />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Regarding
+          </label>
+          <input
+         
+          />
+          <textarea    type="name"
+            className="form-control fs-4"
+            id="regarding"
+            name="regarding"
+            placeholder=""
+            value={`${prop?.title},${prop?.location},${prop?.state}`}
+            readOnly cols="30" rows="5"></textarea>
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -125,4 +140,4 @@ const PopupAgentEmailer = ({ email, setopenMailer }) => {
   );
 };
 
-export default PopupAgentEmailer;
+export default PropertyEnquiryForm;

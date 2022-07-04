@@ -11044,7 +11044,12 @@ header .header_inner_wrapper nav .main_navigation > li h5 img {
 header .header_inner_wrapper nav .main_navigation > li.contact_icon {
   width: 30px;
   height: 30px;
+  transition: .2s all ease-in-out;
   padding: 0;
+}
+
+header .header_inner_wrapper nav .main_navigation > li.contact_icon:hover {
+  transform: scale(1.2);
 }
 
 header .header_inner_wrapper nav .main_navigation > li.contact_icon a {
@@ -12212,9 +12217,19 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   padding: 0 0px 80px;
 }
 
+.section_prop_details .agent_card {
+  background-color: transparent;
+}
+
+.section_prop_details .agent_card a,
+.section_prop_details .agent_card p,
+.section_prop_details .agent_card h5 {
+  color: #fff;
+}
+
 .section_prop_details .prop_image_wr {
   width: 100%;
-  height: 700px;
+  height: 900px;
   margin-bottom: 40px;
   border-radius: 15px;
   overflow: hidden;
@@ -12229,15 +12244,19 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   z-index: 1;
   height: 100%;
   object-fit: cover;
+  transition: 15s all ease-in-out;
+  object-position: center;
 }
 
-.section_prop_details .prop_image_wr .slick-slider.slick-initialized, .section_prop_details .prop_image_wr .slick-list, .section_prop_details .prop_image_wr .slick-track {
-  max-height: 700px;
+.section_prop_details .prop_image_wr .slick-slider.slick-initialized,
+.section_prop_details .prop_image_wr .slick-list,
+.section_prop_details .prop_image_wr .slick-track {
+  max-height: 900px;
 }
 
 .section_prop_details .prop_image_wr .slick-slide {
   width: 100%;
-  height: 700px !important;
+  height: 900px !important;
   overflow: hidden;
 }
 
@@ -12254,8 +12273,8 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   overflow: hidden;
   border-radius: 50%;
   display: none;
-  transition: .2s all ease-in-out;
-  opacity: .5;
+  transition: 0.2s all ease-in-out;
+  opacity: 0.5;
 }
 
 .section_prop_details .prop_image_wr .slick-arrow:hover {
@@ -12304,14 +12323,17 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 
 .section_prop_details .points_wrp {
   flex-wrap: wrap;
-  background-color: aliceblue;
-  border-radius: 15px;
+  background-color: #fff;
+  border-radius: 5px;
   padding: 25px;
   width: 100%;
   margin-left: auto;
-  min-height: 460px;
   position: relative;
   z-index: 2;
+}
+
+.section_prop_details .points_wrp.position-sticky {
+  top: 95px;
 }
 
 .section_prop_details .points_wrp .btn {
@@ -12374,6 +12396,10 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   margin-top: 50px;
 }
 
+.section_prop_details .body_copy .facilities ul {
+  column-count: 2;
+}
+
 .section_prop_details .body_copy .facilities h6 {
   font-size: 24px;
   color: #fd7400;
@@ -12384,15 +12410,16 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 .section_prop_details .body_copy .facilities li {
   margin-left: 20px;
   font-size: 15px;
-  line-height: 18px;
-  margin-bottom: 10px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
   color: #fff;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
 }
 
 .section_prop_details .body_copy .facilities li::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 7px;
   height: 7px;
@@ -12429,6 +12456,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
   margin-bottom: 19px;
+  font-weight: 400;
 }
 
 .section_prop_details .body_copy h1 {
@@ -12436,6 +12464,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   font-size: 28px;
   color: #fff;
   text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
 }
 
@@ -12455,24 +12484,79 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   margin-top: 60px;
 }
 
+.section_prop_details .body_copy .description .body h1, .section_prop_details .body_copy .description .body h2, .section_prop_details .body_copy .description .body h3, .section_prop_details .body_copy .description .body h4, .section_prop_details .body_copy .description .body h5, .section_prop_details .body_copy .description .body h6, .section_prop_details .body_copy .description .htmlviewdiv h1, .section_prop_details .body_copy .description .htmlviewdiv h2, .section_prop_details .body_copy .description .htmlviewdiv h3, .section_prop_details .body_copy .description .htmlviewdiv h4, .section_prop_details .body_copy .description .htmlviewdiv h5, .section_prop_details .body_copy .description .htmlviewdiv h6 {
+  font-family: "Poppins", sans-serif !important;
+  margin-bottom: 15px;
+}
+
+.section_prop_details .body_copy .description .body p, .section_prop_details .body_copy .description .htmlviewdiv p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: .5px;
+}
+
+.section_prop_details .body_copy .description .body ul, .section_prop_details .body_copy .description .htmlviewdiv ul {
+  padding: 15px 0 15px 15px;
+}
+
+.section_prop_details .body_copy .description .body ul li, .section_prop_details .body_copy .description .htmlviewdiv ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: .5px;
+}
+
+.section_prop_details .body_copy .description .body h1, .section_prop_details .body_copy .description .htmlviewdiv h1 {
+  font-size: 26px;
+}
+
+.section_prop_details .body_copy .description .body h2, .section_prop_details .body_copy .description .htmlviewdiv h2 {
+  font-size: 24px;
+}
+
+.section_prop_details .body_copy .description .body h3, .section_prop_details .body_copy .description .htmlviewdiv h3 {
+  font-size: 22px;
+}
+
+.section_prop_details .body_copy .description .body h4, .section_prop_details .body_copy .description .htmlviewdiv h4 {
+  font-size: 20px;
+}
+
+.section_prop_details .body_copy .description .body h5, .section_prop_details .body_copy .description .htmlviewdiv h5 {
+  font-size: 18px;
+}
+
+.section_prop_details .body_copy .description .body h6, .section_prop_details .body_copy .description .htmlviewdiv h6 {
+  font-size: 16px;
+}
+
 .section_prop_details .body_copy .description h3 {
   font-size: 25px;
   color: #fd7400;
   margin-bottom: 25px;
 }
 
+.htmlviewdiv {
+  overflow-y: auto;
+}
+
 .btns-wrap {
   width: 100%;
 }
 
-.btns-wrap button, .btns-wrap a {
+.btns-wrap button,
+.btns-wrap a {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.btns-wrap button img, .btns-wrap a img {
+.btns-wrap button img,
+.btns-wrap a img {
   width: 20px;
   height: 20px;
   object-fit: contain;

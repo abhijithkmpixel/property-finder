@@ -8,6 +8,7 @@ import PropsListingSticky from "../PropsListingSticky";
 import EditorDiv from "./Editor";
 import CKEditor from "react-ckeditor-component";
 import Link from "next/link";
+import States from "./States";
 
 const AddProperty = ({ agents, props }) => {
   const [editor, seteditor] = useState(false);
@@ -135,9 +136,9 @@ const AddProperty = ({ agents, props }) => {
       document.getElementById("propId").value
     );
     const sub = await setDoc(docRef, {
-      address:e.target.address.value,
-      pincode:e.target.pincode.value,
-      state:e.target.state.value,
+      address:document.getElementById("address").value,
+      pincode:document.getElementById("pincode").value,
+      state:document.getElementById("state").value,
       title: document.getElementById("title").value,
       images: pimages,
       serviceType: document.getElementById("serviceType").value,
@@ -188,13 +189,14 @@ const AddProperty = ({ agents, props }) => {
     setnewProp(true);
     setslug("");
     setpimages([]);
+    document.getElementById('htmlviewdiv').innerHTML =''
     document.getElementById("state").value = '';
     // document.getElementById("district").value = '';
     document.getElementById("pincode").value = '';
     document.getElementById("address").value = '';
     document.getElementById("propId").value = "";
     document.getElementById("title").value = "";
-    document.getElementById("images").value = "";
+    // document.getElementById("images").value = "";
     document.getElementById("serviceType").value = "";
     document.getElementById("tags").value = "";
     document.getElementById("slug").value = "";
@@ -264,7 +266,7 @@ const AddProperty = ({ agents, props }) => {
           </div>
           <div className={!editor && "hidden"}>
             <form className="add_prop_form mb-5" onSubmit={(e) => addProp(e)}>
-              <h3>Add a property</h3>
+              <h3>Property details</h3>
               <fieldset className="hidden">
                 <label htmlFor="title">id</label>
                 <input type="text" name="propId" id="propId" readOnly />
@@ -348,48 +350,7 @@ const AddProperty = ({ agents, props }) => {
               </fieldset>
               <fieldset>
                 <label htmlFor="state">State</label>
-                <select name="state" id="state" class="">
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                  <option value="Andaman and Nicobar Islands">
-                    Andaman and Nicobar Islands
-                  </option>
-                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                  <option value="Assam">Assam</option>
-                  <option value="Bihar">Bihar</option>
-                  <option value="Chandigarh">Chandigarh</option>
-                  <option value="Chhattisgarh">Chhattisgarh</option>
-                  <option value="Dadar and Nagar Haveli">
-                    Dadar and Nagar Haveli
-                  </option>
-                  <option value="Daman and Diu">Daman and Diu</option>
-                  <option value="Delhi">Delhi</option>
-                  <option value="Lakshadweep">Lakshadweep</option>
-                  <option value="Puducherry">Puducherry</option>
-                  <option value="Goa">Goa</option>
-                  <option value="Gujarat">Gujarat</option>
-                  <option value="Haryana">Haryana</option>
-                  <option value="Himachal Pradesh">Himachal Pradesh</option>
-                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                  <option value="Jharkhand">Jharkhand</option>
-                  <option value="Karnataka">Karnataka</option>
-                  <option value="Kerala">Kerala</option>
-                  <option value="Madhya Pradesh">Madhya Pradesh</option>
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Manipur">Manipur</option>
-                  <option value="Meghalaya">Meghalaya</option>
-                  <option value="Mizoram">Mizoram</option>
-                  <option value="Nagaland">Nagaland</option>
-                  <option value="Odisha">Odisha</option>
-                  <option value="Punjab">Punjab</option>
-                  <option value="Rajasthan">Rajasthan</option>
-                  <option value="Sikkim">Sikkim</option>
-                  <option value="Tamil Nadu">Tamil Nadu</option>
-                  <option value="Telangana">Telangana</option>
-                  <option value="Tripura">Tripura</option>
-                  <option value="Uttar Pradesh">Uttar Pradesh</option>
-                  <option value="Uttarakhand">Uttarakhand</option>
-                  <option value="West Bengal">West Bengal</option>
-                </select>
+            <States/>
               </fieldset>
               <fieldset>
                 <label htmlFor="location">District</label>

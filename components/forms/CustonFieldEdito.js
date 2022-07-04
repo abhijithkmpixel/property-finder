@@ -1,6 +1,15 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const CustonFieldEdito = ({fieldName}) => {
+const CustonFieldEdito = ({ fieldName }) => {
+  const [htmlview, sethtmlview] = useState(false)
+  useEffect(() => {
+    console.log('load');
+  
+    return () => {
+      
+    }
+  }, [htmlview])
+  
   const descritpion = useRef("asdsad");
   const addPara = () => {
     var text = document.getElementById(fieldName);
@@ -84,6 +93,9 @@ const CustonFieldEdito = ({fieldName}) => {
     var newt = "<li>" + t + "</li>";
     text.value = text.value.replace(t.toString(), newt.toString());
   };
+  function updatehtmldiv(){
+    document.getElementById('htmlviewdiv').innerHTML = descritpion.current.value
+  }
   return (
     <div className="custom_editor">
       <div className="controlBar">
@@ -100,6 +112,7 @@ const CustonFieldEdito = ({fieldName}) => {
           li
         </button>
         <select name="" id="" onChange={(e) => addhead(e.target.value, e)}>
+          <option defaultChecked>Heading</option>
           <option value="h1">H1</option>
           <option value="h2">H2</option>
           <option value="h3">H3</option>
@@ -107,15 +120,15 @@ const CustonFieldEdito = ({fieldName}) => {
           <option value="h5">H5</option>
           <option value="h6">H6</option>
         </select>
+        <div className="btn btn-primary" onClick={(e)=>{sethtmlview(htmlview == true? false:true);updatehtmldiv()}}>View</div>
       </div>
-      <div className="text_inputarea">
-        <textarea
-          name={fieldName}
-          id={fieldName}
-          ref={descritpion}
-        ></textarea>
+      <div className={`text_inputarea ${+ htmlview && 'hidden'}`}>
+        <textarea name={fieldName} id={fieldName} ref={descritpion}></textarea>
         {/* <div dangerouslySetInnerHTML={{ __html:descritpion.current.value}}> 
         </div> */}
+
+        </div>
+        <div className={`htmlviewdiv p-3 bg-light border border-dark ${+ !htmlview && 'hidden'}`} style={{height:'250px'}} id="htmlviewdiv">
       </div>
     </div>
   );
