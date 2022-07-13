@@ -68,7 +68,7 @@ const PropsListingSticky = ({ props, editProp }) => {
                 <div className="card-body">
                   <h5 className="card-title">{p.title}</h5>
                   <p className="card-text">{p.tags}</p>
-                  <p className="card-text">{p.id}</p>
+                  {/* <p className="card-text">{p.id}</p> */}
                 </div>
                 <div className="btnr_wrap">
                   <button

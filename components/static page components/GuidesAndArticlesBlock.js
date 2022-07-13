@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import Link from "next/link";
 
 const GuidesAndArticlesBlock = () => {
   useEffect(() => {
@@ -42,12 +43,14 @@ const GuidesAndArticlesBlock = () => {
                 Voluptatibus non cum beatae temporibus ex, aliquid quibusdam ut
                 sit soluta delectus.
               </p>
+              <Link       href="/buyersguide">
               <a
-                href="/buyersguide"
+          
                 className="btn btn-danger btn-lg"
               >
                 Read More
               </a>
+              </Link>
             </div>
           </div>
 
@@ -63,12 +66,14 @@ const GuidesAndArticlesBlock = () => {
                 Corporis asperiores omnis at, cum aliquam recusandae obcaecati
                 labore excepturi soluta accusantium!
               </p>
+              <Link   href="/rentersguide">
               <a
-                href="/rentersguide"
+              
                 className="btn btn-danger btn-lg"
               >
                 Read More
               </a>
+              </Link>
             </div>
           </div>
         </div>

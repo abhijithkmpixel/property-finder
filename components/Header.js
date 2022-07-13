@@ -37,13 +37,13 @@ const Header = ({ innerpage }) => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      // console.log(currentUser);
-      if (currentUser) {
-        setuserData(currentUser);
-      }
-      // setuser(true)
-    });
+    // onAuthStateChanged(auth, (currentUser) => {
+    //   // console.log(currentUser);
+    //   if (currentUser) {
+    //     setuserData(currentUser);
+    //   }
+    //   // setuser(true)
+    // });
 
     return () => {};
   }, []);
@@ -105,11 +105,25 @@ const Header = ({ innerpage }) => {
                     <Link href="/sell">Sell with us</Link>
                   </li>
                   {/* {!userData && ( */}
-                  {/* <li>
-                    <Link href="/login">
-                      <a target="_blank">Admin</a>
-                    </Link>
-                  </li> */}
+                  <li>
+                    <h5>
+                      Register
+                      <img src="/chevron-down.svg" alt="arrow down" />
+                    </h5>
+                    <ul className="inner_dropdown">
+                      <li>
+                        <Link href="/auth/broker/register">
+                          Register as buyer
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/guides/buyerguide">
+                          Register as broker
+                        </Link>
+                      </li>
+                      <li onClick={logout}>logout</li>
+                    </ul>
+                  </li>
                   {/* // )} */}
                 </ul>
               </li>

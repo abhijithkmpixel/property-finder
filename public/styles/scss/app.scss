@@ -5,6 +5,7 @@
 // @import './plugins/fontawesome5';
 
 //components
+@import './components/variables';
 @import './components/typography';
 @import './components/base';
 @import './components/header';
@@ -24,3 +25,6 @@
 @import './pages/contact';
 @import './pages/dashboard';
 @import './pages/error404';
+@import './pages/register-form';
+@import './pages/profile';
+

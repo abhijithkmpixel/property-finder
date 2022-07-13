@@ -3,16 +3,14 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 export const LogContext = createContext();
 
 const LogContextProvider = ({ children }) => {
-  const [theme, settheme] = useState({ dark: false });
+  const [loggedUser, setloggedUser] = useState();
   useEffect(() => {
     // console.log(theme.dark);
     return () => {};
-  }, [theme]);
+  }, [loggedUser]);
 
-  function updateTheme() {
-    settheme((prevState) => {
-      return { dark: !prevState.dark };
-    });
+  function updateLoggedUser(data) {
+    setloggedUser(data);
     // if(theme.dark == true){
     //   document.querySelector('body').classList.add('bg_dark')
     // }else{
@@ -20,18 +18,18 @@ const LogContextProvider = ({ children }) => {
     // }
   }
   let state = {
-    theme,
-    updateTheme,
+    loggedUser,
+    updateLoggedUser,
   };
   return (
     <LogContext.Provider
       value={state}
      
     >
-      <main  className={` ${theme?.dark ? "bg_dark" : ""}`}>
+      {/* <main  className={` ${theme?.dark ? "bg_dark" : ""}`}> */}
 
       {children}
-      </main>
+      {/* </main> */}
     </LogContext.Provider>
   );
 };

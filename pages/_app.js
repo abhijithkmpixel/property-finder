@@ -20,13 +20,13 @@ function MyApp({ Component, pageProps }) {
   const [loadingComplete, setloadingComplete] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      document.body.classList.add('loaded')
-    }, 2000);
-    setTimeout(() => {
-      document.body.classList.add('loadingComplete')
+    // setTimeout(() => {
+    //   document.body.classList.add('loaded')
+    // }, 2000);
+    // setTimeout(() => {
+    //   document.body.classList.add('loadingComplete')
       
-    }, 5000);
+    // }, 5000);
     if (window !== undefined) {
       window.addEventListener("scroll", () => {
         if (window.scrollY > 180) {
@@ -47,6 +47,7 @@ function MyApp({ Component, pageProps }) {
       Router.events.off("routeChangeError", () => NProgress.done());
     };
   }, []);
+
 
   return (
     <LogContextProvider>

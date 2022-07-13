@@ -11,11 +11,14 @@ export   default async  function  handler (req, res) {
   const querySnapshot = await getDocs(q)
 
   const agents = querySnapshot?.docs?.map((doc) => {
-    return {
-        ...doc.data(),
-        id: doc.id,
-        timestamp:new Date(doc._document.version.timestamp.seconds * 1000)
-    };
+    // if( doc?.verified !== false){
+
+      return {
+          ...doc.data(),
+          id: doc.id,
+          timestamp:new Date(doc._document.version.timestamp.seconds * 1000)
+      };
+    // }
   });
   res.status(200).json( agents )
 }

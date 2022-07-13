@@ -27,11 +27,20 @@ const AgentsPageListing = ({agents}) => {
               <Link href={"/agents/" + agent.info_slug}>
                 <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay='100'>
                   <div className="agent-list-card" >
-                    <img
-                      src={agent.image}
+                    {
+                      // https://www.w3schools.com/howto/img_avatar.png
+                      agent?.image?
+                      <img
+                        src={agent.image}
+                        className="card-img-top"
+                        alt={agent.name}
+                      />:
+                      <img
+                      src={'https://www.w3schools.com/howto/img_avatar.png'}
                       className="card-img-top"
                       alt={agent.name}
                     />
+                    }
                     <div className="card-body">
                       <h5 className="card-title">{agent.name}</h5>
                       <p className="card-text">{agent.position}</p>

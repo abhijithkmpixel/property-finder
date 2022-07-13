@@ -50,12 +50,12 @@ const index = ({ agent, count }) => {
               <div className="col-12" key={agent.id}>
                 <div className="card" style={{ width: "100%;" }}>
                   <img
-                    src={agent.company.company_image}
+                    src={agent?.company?.company_image}
                     className="card-img-top"
-                    alt={agent.company.name}
+                    alt={agent?.company?.name}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{agent.company.name}</h5>
+                    <h5 className="card-title">{agent?.company?.name}</h5>
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 const CustonFieldEdito = ({ fieldName }) => {
   const [htmlview, sethtmlview] = useState(false)
   useEffect(() => {
-    console.log('load');
+    // console.log('load');
   
     return () => {
       
