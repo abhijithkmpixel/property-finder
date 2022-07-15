@@ -95,7 +95,7 @@ const index = ({ data, agent }) => {
                         </div>
                       ) : null}
                     </div>
-                    <div className="col-12 col-md-6">
+                    {/* <div className="col-12 col-md-6">
                       {console.log(data?.amenities)}
                       {data?.amenities ? (
                         <div className="facilities">
@@ -135,7 +135,7 @@ const index = ({ data, agent }) => {
                           </ul>
                         </div>
                       ) : null}
-                    </div>
+                    </div> */}
                   </div>
                   <div className="description">
                     <h3>Description</h3>
@@ -194,9 +194,15 @@ const index = ({ data, agent }) => {
                     data-aos-duration="900"
                     data-aos-delay="100"
                   >
+                      <li>
+                      <h5>Property up for:</h5>
+                      <span>{data?.serviceType == 'sale' && 'Sale'}{data?.serviceType == 'rent' && 'Rent'}{data?.serviceType == 'commercial-rent' && 'Coomercial Rent'}{data?.serviceType == 'commercial-sale' && 'Commercial sale'} </span>
+                    </li>
                     <li>
                       <h5>Property size:</h5>
                       <span>{data.propertySize} Sq.Ft.</span>
+                      <span>{data.recommend} Sq.Ft.</span>
+
                     </li>
                     <li>
                       <h5>Property type:</h5>

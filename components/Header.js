@@ -6,14 +6,14 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { api } from "../pages/api/auth/api";
 import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
 const Header = ({ innerpage }) => {
-  const { theme, updateTheme } = useLogContaxt();
-
+  const { loggedUser, updateLoggedUser } = useLogContaxt();
   const [userData, setuserData] = useState();
-
+const [profileSlug, setprofileSlug] = useState()
   // const signinwithgoogle = (e) => {
   //   e.preventDefault();
   //   const provider = new GoogleAuthProvider();
@@ -34,16 +34,21 @@ const Header = ({ innerpage }) => {
     await signOut(auth);
     // setuser(false);
     setuserData("");
+    localStorage.removeItem("slug");
+
   };
 
   useEffect(() => {
-    // onAuthStateChanged(auth, (currentUser) => {
-    //   // console.log(currentUser);
-    //   if (currentUser) {
-    //     setuserData(currentUser);
-    //   }
-    //   // setuser(true)
-    // });
+    onAuthStateChanged(auth, (currentUser) => {
+      // console.log(currentUser);
+      if (currentUser) {
+        setuserData(currentUser);
+        let slug = localStorage.getItem("slug");
+        // console.log(slug);
+        setprofileSlug(slug)
+      }
+      // setuser(true)
+    });
 
     return () => {};
   }, []);
@@ -62,10 +67,10 @@ const Header = ({ innerpage }) => {
           <nav>
             <ul className="main_navigation">
               <li>
-                <Link href="/search?type=sale">Buy</Link>
+                <a href="/search?type=sale&st=all&">Buy</a>
               </li>
               <li>
-                <Link href="/search?type=rent">Rent</Link>
+                <a href="/search?type=rent&st=all&">Rent</a>
               </li>
               <li>
                 {/* <Link href="/search?type=commercial-rent">Commercial</Link> */}
@@ -75,14 +80,14 @@ const Header = ({ innerpage }) => {
                 </h5>
                 <ul className="sub_dropdown">
                   <li>
-                    <Link href="/search?type=commercial-rent">
+                    <a href="/search?type=commercial-rent">
                       Commercial Rent
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/search?type=commercial-sale">
+                    <a href="/search?type=commercial-sale">
                       Commercial Sale
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -102,80 +107,41 @@ const Header = ({ innerpage }) => {
                     <Link href="/buyersguide">Buyer's guide </Link>
                   </li>
                   <li>
-                    <Link href="/sell">Sell with us</Link>
+                    <Link href="/auth/broker/register">Sell with us</Link>
                   </li>
-                  {/* {!userData && ( */}
-                  <li>
+                  {userData && (
+                    <>
+                      <li>
+                        <Link href={`/Profile/${profileSlug}`}>My Profile</Link>
+                      </li>
+                      <li onClick={logout}>
+                        <button className="btn btn-danger w-100 mb-4"> logout</button>
+                      </li>
+                    </>
+                  )}
+                  {/* <li>
                     <h5>
                       Register
                       <img src="/chevron-down.svg" alt="arrow down" />
                     </h5>
                     <ul className="inner_dropdown">
                       <li>
-                        <Link href="/auth/broker/register">
+                        <Link href="/">
                           Register as buyer
                         </Link>
                       </li>
                       <li>
-                        <Link href="/admin/guides/buyerguide">
+                        <Link href="/auth/broker/register">
                           Register as broker
                         </Link>
                       </li>
-                      <li onClick={logout}>logout</li>
+                   
                     </ul>
-                  </li>
+                  </li> */}
                   {/* // )} */}
                 </ul>
               </li>
-              {/* {userData && (
-                <li>
-                  <h5>
-                    Admin
-                    <img src="/chevron-down.svg" alt="arrow down" />
-                  </h5>
-                  <ul className="sub_dropdown">
-                    <>
-                      <div className="user_console">
-                        <div className="user_data">
-                          <span>Signed in as</span>
-                          <p>{userData?.email}</p>
-                        </div>
-                      </div>
-                    </>
-
-                    <li>
-                      <Link href="/add-property">Add property </Link>
-                    </li>
-                    <li>
-                      <Link href="/add-agent">Add agent </Link>
-                    </li>
-                    <li>
-                      <h5>Guides</h5>
-                      <ul className="inner_dropdown">
-                        <li>
-                          <Link href="/admin/guides/rentguide">
-                            Renter's guide
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/admin/guides/buyerguide">
-                            Buyer's guide
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-
-                    {userData ? (
-                      <button
-                        className="btn btn-danger w-100 btn-lg"
-                        onClick={logout}
-                      >
-                        Logout
-                      </button>
-                    ) : null}
-                  </ul>
-                </li>
-              )} */}
+       
               <li className="contact_icon">
                 <Link href="/contact">
                   <a>
@@ -192,3 +158,16 @@ const Header = ({ innerpage }) => {
 };
 
 export default Header;
+// export async function getServerSideProps(context) {
+//   const { req, params, query } = context;
+//   var agents = "";
+//   await api.get(`/api/agents`).then((response) => {
+//     agents = response.data;
+//   });
+
+//   return {
+//     props: {
+//       agents: agents,
+//     },
+//   };
+// }

@@ -1,6 +1,7 @@
+import { m } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
-const CustonFieldEdito = ({ fieldName }) => {
+const AboutMeEditor = ({ fieldName }) => {
   const [htmlview, sethtmlview] = useState(false)
   useEffect(() => {
     // console.log('load');
@@ -10,7 +11,7 @@ const CustonFieldEdito = ({ fieldName }) => {
     }
   }, [htmlview])
   
-  const descritpion = useRef("Hi there i'm");
+  const descritpion = useRef("Hi i'm...");
   const addPara = () => {
     var text = document.getElementById(fieldName);
     var t = text.value.substr(
@@ -94,7 +95,7 @@ const CustonFieldEdito = ({ fieldName }) => {
     text.value = text.value.replace(t.toString(), newt.toString());
   };
   function updatehtmldiv(){
-    document.getElementById('htmlviewdiv').innerHTML = descritpion.current.value
+    document.getElementById(fieldName).innerHTML = descritpion.current.value
   }
   return (
     <div className="custom_editor">
@@ -128,10 +129,10 @@ const CustonFieldEdito = ({ fieldName }) => {
         </div> */}
 
         </div>
-        <div className={`htmlviewdiv p-3 bg-light border border-dark ${+ !htmlview && 'hidden'}`} style={{height:'250px'}} id="htmlviewdiv">
+        <div className={`htmlviewdiv p-3 bg-light border border-dark ${+ !htmlview && 'hidden'}`} style={{height:'250px'}} id={fieldName}>
       </div>
     </div>
   );
 };
 
-export default CustonFieldEdito;
+export default AboutMeEditor;

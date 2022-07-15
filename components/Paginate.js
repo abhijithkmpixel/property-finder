@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
-const Paginate = ({ itemsPerPage, pageCount, items, setItemOffset }) => {
+const Paginate = ({ itemsPerPage, pageCount, items, setItemOffset ,itemOffset}) => {
   // We start with an empty list of items.
 
   // Invoke when user click to request another page.
   useEffect(() => {
-    
+    if(itemOffset == 0){
+
+    }
   
     return () => {
       
     }
-  }, [items])
+  }, [items,pageCount,setItemOffset,itemOffset])
   
   const handlePageClick = (event) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const newOffset = (event.selected * itemsPerPage) % items.length;
-    // console.log(
-    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
-    // );
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
     setItemOffset(newOffset);
   };
   const hrefBuilder = () =>{

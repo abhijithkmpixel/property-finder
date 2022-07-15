@@ -1,87 +1,122 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
+import BeenhereIcon from "@mui/icons-material/Beenhere";
 
-const ProfilePageDetails = ({userData,seteditor,editor}) => {
+const ProfilePageDetails = ({
+  userData,
+  seteditor,
+  editor,
+  loadEditorData,
+}) => {
   useEffect(() => {
-    
-  // console.log(userData);
-    return () => {
-      
-    }
-  }, [userData,editor])
-  
+    // console.log(userData);
+    return () => {};
+  }, [userData, editor]);
+
   return (
-    <section className={"profile_page " + (editor && ' hidden')}>
-    <div className="container">
-      <div className="profile_image">
-        <img src={userData?.image} alt={userData?.name} />
-      </div>
-      <div className="main">
-        <h2>Details</h2>
-        <div className="card">
-          <div className="card-body">
-            {/* <i className="fa fa-pen fa-xs edit"></i> */}
-            <button className="btn btn-primary float-end" onClick={()=>seteditor(true)}>Edit</button>
-            <table width='100' >
-              <tbody>
-                {userData?.name && (
-                  <tr>
-                    <td>Name</td>
-                    <td>:</td>
-                    <td>{userData?.name}</td>
-                    {/* <input type="text" value={userData?.name} readOnly /> */}
-                  </tr>
-                )}
-                {userData?.email && (
-                  <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td>{userData?.email}</td>
-                  </tr>
-                )}
-                {userData?.position && (
-                  <tr>
-                    <td>Position</td>
-                    <td>:</td>
-                    <td>{userData?.position}</td>
-                  </tr>
-                )}
-                {userData?.mobile && (
-                  <tr>
-                    <td>Mobile</td>
-                    <td>:</td>
-                    <td>{userData?.mobile}</td>
-                  </tr>
-                )}
-                {userData?.languages && (
-                  <tr>
-                    <td>Languages</td>
-                    <td>:</td>
-                    <td>{userData?.languages}</td>
-                  </tr>
-                )}
-                {userData?.nationality && (
-                  <tr>
-                    <td>Nationality</td>
-                    <td>:</td>
-                    <td>{userData?.nationality}</td>
-                  </tr>
-                )}
-                      {userData?.about_me && (
-                  <tr>
-                    <td>About me</td>
-                    <td>:</td>
-                    <td>{userData?.about_me}</td>
-                  </tr>
-                )}
-                
-              </tbody>
-            </table>
+    <section className={"profile_page " + (editor && " hidden")}>
+      <div className="profile_banner_image">
+        <div className="bnr_img">
+          <img
+            src="https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="banner image"
+          />
+        </div>
+        <div className="container position-relative">
+          <div className="profile_image">
+            {userData?.image && userData?.image !== "" && userData?.image !=='undefined' ? (
+              <img src={userData?.image} alt={userData?.name} />
+            ) : (
+              <img
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                alt="no image"
+              />
+            )}
+            <div className="name_n_title">
+              <h1>{userData?.name}</h1>
+              <h5>{userData?.position}</h5>
+              {userData?.verified && userData?.verified == true ? (
+                <div className="d-flex align-items-center fs-4 text-light mt-3" role="alert">
+                  <img src="http://getdrawings.com/free-icon/facebook-verified-icon-70.png" style={{width:'20px',height:'20px'}} alt="" />
+                  Verified
+                </div>
+              ) : (
+                <div className="d-flex align-items-center fs-4 text-light mt-3" role="alert">
+                <img src="/pending.png" style={{width:'20px',height:'20px'}} alt="" />
+                Pending
+              </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  )
-}
+      <div className="container">
+        <div className="main">
+          <h2>My Details</h2>
+          <div className="card">
+            <div className="card-body">
+              <img   onClick={() => {
+                  seteditor(true);
+                  loadEditorData();
+                }} src="/pencil-fill.svg" alt="edit image" style={{width:'20px',height:'20px',cursor:'pointer',float:'right'}} />
+              <table width="100">
+                <tbody>
+                  {/* {userData?.name && (
+                    <tr>
+                      <td>Name</td>
+                      <td>:</td>
+                      <td>{userData?.name}</td>
+                    </tr>
+                  )} */}
+                  {userData?.email && (
+                    <tr>
+                      <td>Email</td>
+                      <td>:</td>
+                      <td>{userData?.email}</td>
+                    </tr>
+                  )}
+                  {/* {userData?.position && (
+                    <tr>
+                      <td>Position</td>
+                      <td>:</td>
+                      <td>{userData?.position}</td>
+                    </tr>
+                  )} */}
+                  {userData?.mobile && (
+                    <tr>
+                      <td>Mobile</td>
+                      <td>:</td>
+                      <td>{userData?.mobile}</td>
+                    </tr>
+                  )}
+                  {userData?.languages && (
+                    <tr>
+                      <td>Languages</td>
+                      <td>:</td>
+                      <td>{userData?.languages}</td>
+                    </tr>
+                  )}
+                  {userData?.nationality && (
+                    <tr>
+                      <td>Nationality</td>
+                      <td>:</td>
+                      <td>{userData?.nationality}</td>
+                    </tr>
+                  )}
+                  {userData?.about_me && (
+                    <tr>
+                      <td>About me</td>
+                      <td>:</td>
+                      <td>{userData?.about_me}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default ProfilePageDetails
+export default ProfilePageDetails;

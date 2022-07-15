@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import States from "./States";
 
-const AdvSearch = ({ locs }) => {
+const AdvSearch = ({ locs ,reloaded}) => {
   const router = useRouter();
   const [price, setprice] = useState(false);
   const [propSize, setpropSize] = useState(false);
@@ -59,31 +59,52 @@ const AdvSearch = ({ locs }) => {
       }}
       onSubmit={(e) => {
         e.preventDefault();
+        reloaded();
         setprice(false);
         setpropSize(false);
         setsearchPlace(false);
 
-        router.push(
-          `/search?type=${e.target.type.value}&` +
-            (e.target.property_type.value &&
-              `property_type=${e.target.property_type.value}&`) +
-            (e.target.min_area.value &&
-              `min_area=${e.target.min_area.value}&`) +
-            (e.target.max_area.value &&
-              `max_area=${e.target.max_area.value}&`) +
-            (e.target.min_rent.value &&
-              `min_rent=${e.target.min_rent.value}&`) +
-            (e.target.max_rent.value &&
-              `max_rent=${e.target.max_rent.value}&`) +
-            (e.target.location.value &&
-              `location=${e.target.location.value}&`) +
-              (e.target.state.value &&
-                `state=${e.target.state.value}&`) +
-            (e.target.bedroom.value && `bed=${e.target.bedroom.value}&`) +
-            (e.target.bathroom.value && `bath=${e.target.bathroom.value}&`) +
-            (e.target.rent_duration.value &&
-              `rent_duration=${e.target.rent_duration.value}`)
-        );
+        // router.push(
+        //   `${process.env.API_DOMAIN_URL}/search?type=${e.target.type.value}&` +
+        //   (e.target.property_type.value &&
+        //     `p_t=${e.target.property_type.value}&`) +
+        //   (e.target.min_area.value &&
+        //     `min_a=${e.target.min_area.value}&`) +
+        //   (e.target.max_area.value &&
+        //     `max_a=${e.target.max_area.value}&`) +
+        //   (e.target.min_rent.value &&
+        //     `min_r=${e.target.min_rent.value}&`) +
+        //   (e.target.max_rent.value &&
+        //     `max_r=${e.target.max_rent.value}&`) +
+        //   (e.target.location.value &&
+        //     `loc=${e.target.location.value}&`) +
+        //     (e.target.state.value &&
+        //       `st=${e.target.state.value}&`) +
+        //   (e.target.bedroom.value && `bd=${e.target.bedroom.value}&`) +
+        //   (e.target.bathroom.value && `bt=${e.target.bathroom.value}&`) +
+        //   (e.target.rent_duration.value &&
+        //     `d=${e.target.rent_duration.value}`)
+        // );
+        window.location =  `${process.env.API_DOMAIN_URL}/search?type=${e.target.type.value}&` +
+        (e.target.property_type.value &&
+          `p_t=${e.target.property_type.value}&`) +
+        (e.target.min_area.value &&
+          `min_a=${e.target.min_area.value}&`) +
+        (e.target.max_area.value &&
+          `max_a=${e.target.max_area.value}&`) +
+        (e.target.min_rent.value &&
+          `min_r=${e.target.min_rent.value}&`) +
+        (e.target.max_rent.value &&
+          `max_r=${e.target.max_rent.value}&`) +
+        (e.target.location.value &&
+          `loc=${e.target.location.value}&`) +
+          (e.target.state.value &&
+            `st=${e.target.state.value}&`) +
+        (e.target.bedroom.value && `bd=${e.target.bedroom.value}&`) +
+        (e.target.bathroom.value && `bt=${e.target.bathroom.value}&`) +
+        (e.target.rent_duration.value &&
+          `d=${e.target.rent_duration.value}`) ;
+
       }}
     >
       <fieldset>
@@ -291,8 +312,8 @@ const AdvSearch = ({ locs }) => {
             }}
           >
             <span>
-              {min_price ? `from ${min_price} AED ` : "Price "}
-              {max_price && `upto ${max_price} AED`}
+              {min_price ? `from ${min_price} ₹ ` : "Price "}
+              {max_price && `upto ${max_price} ₹`}
             </span>
             <div className="drp_icon">
               <img src="/chevron-down.svg" alt="arrow" />
@@ -300,7 +321,7 @@ const AdvSearch = ({ locs }) => {
             <div className="drop_box">
               <div className="row_field">
                 <div className="input_fields">
-                  <label htmlFor="min_rent">Min rent (AED)</label>
+                  <label htmlFor="min_rent">Min rent (₹)</label>
                   <input
                     type="text"
                     name="min_rent"
@@ -310,7 +331,7 @@ const AdvSearch = ({ locs }) => {
                   />
                 </div>
                 <div className="input_fields">
-                  <label htmlFor="max_rent">Max rent (AED)</label>
+                  <label htmlFor="max_rent">Max rent (₹)</label>
                   <input
                     type="text"
                     name="max_rent"

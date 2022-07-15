@@ -1,18 +1,29 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Countries from "../../../components/forms/countries";
 import HeadTag from "../../../components/Head";
 import Header from "../../../components/Header";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth, db } from "../../api/firebase";
 import { doc, setDoc } from "firebase/firestore/lite";
 import Footer from "../../../components/Footer";
+import { useRouter } from "next/router";
 var slugify = require("slugify");
 
 const BrokerRegister = () => {
+  const router = useRouter();
   const [errorMsg, seterrorMsg] = useState(null);
-
+  const [loading, setloading] = useState(false);
+  const [agreed, setagreed] = useState(false);
   const addUser = async (email, e) => {
+    const userslug = slugify(e.target.fname.value, {
+      replacement: "-", // replace spaces with replacement character, defaults to `-`
+      remove: undefined, // remove characters that match regex, defaults to `undefined`
+      lower: true, // convert to lower case, defaults to `false`
+      strict: false, // strip special characters except replacement, defaults to `false`
+      locale: "vi", // language code of the locale to use
+      trim: true, // trim leading and trailing replacement chars, defaults to `true`
+    })
     const docRef = doc(db, "agents", email);
     const sub = await setDoc(docRef, {
       name: e.target.fname.value,
@@ -20,22 +31,25 @@ const BrokerRegister = () => {
       nationality: e.target.country.value,
       verified: false,
       email: email,
-      info_slug: slugify(e.target.fname.value, {
-        replacement: "-", // replace spaces with replacement character, defaults to `-`
-        remove: undefined, // remove characters that match regex, defaults to `undefined`
-        lower: true, // convert to lower case, defaults to `false`
-        strict: false, // strip special characters except replacement, defaults to `false`
-        locale: "vi", // language code of the locale to use
-        trim: true, // trim leading and trailing replacement chars, defaults to `true`
-      }),
+      info_slug: userslug
     });
     alert(`User registered`);
+    localStorage.setItem("slug",userslug);
+    router.push(`/Profile/${userslug}`);
   };
+
+  useEffect(() => {
+    return () => {};
+  }, [agreed]);
+
   const submitHandler = async (e) => {
     // const auth = getAuth();
-    seterrorMsg(null);
-
     e.preventDefault();
+    seterrorMsg(null);
+    setloading(true);
+    await signOut(auth);
+    localStorage.removeItem("slug");
+
     createUserWithEmailAndPassword(
       auth,
       e.target.email.value,
@@ -43,16 +57,14 @@ const BrokerRegister = () => {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
-        //registering user
         addUser(user?.email, e);
-        //register user end
         e.target.reset;
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         // const errorMessage = error.message;
+        setloading(false);
         seterrorMsg(() => geterrCOde(errorCode));
         setTimeout(() => {
           seterrorMsg(null);
@@ -69,7 +81,7 @@ const BrokerRegister = () => {
         return "Invalid mail id use";
         break;
       default:
-        return "Server error";
+        return errorCode;
         break;
     }
   }
@@ -78,7 +90,7 @@ const BrokerRegister = () => {
     <>
       <HeadTag title="Register" meta={"register page for broker"} />
       <Header innerpage={true} />
-      <section className="register-form">
+      <section className="register-form"  style={{'--img':'url(https://images.pexels.com/photos/463996/pexels-photo-463996.jpeg?auto=compress&cs=tinysrgb&w=1600)'}}>
         <div className="wrapper">
           <div className="registration_form position-relative">
             <div className="title">Register Form</div>
@@ -113,7 +125,7 @@ const BrokerRegister = () => {
                 </div>
               </div>
             )}
-            <form onSubmit={submitHandler}>
+            <form onSubmit={(e)=>submitHandler(e)}>
               <div className="form_wrap">
                 <div className="input_wrap">
                   <label for="fname">Full Name</label>
@@ -194,24 +206,57 @@ const BrokerRegister = () => {
                 <div className="input_wrap">
                   <label for="country">Country</label>
                   {/* <input type="text" id="country" required/> */}
-                  <Countries name={'country'}/>
+                  <Countries name={"country"} />
+                </div>
+                <div className="input_wrap d-flex">
+                  <input
+                    type="checkbox"
+                    id="termsconditions"
+                    className="mr-3"
+                    required
+                    onClick={() => {if(document.getElementById('termsconditions').checked == true){setagreed(true)}else{
+                      setagreed(false)
+                    } }}
+                  />
+                  <label
+                   onClick={() => {if(document.getElementById('termsconditions').checked == true){setagreed(true)}else{
+                    setagreed(false)
+                   } }}
+                    for="termsconditions"
+                    className="mx-2"
+                  >
+                    I agree to the {''}
+                    <Link href={"/terms-and-conditions"}>
+                       terms & conditions 
+                    </Link>{' '}
+                    and <Link href={"privacy-policy"}>privacy policy </Link>of
+                    Find Homes
+                  </label>
                 </div>
                 <div className="input_wrap">
-                  <input
-                    type="submit"
-                    value="Register Now"
-                    className="submit_btn mt-5"
-                  />
+                  <button
+                    className={`submit_btn mt-3 mb-5 ${
+                      +loading && "opacity-50 pe-none"
+                    }   ${+!agreed && "opacity-25 pe-none"}`}
+                  >
+                    Register now
+                    {loading && (
+                      <div className="spinner-border text-light" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    )}
+                  </button>
                 </div>
               </div>
               <p className="already-in">
-                Already registered? <Link href={"/auth/broker/login"}> signin</Link>
+                Already registered?{" "}
+                <Link href={"/auth/broker/login"}> Login</Link>
               </p>
             </form>
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 };

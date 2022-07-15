@@ -18,7 +18,7 @@ body {
     outline: none;
   }
 }
-$heading_font: "Playfair Display";
+$heading_font: 'Ubuntu', sans-serif;;
 $body_font: "Poppins", sans-serif;
 ul,
 ol {
@@ -32,7 +32,9 @@ h4,
 h5,
 h6 {
   margin: 0;
+  // font-family: $heading_font;
   font-family: $heading_font;
+
 }
 .container {
   max-width: 1175px !important;
@@ -156,11 +158,12 @@ a:focus {
   border-color: #fd7400;
   color: #fd7400 !important;
   &:hover {
-    opacity: 0.5;
+    opacity: 1;
     color: #fff !important;
     background-color: #fd7400;
   }
   &:focus {
+    opacity: 1;
     background-color: #fd7400;
     color: #fff !important;
   }
@@ -181,12 +184,14 @@ a:focus {
 .btn-danger {
   background-color: #fd7400;
   transition: 0.2s all ease-in-out;
+  border:1px solid #fd7400;
+
   &:hover {
-    opacity: 0.5;
-    background-color: #fd7400;
+    background-color: transparent;
+    color: #fd7400;
   }
   &:focus {
-    background-color: #fd7400;
+    background-color: transparent;
   }
 }
 .btn-green {

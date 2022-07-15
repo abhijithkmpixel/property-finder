@@ -26,7 +26,7 @@
   }
   .prop_image_wr {
     width: 100%;
-    height: 900px;
+    height: calc(100vh - 82px);
     margin-bottom: 40px;
     border-radius: 15px;
     overflow: hidden;
@@ -47,11 +47,11 @@
     .slick-slider.slick-initialized,
     .slick-list,
     .slick-track {
-      max-height: 900px;
+      max-height: calc(100vh - 82px);
     }
     .slick-slide {
       width: 100%;
-      height: 900px !important;
+      height: calc(100vh - 82px) !important;
       overflow: hidden;
       & > div {
         width: 100%;
@@ -65,10 +65,9 @@
     }
     .slick-arrow {
       z-index: 3;
-      font-size: 30px;
       // color: #fd7400;
-      width: 30px;
-      height: 30px;
+      width: 38px;
+      height: 38px;
       overflow: hidden;
       border-radius: 50%;
       display: none;
@@ -79,6 +78,8 @@
       }
       &::before {
         display: block;
+      font-size: 36px;
+
       }
       &.slick-next {
         right: 15px;

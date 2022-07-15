@@ -54,9 +54,9 @@ const PropertyEnquiryForm = ({ email, setopenMailer,prop }) => {
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Regarding
           </label>
-          <input
+          {/* <input
          
-          />
+          /> */}
           <textarea    type="name"
             className="form-control fs-4"
             id="regarding"

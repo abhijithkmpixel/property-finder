@@ -11,27 +11,12 @@ const LogContextProvider = ({ children }) => {
 
   function updateLoggedUser(data) {
     setloggedUser(data);
-    // if(theme.dark == true){
-    //   document.querySelector('body').classList.add('bg_dark')
-    // }else{
-    //   document.querySelector('body').classList.remove('bg_dark')
-    // }
   }
   let state = {
     loggedUser,
     updateLoggedUser,
   };
-  return (
-    <LogContext.Provider
-      value={state}
-     
-    >
-      {/* <main  className={` ${theme?.dark ? "bg_dark" : ""}`}> */}
-
-      {children}
-      {/* </main> */}
-    </LogContext.Provider>
-  );
+  return <LogContext.Provider value={state}>{children}</LogContext.Provider>;
 };
 
 export default LogContextProvider;

@@ -39,7 +39,7 @@ const HomeBanner = ({ locs }) => {
             <div className="container">
           {/* <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR <span>PROPERTY</span> IS WORTH <span>INSTANTLY</span></h1> */}
           <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">WELCOME TO <span>FIND HOMES</span></h1>
-          <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">Find Homes is an innovative real estate company that helps to find the perfect home for you</p>
+          <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">Find Homes is an innovative real estate company that helps to find the perfect home for you.</p>
 
           <div className="search_filter_forms" data-aos="fade-up" data-aos-duration="900" data-aos-delay="1000">
               <div className="form_wrapper">

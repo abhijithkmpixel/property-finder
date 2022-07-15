@@ -1,9 +1,11 @@
 import React from "react";
+import HeadTag from "../../components/Head";
+import Header from "../../components/Header";
 
 const index = () => {
   return (
     <>
-      <div className="mapouter">
+      {/* <div className="mapouter">
         <div className="gmap_canvas">
           <iframe
             src="https://maps.google.com/maps?q=perandoor-682026&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
@@ -13,7 +15,9 @@ const index = () => {
             style={{ width: "100%", height: "100vh" }}
           ></iframe>
         </div>
-      </div>
+      </div> */}
+      <HeadTag/>
+      <Header innerpage={true}/>
     <div className="container my-5">
       <h1>Privacy Policy</h1>
       <p>Last updated: June 27, 2022</p>

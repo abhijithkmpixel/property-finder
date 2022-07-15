@@ -25,7 +25,7 @@ const WhatAreYouLookingFor = () => {
           <div className="col-12 col-md-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
               <div className="why_choose_card">
                 <img src="/villa.webp" alt="" />
-                <h4>Villas</h4>
+                <h4>Villas/Houses</h4>
                 <p>
                   We went down the lane, by the body of the man in black, sodden
                   now from the overnight hail, and broke into the woods at the
