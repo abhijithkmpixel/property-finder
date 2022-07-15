@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Countries from "../../../components/forms/countries";
+import Countries from "../../../components/forms/Countries";
 import HeadTag from "../../../components/Head";
 import Header from "../../../components/Header";
 import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";

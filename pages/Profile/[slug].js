@@ -8,7 +8,7 @@ import PageLoader from "../../components/PageLoader";
 import ProfilePageDetails from "../../components/static page components/ProfilePageDetails";
 import { api } from "../api/auth/api";
 import { auth, db, storage } from "../api/firebase";
-import Countries from "../../components/forms/countries";
+
 import { useRef } from "react";
 import { doc, setDoc } from "firebase/firestore/lite";
 import { Router } from "@mui/icons-material";
@@ -23,6 +23,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import States from "../../components/forms/States";
+import Countries from "../../components/forms/Countries";
 
 const index = ({  agent,props}) => {
   const [userData, setuserData] = useState(null);
