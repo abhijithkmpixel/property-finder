@@ -46,7 +46,9 @@ const login = ({ agents }) => {
             if (agent?.email == user?.email) {
               // updateLoggedUser(agent);
               localStorage.setItem("slug", agent?.info_slug);
-              router.push(`/Profile/${agent?.info_slug}`);
+              // router.push(`/Profile/${agent?.info_slug}`);
+              router.push(`/Profile`);
+
             }
           });
         }

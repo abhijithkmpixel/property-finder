@@ -112,7 +112,9 @@ const [profileSlug, setprofileSlug] = useState()
                   {userData && (
                     <>
                       <li>
-                        <Link href={`/Profile/${profileSlug}`}>My Profile</Link>
+                        {/* <Link href={`/Profile/${profileSlug}`}>My Profile</Link> */}
+                        <Link href={`/Profile`}>My Profile</Link>
+
                       </li>
                       <li onClick={logout}>
                         <button className="btn btn-danger w-100 mb-4"> logout</button>

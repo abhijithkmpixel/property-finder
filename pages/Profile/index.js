@@ -25,44 +25,64 @@ import {
 import States from "../../components/forms/States";
 import Countries from "../../components/forms/Countries";
 
-const index = ({  agent,props}) => {
+const index = ({  }) => {
   const [userData, setuserData] = useState(null);
   const [editor, seteditor] = useState(false);
   const [loader, setloader] = useState(false);
   const [loading, setloading] = useState(true);
-  const [profileImage, setprofileImage] = useState(null);
   const [uploadingImage, setuploadingImage] = useState(false);
   const router = useRouter();
-  // const [props, setprops] = useState([])
+  const [props, setprops] = useState([])
+
+const  myInterval = setInterval(checkData,100);
 
   useEffect(() => {
-    console.log('useeffect');
+    // console.log('useeffect');
+    let slug = localStorage.getItem("slug");
+
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         // gatData();
-        if (agent?.email == currentUser?.email) {
-          setuserData(agent);
-          setloading(false);
-        } else {
-          router.push("/404");
-        }
+        api.get(`/api/agents/${slug}`).then((response) => {
+          setuserData(response.data[0]);
+          // console.log(response.data[0]);
+        });
+        api.get(`/api/myproperty/${slug}`).then((response) => {
+          setprops(response.data)
+        });
+   
+
+        // if (agent?.email == currentUser?.email) {
+        //   setuserData(agent);
+        //   setloading(false);
+        // } else if(agent?.email !== currentUser?.email) {
+        //   router.push("/404");
+        // }
       } else {
         router.push("/auth/broker/login");
       }
     });
     return () => {};
   }, []);
-  const gatData = async () => {
-    console.log('getdata');
-    let slug = localStorage.getItem("slug");
-    await api.get(`/api/agents/${slug}`).then((response) => {
-      setuserData(response.data);
-    });
+  function checkData(){
+    if(userData !== null){
+      clearInterval(myInterval);
+      setTimeout(() => {
+        setloading(false);
+      }, 500);
+    }
+  }
+  // const gatData = async () => {
+  //   console.log('getdata');
+  //   let slug = localStorage.getItem("slug");
+  //   await api.get(`/api/agents/${slug}`).then((response) => {
+  //     setuserData(response.data);
+  //   });
 
-    await api.get(`/api/myproperty/${slug}`).then((response) => {
-      setprops(response.data)
-    });
-  };
+  //   await api.get(`/api/myproperty/${slug}`).then((response) => {
+  //     setprops(response.data)
+  //   });
+  // };
   const updateData = async (e) => {
     e.preventDefault();
     setloader(true);
@@ -122,7 +142,7 @@ const index = ({  agent,props}) => {
   }
 
   function getimage(e) {
-    setprofileImage(e.target.files[0]);
+    // setprofileImage(e.target.files[0]);
     uploadImage(e.target.files[0]);
   }
   function uploadImage(file) {
@@ -158,8 +178,8 @@ const index = ({  agent,props}) => {
 
   return (
     <>
-      {loading && <PageLoader />}
-      {!loading && (
+      {loading  ? <PageLoader />:null}
+      { userData !== null ? (
         <>
           <Header innerpage={true} />
           <ProfilePageDetails
@@ -301,11 +321,11 @@ const index = ({  agent,props}) => {
           </form>
           
           {userData?.verified && userData?.verified == true  && !editor ? (
-            <AddProperty props={props} slug={agent?.info_slug}/>
+            <AddProperty props={props} slug={userData?.info_slug}/>
           ) : null}
           <Footer />
         </>
-      )}
+      ):null}
       <HeadTag title={"Profile"} meta={"details page "} />
     </>
   );
@@ -313,24 +333,24 @@ const index = ({  agent,props}) => {
 
 export default index;
 
-export async function getServerSideProps(context) {
-  const { req, params, query } = context;
-  var agents = "";
-  await api.get(`/api/agents/${query.slug}`).then((response) => {
-    agents = response.data;
-  });
+// export async function getServerSideProps(context) {
+//   const { req, params, query } = context;
+//   var agents = "";
+//   await api.get(`/api/agents/${query.slug}`).then((response) => {
+//     agents = response.data;
+//   });
 
-  var props = "";
+//   var props = "";
 
-  await api.get(`/api/myproperty/${query.slug}`).then((response) => {
-    props = response.data;
-  });
-  // console.log(props);
+//   await api.get(`/api/myproperty/${query.slug}`).then((response) => {
+//     props = response.data;
+//   });
+//   // console.log(props);
 
-  return {
-    props: {
-      agent: agents == [] ? null : agents[0],
-      props: props == [] ? null : props,
-    },
-  };
-}
+//   return {
+//     props: {
+//       agent: agents == [] ? null : agents[0],
+//       props: props == [] ? null : props,
+//     },
+//   };
+// }

@@ -33,9 +33,11 @@ const BrokerRegister = () => {
       email: email,
       info_slug: userslug
     });
-    alert(`User registered`);
+    alert(`Registration Successfull!`);
     localStorage.setItem("slug",userslug);
-    router.push(`/Profile/${userslug}`);
+    // router.push(`/Profile/${userslug}`);
+    router.push(`/Profile`);
+
   };
 
   useEffect(() => {
