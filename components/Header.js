@@ -11,9 +11,7 @@ import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
 
 const Header = ({ innerpage }) => {
-  const { loggedUser, updateLoggedUser } = useLogContaxt();
   const [userData, setuserData] = useState();
-const [profileSlug, setprofileSlug] = useState()
   // const signinwithgoogle = (e) => {
   //   e.preventDefault();
   //   const provider = new GoogleAuthProvider();
@@ -45,7 +43,7 @@ const [profileSlug, setprofileSlug] = useState()
         setuserData(currentUser);
         let slug = localStorage.getItem("slug");
         // console.log(slug);
-        setprofileSlug(slug)
+        // setprofileSlug(slug)
       }
       // setuser(true)
     });
@@ -106,8 +104,27 @@ const [profileSlug, setprofileSlug] = useState()
                   <li>
                     <Link href="/buyersguide">Buyer's guide </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/auth/broker/register">Sell with us</Link>
+                  </li> */}
+                  <li>
+                    <h5>
+                    Sell with us
+                      <img src="/chevron-down.svg" alt="arrow down" />
+                    </h5>
+                    <ul className="inner_dropdown">
+                      <li>
+                        <Link href="/auth/broker/login">
+                          Login
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/auth/broker/register">
+                          Register
+                        </Link>
+                      </li>
+                   
+                    </ul>
                   </li>
                   {userData && (
                     <>
@@ -121,26 +138,7 @@ const [profileSlug, setprofileSlug] = useState()
                       </li>
                     </>
                   )}
-                  {/* <li>
-                    <h5>
-                      Register
-                      <img src="/chevron-down.svg" alt="arrow down" />
-                    </h5>
-                    <ul className="inner_dropdown">
-                      <li>
-                        <Link href="/">
-                          Register as buyer
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/auth/broker/register">
-                          Register as broker
-                        </Link>
-                      </li>
-                   
-                    </ul>
-                  </li> */}
-                  {/* // )} */}
+          
                 </ul>
               </li>
        
@@ -151,6 +149,13 @@ const [profileSlug, setprofileSlug] = useState()
                   </a>
                 </Link>
               </li>
+              {/* <li className="">
+                <Link href="/contact">
+                  <a className="btn btn-danger rounded-pill text-light px-5">
+                    Contact
+                  </a>
+                </Link>
+              </li> */}
             </ul>
           </nav>
         </div>

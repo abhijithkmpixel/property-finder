@@ -16,6 +16,7 @@ import Footer from "../../components/Footer";
 import SearchResultList from "../../components/SearchResultList";
 import ShowYourListing from "../../components/static page components/ShowYourListing";
 import RecommendedPropSidebar from "../../components/static page components/RecommendedPropSidebar";
+import SpinnerLoader from "../../components/Spinner";
 
 const index = ({ props, type, locs, recomended }) => {
   // const [propertys, setpropertys] = useState(null);
@@ -28,10 +29,12 @@ const index = ({ props, type, locs, recomended }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [properties, setproperties] = useState(props);
   const [recommendedProps, setrecommendedProps] = useState(recomended);
+  const [searchData, setsearchData] = useState();
+  const router = useRouter();
+  const query = router.query;
 
   function reloaded() {
     setPageCount(1);
- 
   }
   useEffect(() => {
     // Fetch items from another resources.
@@ -42,15 +45,13 @@ const index = ({ props, type, locs, recomended }) => {
     });
     AOS.refresh();
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(properties.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(properties.length / itemsPerPage));
+    setCurrentItems(properties?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(properties?.length / itemsPerPage));
   }, [itemOffset, pageCount, properties]);
-
-
 
   function sort_search(e) {
     // reloaded();
-    setItemOffset(0)
+    setItemOffset(0);
     switch (e.target.value) {
       case "a-b":
         var json = [...props];
@@ -130,7 +131,7 @@ const index = ({ props, type, locs, recomended }) => {
               <div className="div">
                 <b className="text-lg-start fs-4 m-3">
                   {" "}
-                  {`(total ${properties.length})`}{" "}
+                  {`(total ${properties?.length})`}{" "}
                 </b>
                 <select
                   name="search_sort"
@@ -145,82 +146,81 @@ const index = ({ props, type, locs, recomended }) => {
                 </select>
               </div>
             </div>
-            {properties && properties.length !== 0 && (
-              <div className="row">
-                <div className="col-lg-8 col-12">
-                  {currentItems?.map((prop) => {
-                    return (
-                      <div
-                        className="w-100"
-                        key={prop?.id}
-                        data-aos="fade-left"
-                        data-aos-duration="900"
-                        data-aos-delay="200"
-                      >
-                        <SearchResultItem property={prop} />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="col-12 col-lg-4">
-                    {recommendedProps && recommendedProps?.length > 0 ? (
-                      <RecommendedPropSidebar
-                      recommendedProps={recommendedProps}
-                      />
-                      ) : null}
-                      <ShowYourListing />
-                </div>
-              </div>
-            )}
-          </div>
-          {/* //no search results text  */}
-          {properties.length == 0 ? (
-            <div class="results-list">
-              <div class="no-results-holder">
-                <div class="no-results d-flex">
-                  <div class="kekra mx-3">
-                    <img
-                      src="/download.png"
-                      alt="cactus"
-                      style={{ width: "200px", height: "auto" }}
-                    />
-                  </div>
-                  <div class="rightCol">
-                    <div class="message">
-                      <div class="title">
-                        <div class="text">
-                          <h3>
-                            Sorry! We couldn’t find anything for with these
-                            filters applied.
-                          </h3>
+            <div className="row">
+              <div className="col-lg-8 col-12">
+                {properties && properties?.length !== 0
+                  ? currentItems?.map((prop) => {
+                      return (
+                        <div
+                          className="w-100"
+                          key={prop?.id}
+                          data-aos="fade-left"
+                          data-aos-duration="900"
+                          data-aos-delay="200"
+                        >
+                          <SearchResultItem property={prop} />
                         </div>
-                      </div>
-                      <div class="details">
-                        <div class="subtitle">Let’s try again?</div>
-                        <ul class="text">
-                          <li>Use fewer or different keywords.</li>
-                          <li>Check your spelling.</li>
-                          <li>Try removing some filters.</li>
-                          <li>Start with something less-specific.</li>
-                          <li>
-                            You can always refine your search results later.
-                          </li>
-                        </ul>
+                      );
+                    })
+                  : null}
+                {properties?.length == 0 ? (
+                  <div class="results-list">
+                    <div class="no-results-holder">
+                      <div class="no-results d-flex">
+                        <div class="kekra mx-3">
+                          <img
+                            src="/download.png"
+                            alt="cactus"
+                            style={{ width: "200px", height: "auto" }}
+                          />
+                        </div>
+                        <div class="rightCol">
+                          <div class="message">
+                            <div class="title">
+                              <div class="text">
+                                <h3>
+                                  Sorry! We couldn’t find anything for with
+                                  these filters applied.
+                                </h3>
+                              </div>
+                            </div>
+                            <div class="details">
+                              <div class="subtitle">Let’s try again?</div>
+                              <ul class="text">
+                                <li>Use fewer or different keywords.</li>
+                                <li>Check your spelling.</li>
+                                <li>Try removing some filters.</li>
+                                <li>Start with something less-specific.</li>
+                                <li>
+                                  You can always refine your search results
+                                  later.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <Paginate
+                    itemsPerPage={itemsPerPage}
+                    pageCount={pageCount}
+                    items={properties}
+                    setItemOffset={setItemOffset}
+                    itemOffset={itemOffset}
+                  />
+                )}
+              </div>
+              <div className="col-12 col-lg-4">
+                {recommendedProps && recommendedProps?.length > 0 ? (
+                  <RecommendedPropSidebar recommendedProps={recommendedProps} />
+                ) : null}
+                <ShowYourListing />
               </div>
             </div>
-          ) : (
-            <Paginate
-              itemsPerPage={itemsPerPage}
-              pageCount={pageCount}
-              items={properties}
-              setItemOffset={setItemOffset}
-              itemOffset={itemOffset}
-            />
-          )}
+          </div>
+          {/* //no search results text  */}
         </div>
       </section>
       <Footer />
@@ -239,7 +239,6 @@ export async function getServerSideProps(context) {
     propert = res.data;
   });
   const newProp = propert.filter((prop) => {
-    // console.log(prop.location + "+" + slug?.location);
     if (
       (slug?.p_t ? prop.propertyType == slug?.p_t : true) &&
       (slug?.min_a ? Number(prop.propertySize) >= slug?.min_a : true) &&
@@ -253,7 +252,7 @@ export async function getServerSideProps(context) {
         : prop) &&
       (slug?.bd ? Number(prop.bedroom) == slug?.bd : true) &&
       (slug?.bt ? Number(prop.bathroom) == slug?.bt : true) &&
-      (slug?.loc ? slug?.location.includes(prop.loc) : true) &&
+      (slug?.loc ? slug?.loc?.includes(prop?.location) : true) &&
       (slug?.d ? prop.period.toString() == slug?.d.toString() : true)
     ) {
       return prop;

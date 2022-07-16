@@ -321,7 +321,7 @@ const AdvSearch = ({ locs ,reloaded}) => {
             <div className="drop_box">
               <div className="row_field">
                 <div className="input_fields">
-                  <label htmlFor="min_rent">Min rent (₹)</label>
+                  <label htmlFor="min_rent">Min Price (₹)</label>
                   <input
                     type="text"
                     name="min_rent"
@@ -331,7 +331,7 @@ const AdvSearch = ({ locs ,reloaded}) => {
                   />
                 </div>
                 <div className="input_fields">
-                  <label htmlFor="max_rent">Max rent (₹)</label>
+                  <label htmlFor="max_rent">Max Price (₹)</label>
                   <input
                     type="text"
                     name="max_rent"

@@ -231,7 +231,7 @@ const BrokerRegister = () => {
                     <Link href={"/terms-and-conditions"}>
                        terms & conditions 
                     </Link>{' '}
-                    and <Link href={"privacy-policy"}>privacy policy </Link>of
+                    and <Link href={"/privacy-policy"}>privacy policy </Link>of
                     Find Homes
                   </label>
                 </div>

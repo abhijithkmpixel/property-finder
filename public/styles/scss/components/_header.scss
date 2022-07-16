@@ -140,6 +140,9 @@ header {
               pointer-events: all;
               transform: translateX(-50%) translateY(0px);
             }
+            &>a{
+              color: #fd7400 !important;
+            }
           }
           a,
           h5 {
@@ -180,12 +183,16 @@ header {
             }
             a {
               display: block;
+              width: 100%;
+              height: 100%;
               filter: invert(0);
 
             }
             img {
               object-fit: contain;
               filter: invert(0);
+              width: 100%;
+              height: 100%;
             }
           }
         }
