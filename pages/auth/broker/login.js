@@ -21,7 +21,7 @@ const login = ({ agents }) => {
         agents?.map((agent) => {
           if (agent?.email == currentUser?.email) {
             updateLoggedUser(agent);
-            router.push(`/Profile/${agent?.info_slug}`);
+            router.push(`/Profile`);
           }
         });
       }
