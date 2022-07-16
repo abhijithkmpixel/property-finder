@@ -87,6 +87,13 @@ const Footer = () => {
                   </a>
                 </Link>
               </li>
+              <li className="nav-item mb-2">
+                <Link href="/terms-and-conditions">
+                  <a className="nav-link p-0 text-light fs-5 fw-light">
+                    Terms & conditions
+                  </a>
+                </Link>
+              </li>
               {/* <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-light fs-5 fw-light">FAQs</a></li> */}
               <li className="nav-item mb-2">
                 <Link href="/about">

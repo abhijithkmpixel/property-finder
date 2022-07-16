@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer";
 import HeadTag from "../../components/Head";
 import Header from "../../components/Header";
 
@@ -16,7 +17,7 @@ const index = () => {
           ></iframe>
         </div>
       </div> */}
-      <HeadTag/>
+      <HeadTag title={'Privacy Policy'} meta='privacy policy '/>
       <Header innerpage={true}/>
     <div className="container my-5">
       <h1>Privacy Policy</h1>
@@ -514,6 +515,7 @@ const index = () => {
         <li>By email: abhijith@pixelflames.com</li>
       </ul>
     </div>
+    <Footer/>
     </>
   );
 };
