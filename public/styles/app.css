@@ -12974,6 +12974,52 @@ footer .mail-info input {
   margin: 0 5px;
 }
 
+.sticky_sharer_bar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 100;
+  background-color: #fd7400;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.sticky_sharer_bar h5 {
+  font-size: 13px;
+  color: #fff;
+}
+
+.sticky_sharer_bar ul {
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+.sticky_sharer_bar ul li {
+  background-color: #fd7400;
+  padding: 2px;
+  width: 30px;
+  height: auto;
+  margin: auto;
+}
+
+.sticky_sharer_bar ul li + li {
+  margin-top: 5px;
+}
+
+.sticky_sharer_bar ul li a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sticky_sharer_bar ul li a img {
+  object-fit: contain;
+}
+
+.sticky_sharer_bar ul li a span {
+  display: none;
+}
+
 .why_are_you_looking_for {
   background-color: #fff;
   padding: 10px 0 100px;

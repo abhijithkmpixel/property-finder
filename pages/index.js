@@ -16,9 +16,14 @@ import WhatAreYouLookingFor from "../components/WhatAreYouLookingFor";
 import GuidesAndArticlesBlock from "../components/static page components/GuidesAndArticlesBlock";
 import GettingStarted from "../components/static page components/GettingStarted";
 import Testimonials from "../components/static page components/Testimonials";
+import StickySharer from "../components/static page components/StickySharer";
 
 export default function Home({ propList, agents, locs }) {
+  function getUrl() {
+    if (typeof window !== "undefined") {
+      return <StickySharer url={window?.location?.href}/>
 
+  }}
   useEffect(() => {
     // console.log(logs);
     AOS.init({
@@ -33,6 +38,10 @@ export default function Home({ propList, agents, locs }) {
     <>
       <Header />
       {/* <PageLoader/> */}
+      {/* {
+        getUrl()
+      } */}
+
       <HeadTag title={"Find homes"} meta="Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india" keyword={'Best property finder site in india, user friendly,highly rated'} />
       {
         locs && 
