@@ -2,7 +2,10 @@ import React from "react";
 
 const States = ({filterState}) => {
   function update(e){
-    filterState(e.target.value)
+    if(filterState){
+
+      filterState(e.target.value)
+    }
   }
   return (
     <select name="state" id="state" class="" onChange={(e)=>update(e)}>

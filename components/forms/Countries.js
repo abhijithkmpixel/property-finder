@@ -2,7 +2,10 @@ import React from "react";
 
 const Countries = ({name,filterCountry}) => {
   function changeValue(e){
-    filterCountry(e.target.value)
+    if(filterCountry){
+
+      filterCountry(e.target.value)
+    }
   }
   return (
     <select name={name} id={name} required defaultValue={'India'} onChange={(e)=>changeValue(e)}>

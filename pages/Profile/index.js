@@ -82,6 +82,7 @@ const index = ({}) => {
             userData={userData}
             seteditor={seteditor}
             editor={editor}
+            setloading={setloading}
           />
 
           {userData?.verified && userData?.verified == true && !editor ? (

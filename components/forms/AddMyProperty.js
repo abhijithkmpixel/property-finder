@@ -124,7 +124,11 @@ const AddProperty = ({ props ,info_slug}) => {
     setnewProp(false);
     setloader(false);
     setcurrentProp(null)
-    router.push(`/Profile/${foldername}`);
+    // router.push(`/Profile/${foldername}`);
+    // router.push(`/Profile`);
+    window.location.reload(true);
+
+
   };
   function editProp(p) {
     seteditor(true);
@@ -236,7 +240,10 @@ const AddProperty = ({ props ,info_slug}) => {
     setloader(false);
     setslug("");
 
-    router.push(`/Profile/${foldername}`);
+    // router.push(`/Profile/${foldername}`);
+    // router.push(`/Profile`);
+    window.location.reload(true);
+
 
     // router.push("/add-property");
   };

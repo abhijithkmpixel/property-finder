@@ -1,11 +1,193 @@
+import { doc, setDoc } from "firebase/firestore/lite";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import React, { useState } from "react";
+import { db, storage } from "../../pages/api/firebase";
 import ProfilePageDetails from "../static page components/ProfilePageDetails";
 import Countries from "./Countries";
 import States from "./States";
-
-const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
+import {
+  Punjab,
+  AndraPradesh,
+  ArunachalPradesh,
+  Assam,
+  Bihar,
+  Chhattisgarh,
+  Goa,
+  Gujarat,
+  Haryana,
+  HimachalPradesh,
+  JammuKashmir,
+  Jharkhand,
+  Karnataka,
+  Kerala,
+  MadhyaPradesh,
+  Maharashtra,
+  Manipur,
+  Meghalaya,
+  Mizoram,
+  Nagaland,
+  Odisha,
+  Sikkim,
+  Rajasthan,
+  TamilNadu,
+  Telangana,
+  Tripura,
+  UttarPradesh,
+  Uttarakhand,
+  WestBengal,
+  AndamanNicobar,
+  Chandigarh,
+  DadraHaveli,
+  DamanDiu,
+  Delhi,
+  Lakshadweep,
+  Puducherry,
+} from "./Districts";
+const AgentDetailsForm = ({setloading, userData, seteditor, editor, loadEditorData }) => {
   const [loader, setloader] = useState(false);
   const [uploadingImage, setuploadingImage] = useState(false);
+
+  function updateDistrict(e) {
+    var StateSelected = e.target.value;
+    var optionsList;
+    var htmlString = "";
+
+    switch (StateSelected) {
+      case "Andra Pradesh":
+        optionsList = AndraPradesh;
+        break;
+      case "Arunachal Pradesh":
+        optionsList = ArunachalPradesh;
+        break;
+      case "Assam":
+        optionsList = Assam;
+        break;
+      case "Bihar":
+        optionsList = Bihar;
+        break;
+      case "Chhattisgarh":
+        optionsList = Chhattisgarh;
+        break;
+      case "Goa":
+        optionsList = Goa;
+        break;
+      case "Gujarat":
+        optionsList = Gujarat;
+        break;
+      case "Haryana":
+        optionsList = Haryana;
+        break;
+      case "Himachal Pradesh":
+        optionsList = HimachalPradesh;
+        break;
+      case "Jammu and Kashmir":
+        optionsList = JammuKashmir;
+        break;
+      case "Jharkhand":
+        optionsList = Jharkhand;
+        break;
+      case "Karnataka":
+        optionsList = Karnataka;
+        break;
+      case "Kerala":
+        optionsList = Kerala;
+        break;
+      case "Madya Pradesh":
+        optionsList = MadhyaPradesh;
+        break;
+      case "Maharashtra":
+        optionsList = Maharashtra;
+        break;
+      case "Manipur":
+        optionsList = Manipur;
+        break;
+      case "Meghalaya":
+        optionsList = Meghalaya;
+        break;
+      case "Mizoram":
+        optionsList = Mizoram;
+        break;
+      case "Nagaland":
+        optionsList = Nagaland;
+        break;
+      case "Orissa":
+        optionsList = Orissa;
+        break;
+      case "Punjab":
+        optionsList = Punjab;
+        break;
+      case "Rajasthan":
+        optionsList = Rajasthan;
+        break;
+      case "Sikkim":
+        optionsList = Sikkim;
+        break;
+      case "Tamil Nadu":
+        optionsList = TamilNadu;
+        break;
+      case "Telangana":
+        optionsList = Telangana;
+        break;
+      case "Tripura":
+        optionsList = Tripura;
+        break;
+      case "Uttaranchal":
+        optionsList = Uttaranchal;
+        break;
+      case "Uttar Pradesh":
+        optionsList = UttarPradesh;
+        break;
+      case "West Bengal":
+        optionsList = WestBengal;
+        break;
+      case "Andaman and Nicobar Islands":
+        optionsList = AndamanNicobar;
+        break;
+      case "Chandigarh":
+        optionsList = Chandigarh;
+        break;
+      case "Dadar and Nagar Haveli":
+        optionsList = DadraHaveli;
+        break;
+      case "Daman and Diu":
+        optionsList = DamanDiu;
+        break;
+      case "Delhi":
+        optionsList = Delhi;
+        break;
+      case "Lakshadeep":
+        optionsList = Lakshadeep;
+        break;
+      case "Pondicherry":
+        optionsList = Pondicherry;
+        break;
+      case "Uttarakhand":
+        optionsList = Uttarakhand;
+        break;
+      case "Lakshadweep":
+        optionsList = Lakshadweep;
+        break;
+      case "Puducherry":
+        optionsList = Puducherry;
+        break;
+      case "all":
+        optionsList = "";
+        break;
+    }
+
+    for (var i = 0; i < optionsList.length; i++) {
+      htmlString =
+        htmlString +
+        "<option value='" +
+        optionsList[i] +
+        "'>" +
+        optionsList[i] +
+        "</option>";
+    }
+    // $("#inputDistrict").html(htmlString);
+    document.getElementById("district").innerHTML = htmlString;
+  }
+
   const updateData = async (e) => {
     e.preventDefault();
     setloader(true);
@@ -17,7 +199,7 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
       name: document.getElementById("name").value,
       image: document.getElementById("image").value,
       nationality: document.getElementById("nationality").value,
-      state: document.getElementById("state").value,
+      state: document.getElementById("agent_state").value,
       position: document.getElementById("position").value,
       company: {
         company_image: document.getElementById("company_image").value,
@@ -28,6 +210,8 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
       // email: e.target.email.value,
       mobile: document.getElementById("mobile").value,
       since: document.getElementById("since").value,
+      district: document.getElementById("district").value,
+
     });
 
     seteditor(false);
@@ -40,10 +224,11 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
   };
 
   function loadEditorData() {
+    document.getElementById("district").innerHTML = `<option  selected value='${userData?.district}'>${userData.district}</option>` ;
     document.getElementById("name").value = userData?.name;
     document.getElementById("position").value = userData?.position;
     document.getElementById("nationality").value = userData?.nationality;
-    document.getElementById("state").value = userData?.state;
+    document.getElementById("agent_state").value = userData?.state;
 
     document.getElementById("image").value = userData?.image;
     // setimage(userData?.image);
@@ -63,6 +248,8 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
     document.getElementById("about_me").value = userData?.about_me
       ? userData?.about_me
       : "";
+       document.getElementById("district").value = userData?.district? userData?.district : '';
+
   }
 
   function getimage(e) {
@@ -73,7 +260,7 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
     if (file) {
       const proImgRef = ref(
         storage,
-        `brokers/${agent?.info_slug}/${file.name}`
+        `brokers/${userData?.info_slug}/${file.name}`
       );
       const uploadTask = uploadBytesResumable(proImgRef, file);
       uploadTask.on(
@@ -127,8 +314,64 @@ const AgentDetailsForm = ({ userData, seteditor, editor, loadEditorData }) => {
             <Countries name="nationality" />
           </fieldset>
           <fieldset>
-            <label htmlFor="state">State</label>
-            <States />
+            <label htmlFor="agent_state">State</label>
+            <select
+                    name="agent_state"
+                    id="agent_state"
+                    class=""
+                    onChange={(e) => updateDistrict(e)}
+                  >
+                    <option selected value="all">
+                      Chose state
+                    </option>
+
+                    <option value="Andra Pradesh">Andhra Pradesh</option>
+                    <option value="Andaman and Nicobar Islands">
+                      Andaman and Nicobar Islands
+                    </option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Dadar and Nagar Haveli">
+                      Dadar and Nagar Haveli
+                    </option>
+                    <option value="Daman and Diu">Daman and Diu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </select>
+          </fieldset>
+          <fieldset>
+            <label htmlFor="district">District</label>
+            <select class="" name="district" id="district" required>
+                    <option value="">-- select state -- </option>
+                  </select>
           </fieldset>
           <fieldset>
             <label htmlFor="image">Profile Image</label>
