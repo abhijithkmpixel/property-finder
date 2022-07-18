@@ -8,6 +8,10 @@
     display: flex;
     position: relative;
     align-items: flex-end;
+    .btn{
+      width: max-content;
+      margin: auto  ;
+    }
     .name_n_title {
     //   position: absolute;
       bottom: 30px;

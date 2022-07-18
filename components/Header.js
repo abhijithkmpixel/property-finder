@@ -107,6 +107,8 @@ const Header = ({ innerpage }) => {
                   {/* <li>
                     <Link href="/auth/broker/register">Sell with us</Link>
                   </li> */}
+                  {
+                    !userData &&
                   <li>
                     <h5>
                     Sell with us
@@ -126,6 +128,7 @@ const Header = ({ innerpage }) => {
                    
                     </ul>
                   </li>
+                  }
                   {userData && (
                     <>
                       <li>
@@ -133,9 +136,9 @@ const Header = ({ innerpage }) => {
                         <Link href={`/Profile`}>My Profile</Link>
 
                       </li>
-                      <li onClick={logout}>
+                      {/* <li onClick={logout}>
                         <button className="btn btn-danger w-100 mb-4"> logout</button>
-                      </li>
+                      </li> */}
                     </>
                   )}
           

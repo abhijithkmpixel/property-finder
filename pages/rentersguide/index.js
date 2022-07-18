@@ -15,9 +15,9 @@ const index = ({ data }) => {
 
   return (
     <>
-      <HeadTag title="Renter's Guide" meta="a guide for fellow renters" />
+      <HeadTag title="Renter's Guide" meta="Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india" keyword={'A guide for learning to rent a property in india ,How to rent a house'} image={'/rent1.webp'}/>
       <Header innerpage={true}/>
-      <StaticBanner banner={data?.banner} />
+      <StaticBanner banner={data?.banner}  image={'/rent1.webp'}/>
       {/* <EditorDiv /> */}
       <GuidesBody body={data?.body_copy} />
       <Footer/>

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import BeenhereIcon from "@mui/icons-material/Beenhere";
+import { signOut } from "firebase/auth";
+import { auth } from "../../pages/api/firebase";
 
 const ProfilePageDetails = ({
   userData,
@@ -11,6 +13,12 @@ const ProfilePageDetails = ({
     // console.log(userData);
     return () => {};
   }, [userData, editor]);
+  const logout = async () => {
+    await signOut(auth);
+    // setuser(false);
+    localStorage.removeItem("slug");
+
+  };
 
   return (
     <section className={"profile_page " + (editor && " hidden")}>
@@ -23,6 +31,8 @@ const ProfilePageDetails = ({
         </div>
         <div className="container position-relative">
           <div className="profile_image">
+            <div>
+
             {userData?.image && userData?.image !== "" && userData?.image !=='undefined' ? (
               <img src={userData?.image} alt={userData?.name} />
             ) : (
@@ -31,14 +41,20 @@ const ProfilePageDetails = ({
                 alt="no image"
               />
             )}
+            <button className="btn btn-link text-danger fs-4 px-5 mt-3 d-block" onClick={logout}>LOGOUT</button>
+
+            </div>
             <div className="name_n_title">
               <h1>{userData?.name}</h1>
               <h5>{userData?.position}</h5>
               {userData?.verified && userData?.verified == true ? (
+                <>
                 <div className="d-flex align-items-center fs-4 text-light mt-3" role="alert">
                   <img src="http://getdrawings.com/free-icon/facebook-verified-icon-70.png" style={{width:'20px',height:'20px'}} alt="" />
                   Verified
                 </div>
+
+                </>
               ) : (
                 <div className="d-flex align-items-center fs-4 text-light mt-3" role="alert">
                 <img src="/pending.png" style={{width:'20px',height:'20px'}} alt="" />

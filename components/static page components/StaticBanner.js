@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import AOS from "aos";
 
-const StaticBanner = ({banner}) => {
+const StaticBanner = ({banner,image}) => {
   function readingTime() {
     const text = document.querySelector("p").innerText;
     const wpm = 225;
@@ -24,7 +24,7 @@ const StaticBanner = ({banner}) => {
   return (
     <section className='static_banner'>
           <div className="bg_image_banner">
-            <img src="https://www.propertyfinder.ae/guides/wp-content/uploads/2019/07/Cover-inage-1248x450.jpg" alt="asdsads" />
+            <img src={image} alt="asdsads" />
           </div>
         <div className="inner_wrap_banner">
           <div className="banner_content">

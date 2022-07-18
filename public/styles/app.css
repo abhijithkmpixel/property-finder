@@ -14383,6 +14383,11 @@ p {
   align-items: flex-end;
 }
 
+.profile_page .profile_image .btn {
+  width: max-content;
+  margin: auto;
+}
+
 .profile_page .profile_image .name_n_title {
   bottom: 30px;
   z-index: 1;
