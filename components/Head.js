@@ -18,7 +18,7 @@ const HeadTag = ({ title, meta, image, keyword }) => {
         <meta name="keywords" content={keyword} />
         {getUrl()}
         <meta name="og:description" content={meta} />
-        <meta name="og:image" content={image ? image : "/mainlogo1.png"} />
+        <meta name="og:image" content={image ? image : "/share.jpg"} />
         <meta name="theme-color" content="#ffffff" />
 
         <link rel="icon" type="image/x-icon" href="/png.png" />
