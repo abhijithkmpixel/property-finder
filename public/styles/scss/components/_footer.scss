@@ -53,14 +53,15 @@ footer {
 
 .sticky_sharer_bar{
   position: fixed;
-  top: 50%;
+  bottom: 100px;
+  top: auto;
   right: 0;
   z-index: 100;
   background-color: $color-orange;
-  padding: 2px;
+  padding: 5px;
   border-radius: 2px;
   h5{
-    font-size: 13px;
+    font-size: 11px;
     color: #fff;
   }
   ul{
