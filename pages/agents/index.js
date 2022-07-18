@@ -7,14 +7,21 @@ import Footer from "../../components/Footer";
 import AgentVIdeoBanner from "../../components/banners/AgentVIdeoBanner";
 import WhatAreYouLookingFor from "../../components/WhatAreYouLookingFor";
 import AgentsPageListing from "../../components/AgentsPageListing";
+import { useRouter } from "next/router";
+import GettingStarted from "../../components/static page components/GettingStarted";
 const index = ({ agents }) => {
   return (
     <>
-      <HeadTag title="All agents" meta="list of all the agents in the system" />
+      <HeadTag
+        title="Agents"
+        meta="Find great properties from the top real estate agents in India verified by Find homes"
+        keyword={"Agents,real estate,best property finder"}
+      />
       <Header innerpage={true} />
       <AgentVIdeoBanner />
       <WhatAreYouLookingFor />
       <AgentsPageListing agents={agents} />
+      <GettingStarted />
       <Footer />
     </>
   );

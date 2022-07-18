@@ -75,8 +75,21 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
                           <div className="prop_col_card">
                             <div className="prop_img">
                               <img src={prop.images} alt={prop.title} />
-                              <div className="builder_logo">
-                                {agents?.map((a) => {
+                              <div className="">
+                              {prop?.verified && prop?.verified == true ? (
+                                <div
+                                  className="builder_logo d-flex align-items-center fs-4 text-dark mb-3 float-end"
+                                  role="alert"
+                                >
+                                  <img
+                                    src="http://getdrawings.com/free-icon/facebook-verified-icon-70.png"
+                                    style={{ width: "20px", height: "20px", marginRight: "9px" }}
+                                    alt=""
+                                  />
+                                  Verified
+                                </div>
+                              ) : null}
+                                {/* {agents?.map((a) => {
                                   if (
                                     a.info_slug.toString() ==
                                     prop.agent.toString()
@@ -88,7 +101,7 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
                                       />
                                     );
                                   }
-                                })}
+                                })} */}
                               </div>
                               <div className="hover_card">
                                 <div>
@@ -98,7 +111,7 @@ const RecommendedProp = ({ title, list, agents, filter }) => {
                               </div>
                             </div>
                             <div className="body_coopy">
-                              <h4>{prop.location} </h4>
+                              <h4>{prop.location} ,{prop?.state}</h4>
                               <div className="card_footer">
                                 <div>
                                   <span>{prop.propertyType}</span>

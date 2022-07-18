@@ -14,6 +14,8 @@ import AOS from "aos";
 import Footer from "../components/Footer";
 import WhatAreYouLookingFor from "../components/WhatAreYouLookingFor";
 import GuidesAndArticlesBlock from "../components/static page components/GuidesAndArticlesBlock";
+import GettingStarted from "../components/static page components/GettingStarted";
+import Testimonials from "../components/static page components/Testimonials";
 
 export default function Home({ propList, agents, locs }) {
 
@@ -31,7 +33,7 @@ export default function Home({ propList, agents, locs }) {
     <>
       <Header />
       {/* <PageLoader/> */}
-      <HeadTag title={"Find homes"} meta="Homepage of find homes ,your companion on finding the best properties for you" />
+      <HeadTag title={"Find homes"} meta="Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india" keyword={'Best property finder site in india, user friendly,highly rated'} />
       {
         locs && 
       <HomeBanner locs={locs} />
@@ -47,6 +49,8 @@ export default function Home({ propList, agents, locs }) {
           filter={false}
         />: null
       }
+      <GettingStarted/>
+      <Testimonials />
       <Footer/>
 
     </>

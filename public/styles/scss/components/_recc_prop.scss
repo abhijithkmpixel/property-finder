@@ -80,10 +80,12 @@
             height: 400px;
             position: relative;
             .builder_logo {
-              width: auto;
+              width: max-content;
               height: 40px;
-              max-width: 100px;
-              // border-radius: 50%;
+              // max-width: 100px;
+              border-radius: 20px;
+              background-color: #fff;
+              padding: 3px 15px;
               left: 10px;
               top: 10px;
               z-index: 1;

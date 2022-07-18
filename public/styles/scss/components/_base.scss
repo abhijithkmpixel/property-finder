@@ -191,8 +191,10 @@ a:focus {
   &:hover {
     background-color: transparent;
     color: #fd7400;
+    border: 1px solid #fd7400;
   }
   &:focus {
+    color: #fd7400;
     background-color: transparent;
   }
 }

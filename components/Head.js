@@ -1,14 +1,25 @@
 import React from "react";
 import Head from "next/head";
 
-const HeadTag = ({ title, meta }) => {
+const HeadTag = ({ title, meta, image, keyword }) => {
+  function getUrl() {
+    if (typeof window !== "undefined") {
+      return <meta name="og:url" content={window?.location?.href} />
+    }
+  }
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={title} />
-        <meta property="description" content={meta} />
+        <meta name="og:type" content="website" />
+        <meta name="description" content={meta} />
+        <meta name="og:title" content={title} />
+        <meta name="keywords" content={keyword} />
+        {getUrl()}
+        <meta name="og:description" content={meta} />
+        <meta name="og:image" content={image ? image : "/mainlogo1.png"} />
+        <meta name="theme-color" content="#ffffff" />
 
         <link rel="icon" type="image/x-icon" href="/png.png" />
         <link
@@ -20,7 +31,7 @@ const HeadTag = ({ title, meta }) => {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
         />
-        <link
+        {/* <link
           rel="stylesheet"
           type="text/css"
           charset="UTF-8"
@@ -30,12 +41,10 @@ const HeadTag = ({ title, meta }) => {
           rel="stylesheet"
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"/>
- <link rel="stylesheet" href="/styles/globals.css" />
-        <link rel="stylesheet" href="/styles/app.min.css" /> */}
+        /> */}
+
+        <link rel="stylesheet" href="/styles/globals.css" />
+        <link rel="stylesheet" href="/styles/app.min.css" />
       </Head>
     </>
   );

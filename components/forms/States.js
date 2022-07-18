@@ -1,8 +1,11 @@
 import React from "react";
 
-const States = () => {
+const States = ({filterState}) => {
+  function update(e){
+    filterState(e.target.value)
+  }
   return (
-    <select name="state" id="state" class="">
+    <select name="state" id="state" class="" onChange={(e)=>update(e)}>
       <option selected  value='all'>Chose state</option>
 
       <option value="Andhra Pradesh">Andhra Pradesh</option>

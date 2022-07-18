@@ -12,8 +12,8 @@ import PageLoader from "../components/PageLoader";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./api/firebase";
 import { api } from "./api/auth/api";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 NProgress.configure({ showSpinner: false });

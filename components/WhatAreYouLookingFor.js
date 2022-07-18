@@ -31,7 +31,7 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <Link  href="/search?type=all&property_type=villa">
+                <Link  href="/search?type=all&p_t=villa">
                 <a className="btn btn-danger btn-lg">View all</a>
                 </Link>
               </div>
@@ -45,7 +45,7 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <Link href="/search?type=all&property_type=apartments">
+                <Link href="/search?type=all&p_t=apartments">
                 <a  className="btn btn-danger btn-lg">View all</a>
                 </Link>
               </div>
@@ -60,7 +60,7 @@ const WhatAreYouLookingFor = () => {
                   now from the overnight hail, and broke into the woods at the
                   foot of the hill.
                 </p>
-                <Link href="/search?type=all&property_type=office%20space">
+                <Link href="/search?type=all&p_t=office%20space">
                 <a  className="btn btn-danger btn-lg">View all</a>
                 </Link>
               </div>

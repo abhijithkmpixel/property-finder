@@ -10559,97 +10559,65 @@ textarea.form-control-lg {
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-MediumItalic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-MediumItalic.woff") format("woff");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Black.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBoldItalic.woff") format("woff");
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-BoldItalic.woff2") format("woff2"), url("../fonts/Ubuntu-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Italic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Italic.woff") format("woff");
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-Italic.woff2") format("woff2"), url("../fonts/Ubuntu-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-BoldItalic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-BoldItalic.woff") format("woff");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-BlackItalic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-BlackItalic.woff") format("woff");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-Bold.woff2") format("woff2"), url("../fonts/Ubuntu-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Medium.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Medium.woff") format("woff");
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-Medium.woff2") format("woff2"), url("../fonts/Ubuntu-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-SemiBoldItalic.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBoldItalic.woff") format("woff");
-  font-weight: 600;
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-LightItalic.woff2") format("woff2"), url("../fonts/Ubuntu-LightItalic.woff") format("woff");
+  font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Regular.woff") format("woff");
-  font-weight: normal;
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-Light.woff2") format("woff2"), url("../fonts/Ubuntu-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBold.woff") format("woff");
-  font-weight: 600;
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-MediumItalic.woff2") format("woff2"), url("../fonts/Ubuntu-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url("../fonts/Ubuntu-Regular.woff2") format("woff2"), url("../fonts/Ubuntu-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -10847,9 +10815,11 @@ a:focus {
 .btn-danger:hover {
   background-color: transparent;
   color: #fd7400;
+  border: 1px solid #fd7400;
 }
 
 .btn-danger:focus {
+  color: #fd7400;
   background-color: transparent;
 }
 
@@ -11731,9 +11701,11 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 }
 
 .recc_prop_section .reommended_props_offgrid .row > div .prop_col_card .prop_img .builder_logo {
-  width: auto;
+  width: max-content;
   height: 40px;
-  max-width: 100px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 3px 15px;
   left: 10px;
   top: 10px;
   z-index: 1;
@@ -12431,6 +12403,26 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   width: 100%;
 }
 
+.section_prop_details .agent_card {
+  background-color: transparent;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.section_prop_details .agent_card .col-md-4 img {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.section_prop_details .agent_card a,
+.section_prop_details .agent_card p,
+.section_prop_details .agent_card h5 {
+  color: #000;
+}
+
 .section_prop_details .breadcrumb li {
   text-transform: capitalize;
 }
@@ -12443,16 +12435,6 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 .section_prop_details .prop_detail_banner {
   background-color: #073b41;
   padding: 0 0px 80px;
-}
-
-.section_prop_details .agent_card {
-  background-color: transparent;
-}
-
-.section_prop_details .agent_card a,
-.section_prop_details .agent_card p,
-.section_prop_details .agent_card h5 {
-  color: #fff;
 }
 
 .section_prop_details .prop_image_wr {
@@ -12552,7 +12534,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 .section_prop_details .points_wrp {
   flex-wrap: wrap;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 25px;
   width: 100%;
   margin-left: auto;
@@ -12625,7 +12607,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 }
 
 .section_prop_details .body_copy .facilities ul {
-  column-count: 2;
+  column-count: 3;
 }
 
 .section_prop_details .body_copy .facilities h6 {
@@ -12712,52 +12694,72 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   margin-top: 60px;
 }
 
-.section_prop_details .body_copy .description .body h1, .section_prop_details .body_copy .description .body h2, .section_prop_details .body_copy .description .body h3, .section_prop_details .body_copy .description .body h4, .section_prop_details .body_copy .description .body h5, .section_prop_details .body_copy .description .body h6, .section_prop_details .body_copy .description .htmlviewdiv h1, .section_prop_details .body_copy .description .htmlviewdiv h2, .section_prop_details .body_copy .description .htmlviewdiv h3, .section_prop_details .body_copy .description .htmlviewdiv h4, .section_prop_details .body_copy .description .htmlviewdiv h5, .section_prop_details .body_copy .description .htmlviewdiv h6 {
+.section_prop_details .body_copy .description .body h1,
+.section_prop_details .body_copy .description .body h2,
+.section_prop_details .body_copy .description .body h3,
+.section_prop_details .body_copy .description .body h4,
+.section_prop_details .body_copy .description .body h5,
+.section_prop_details .body_copy .description .body h6,
+.section_prop_details .body_copy .description .htmlviewdiv h1,
+.section_prop_details .body_copy .description .htmlviewdiv h2,
+.section_prop_details .body_copy .description .htmlviewdiv h3,
+.section_prop_details .body_copy .description .htmlviewdiv h4,
+.section_prop_details .body_copy .description .htmlviewdiv h5,
+.section_prop_details .body_copy .description .htmlviewdiv h6 {
   font-family: "Poppins", sans-serif !important;
   margin-bottom: 15px;
 }
 
-.section_prop_details .body_copy .description .body p, .section_prop_details .body_copy .description .htmlviewdiv p {
+.section_prop_details .body_copy .description .body p,
+.section_prop_details .body_copy .description .htmlviewdiv p {
   font-size: 14px;
   margin-bottom: 15px;
   font-weight: 300;
   line-height: 1.3;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
-.section_prop_details .body_copy .description .body ul, .section_prop_details .body_copy .description .htmlviewdiv ul {
+.section_prop_details .body_copy .description .body ul,
+.section_prop_details .body_copy .description .htmlviewdiv ul {
   padding: 15px 0 15px 15px;
 }
 
-.section_prop_details .body_copy .description .body ul li, .section_prop_details .body_copy .description .htmlviewdiv ul li {
+.section_prop_details .body_copy .description .body ul li,
+.section_prop_details .body_copy .description .htmlviewdiv ul li {
   font-size: 14px;
   margin-bottom: 8px;
   font-weight: 300;
   line-height: 1.3;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
-.section_prop_details .body_copy .description .body h1, .section_prop_details .body_copy .description .htmlviewdiv h1 {
+.section_prop_details .body_copy .description .body h1,
+.section_prop_details .body_copy .description .htmlviewdiv h1 {
   font-size: 26px;
 }
 
-.section_prop_details .body_copy .description .body h2, .section_prop_details .body_copy .description .htmlviewdiv h2 {
+.section_prop_details .body_copy .description .body h2,
+.section_prop_details .body_copy .description .htmlviewdiv h2 {
   font-size: 24px;
 }
 
-.section_prop_details .body_copy .description .body h3, .section_prop_details .body_copy .description .htmlviewdiv h3 {
+.section_prop_details .body_copy .description .body h3,
+.section_prop_details .body_copy .description .htmlviewdiv h3 {
   font-size: 22px;
 }
 
-.section_prop_details .body_copy .description .body h4, .section_prop_details .body_copy .description .htmlviewdiv h4 {
+.section_prop_details .body_copy .description .body h4,
+.section_prop_details .body_copy .description .htmlviewdiv h4 {
   font-size: 20px;
 }
 
-.section_prop_details .body_copy .description .body h5, .section_prop_details .body_copy .description .htmlviewdiv h5 {
+.section_prop_details .body_copy .description .body h5,
+.section_prop_details .body_copy .description .htmlviewdiv h5 {
   font-size: 18px;
 }
 
-.section_prop_details .body_copy .description .body h6, .section_prop_details .body_copy .description .htmlviewdiv h6 {
+.section_prop_details .body_copy .description .body h6,
+.section_prop_details .body_copy .description .htmlviewdiv h6 {
   font-size: 16px;
 }
 
@@ -13123,6 +13125,11 @@ footer .mail-info input {
   padding: 80px 0;
 }
 
+.agents_listing_grid .btn-danger {
+  width: max-content;
+  margin: 30px auto 10px;
+}
+
 .agents_listing_grid .title_wrp h5 {
   color: #fff;
 }
@@ -13147,6 +13154,11 @@ footer .mail-info input {
   padding: 15px;
   border-radius: 10px;
   height: 100%;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.agents_listing_grid a .agent-list-card .card-title, .agents_listing_grid a .agent-list-card .card-text {
+  text-transform: capitalize;
 }
 
 .agents_listing_grid a .agent-list-card img {
@@ -13175,6 +13187,104 @@ footer .mail-info input {
   justify-content: center;
   text-align: center;
   text-transform: capitalize;
+}
+
+.filter_agents {
+  background-color: #262b2f;
+  padding: 50px 0;
+}
+
+.filter_agents h1 {
+  font-size: 24px;
+  color: #fd7400;
+  margin-bottom: 15px;
+}
+
+.filter_agents .filter_wrapper {
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.filter_agents .filter_wrap {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 -10px;
+}
+
+.filter_agents .filter_wrap .search_byName_input {
+  display: inline;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  min-width: 300px;
+  margin: 0 7px;
+}
+
+.filter_agents .filter_wrap .search_byName_input input {
+  width: 100%;
+  padding: 5px 5px 5px 25px;
+  font-size: 15px;
+}
+
+.filter_agents .filter_wrap .filter_by_dropdown {
+  width: max-content;
+  margin: 0 7px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+}
+
+.filter_agents .filter_wrap .filter_by_dropdown select {
+  padding: 5px 25px 5px 5px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.filter_agents .filter_wrap .btn {
+  flex: 1;
+  margin: 0 7px;
+}
+
+.get_started_asBroker {
+  width: 100%;
+  padding: 120px 0;
+  background-image: url(https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1600);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.get_started_asBroker::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.get_started_asBroker .get_started_asBroker_wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.get_started_asBroker .get_started_asBroker_wrapper h3 {
+  font-size: 55px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 42px;
+  margin-bottom: 30px;
+}
+
+.get_started_asBroker .get_started_asBroker_wrapper p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 25px;
+  max-width: 70%;
+  margin-bottom: 50px;
 }
 
 .agent_popup_form {
@@ -14592,4 +14702,152 @@ p {
   .about_us_page .inner-container {
     padding: 60px;
   }
+}
+
+.testimonials {
+  background-color: #ffffff;
+  padding: 100px 0 120px;
+}
+
+.testimonials .testimonials_wrapper .col-lg-5 {
+  display: flex;
+  align-items: center;
+}
+
+.testimonials .testimonials_wrapper h4 {
+  font-size: 38px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 15px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.testimonials .testimonials_wrapper h2 {
+  font-size: 18px;
+  color: #000;
+  font-weight: 300;
+  line-height: 30px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.testimonials .testimonials_wrapper .slide_nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  padding: 0 40px;
+}
+
+.testimonials .testimonials_wrapper .slide_nav span {
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+  color: #000;
+  padding: 0 8px;
+}
+
+.testimonials .testimonials_wrapper .slide_nav span:first-of-type {
+  position: relative;
+}
+
+.testimonials .testimonials_wrapper .slide_nav span:first-of-type::after {
+  content: "/";
+  margin-left: 10px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider {
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-list {
+  padding: 0 10px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-dots li {
+  margin: 0 2px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-dots li button::before {
+  font-size: 10px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-arrow {
+  top: -27px;
+  width: 30px;
+  height: 30px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-arrow::before {
+  font-size: 30px;
+  color: #262b2f;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-arrow.slick-prev {
+  right: 130px;
+  left: auto;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .slick-arrow.slick-next {
+  right: 0px;
+  left: auto;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide {
+  display: flex !important;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .img_wrp {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .img_wrp img {
+  object-fit: cover;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy {
+  width: calc(100% - 200px);
+  padding: 5px 5px 5px 20px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy h5 {
+  font-size: 22px;
+  color: #fd7400;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 15px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy p {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy p span {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "monospace";
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy ul {
+  display: flex;
+  width: 100%;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy ul li {
+  font-size: 16px;
+}
+
+.testimonials .testimonials_wrapper .testimony_slider .testimony_slide .body_copy ul li + li {
+  margin-left: 4px;
 }

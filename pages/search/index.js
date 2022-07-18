@@ -85,7 +85,8 @@ const index = ({ props, type, locs, recomended }) => {
     <div>
       <HeadTag
         title="Search results"
-        meta={"search result for given parameters"}
+        meta={"Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india"}
+        keyword={'properties,real estate'}
       />
       <Header innerpage={true} />
       <section className="mt-4">

@@ -1,7 +1,26 @@
 .section_prop_details {
   // padding: 50px 0;
   // background-color: ;
+  .agent_card {
+    background-color: transparent;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    .col-md-4 {
+      img {
+        width: 100%;
+        height: 120px;
+        border-radius: 10px;
 
+        object-fit: cover;
+      }
+    }
+    a,
+    p,
+    h5 {
+      color: #000;
+    }
+  }
   .breadcrumb {
     li {
       text-transform: capitalize;
@@ -16,14 +35,7 @@
     background-color: #073b41;
     padding: 0 0px 80px;
   }
-  .agent_card {
-    background-color: transparent;
-    a,
-    p,
-    h5 {
-      color: #fff;
-    }
-  }
+
   .prop_image_wr {
     width: 100%;
     height: calc(100vh - 82px);
@@ -78,8 +90,7 @@
       }
       &::before {
         display: block;
-      font-size: 36px;
-
+        font-size: 36px;
       }
       &.slick-next {
         right: 15px;
@@ -116,14 +127,14 @@
   .points_wrp {
     flex-wrap: wrap;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 25px;
     width: 100%;
     margin-left: auto;
     // min-height: 460px;
     position: relative;
     z-index: 2;
-    &.position-sticky{
+    &.position-sticky {
       top: 95px;
     }
     .btn {
@@ -180,7 +191,7 @@
     color: #fff;
     .facilities {
       ul {
-        column-count: 2;
+        column-count: 3;
       }
       margin-top: 50px;
       h6 {
@@ -265,45 +276,50 @@
       font-size: 14px;
       margin-bottom: 60px;
       margin-top: 60px;
-      .body,.htmlviewdiv{
-        h1,h2,h3,h4,h5,h6{
-
+      .body,
+      .htmlviewdiv {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
           font-family: $body_font !important;
           margin-bottom: 15px;
         }
-        p{
+        p {
           font-size: 14px;
           margin-bottom: 15px;
           font-weight: 300;
           line-height: 1.3;
-          letter-spacing: .5px;
+          letter-spacing: 0.5px;
         }
-        ul{
+        ul {
           padding: 15px 0 15px 15px;
-          li{
+          li {
             font-size: 14px;
-          margin-bottom: 8px;
-          font-weight: 300;
-          line-height: 1.3;
-          letter-spacing: .5px;
+            margin-bottom: 8px;
+            font-weight: 300;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
           }
         }
-        h1{
+        h1 {
           font-size: 26px;
         }
-        h2{
+        h2 {
           font-size: 24px;
         }
-        h3{
+        h3 {
           font-size: 22px;
         }
-        h4{
+        h4 {
           font-size: 20px;
         }
-        h5{
+        h5 {
           font-size: 18px;
         }
-        h6{
+        h6 {
           font-size: 16px;
         }
       }
@@ -317,7 +333,7 @@
     }
   }
 }
-.htmlviewdiv{
+.htmlviewdiv {
   overflow-y: auto;
 }
 .btns-wrap {

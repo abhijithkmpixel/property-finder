@@ -23,11 +23,11 @@ const AgentVIdeoBanner = ({ locs }) => {
             src="/agent.mp4"
             type="video/mp4"
             id="video-background"
-            preload="true"
-            autoPlay="true"
+            preload={true}
+            autoPlay={true}
             loop={true}
             muted={true}
-            playsInline=""
+            playsInline={true}
             controls={false}
           />
 

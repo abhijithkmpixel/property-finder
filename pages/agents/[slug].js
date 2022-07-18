@@ -15,7 +15,7 @@ const index = ({ agent, count }) => {
 
   return (
     <>
-      <HeadTag title={agent.name} meta={`${agent.position}`} />
+      <HeadTag title={agent.name} meta={`Find great properties from the top real estate agents in India verified by Find homes ,${agent?.name} ,${ agent?.about_me}`} image={agent?.image}    keyword={"Agents,real estate,best property finder"+ agent?.name}/>
       <Header innerpage={true} />
       <section className="agent_details">
         <div className="container">

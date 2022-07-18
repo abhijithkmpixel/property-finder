@@ -1,8 +1,11 @@
 import React from "react";
 
-const Countries = ({name}) => {
+const Countries = ({name,filterCountry}) => {
+  function changeValue(e){
+    filterCountry(e.target.value)
+  }
   return (
-    <select name={name} id={name} required defaultValue={'India'}>
+    <select name={name} id={name} required defaultValue={'India'} onChange={(e)=>changeValue(e)}>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Albania">Albania</option>
       <option value="Algeria">Algeria</option>

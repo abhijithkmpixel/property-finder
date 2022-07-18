@@ -45,7 +45,7 @@ const index = ({ data, agent }) => {
 
   return (
     <>
-      <HeadTag title={data.title} meta={data.tags} />
+      <HeadTag title={data.title} meta={data.tags} image={data?.images[0]} keyword={data?.facilities} />
       <Header innerpage={true} />
       {openMailer && (
         <PropertyEnquiryForm
@@ -83,7 +83,7 @@ const index = ({ data, agent }) => {
                   <h4>{data.title}</h4>
                   <h1>{data.tags}</h1>
                   <div className="row">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-12">
                       {data?.facilities && data?.facilities.length > 0 ? (
                         <div className="facilities">
                           <h6>Facilities</h6>
@@ -228,7 +228,7 @@ const index = ({ data, agent }) => {
                           <div className="col-md-4">
                             <img
                               src={agent?.image}
-                              className="img-fluid rounded-start"
+                              className=" "
                               alt={agent?.name}
                             />
                           </div>
@@ -236,11 +236,16 @@ const index = ({ data, agent }) => {
                             <div className="card-body ">
                               <p className="card-text">
                                 <small className="text-muted">
-                                  <img
+                                  {
+                                    agent?.company.company_image && agent?.company.company_image !== ""?
+                                    <img
                                     src={agent?.company.company_image}
                                     style={{ maxWidth: 100 }}
                                     alt=""
-                                  />
+                                    />
+                                    :
+                                    null
+                                  }
                                 </small>
                               </p>
                               <p className="card-text">{agent?.company.name}</p>
