@@ -10755,6 +10755,9 @@ a:focus {
   opacity: 1;
   background-color: #fd7400;
   color: #fff !important;
+  outline-color: #fd7400;
+  border-color: #fd7400;
+  box-shadow: none;
 }
 
 .spinnerloader {
@@ -10821,6 +10824,9 @@ a:focus {
 .btn-danger:focus {
   color: #fd7400;
   background-color: transparent;
+  outline-color: #fd7400;
+  border: 1px solid #fd7400;
+  box-shadow: none;
 }
 
 .btn-green {

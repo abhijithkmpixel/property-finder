@@ -38,19 +38,19 @@ const RentProperty = ({ locs }) => {
         router.push(
           `/search?type=${e.target.type.value ? e.target.type.value : "all"}&` +
             (e.target.property_type.value &&
-              `property_type=${e.target.property_type.value}&`) +
+              `p_t=${e.target.property_type.value}&`) +
             (e.target.min_area.value &&
-              `min_area=${e.target.min_area.value}&`) +
+              `min_a=${e.target.min_area.value}&`) +
             (e.target.max_area.value &&
-              `max_area=${e.target.max_area.value}&`) +
+              `max_a=${e.target.max_area.value}&`) +
             (e.target.min_rent.value &&
-              `min_rent=${e.target.min_rent.value}&`) +
+              `min_r=${e.target.min_rent.value}&`) +
             (e.target.max_rent.value &&
-              `max_rent=${e.target.max_rent.value}&`) +
+              `max_r=${e.target.max_rent.value}&`) +
             (e.target.location.value &&
-              `location=${e.target.location.value}&`) +
+              `loc=${e.target.location.value}&`) +
             (e.target.rent_duration.value &&
-              `rent_duration=${e.target.rent_duration.value}`)
+              `d=${e.target.rent_duration.value}`)
         );
       }}
     >

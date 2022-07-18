@@ -18,7 +18,7 @@ body {
     outline: none;
   }
 }
-$heading_font: 'Ubuntu', sans-serif;;
+$heading_font: "Ubuntu", sans-serif;
 $body_font: "Poppins", sans-serif;
 ul,
 ol {
@@ -34,7 +34,6 @@ h6 {
   margin: 0;
   // font-family: $heading_font;
   font-family: $heading_font;
-
 }
 .container {
   max-width: 1175px !important;
@@ -68,20 +67,20 @@ body {
     width: 100%;
     transition: 2s all ease-in-out;
     background-color: rgba($color: #262b2f, $alpha: 1);
-   
+
     z-index: 1000;
     pointer-events: none;
-    .find_home{
+    .find_home {
       transition: 2s all ease-in;
       opacity: 0;
       visibility: hidden;
       transform: translateY(200px);
-      h2{
+      h2 {
         font-size: 85px;
         color: #fd7400;
       }
     }
-    .page_loader_iner{
+    .page_loader_iner {
       width: 100vw;
       height: 100vh;
       display: flex;
@@ -90,28 +89,25 @@ body {
       flex-flow: column;
       transition: 1s all ease-in-out;
     }
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
-   
   }
-  &.loaded{
-    .page_loader_outer{
-      .page_loader_iner{
-        .spinnerloader{
-
+  &.loaded {
+    .page_loader_outer {
+      .page_loader_iner {
+        .spinnerloader {
           transform: translateY(-200px);
           opacity: 0;
           visibility: hidden;
         }
       }
     }
-    .find_home{
+    .find_home {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-   
     }
   }
 }
@@ -130,6 +126,9 @@ a:focus {
     opacity: 1;
     background-color: #fd7400;
     color: #fff !important;
+    outline-color: #fd7400;
+    border-color: #fd7400;
+    box-shadow: none;
   }
 }
 
@@ -167,17 +166,17 @@ a:focus {
 
 @keyframes spinnerloader-a4dj62 {
   100% {
-     transform: rotate(1turn);
+    transform: rotate(1turn);
   }
 }
 
-.loadingComplete{
-.page_loader_outer{
-  transform: translateY(-100%);
+.loadingComplete {
+  .page_loader_outer {
+    transform: translateY(-100%);
+  }
 }
-}
-.btn{
-  img{
+.btn {
+  img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -186,7 +185,7 @@ a:focus {
 .btn-danger {
   background-color: #fd7400;
   transition: 0.2s all ease-in-out;
-  border:1px solid #fd7400;
+  border: 1px solid #fd7400;
 
   &:hover {
     background-color: transparent;
@@ -196,6 +195,9 @@ a:focus {
   &:focus {
     color: #fd7400;
     background-color: transparent;
+    outline-color: #fd7400;
+    border: 1px solid #fd7400;
+    box-shadow: none;
   }
 }
 .btn-green {

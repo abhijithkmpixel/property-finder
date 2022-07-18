@@ -36,7 +36,6 @@ const AllAgentsSearch = ({ agents }) => {
   }
   function filterByname(name){
     var arr = [...agents];
-    console.log(name);
     if(name){
       var newArr = arr.filter((a) => {
         return a?.name?.toLowerCase().includes(name.toLowerCase());
