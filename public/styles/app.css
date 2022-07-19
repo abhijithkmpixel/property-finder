@@ -13045,10 +13045,13 @@ footer .mail-info input {
   filter: grayscale(0);
 }
 
-.rating_n_review input[type="text"] {
+.rating_n_review textarea {
   width: 100%;
-  font-size: 18px;
+  font-size: 15px;
   padding: 5px 10px;
+  resize: none;
+  width: 100%;
+  height: 80px;
   border: 1px solid #aaa;
 }
 
