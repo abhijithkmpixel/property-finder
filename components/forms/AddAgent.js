@@ -23,7 +23,6 @@ const AddAgent = ({ agents }) => {
         "agents",
         document.getElementById("agentID").value
       );
-      console.log(e.target.name.value);
       const sub = await setDoc(docRef, {
         name: e.target.name.value,
         image: e.target.image.value,
@@ -81,7 +80,6 @@ const AddAgent = ({ agents }) => {
     e.target.reset();
   };
   function editProp(p) {
-    // console.log(p);
     setslug(p.info_slug);
     seteditor(true);
     // document.getElementById("slug").value = slug? slug:    {info_slug: slugify(doument.getElementById("name").value, {
@@ -93,7 +91,6 @@ const AddAgent = ({ agents }) => {
     //         trim: true, // trim leading and trailing replacement chars, defaults to `true`
     //       })};
     if (window !== undefined) {
-      // console.log(document.getElementById("agentID").getAttribute('value'));
       document.getElementById("agentID").value = p.id;
       document.getElementById("name").value = p.name;
       document.getElementById("position").value = p.position;
@@ -117,7 +114,6 @@ const AddAgent = ({ agents }) => {
   //     "agents",
   //     document.getElementById("agentID").value
   //   );
-  //   console.log(e.target.name.value);
   //   const sub = await setDoc(docRef, {
   //     name: doument.getElementById("name").value,
   //     position: document.getElementById("position").value,

@@ -11907,10 +11907,6 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
 }
 
 .add_your_own_listing {
-  -webkit-mask-position: sticky;
-  position: sticky;
-  top: 90px;
-  left: 0;
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
@@ -11919,6 +11915,7 @@ form.rent_or_buuy_form_wrp fieldset .field_dropdown.input_box_drpdwn.open .drop_
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;
+  position: relative;
   padding: 50px 25px;
 }
 
@@ -12931,11 +12928,11 @@ footer p {
 }
 
 footer ul li a {
-  transition: .2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
 }
 
 footer ul li a:hover {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 footer .logo {
@@ -13011,6 +13008,7 @@ footer .mail-info input {
   display: flex;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .sticky_sharer_bar ul li a img {
@@ -13019,6 +13017,39 @@ footer .mail-info input {
 
 .sticky_sharer_bar ul li a span {
   display: none;
+}
+
+.rating_n_review {
+  padding: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.rating_n_review h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.rating_n_review fieldset.rating {
+  margin-bottom: 25px;
+}
+
+.rating_n_review fieldset.rating label::after {
+  content: "⭐";
+  font-size: 20px;
+  filter: grayscale(1);
+  cursor: pointer;
+}
+
+.rating_n_review fieldset.rating input:checked + label::after {
+  filter: grayscale(0);
+}
+
+.rating_n_review input[type="text"] {
+  width: 100%;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
 }
 
 .why_are_you_looking_for {

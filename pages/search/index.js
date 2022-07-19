@@ -17,6 +17,7 @@ import SearchResultList from "../../components/SearchResultList";
 import ShowYourListing from "../../components/static page components/ShowYourListing";
 import RecommendedPropSidebar from "../../components/static page components/RecommendedPropSidebar";
 import SpinnerLoader from "../../components/Spinner";
+import ReviewBar from "../../components/static page components/ReviewBar";
 
 const index = ({ props, type, locs, recomended }) => {
   // const [propertys, setpropertys] = useState(null);
@@ -85,8 +86,10 @@ const index = ({ props, type, locs, recomended }) => {
     <div>
       <HeadTag
         title="Search results"
-        meta={"Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india"}
-        keyword={'properties,real estate'}
+        meta={
+          "Find Homes is an innovative real estate company that helps to find the perfect home for you.best property finder site in india"
+        }
+        keyword={"properties,real estate"}
       />
       <Header innerpage={true} />
       <section className="mt-4">
@@ -217,7 +220,13 @@ const index = ({ props, type, locs, recomended }) => {
                 {recommendedProps && recommendedProps?.length > 0 ? (
                   <RecommendedPropSidebar recommendedProps={recommendedProps} />
                 ) : null}
-                <ShowYourListing />
+                <div
+                  className="position-sticky  start-0"
+                  style={{ top: "90px" }}
+                >
+                  <ShowYourListing />
+                  <ReviewBar />
+                </div>
               </div>
             </div>
           </div>

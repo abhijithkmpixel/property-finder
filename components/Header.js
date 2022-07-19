@@ -17,14 +17,12 @@ const Header = ({ innerpage }) => {
   //   const provider = new GoogleAuthProvider();
   //   try {
   //     signInWithPopup(auth, provider);
-  //     // console.log("signed in");
   //     onAuthStateChanged(auth, (currentUser) => {
   //       // setuser(true);
   //       setuserData(currentUser);
   //     });
   //   } catch (err) {
   //     setuser(false);
-  //     console.log(err.message);
   //   }
   // };
 
@@ -38,11 +36,9 @@ const Header = ({ innerpage }) => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      // console.log(currentUser);
       if (currentUser) {
         setuserData(currentUser);
         let slug = localStorage.getItem("slug");
-        // console.log(slug);
         // setprofileSlug(slug)
       }
       // setuser(true)

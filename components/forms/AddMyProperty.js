@@ -67,7 +67,6 @@ const AddProperty = ({ props ,info_slug}) => {
   let foldername = localStorage.getItem('slug')
 
   useEffect(() => {
-    // console.log(editorState);
     return () => {};
   }, [facilities]);
 
@@ -229,7 +228,6 @@ const AddProperty = ({ props ,info_slug}) => {
       //   waste: document.getElementById("waste").checked,
       // },
     });
-    // console.log(sub);
     setcurrentProp(null)
     alert(
       `Document with id ${
@@ -294,7 +292,6 @@ const AddProperty = ({ props ,info_slug}) => {
 
   function addFacilityRow() {
     const prev = [...facilities];
-    // console.log(facilities);
     prev[facilities.length] = "";
     setfacilities(prev);
   }
@@ -314,7 +311,6 @@ const AddProperty = ({ props ,info_slug}) => {
           setpropImagesProgress(true);
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          // console.log('Upload is ' + progress + '% done');
           document.getElementById("propertyImageProgress").style.width =
             progress + "%";
           if (progress == 100) {

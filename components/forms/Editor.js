@@ -8,7 +8,6 @@ const EditorDiv = ({setdesc}) => {
     
     setEditorState(newContent);
     setdesc(newContent)
-    // console.log(newContent);
   };
 
   return (

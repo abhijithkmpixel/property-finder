@@ -18,7 +18,6 @@ const AgentsPageListing = ({agents}) => {
   return (
     <section className="agents_listing_grid  ">
     <div className="container">
-      {/* {console.log(agents)} */}
       <div class="title_wrp d-flex justify-content-center  w-100 align-items-center"><h5 className="">Our agents</h5></div>
       <div className="row listed_agents">
         {

@@ -11,7 +11,6 @@ const SearchResultList = ({ props, type, locs ,itemOffset ,itemsPerPage ,pageCou
     });
     AOS.refresh();
     const endOffset = itemOffset + itemsPerPage;
-    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(props.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(props.length / itemsPerPage));
   }, [ pageCount]);

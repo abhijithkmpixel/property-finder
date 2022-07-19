@@ -6,7 +6,6 @@ import SearchResultItem from "./SearchResultItem";
 const AgentProperties = ({ title, list, agents, filter }) => {
   const [filtered, setfiltered] = useState(list);
   useEffect(() => {
-    // console.log(list);
     AOS.init({
       duration:700,
       offset:100
@@ -33,7 +32,6 @@ const AgentProperties = ({ title, list, agents, filter }) => {
         setfiltered(list?.filter((p) => p.serviceType == "commercial-rent"));
         break;
     }
-    // console.log(filtered);
   };
   return (
     <section className="recc_prop_section">

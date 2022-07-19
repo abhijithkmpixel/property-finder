@@ -3,17 +3,17 @@ footer {
   border-top: 1px solid #fff;
   // background-color: #788402;
   background-color: #262b2f;
-  p{
+  p {
     font-size: 11px;
     font-weight: 300;
     color: #fff;
   }
-  ul{
-    li{
-      a{
-        transition: .2s all ease-in-out;
-        &:hover{
-          opacity: .6;
+  ul {
+    li {
+      a {
+        transition: 0.2s all ease-in-out;
+        &:hover {
+          opacity: 0.6;
         }
       }
     }
@@ -25,10 +25,10 @@ footer {
       object-fit: contain;
     }
   }
-  .fw-nromal{
+  .fw-nromal {
     font-family: $body_font;
   }
-  label{
+  label {
     font-size: 17px;
     text-transform: capitalize;
     margin-bottom: 10px;
@@ -47,11 +47,10 @@ footer {
       font-size: 14px;
       margin: 0 5px;
     }
-    
   }
 }
 
-.sticky_sharer_bar{
+.sticky_sharer_bar {
   position: fixed;
   bottom: 100px;
   top: auto;
@@ -60,33 +59,69 @@ footer {
   background-color: $color-orange;
   padding: 5px;
   border-radius: 2px;
-  h5{
+  h5 {
     font-size: 11px;
     color: #fff;
   }
-  ul{
+  ul {
     margin: 0;
     padding-bottom: 4px;
-    li{
-  background-color: $color-orange;
-  padding: 2px;
+    li {
+      background-color: $color-orange;
+      padding: 2px;
       width: 30px;
       height: auto;
       margin: auto;
-      &+li{
+      & + li {
         margin-top: 5px;
       }
-      a{
+      a {
         display: flex;
         width: 100%;
         height: 100%;
-        img{
+        cursor: pointer;
+        img {
           object-fit: contain;
         }
-        span{
+        span {
           display: none;
         }
       }
     }
+  }
+}
+
+.rating_n_review {
+  padding: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba($color: #000000, $alpha: 0.3);
+  h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  fieldset.rating {
+    margin-bottom: 25px;
+    label {
+      &::after {
+        content: "⭐";
+        font-size: 20px;
+        filter: grayscale(1);
+        cursor: pointer;
+      }
+    }
+    input:checked {
+      & + label {
+        &::after {
+        filter: grayscale(0);
+        }
+      }
+      // background-color: #000000;
+    }
+  }
+  input[type="text"] {
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
   }
 }

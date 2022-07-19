@@ -267,10 +267,10 @@
 
 //own listng sticky
 .add_your_own_listing {
-  -webkit-mask-position: sticky;
-  position: sticky;
-  top: 90px;
-  left: 0;
+  // -webkit-mask-position: sticky;
+  // position: sticky;
+  // top: 90px;
+  // left: 0;
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
@@ -280,7 +280,7 @@
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;
-  // position: relative;
+  position: relative;
 
   padding: 50px 25px;
   &::before {

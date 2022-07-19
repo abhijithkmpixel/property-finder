@@ -13,7 +13,6 @@ const Dashboard = ({ setloggedIn }) => {
     onAuthStateChanged(auth, (currentUser) => {
       // setloggedIn(true);
       if (currentUser) {
-        // console.log(currentUser);
         setuser(currentUser);
       }
     });
@@ -60,7 +59,6 @@ const Dashboard = ({ setloggedIn }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     e.target.closest(".menu-item").classList.toggle("open");
-                    // console.log(e.target);
                   }}
                 >
                   <span className="menu-icon">
@@ -94,7 +92,6 @@ const Dashboard = ({ setloggedIn }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     e.target.closest(".menu-item").classList.toggle("open");
-                    // console.log(e.target);
                   }}
                 >
                   <span className="menu-icon">
@@ -122,7 +119,6 @@ const Dashboard = ({ setloggedIn }) => {
                     <a href="#"   onClick={(e) => {
                     e.preventDefault();
                     e.target.closest(".menu-item").classList.toggle("open");
-                    // console.log(e.target);
                   }}>
                       <span className="menu-title">Guides</span>
                     </a>

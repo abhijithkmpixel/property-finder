@@ -269,7 +269,6 @@ const AgentDetailsForm = ({setloading, userData, seteditor, editor, loadEditorDa
           setuploadingImage(true);
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          // console.log('Upload is ' + progress + '% done');
           document.getElementById("profileImageProgress").style.width =
             progress + "%";
           if (progress == 100) {

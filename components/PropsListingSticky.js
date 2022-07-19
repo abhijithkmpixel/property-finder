@@ -23,7 +23,6 @@ const PropsListingSticky = ({ props, editProp, deleteProp }) => {
 
   useEffect(() => {
     // setfiltered(props)
-    // console.log(filtered);
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(props.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(props.length / itemsPerPage));
@@ -39,12 +38,10 @@ const PropsListingSticky = ({ props, editProp, deleteProp }) => {
           return p;
         }
       });
-      console.log(newArr);
       const endOffset = itemOffset + itemsPerPage;
       setCurrentItems(newArr.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(newArr.length / itemsPerPage));
     } else {
-      console.log(arr);
       const endOffset = itemOffset + itemsPerPage;
       setCurrentItems(props.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(props.length / itemsPerPage));

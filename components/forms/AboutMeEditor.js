@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 const AboutMeEditor = ({ fieldName }) => {
   const [htmlview, sethtmlview] = useState(false)
   useEffect(() => {
-    // console.log('load');
   
     return () => {
       

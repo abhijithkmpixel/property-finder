@@ -34,7 +34,6 @@ const LoginForm = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log(user);
         if (user) {
           // router.push("/");
         }
@@ -42,7 +41,6 @@ const LoginForm = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
         seterrorMsg(errorCode);
         setloader(false)
         setTimeout(() => {

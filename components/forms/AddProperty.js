@@ -25,7 +25,6 @@ const AddProperty = ({ agents, props }) => {
 
   // const [description, setdescription] = useState('asdsad');
   useEffect(() => {
-    // console.log(editorState);
     return () => {};
   }, [facilities]);
 
@@ -170,7 +169,6 @@ const AddProperty = ({ agents, props }) => {
         waste: document.getElementById("waste").checked,
       },
     });
-    // console.log(sub);
     alert(
       `Document with id ${
         document.getElementById("propId").value
@@ -231,7 +229,6 @@ const AddProperty = ({ agents, props }) => {
 
   function addFacilityRow() {
     const prev = [...facilities];
-    // console.log(facilities);
     prev[facilities.length] = "";
     setfacilities(prev);
   }

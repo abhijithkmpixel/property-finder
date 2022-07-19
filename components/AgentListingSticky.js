@@ -13,13 +13,11 @@ const AgentListingSticky = ({ agents, editProp }) => {
 
   useEffect(() => {
     // setfiltered(props)
-    // console.log(filtered);
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(agents.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(agents.length / itemsPerPage));
     return () => {};
   }, [itemOffset, itemsPerPage,agents]);
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
   return (
     <aside className="sticky_list_select">
