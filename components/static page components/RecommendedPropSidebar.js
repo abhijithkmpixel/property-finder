@@ -3,7 +3,7 @@ import Link from 'next/link';
 const RecommendedPropSidebar = ({recommendedProps}) => {
   return (
     <div className="suggested_props_sidebar">
-    <h3>Recommended properties</h3>
+    <h3>Recommended </h3>
     <ul>
       {recommendedProps?.map((p, index) => {
         return (

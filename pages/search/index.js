@@ -226,6 +226,38 @@ const index = ({ props, type, locs, recomended }) => {
                 >
                   <ShowYourListing />
                   <ReviewBar />
+                  <div className="py-5">
+                    <h2 className="mb-2">Ads</h2>
+                    <div className="d-flex justify-content-between">
+                      <iframe
+                        sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+                        style={{ width: "120px", height: "240px" }}
+                        marginwidth="0"
+                        marginheight="0"
+                        scrolling="no"
+                        frameborder="0"
+                        src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=abhijith0d3-21&language=en_IN&marketplace=amazon&region=IN&placement=B019O9LPI8&asins=B019O9LPI8&linkId=aca2c13bca774d835db947947a2a8f40&show_border=true&link_opens_in_new_window=true"
+                      ></iframe>
+                      <iframe
+                        sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+                        style={{ width: "120px", height: "240px" }}
+                        marginwidth="0"
+                        marginheight="0"
+                        scrolling="no"
+                        frameborder="0"
+                        src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=abhijith0d3-21&language=en_IN&marketplace=amazon&region=IN&placement=B089M2KDKW&asins=B089M2KDKW&linkId=253c766da1a9513bb63eeaad5aec28f8&show_border=true&link_opens_in_new_window=true"
+                      ></iframe>
+                      <iframe
+                        sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+                        style={{ width: "120px", height: "240px" }}
+                        marginwidth="0"
+                        marginheight="0"
+                        scrolling="no"
+                        frameborder="0"
+                        src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=abhijith0d3-21&language=en_IN&marketplace=amazon&region=IN&placement=B08MB8YL5X&asins=B08MB8YL5X&linkId=15de381ccd3b03a6a23051fc1b94fdb1&show_border=true&link_opens_in_new_window=true"
+                      ></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -43,13 +43,13 @@ const Testimonials = () => {
     speed: 1900,
     slidesToShow: 1,
     fade: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     slidesToScroll: 1,
     // nextArrow: <SampleNextArrow />,
     // prevArrow: <SamplePrevArrow />,
-    arrows:false,
+    arrows:true,
     beforeChange: (prev, next) => {
       // console.log(next);
       // document.getElementById("curr").innerText = next+10

@@ -69,6 +69,7 @@ function MyApp({ Component, pageProps ,agents}) {
       {
         getUrl()
       }
+     
       <Component {...pageProps} />
       {/* </SessionProvider> */}
     </LogContextProvider>

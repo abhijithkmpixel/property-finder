@@ -11130,6 +11130,14 @@ body.sticky_header header {
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px !important;
+  }
+}
+
 .home_page_banner {
   width: 100%;
   position: relative;
@@ -14867,7 +14875,8 @@ p {
 }
 
 .testimonials .testimonials_wrapper .testimony_slider .slick-arrow {
-  top: -27px;
+  top: 50%;
+  margin-top: -15px;
   width: 30px;
   height: 30px;
 }
@@ -14878,13 +14887,11 @@ p {
 }
 
 .testimonials .testimonials_wrapper .testimony_slider .slick-arrow.slick-prev {
-  right: 130px;
-  left: auto;
+  left: -40px;
 }
 
 .testimonials .testimonials_wrapper .testimony_slider .slick-arrow.slick-next {
-  right: 0px;
-  left: auto;
+  right: -40px;
 }
 
 .testimonials .testimonials_wrapper .testimony_slider .testimony_slide {

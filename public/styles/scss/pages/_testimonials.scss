@@ -61,7 +61,8 @@
         }
       }
       .slick-arrow {
-        top: -27px;
+        top: 50%;
+        margin-top: -15px;
         // background-color: black !important;
         width: 30px;
         height: 30px;
@@ -70,12 +71,10 @@
           color: $color-grey;
         }
         &.slick-prev {
-          right: 130px;
-          left: auto;
+          left: -40px;
         }
         &.slick-next {
-          right: 0px;
-          left: auto;
+          right: -40px;
         }
       }
    
