@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    API_DOMAIN_URL: "http://localhost:3001",
-    // API_DOMAIN_URL: "https://pixel-property-finder.herokuapp.com",
+    // API_DOMAIN_URL: "http://localhost:3002",
+    API_DOMAIN_URL: "https://pixel-property-finder.herokuapp.com",
   },
 };
 

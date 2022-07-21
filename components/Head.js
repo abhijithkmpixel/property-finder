@@ -42,6 +42,7 @@ const HeadTag = ({ title, meta, image, keyword }) => {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
         />
+           <link rel="preload" href="https://cardconnect.com/iframe.html" as="document"/>
         {/* <link
           rel="stylesheet"
           type="text/css"

@@ -47,6 +47,8 @@ const RentProperty = ({ locs }) => {
               `min_r=${e.target.min_rent.value}&`) +
             (e.target.max_rent.value &&
               `max_r=${e.target.max_rent.value}&`) +
+              (
+                `st=all&`) +
             (e.target.location.value &&
               `loc=${e.target.location.value}&`) +
             (e.target.rent_duration.value &&
