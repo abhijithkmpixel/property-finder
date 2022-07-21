@@ -261,10 +261,3 @@ body.sticky_header {
     box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.2);
   }
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  select,
-  textarea,
-  input {
-    font-size: 16px !important;
-  }
-}

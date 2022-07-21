@@ -14,6 +14,7 @@ import { auth } from "./api/firebase";
 import { api } from "./api/auth/api";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import StickySharer from "../components/static page components/StickySharer";
 
 
 NProgress.configure({ showSpinner: false });
@@ -54,13 +55,20 @@ function MyApp({ Component, pageProps ,agents}) {
       Router.events.off("routeChangeError", () => NProgress.done());
     };
   }, []);
+  function getUrl() {
+    if (typeof window !== "undefined") {
+      return <StickySharer url={window?.location?.href}/>
+
+  }}
 
   return (
     <LogContextProvider>
       {/* <PageLoader /> */}
 
-   
-     
+      {/* <SessionProvider session={pageProps.session}> */}
+      {
+        getUrl()
+      }
       <Component {...pageProps} />
       {/* </SessionProvider> */}
     </LogContextProvider>
