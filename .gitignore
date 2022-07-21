@@ -33,3 +33,6 @@ yarn-error.log*
 .vercel
 
 /next-sitemap.config.js
+/public/sitemap.xml
+/public/sitemap-0.xml
+/public/robots.txt

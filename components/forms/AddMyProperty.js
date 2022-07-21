@@ -87,7 +87,6 @@ const AddProperty = ({ props ,info_slug}) => {
         locale: "vi", // language code of the locale to use
         trim: true, // trim leading and trailing replacement chars, defaults to `true`
       })+uuidv4(),
-      verified:false,
       propertySize: e.target.propertySize.value,
       price: e.target.price.value,
       location: e.target.location.value,
