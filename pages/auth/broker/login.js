@@ -8,6 +8,7 @@ import Header from "../../../components/Header";
 import { api } from "../../api/auth/api";
 import { useLogContaxt } from "../../api/auth/logContext";
 import { auth } from "../../api/firebase";
+import nookies from 'nookies'
 
 const login = ({ agents }) => {
   const [errorMsg, seterrorMsg] = useState(null);
@@ -46,6 +47,8 @@ const login = ({ agents }) => {
             if (agent?.email == user?.email) {
               // updateLoggedUser(agent);
               localStorage.setItem("slug", agent?.info_slug);
+              localStorage.setItem("fire_auth",JSON.stringify(user));
+
               // router.push(`/Profile/${agent?.info_slug}`);
               router.push(`/Profile`);
 

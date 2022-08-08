@@ -2,21 +2,19 @@ import React, { useEffect, useState } from "react";
 import BuyProperty from "../forms/BuyProperty";
 import RentProperty from "../forms/RentProperty";
 import AOS from "aos";
+import Link from "next/link";
 
 const HomeBanner = ({ locs }) => {
   const [rent, setrent] = useState(true);
   useEffect(() => {
     AOS.init({
-      offset:100
-
+      offset: 100,
     });
     AOS.refresh();
-  
-    return () => {
-      
-    }
-  }, [])
-  
+
+    return () => {};
+  }, []);
+
   return (
     <>
       <section className="home_page_banner">
@@ -25,7 +23,7 @@ const HomeBanner = ({ locs }) => {
             src="/theme.mp4"
             type="video/mp4"
             id="video-background"
-            preload={true}
+            preload={"true"}
             autoPlay={true}
             loop={true}
             muted={true}
@@ -36,16 +34,32 @@ const HomeBanner = ({ locs }) => {
           {/* <img src="/bg.jpg" alt="background" /> */}
         </div>
         <div className="main_contents">
-            <div className="container">
-          {/* <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR <span>PROPERTY</span> IS WORTH <span>INSTANTLY</span></h1> */}
-          <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">WELCOME TO <span>FIND HOMES</span></h1>
-          <p  data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">Find Homes is an innovative real estate company that helps to find the perfect home for you.</p>
+          <div className="container">
+            {/* <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">FIND OUT WHAT YOUR <span>PROPERTY</span> IS WORTH <span>INSTANTLY</span></h1> */}
+            <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+              WELCOME TO <span>FIND HOMES</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">
+              Find Homes is an innovative real estate company that helps to find
+              the perfect home for you.
+            </p>
 
-          <div className="search_filter_forms" data-aos="fade-up" data-aos-duration="900" data-aos-delay="1000">
-              <div className="form_wrapper">
-                <RentProperty locs={locs} />
+            {typeof window !== 'undefined' && window.innerWidth >= 570 ? (
+              <div
+                className="search_filter_forms"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-delay="1000"
+              >
+                <div className="form_wrapper">
+                  <RentProperty locs={locs} />
+                </div>
               </div>
-            </div>
+            ) : (
+              <Link href="/search?type=all&st=all&">
+                <a className="btn btn-danger fs-2 px-4 rounded-pill">Find Property</a>
+              </Link>
+            )}
           </div>
         </div>
         <a href="#main" className="scroll_down mt-4">

@@ -28,6 +28,36 @@ const RentProperty = ({ locs }) => {
       locs.filter((a) => a.toLowerCase().includes(e.target.value.toLowerCase()))
     );
   };
+  
+  if(typeof document !== 'undefined'){
+
+    var specifiedElement = document.getElementById('field_dropdown');
+    var specifiedElement2 = document.getElementById('area_box');
+    var specifiedElement3 = document.getElementById('price_box');
+    //I'm using "click" but it works with any event
+    document.addEventListener('click', function(event) {
+      var isClickInside = specifiedElement.contains(event.target);
+      if (isClickInside ) {
+      } else {
+        setsearchPlace(false);
+      }
+    });
+    document.addEventListener('click', function(event) {
+      var isClickInside2 = specifiedElement2.contains(event.target);
+      if (isClickInside2 ) {
+      } else {
+        setpropSize(false);
+      }
+    });
+    document.addEventListener('click', function(event) {
+      var isClickInside3 = specifiedElement3.contains(event.target);
+      if (isClickInside3 ) {
+      } else {
+        setprice(false);
+      }
+    });
+  }
+
   return (
     <form
       className="rent_or_buuy_form_wrp"
@@ -81,7 +111,7 @@ const RentProperty = ({ locs }) => {
             <div className="search_icon">
               <img src="/search.svg" alt="search icon" />
             </div>
-            <div className={`field_dropdown ${searchPlace ? "open" : ""} `}>
+            <div className={`field_dropdown ${searchPlace ? "open" : ""} `} id="field_dropdown" >
               <span className="hidden">Search place</span>
               <input
                 type="text"
@@ -116,13 +146,13 @@ const RentProperty = ({ locs }) => {
                       );
                     })}
                   </ul>
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => setsearchPlace(false)}
                     className="close btn btn-danger btn-lg w-100"
                   >
                     Close
-                  </button>
+                  </button> */}
                 </div>
               ) : (
                 <div className="dropdown_wrap">
@@ -193,6 +223,7 @@ const RentProperty = ({ locs }) => {
               setpropertyType(false);
               setsearchPlace(false);
             }}
+            id="area_box"
           >
             <span>
               {minarea ? "from " + minarea + "sq.ft. " : "Area Sq.Ft."}
@@ -234,7 +265,7 @@ const RentProperty = ({ locs }) => {
               >
                 Reset
               </span>
-              <span
+              {/* <span
                 className="btn btn-outline-danger  m-2"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -242,7 +273,7 @@ const RentProperty = ({ locs }) => {
                 }}
               >
                 Close
-              </span>
+              </span> */}
             </div>
           </div>
           <div
@@ -253,6 +284,8 @@ const RentProperty = ({ locs }) => {
               setsearchPlace(false);
               setpropertyType(false);
             }}
+            id="price_box"
+
           >
             <span>
               {" "}
@@ -322,7 +355,7 @@ const RentProperty = ({ locs }) => {
               >
                 Reset
               </span>
-              <span
+              {/* <span
                 className="btn btn-outline-danger  m-2"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -330,7 +363,7 @@ const RentProperty = ({ locs }) => {
                 }}
               >
                 Close
-              </span>
+              </span> */}
             </div>
           </div>
           {/* <input type="submit" value="submit" /> */}

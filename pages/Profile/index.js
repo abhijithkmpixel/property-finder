@@ -9,22 +9,11 @@ import ProfilePageDetails from "../../components/static page components/ProfileP
 import { api } from "../api/auth/api";
 import { auth, db, storage } from "../api/firebase";
 
-import { useRef } from "react";
-import { doc, setDoc } from "firebase/firestore/lite";
-import { Router } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import AddProperty from "../../components/forms/AddMyProperty";
-import AboutMeEditor from "../../components/forms/AboutMeEditor";
-import {
-  getDownloadURL,
-  getMetadata,
-  ref,
-  uploadBytes,
-  uploadBytesResumable,
-} from "firebase/storage";
-import States from "../../components/forms/States";
-import Countries from "../../components/forms/Countries";
+
 import AgentDetailsForm from "../../components/forms/AgentDetailsForm";
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
 const index = ({}) => {
   const [userData, setuserData] = useState(null);
@@ -74,6 +63,7 @@ const index = ({}) => {
 
   return (
     <>
+      <HeadTag title={"Profile"} meta={"details page "} />
       {loading ? <PageLoader /> : null}
       {userData !== null ? (
         <>
@@ -91,12 +81,12 @@ const index = ({}) => {
           <Footer />
         </>
       ) : null}
-      <HeadTag title={"Profile"} meta={"details page "} />
     </>
   );
 };
 
 export default index;
+
 
 // export async function getServerSideProps(context) {
 //   const { req, params, query } = context;

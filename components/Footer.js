@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-6 col-md-2 mb-3">
+          <div className="col-4 col-md-2  mb-3">
             <h5 className="fw-nromal text-light fs-4 mb-4">Services</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
@@ -40,7 +40,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-6 col-md-2 mb-3">
+          <div className="col-4 col-md-2  mb-3">
             <h5 className="fw-nromal text-light fs-4 mb-4">Guides</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
@@ -63,7 +63,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-6 col-md-2 mb-3">
+          <div className="col-4 col-md-2  mb-3">
             <h5 className="fw-nromal text-light fs-4 mb-4">More</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
@@ -109,8 +109,8 @@ const Footer = () => {
                 Subscribe to our newsletter
               </h5>
               <p>Monthly digest of what's new and exciting from us.</p>
-              <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" className="visually-hidden">
+              <div className="d-flex  flex-row w-100 gap-2">
+                <label htmlFor="newsletter1" className="visually-hidden">
                   Email address
                 </label>
                 <input
@@ -124,6 +124,11 @@ const Footer = () => {
                 </button>
               </div>
             </form>
+            <ul className="list-unstyled d-flex justify-content-end mt-5">
+              <li className="ms-4"><a className="link-dark" href="#"><img src="/socialmedia/inst.png" alt="insta"/></a></li>
+              <li className="ms-4"><a className="link-dark" href="#"><img src="/socialmedia/face.png" alt="facebook"/></a></li>
+              <li className="ms-4"><a className="link-dark" href="#"><img src="/socialmedia/linked.png" alt="linkedin"/></a></li>
+            </ul>
           </div>
         </div>
 
@@ -138,9 +143,9 @@ const Footer = () => {
             (standard carrier rates apply to texts)
           </p>
           {/* <ul className="list-unstyled d-flex">
-        <li className="ms-3"><a className="link-dark" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-        <li className="ms-3"><a className="link-dark" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-        <li className="ms-3"><a className="link-dark" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        <li className="ms-3"><a className="link-dark" href="#"><img src="/insta.png" alt="insta"/></a></li>
+        <li className="ms-3"><a className="link-dark" href="#"><img src="/facebook.png" alt="facebook"/></a></li>
+        <li className="ms-3"><a className="link-dark" href="#"><img src="/linkedin.png" alt="linkedin"/></a></li>
       </ul> */}
         </div>
       </div>

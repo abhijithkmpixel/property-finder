@@ -18,15 +18,15 @@ const GettingStarted = () => {
     <section className="get_started_asBroker">
       <div className="container">
         <div className="get_started_asBroker_wrapper">
-          <h3  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">Want to become a broker?</h3>
-          <p  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
+          <h3  data-aos="fade-right" data-aos-duration="7000" data-aos-delay="100">Want to become a broker?</h3>
+          <p  data-aos="fade-right" data-aos-duration="7000" data-aos-delay="100">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus,
             explicabo illum sint sit assumenda, aliquid qui iure debitis tempore
             quia, eos et harum illo similique recusandae voluptates placeat!
             Recusandae, impedit?
           </p>
           <Link href="/auth/broker/register">
-            <a className="btn fs-3 btn-danger rounded-pill px-5"  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">Register now</a>
+            <a className="btn fs-3 btn-danger rounded-pill px-5"  data-aos="fade-right" data-aos-duration="7000" data-aos-delay="100">Register now</a>
           </Link>
         </div>
       </div>

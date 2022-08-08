@@ -17,6 +17,8 @@ const ProfilePageDetails = ({
     await signOut(auth);
     // setuser(false);
     localStorage.removeItem("slug");
+    localStorage.removeItem("fire_auth");
+
 
   };
 
@@ -67,9 +69,9 @@ const ProfilePageDetails = ({
       </div>
       <div className="container">
         <div className="main">
-          <h2>My Details</h2>
           <div className="card">
             <div className="card-body">
+          <h2>My Details</h2>
               <img   onClick={() => {
                   seteditor(true);
                   loadEditorData();

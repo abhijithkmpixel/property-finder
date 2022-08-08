@@ -73,7 +73,7 @@ const PropsListingSticky = ({ props, editProp, deleteProp }) => {
                 <img src={p.images} className="card-img-top" alt={p.title} />
                 <div className="card-body">
                   <h5 className="card-title">{p.title}</h5>
-                  <p className="card-text">{p.tags}</p>
+                  {/* <p className="card-text">{p.status}</p> */}
                   <p className="card-text">
                     {p?.address} ,{p?.location} {p?.state} ,{p?.pincode}
                   </p>

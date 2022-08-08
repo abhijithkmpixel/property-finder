@@ -11,7 +11,7 @@ export   default async  function  handler (req, res) {
     return {
         ...doc.data(),
         id: doc.id,
-        timestamp:new Date(doc._document.version.timestamp.seconds * 1000)
+        // timestamp:new Date(doc._document.version.timestamp.seconds * 1000)
     };
   });
   res.status(200).json( agents )

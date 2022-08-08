@@ -96,7 +96,7 @@ const index = ({ props, type, locs, recomended }) => {
         <div className="container">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb mb-5 pb-4">
-              <li class="breadcrumb-item fs-5 ">
+              <li className="breadcrumb-item fs-5 ">
                 <Link className="" href="/">
                   Home
                 </Link>
@@ -151,7 +151,7 @@ const index = ({ props, type, locs, recomended }) => {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-8 col-12">
+              <div className="col-lg-8 col-12 mb-5">
                 {properties && properties?.length !== 0
                   ? currentItems?.map((prop) => {
                       return (

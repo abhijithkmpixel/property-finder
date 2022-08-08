@@ -5,14 +5,14 @@ import { db } from "../firebase";
 
 export   default async  function  handler (req, res) {
   const collectionRef = collection(db, "properties");
-  // const q = query(collectionRef, where("verified", "==", true));
+  const q = query(collectionRef, where("status", "!=", 'sold'));
   const datarr = await  getDocs(collectionRef);
 
   const datas = datarr?.docs?.map((doc) => {
     return {
         ...doc.data(),
         id: doc.id,
-        timestamp:new Date(doc._document.version.timestamp.seconds * 1000),
+        // timestamp:new Date(doc._document.version.timestamp.seconds * 1000),
         // timestamp:doc._document 
 
     };

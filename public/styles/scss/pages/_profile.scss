@@ -1,22 +1,42 @@
 /* Import Font Dancing Script */
 .profile_page {
   padding: 0px 0;
-
+  .main {
+    padding: 0 0 20px !important;
+  }
+.row.container.main{
+  @media (max-width:990px) {
+    flex-flow: column-reverse;
+  }
+}
   .profile_image {
     margin-bottom: 25px;
     overflow: hidden;
     display: flex;
     position: relative;
     align-items: flex-end;
-    .btn{
+    @media (max-width:570px) {
+      flex-flow: column;
+      width: 100%;
+      align-items: center;
+    }
+    .btn {
       width: max-content;
-      margin: auto  ;
+      margin: auto;
+    }
+    .d-flex.align-items-center.fs-4.text-light{
+      @media (max-width:570px) {
+        justify-content: center;
+      }
     }
     .name_n_title {
-    //   position: absolute;
+      //   position: absolute;
       bottom: 30px;
       z-index: 1;
-    //   left: calc(100% + 20px);
+      @media (max-width:570px) {
+  text-align: center;
+      }
+      //   left: calc(100% + 20px);
       h1 {
         font-size: 35px;
         color: $color-white;
@@ -24,7 +44,7 @@
         text-transform: uppercase;
         line-height: 40px;
       }
-      h5{
+      h5 {
         font-size: 15px;
         color: $color-white;
         text-transform: capitalize;
@@ -38,6 +58,10 @@
       width: 340px;
       height: 340px;
       object-fit: cover;
+      @media (max-width: 990px) {
+        width: 240px;
+        height: 240px;
+      }
     }
   }
   .profile_banner_image {
@@ -270,13 +294,13 @@
   .fa-snapchat:hover {
     color: #fffb01 !important;
   }
-  .col-lg-3{
-    .card-body{
+  .col-lg-3 {
+    .card-body {
     }
-    .card{
+    .card {
       // padding: 0;
     }
-    .card-img-top{
+    .card-img-top {
       border-radius: 13px;
       overflow: hidden;
     }

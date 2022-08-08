@@ -119,6 +119,7 @@ const CustonFieldEdito = ({ fieldName }) => {
           <option value="h6">H6</option>
         </select>
         <div className="btn btn-primary" onClick={(e)=>{sethtmlview(htmlview == true? false:true);updatehtmldiv()}}>View</div>
+        <p className="d-block w-100 mt-2 mb-0">For reference checkout <a href="https://html-online.com/editor/">https://html-online.com/editor/</a></p>
       </div>
       <div className={`text_inputarea ${+ htmlview && 'hidden'}`}>
         <textarea name={fieldName} id={fieldName} ref={descritpion}></textarea>

@@ -23,7 +23,7 @@ const GuidesAndArticlesBlock = () => {
         <h5>Guides & Articles?</h5>
       </div> */}
         <div className="row">
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <div className="col-12 col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div className="guides_column_title">
               <span>Tips:</span>
               <h5>Guides <br /> and Articles</h5>
@@ -31,7 +31,7 @@ const GuidesAndArticlesBlock = () => {
               {/* <div className="bg_blurb"></div> */}
             </div>
           </div>
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+          <div className="col-12 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
             <div className="Guides_block_card">
               <img
                 src="https://g5p6r6b9.stackpathcdn.com/homeo/wp-content/uploads/elementor/thumbs/blog1-op5h9ukqohpvlj56kvz57kxf15eqhdeymxa36hjeck.jpg"
@@ -54,7 +54,7 @@ const GuidesAndArticlesBlock = () => {
             </div>
           </div>
 
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+          <div className="col-12 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
             <div className="Guides_block_card">
               <img
                 src="https://g5p6r6b9.stackpathcdn.com/homeo/wp-content/uploads/elementor/thumbs/blog2-op5h9ukqohpvlj56kvz57kxf15eqhdeymxa36hjeck.jpg"

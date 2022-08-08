@@ -7,15 +7,41 @@ header {
   left: 0;
   width: 100%;
   z-index: 100;
+  @media (max-width: 1200px) {
+    padding: 14px 15px !important;
+  }
   .header_inner_wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .hamburger_menu {
+      position: relative;
+      z-index: 200;
+      display: none;
+      @media (max-width:990px) {
+        display: block;
+      }
+      li {
+        width: 35px;
+        height: 3px;
+        border-radius: 5px 0 5px 0;
+        background-color: $color-orange;
+        display: block;
+        & + li {
+          margin-top: 5px;
+        }
+      }
+    }
     .brand_logo {
       display: block;
       width: 170px;
       height: 56px;
       margin-right: 15px;
+      position: relative;
+      z-index: 200;
+      @media (max-width:570px) {
+        width: 124px;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -25,8 +51,42 @@ header {
     nav {
       .main_navigation {
         display: flex;
-        margin: 0 ;
+        margin: 0;
         align-items: center;
+        .max-990{
+          display: none;
+          @media (max-width:990px) {
+            display: block;
+          }
+        }
+        .sticky_sharer_bar{
+          position: absolute;
+          bottom: 0;
+          left: 15px;
+          display: none;
+          max-width: calc(100% - 30px);
+          @media (max-width:990px) {
+            display: block;
+          }
+          h5{
+            font-size: 18px;
+            &::after{
+              content: 'to';
+              padding-left: 5px;
+            }
+          }
+          ul{
+            display: flex;
+            li{
+              width: 55px;
+              height: 55px;
+              a{
+                border-radius: 10px;
+                overflow: hidden;
+              }
+            }
+          }
+        }
 
         & > li {
           // margin-right: 15px;
@@ -87,10 +147,10 @@ header {
                 font-weight: 400;
                 color: $color-black;
               }
-              h5{
+              h5 {
                 display: flex;
                 justify-content: space-between;
-                img{
+                img {
                   object-fit: cover;
                   width: 15px;
                   height: 10px;
@@ -140,7 +200,7 @@ header {
               pointer-events: all;
               transform: translateX(-50%) translateY(0px);
             }
-            &>a{
+            & > a {
               color: #fd7400 !important;
             }
           }
@@ -152,6 +212,7 @@ header {
             color: $color-white;
             transition: 0.2s all ease-in-out;
             letter-spacing: 1px;
+            display: block;
             font-family: $body_font;
 
             img {
@@ -176,9 +237,12 @@ header {
           &.contact_icon {
             width: 30px;
             height: 30px;
-            transition: .2s all ease-in-out;
+            transition: 0.2s all ease-in-out;
             padding: 0;
-            &:hover{
+            @media (max-width:990px) {
+              display: none;
+            }
+            &:hover {
               transform: scale(1.2);
             }
             a {
@@ -186,7 +250,6 @@ header {
               width: 100%;
               height: 100%;
               filter: invert(0);
-
             }
             img {
               object-fit: contain;
@@ -194,7 +257,40 @@ header {
               width: 100%;
               height: 100%;
             }
+        
           }
+        }
+        @media (max-width: 990px) {
+          // display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 350px;
+          background-color: #fff;
+          // z-index: 100;
+          height: 100vh;
+          flex-flow: column;
+          align-items: flex-start;
+          padding: 90px 20px;
+          box-shadow: 0 0 10px 1px rgba($color: #000000, $alpha: .3);
+          transform: translateX(100%);
+          transition: .3s all ease-in-out;
+          &>li {
+              text-align: left;
+              width: 100%;
+              a,
+              h5 {
+                width: 100%;
+                font-size: 18px;
+                color: #000;
+                img{
+                  filter: invert(0);
+                }
+              }
+          }
+        }
+        @media (max-width:570px) {
+          width: 100vw;
         }
       }
     }
@@ -261,10 +357,15 @@ body.sticky_header {
     box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.2);
   }
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   select,
   textarea,
   input {
     font-size: 16px !important;
+  }
+}
+.mobile_nav_open{
+  header .header_inner_wrapper nav .main_navigation{
+    transform: translateX(0);
   }
 }

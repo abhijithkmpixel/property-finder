@@ -191,6 +191,9 @@ const AgentDetailsForm = ({setloading, userData, seteditor, editor, loadEditorDa
   const updateData = async (e) => {
     e.preventDefault();
     setloader(true);
+    setTimeout(() => {
+      setloading(true);
+    }, 500);
 
     const docRef = doc(db, "agents", userData?.id);
 
@@ -215,12 +218,11 @@ const AgentDetailsForm = ({setloading, userData, seteditor, editor, loadEditorDa
     });
 
     seteditor(false);
-    setloading(true);
 
     // setuserData(null);
     // router.push('/Profile')
-    window.location.reload(true);
     setloader(false);
+    window.location.reload(true);
   };
 
   function loadEditorData() {
@@ -437,7 +439,7 @@ const AgentDetailsForm = ({setloading, userData, seteditor, editor, loadEditorDa
             <label htmlFor="about_me">About me</label>
             {/* <CustonFieldEdito fieldName={"about_me"} /> */}
             {/* <AboutMeEditor fieldName={"about_me"}/> */}
-            <textarea name={"about_me"} id={"about_me"} rows={30}></textarea>
+            <textarea name={"about_me"} id={"about_me"} rows={30} style={{height:'160px'}}></textarea>
           </fieldset>
           <div className="d-flex w-100 justify-content-between">
             <button

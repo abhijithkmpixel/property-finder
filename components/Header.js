@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { api } from "../pages/api/auth/api";
 import { useLogContaxt } from "../pages/api/auth/logContext";
 import { auth } from "../pages/api/firebase";
-
+import StickySharer from './static page components/StickySharer'
 const Header = ({ innerpage }) => {
   const [userData, setuserData] = useState();
   // const signinwithgoogle = (e) => {
@@ -46,6 +46,10 @@ const Header = ({ innerpage }) => {
 
     return () => {};
   }, []);
+
+  function handleBurgerMenu(){
+    document.querySelector('body').classList.toggle('mobile_nav_open')
+  }
 
   return (
     <header className={`${innerpage == true ? "innerpages" : ""}`}>
@@ -148,15 +152,22 @@ const Header = ({ innerpage }) => {
                   </a>
                 </Link>
               </li>
-              {/* <li className="">
+              <li className="max-990">
                 <Link href="/contact">
-                  <a className="btn btn-danger rounded-pill text-light px-5">
-                    Contact
+                  <a >
+                  Contact us
                   </a>
                 </Link>
-              </li> */}
+
+              </li>
+          <StickySharer />
             </ul>
           </nav>
+          <div className="hamburger_menu" onClick={handleBurgerMenu}>
+            <li></li>
+            <li></li>
+            <li></li>
+          </div>
         </div>
       </div>
     </header>

@@ -14,6 +14,7 @@ import { auth } from "./api/firebase";
 import { api } from "./api/auth/api";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'antd/dist/antd.css';
 import StickySharer from "../components/static page components/StickySharer";
 
 
@@ -40,15 +41,15 @@ function MyApp({ Component, pageProps ,agents}) {
     Router.events.on("routeChangeComplete", () => NProgress.done());
     Router.events.on("routeChangeError", () => NProgress.done());
 
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        agents?.map((agent) => {
-          if (agent?.email == currentUser?.email) {
-            updateLoggedUser(agent);
-          }
-        });
-      }
-    });
+    // onAuthStateChanged(auth, (currentUser) => {
+    //   if (currentUser) {
+    //     agents?.map((agent) => {
+    //       if (agent?.email == currentUser?.email) {
+    //         updateLoggedUser(agent);
+    //       }
+    //     });
+    //   }
+    // });
     return () => {
       Router.events.off("routeChangeStart", () => NProgress.start());
       Router.events.off("routeChangeComplete", () => NProgress.done());
@@ -66,10 +67,10 @@ function MyApp({ Component, pageProps ,agents}) {
       {/* <PageLoader /> */}
 
       {/* <SessionProvider session={pageProps.session}> */}
-      {
+      {/* {
         getUrl()
-      }
-     
+      } */}
+     <StickySharer url={'window?.location?.href'}/>
       <Component {...pageProps} />
       {/* </SessionProvider> */}
     </LogContextProvider>

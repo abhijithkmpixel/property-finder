@@ -41,10 +41,18 @@
       margin-bottom: 25px;
       display: block;
       text-shadow: 1px 5px 10px #000;
+      @media (max-width:570px) {
+        font-size: 40px;
+      }
       span{
         // font-style: italic;
         color: #fd7400;
       }
+    }
+    a{
+      display: block;
+      width: max-content;
+      margin: auto;
     }
     p{
       font-size: 21px;
@@ -115,6 +123,9 @@
     color: #000;
     text-transform: capitalize;
     font-family: $body_font;
+    @media (max-width:570px) {
+      font-size: 20px;
+    }
 }
   
 }
@@ -141,6 +152,10 @@ form.rent_or_buuy_form_wrp {
   .btn-danger{
     // background-color: #788402;
     // border-color: #788402;
+    @media (max-width:570px) {
+      width: 100%;
+      display: block;
+    }
   }
   .top_type{
     margin-bottom: 10px;
@@ -184,6 +199,18 @@ form.rent_or_buuy_form_wrp {
       @media (max-width:990px) {
         flex-wrap: wrap;
       }
+      &>div{
+      @media (max-width:570px) {
+        margin: 0 0 10px;
+        &:nth-child(2){
+          margin-right: 5px;
+        }
+        &:nth-child(3){
+          margin-left: 5px;
+        }
+      }
+
+      }
       button{
         font-size: 14px;
       }
@@ -193,6 +220,12 @@ form.rent_or_buuy_form_wrp {
       // margin-bottom: 10px;
       display: flex;
       justify-content: flex-end;
+      @media (max-width:570px) {
+        flex-wrap: wrap;
+        &>div{
+          margin: 0;
+        }
+      }
     }
     .show_nore{
       // margin-left: auto;
@@ -278,8 +311,15 @@ form.rent_or_buuy_form_wrp {
         max-width: unset;
         min-width: unset;
       }
+      @media (max-width:570px) {
+        width: unset;
+        flex: calc(50% - 5px);
+      }
+      
       .btn{
         color: #fff;
+        display: block;
+       
       }
       .mh-300 {
         max-height: 200px;
@@ -291,6 +331,7 @@ form.rent_or_buuy_form_wrp {
         line-height: 1;
         font-weight: 400;
         color: $color-black;
+        width: 100%;
         // max-width: 10ch;
         // display: block;
         overflow: hidden;
@@ -376,12 +417,21 @@ form.rent_or_buuy_form_wrp {
           background-color: $color-white;
           display: none;
           padding: 15px;
+          min-width: 250px;
           h5{
             font-size: 14px;
             line-height: 1;
             margin-bottom: 10px;
             font-weight: 700;
             color: $color-black;
+          }
+          @media (max-width:570px) {
+            position: fixed;
+            left: 50%;
+            max-width: calc(100% - 30px);
+            z-index: 10;
+            transform: translateX(-50%);
+            right: auto;
           }
           .row_field{
             display: flex;

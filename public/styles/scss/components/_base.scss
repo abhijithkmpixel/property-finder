@@ -17,6 +17,7 @@ body {
   &:focus {
     outline: none;
   }
+  overflow-x: hidden;
 }
 $heading_font: "Ubuntu", sans-serif;
 $body_font: "Poppins", sans-serif;
@@ -34,6 +35,13 @@ h6 {
   margin: 0;
   // font-family: $heading_font;
   font-family: $heading_font;
+}
+section{
+  // @media (max-width:) {
+    
+  // }
+  // overflow-x: hidden;
+  // overflow-y: auto;
 }
 .container {
   max-width: 1175px !important;
@@ -219,4 +227,14 @@ a:focus {
     color: #000;
     text-decoration: none;
   }
+}
+
+.ant-alert{
+  position: fixed !important;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: max-content;
+  
 }

@@ -205,12 +205,12 @@ const AdvSearch = ({ locs ,reloaded}) => {
               setprice(false);
             }}
           >
-            <select name="property_type" id="property_type">
-              <option value="" selected disabled>
+            <select name="property_type" id="property_type" >
+              <option   disabled value={''} defaultValue>
                 Property type
               </option>
-              <option value="office space">Office Space</option>
-              <option value="retail">Retail</option>
+              <option value="office space" >Office Space</option>
+              <option value="retail" >Retail</option>
               <option value="warehouse">warehouse</option>
               <option value="shop">shop</option>
               <option value="villa">villa</option>
@@ -229,9 +229,9 @@ const AdvSearch = ({ locs ,reloaded}) => {
             Find Property
           </button>
         </div>
-        <div className={`more_filter_opt ${moreFilter ? "" : "hidden"}`}>
+        <div className={`more_filter_opt row ${moreFilter ? "" : "hidden"}`}>
         <div
-            className={`field_dropdown `}
+            className={`field_dropdown col-6 col-lg-4`}
             onClick={() => {
               setsearchPlace(false);
               setpropSize(false);

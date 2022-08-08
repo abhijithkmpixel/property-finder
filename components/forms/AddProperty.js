@@ -207,17 +207,17 @@ const AddProperty = ({ agents, props }) => {
     document.getElementById("bathroom").value = "";
     document.getElementById("propertyType").value = "";
     document.getElementById("agent").checked = false;
-    document.getElementById("maids_room").checked = false;
-    document.getElementById("study").checked = false;
-    document.getElementById("balcony").checked = false;
-    document.getElementById("Central_ac").checked = false;
-    document.getElementById("cctv").checked = false;
-    document.getElementById("electricity_backup").checked = false;
-    document.getElementById("garden").checked = false;
-    document.getElementById("gym").checked = false;
-    document.getElementById("laundry_room").checked = false;
-    document.getElementById("pool").checked = false;
-    document.getElementById("waste").checked = false;
+    // document.getElementById("maids_room").checked = false;
+    // document.getElementById("study").checked = false;
+    // document.getElementById("balcony").checked = false;
+    // document.getElementById("Central_ac").checked = false;
+    // document.getElementById("cctv").checked = false;
+    // document.getElementById("electricity_backup").checked = false;
+    // document.getElementById("garden").checked = false;
+    // document.getElementById("gym").checked = false;
+    // document.getElementById("laundry_room").checked = false;
+    // document.getElementById("pool").checked = false;
+    // document.getElementById("waste").checked = false;
 
     setfacilities([]);
   }

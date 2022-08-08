@@ -127,7 +127,7 @@ const index = () => {
                     id="name"
                     required
                   />
-                  <label for="name">Full Name</label>
+                  <label htmlFor="name">Full Name</label>
                 </div>
                 <div className="flex-rev">
                   <input
@@ -137,7 +137,7 @@ const index = () => {
                     id="email"
                     required
                   />
-                  <label for="email">Your Email</label>
+                  <label htmlFor="email">Your Email</label>
                 </div>
 
                 <div className="flex-rev">
@@ -147,7 +147,7 @@ const index = () => {
                     id="message"
                     required
                   />
-                  <label for="message">Email Message</label>
+                  <label htmlFor="message">Email Message</label>
                 </div>
                 <button className={`w-100 ${loader && "opacity-50 pe-none"}`}>
                   Send Email{" "}
